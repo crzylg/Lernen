@@ -1995,8 +1995,65 @@ window.CURRICULUM = {
      "detail": "Wie ein Schueler mit Loesungsheft: Man zeigt Aufgabe UND richtige Antwort. Das Modell vergleicht seine Vermutung mit der richtigen Antwort und korrigiert sich. Nach vielen Beispielen kann es die Antwort auch fuer neue, ungesehene Faelle geben. Die meisten Bank-Anwendungen (Betrug, Kredit-Scoring) sind Supervised Learning.",
      "bsp": "Alte Kredite mit 'zurueckgezahlt / ausgefallen' trainieren ein Modell, das bei neuen Antraegen das Risiko schaetzt.",
      "merke": "Supervised = Lernen mit Loesungsheft (Eingabe + richtige Antwort).",
-     "lang": [],
-     "web": [],
+     "lang": [
+      {
+       "h": "Einfach gesagt",
+       "p": [
+        "Supervised Learning (überwachtes Lernen) ist Lernen mit Lösung: Jedes Beispiel im Trainingsdatensatz hat die richtige Antwort (Zielvariable/Label) schon dabei. Das Modell lernt, aus den Eingaben genau diese Antwort vorherzusagen.",
+        "Es ist die häufigste ML-Art im Geschäftsalltag - wie ein Schüler, der mit Aufgabe UND Musterlösung übt."
+       ]
+      },
+      {
+       "h": "Wie es funktioniert",
+       "p": [
+        "Man zeigt dem Modell viele Paare aus Eingabe (Features) und richtiger Antwort (Label). Das Modell rät, vergleicht mit der Lösung und korrigiert sich - tausendfach.",
+        "Danach kann es die Antwort auch für neue, ungesehene Fälle geben. Zwei Grundformen: Klassifikation (Kategorie vorhersagen, z.B. Betrug ja/nein) und Regression (Zahl vorhersagen, z.B. erwarteter Umsatz)."
+       ]
+      },
+      {
+       "h": "Wie man es einsetzt (Praxis in der Bank)",
+       "p": [
+        "Überall dort, wo man aus der Vergangenheit gelabelte Fälle hat: Kreditbewilligung (Bonität aus alten Fällen), Betrugserkennung (Transaktion Betrug/kein Betrug), E-Mails der richtigen Abteilung zuordnen, Kündigungswahrscheinlichkeit schätzen.",
+        "Wichtig: Die Qualität der Labels entscheidet alles. Falsch gelabelte Trainingsdaten bringen dem Modell Falsches bei.",
+        "Bei Kredit ist Vorsicht geboten: laut EU AI Act Hochrisiko - erklärbar, fair und mit menschlicher Letztentscheidung."
+       ]
+      },
+      {
+       "h": "Konkretes Beispiel",
+       "p": [
+        "Kredit-Scoring: Man nimmt 100.000 alte Kredite, jeweils mit dem Ausgang 'zurückgezahlt' oder 'ausgefallen' (das Label). Das Modell lernt die Muster und schätzt bei einem neuen Antrag die Ausfallwahrscheinlichkeit. Ein Mensch entscheidet final."
+       ]
+      },
+      {
+       "h": "Grenzen & typische Fehler",
+       "p": [
+        "Braucht viele, saubere, korrekt gelabelte Daten - Labeln ist oft teuer.",
+        "Bias: Waren die alten Entscheidungen unfair, lernt das Modell die Unfairness mit.",
+        "Mit Trainingsdaten testen (statt separater Testdaten) täuscht gute Ergebnisse vor.",
+        "Nur auf Accuracy schauen - bei seltenen Fällen irreführend (Precision/Recall nutzen)."
+       ]
+      },
+      {
+       "h": "So lernst du weiter",
+       "p": [
+        "Gegenstück: Unsupervised Learning. Verwandt: Features & Labels, Klassifikation vs Regression, Metriken. Die datasolut- und mindsquare-Texte unten vertiefen es auf Deutsch."
+       ]
+      }
+     ],
+     "web": [
+      [
+       "datasolut Wiki: Supervised Learning",
+       "https://datasolut.com/wiki/supervised-learning/"
+      ],
+      [
+       "mindsquare: Supervised & Unsupervised Learning",
+       "https://mindsquare.de/fachartikel/kuenstliche-intelligenz/supervised-und-unsupervised-learning-mit-diesen-beiden-methoden-funktioniert-machine-learning/"
+      ],
+      [
+       "datenverstehen.de: Supervised vs Unsupervised",
+       "https://datenverstehen.de/ml-algorithmen-unsupervised-supervised-learning/"
+      ]
+     ],
      "nr": 17,
      "track": "ai"
     },
@@ -2016,8 +2073,65 @@ window.CURRICULUM = {
      "detail": "Hier gibt es kein Loesungsheft. Man gibt dem Modell z.B. alle Kundendaten, und es gruppiert aehnliche Kunden von selbst: 'junge Sparer', 'aktive Anleger', 'Gelegenheitsnutzer'. Niemand hat diese Gruppen vorgegeben - das Modell hat sie in den Daten entdeckt. Nuetzlich fuer Marketing oder um ueberhaupt erst zu verstehen, was in den Daten steckt.",
      "bsp": "Clustering teilt die Kundschaft automatisch in 5 Typen ein, die man dann gezielt anspricht.",
      "merke": "Unsupervised = Gruppen/Muster finden, ohne dass jemand die Antwort kennt.",
-     "lang": [],
-     "web": [],
+     "lang": [
+      {
+       "h": "Einfach gesagt",
+       "p": [
+        "Unsupervised Learning (unüberwachtes Lernen) ist Lernen ohne Lösung: Die Daten haben keine vorgegebene richtige Antwort (kein Label). Das Modell erkundet die Daten selbst und findet Muster oder Gruppen.",
+        "Man setzt es ein, wenn man die Antwort noch gar nicht kennt und erst verstehen will, was in den Daten steckt."
+       ]
+      },
+      {
+       "h": "Wie es funktioniert",
+       "p": [
+        "Das Modell bekommt nur Eingaben und sucht Struktur. Die wichtigste Form ist Clustering: ähnliche Datenpunkte werden zu Gruppen zusammengefasst (z.B. mit k-Means).",
+        "Weitere Formen: Dimensionsreduktion (viele Merkmale auf wenige wichtige eindampfen) und Anomalie-Erkennung (Ausreißer finden, die aus dem Muster fallen)."
+       ]
+      },
+      {
+       "h": "Wie man es einsetzt (Praxis in der Bank)",
+       "p": [
+        "Kundensegmentierung: Kunden automatisch in Typen einteilen ('junge Sparer', 'aktive Anleger'), ohne die Gruppen vorzugeben - Basis für gezieltes Marketing.",
+        "Anomalie-Erkennung: ungewöhnliche Transaktionen auffällig machen - nützlich bei Betrug, gerade wenn man kein Label 'Betrug' hat.",
+        "Datenverständnis: Bevor man ein Supervised-Modell baut, hilft Unsupervised, die Daten überhaupt erst zu durchschauen."
+       ]
+      },
+      {
+       "h": "Konkretes Beispiel",
+       "p": [
+        "Ein Clustering über das Zahlungsverhalten findet von selbst eine kleine Gruppe mit sehr untypischem Muster (viele kleine Auslandszahlungen nachts). Diese Gruppe schaut man sich dann gezielt auf Betrug/Geldwäsche an."
+       ]
+      },
+      {
+       "h": "Grenzen & typische Fehler",
+       "p": [
+        "Ergebnisse sind schwerer zu bewerten: Es gibt keine 'richtige' Antwort zum Vergleichen.",
+        "Die gefundenen Gruppen muss ein Mensch interpretieren - sie sind nicht automatisch sinnvoll.",
+        "Man muss oft die Anzahl der Gruppen vorgeben (z.B. bei k-Means) - falsch gewählt, schlechte Cluster.",
+        "Nicht mit Supervised verwechseln: Ohne Label kann man nichts Konkretes 'vorhersagen'."
+       ]
+      },
+      {
+       "h": "So lernst du weiter",
+       "p": [
+        "Gegenstück: Supervised Learning. Verwandt: AI Fraud Detection (Anomalien), Recommendation Systems, Kundensegmentierung. Die datasolut-Quelle unten erklärt Clustering & Co. auf Deutsch."
+       ]
+      }
+     ],
+     "web": [
+      [
+       "datasolut Wiki: Unsupervised Learning",
+       "https://datasolut.com/wiki/unsupervised-learning/"
+      ],
+      [
+       "datenverstehen.de: Supervised vs Unsupervised",
+       "https://datenverstehen.de/ml-algorithmen-unsupervised-supervised-learning/"
+      ],
+      [
+       "tecislava: Supervised, Unsupervised, Reinforcement",
+       "https://www.tecislava.com/blog/supervised-unsupervised-reinforcement"
+      ]
+     ],
      "nr": 18,
      "track": "ai"
     },
@@ -2100,8 +2214,66 @@ window.CURRICULUM = {
      "detail": "Ein Schueler, der nur die Uebungsaufgaben auswendig lernt, scheitert an neuen Aufgaben - das ist Overfitting. Einer, der gar nicht lernt, scheitert auch - das ist Underfitting. Man erkennt Overfitting daran, dass das Modell auf Trainingsdaten super, auf Testdaten aber schlecht ist. Gegenmittel: mehr Daten, einfacheres Modell, Techniken wie Dropout.",
      "bsp": "99 % richtig im Training, aber nur 60 % im Test = klassisches Overfitting (auswendig gelernt).",
      "merke": "Ziel ist nicht, die Beispiele zu kennen, sondern Neues richtig zu meistern.",
-     "lang": [],
-     "web": [],
+     "lang": [
+      {
+       "h": "Einfach gesagt",
+       "p": [
+        "Overfitting (Überanpassung) heißt: Das Modell lernt die Trainingsbeispiele quasi auswendig, statt das allgemeine Muster zu verstehen - und versagt bei neuen Daten. Underfitting (Unteranpassung) heißt: Das Modell ist zu simpel und erkennt das Muster gar nicht erst.",
+        "Ziel ist die goldene Mitte: ein Modell, das gut verallgemeinert - also auch bei echten, neuen Fällen gut liegt."
+       ]
+      },
+      {
+       "h": "Wie man es erkennt",
+       "p": [
+        "Overfitting: sehr guter Wert auf Trainingsdaten, aber schlechter auf Testdaten. Klassisches Warnzeichen: 99 % im Training, 60 % im Test.",
+        "Underfitting: schlechte Werte auf BEIDEN - Training UND Test. Das Modell ist zu einfach.",
+        "Deshalb prüft man immer getrennt mit Testdaten, die das Modell nie gesehen hat."
+       ]
+      },
+      {
+       "h": "Wie man es vermeidet (Praxis)",
+       "p": [
+        "Gegen Overfitting (laut den Fachquellen): mehr/vielfältigere Daten, einfacheres Modell, Cross-Validation, Regularisierung (L1/L2) und - in neuronalen Netzen - Dropout.",
+        "Gegen Underfitting: komplexeres Modell, mehr aussagekräftige Features, länger trainieren, bessere Architektur.",
+        "In der Bank ist Overfitting besonders tückisch: Ein Betrugsmodell, das die alten Fälle auswendig kann, erkennt neue Betrugsmaschen nicht - genau die aber zählen."
+       ]
+      },
+      {
+       "h": "Konkretes Beispiel",
+       "p": [
+        "Ein Kredit-Modell trifft die Trainingsfälle zu 99 % - im Test aber nur 62 %. Es hat die alten Kunden 'auswendig gelernt'. Man vereinfacht das Modell und holt mehr Daten; danach: 84 % im Training, 82 % im Test - viel gesünder, weil es verallgemeinert."
+       ]
+      },
+      {
+       "h": "Grenzen & typische Fehler",
+       "p": [
+        "Nur den Trainingswert ansehen und sich freuen - der klassische Anfängerfehler.",
+        "Kein sauberer Test-Split (dann merkt man Overfitting nicht).",
+        "Modell immer komplexer machen 'für mehr Genauigkeit' - führt oft direkt ins Overfitting.",
+        "Zu wenige Daten für ein zu großes Modell."
+       ]
+      },
+      {
+       "h": "So lernst du weiter",
+       "p": [
+        "Direkt verwandt: Trainings-/Test-Daten, Cross-Validation, Metriken und (im Deep Learning) Dropout. Die mindsquare- und StudySmarter-Texte unten erklären beides mit Bildern."
+       ]
+      }
+     ],
+     "web": [
+      [
+       "mindsquare: Overfitting und Underfitting",
+       "https://mindsquare.de/knowhow/overfitting-und-underfitting-im-machine-learning/"
+      ],
+      [
+       "StudySmarter: Overfitting und Underfitting",
+       "https://www.studysmarter.de/studium/informatik-studium/kuenstliche-intelligenz-studium/overfitting-und-underfitting/"
+      ],
+      [
+       "artemoppermann: Overfitting/Underfitting in Deep Learning",
+       "https://artemoppermann.com/de/overfitting-und-underfitting-in-deep-learning/"
+      ]
+     ],
      "nr": 22,
      "track": "ai"
     },
@@ -2168,8 +2340,74 @@ window.CURRICULUM = {
      "detail": "Beispiel Betrug: Nur 1 von 1000 Faellen ist Betrug. Ein Modell, das IMMER 'kein Betrug' sagt, hat 99,9 % Accuracy - und ist trotzdem nutzlos, weil es keinen einzigen Betrug findet. Deshalb schaut man auf Recall (wie viele echte Betruege gefunden?) und Precision (wie oft war der Alarm berechtigt?). F1 fasst beide fair zusammen.",
      "bsp": "99,9 % Accuracy klingt top - aber wenn Recall = 0 %, wird KEIN Betrug erkannt. Wertlos.",
      "merke": "Bei seltenen Faellen luegt Accuracy. Schau immer auf Precision und Recall.",
-     "lang": [],
-     "web": [],
+     "lang": [
+      {
+       "h": "Einfach gesagt",
+       "p": [
+        "Metriken sind Zahlen, die messen, wie gut ein Modell ist. Die bekannteste, Accuracy (Genauigkeit), reicht oft nicht - besonders bei seltenen Ereignissen wie Betrug. Dann braucht man Precision, Recall und F1.",
+        "Kurz: Accuracy = Anteil insgesamt richtig. Precision = wie viele der Alarme stimmten. Recall = wie viele der echten Fälle wurden gefunden. F1 = fairer Mix aus beiden."
+       ]
+      },
+      {
+       "h": "Warum Accuracy täuscht (das Betrugs-Beispiel)",
+       "p": [
+        "Nur 0,1-0,5 % aller Kartenzahlungen sind betrügerisch. Ein Modell, das IMMER 'kein Betrug' sagt, hat 99,5-99,9 % Accuracy - und ist völlig nutzlos, weil es keinen einzigen Betrug findet.",
+        "Genau deshalb schaut man bei seltenen, wichtigen Fällen nicht auf Accuracy, sondern auf Precision und Recall."
+       ]
+      },
+      {
+       "h": "Precision, Recall und F1 verstehen",
+       "p": [
+        "Precision (Präzision): Von allen als 'Betrug' markierten Fällen - wie viele waren wirklich Betrug? Hoch = wenige Fehlalarme.",
+        "Recall (Trefferquote): Von allen echten Betrugsfällen - wie viele hat das Modell erwischt? Hoch = wenig übersehen.",
+        "Es gibt einen Zielkonflikt: Mehr Recall (alles melden) senkt oft die Precision (mehr Fehlalarme) - und umgekehrt.",
+        "F1 = harmonisches Mittel aus beiden: 2 × (Precision × Recall) / (Precision + Recall). Gut, wenn man beides ausbalancieren will."
+       ]
+      },
+      {
+       "h": "Wie man es einsetzt (Praxis)",
+       "p": [
+        "Man wählt die Metrik nach dem Schaden des jeweiligen Fehlers: Ist ein übersehener Betrug schlimmer als ein Fehlalarm? Dann Recall priorisieren (lieber ein paar Kunden mit falschem Alarm nerven als großen Betrug verpassen).",
+        "Sind Fehlalarme sehr teuer/störend (z.B. gesperrte Karten im Urlaub)? Dann Precision höher gewichten.",
+        "In der Bank stimmt man diese Schwelle bewusst mit den Fachbereichen ab - es ist eine Geschäfts-, nicht nur eine Technik-Entscheidung."
+       ]
+      },
+      {
+       "h": "Konkretes Beispiel",
+       "p": [
+        "Betrugsmodell A: Precision 90 %, Recall 30 % - meldet selten, aber wenn, dann meist richtig (übersieht aber 70 % der Betrüge). Modell B: Precision 40 %, Recall 85 % - fängt fast alles, aber mit vielen Fehlalarmen. Welches besser ist, hängt davon ab, was teurer ist - übersehener Betrug oder Fehlalarm."
+       ]
+      },
+      {
+       "h": "Grenzen & typische Fehler",
+       "p": [
+        "Sich von hoher Accuracy blenden lassen (der häufigste Fehler bei seltenen Ereignissen).",
+        "Nur eine Metrik betrachten - immer im Zusammenhang lesen.",
+        "Die Schwelle rein technisch setzen, ohne die Fachbereiche und Kosten einzubeziehen.",
+        "Confusion Matrix ignorieren - sie zeigt, welche Art Fehler passiert."
+       ]
+      },
+      {
+       "h": "So lernst du weiter",
+       "p": [
+        "Direkt verwandt: Confusion Matrix, Klassifikation, RAG Evaluation (nutzt Precision/Recall beim Retrieval). Die ki.engineering-Texte unten erklären die Metriken einsteigerfreundlich."
+       ]
+      }
+     ],
+     "web": [
+      [
+       "ki.engineering: Präzision & Recall",
+       "https://ki.engineering/glossar/praezision-recall/"
+      ],
+      [
+       "ki.engineering: F1-Score erklärt",
+       "https://ki.engineering/glossar/f1-score-harmonisches-mittel-aus-praezision-und-recall/"
+      ],
+      [
+       "artemoppermann: Accuracy, Precision, Recall, F1",
+       "https://artemoppermann.com/de/accuracy-precision-recall-f1-score-und-specificity/"
+      ]
+     ],
      "nr": 25,
      "track": "ai"
     },
@@ -2247,8 +2485,74 @@ window.CURRICULUM = {
      "detail": "Stell dir viele kleine Schalter vor, die in Reihen angeordnet sind. Jeder Schalter (Neuron) bekommt Zahlen, rechnet kurz und gibt das Ergebnis an die naechste Reihe weiter. Vorne kommen die Daten rein (z.B. Pixel eines Bildes), hinten kommt das Ergebnis raus (z.B. 'Katze'). Dazwischen verarbeiten die verborgenen Schichten die Information Schritt fuer Schritt.",
      "bsp": "Bild rein (Input) -> mehrere Denk-Schichten -> 'Katze zu 97 %' (Output).",
      "merke": "Neuronen in Schichten: Daten fliessen vorne rein, Ergebnis kommt hinten raus.",
-     "lang": [],
-     "web": [],
+     "lang": [
+      {
+       "h": "Einfach gesagt",
+       "p": [
+        "Ein neuronales Netz ist der Grundbaustein von Deep Learning - lose dem Gehirn nachempfunden. Es besteht aus vielen kleinen Recheneinheiten (Neuronen), die in Schichten (Layers) angeordnet sind. Daten fließen vorne rein und ein Ergebnis kommt hinten raus.",
+        "Man muss es nicht als Biologie verstehen: Es ist im Kern eine Kette aus vielen kleinen Rechenschritten, die zusammen erstaunlich Komplexes lernen können."
+       ]
+      },
+      {
+       "h": "Der Aufbau (Schichten)",
+       "p": [
+        "Input Layer: nimmt die Eingabedaten auf (z.B. die Pixel eines Bildes oder die Merkmale eines Kunden).",
+        "Hidden Layers: die 'Denk-Schichten' dazwischen. Jede verarbeitet die Info ein Stück weiter und abstrakter. 'Deep' heißt: viele solcher Schichten.",
+        "Output Layer: gibt das Ergebnis aus (z.B. 'Katze zu 97 %' oder 'Betrug zu 88 %').",
+        "Die Neuronen sind über Gewichte verbunden - Zahlen, die sagen, wie wichtig eine Verbindung ist. Eine Aktivierungsfunktion entscheidet, ob ein Neuron 'feuert'."
+       ]
+      },
+      {
+       "h": "Wie es lernt (ganz kurz)",
+       "p": [
+        "Das 'Wissen' des Netzes steckt in den Gewichten. Beim Training rät das Netz, vergleicht mit der richtigen Antwort (Loss), und passt die Gewichte ein winziges Stück an (über Backpropagation und Gradient Descent) - millionenfach.",
+        "So werden aus anfangs zufälligen Zahlen nach und nach Gewichte, die gute Vorhersagen liefern."
+       ]
+      },
+      {
+       "h": "Wie man es einsetzt (Praxis)",
+       "p": [
+        "Neuronale Netze sind stark bei komplexen Daten: Bilder (CNN), Sprache/Text (Transformer), Ton. In der Bank z.B. für Dokumentenerkennung, Sprachbots und anspruchsvolle Betrugsmuster.",
+        "Für einfache, tabellarische Daten (Zeilen/Spalten) sind klassische ML-Modelle (z.B. Random Forest) oft gleich gut oder besser - und leichter erklärbar. Man wählt das Werkzeug nach dem Problem.",
+        "Man baut Netze nicht von Hand, sondern mit Frameworks wie PyTorch/TensorFlow, die die Mathematik automatisch erledigen."
+       ]
+      },
+      {
+       "h": "Konkretes Beispiel",
+       "p": [
+        "Gesichtserkennung im Ausweis-Check: Die erste Schicht erkennt Kanten, spätere Schichten Augen/Nase, die letzte 'Gesicht ja/nein bzw. passt zum Foto'. Jede Schicht baut auf der vorherigen auf."
+       ]
+      },
+      {
+       "h": "Grenzen & typische Fehler",
+       "p": [
+        "Brauchen viele Daten und Rechenleistung (GPUs) - teurer als klassische ML.",
+        "Sind eine 'Blackbox': schwer zu erklären, warum sie so entscheiden (Problem bei Aufsicht - siehe Explainability).",
+        "Neigen zu Overfitting, wenn Daten knapp sind (Gegenmittel: Dropout, mehr Daten).",
+        "Nicht für jedes Problem nötig - bei einfachen Tabellen oft Overkill."
+       ]
+      },
+      {
+       "h": "So lernst du weiter",
+       "p": [
+        "Direkt danach im Plan: Gewichte & Aktivierungsfunktion, Loss & Training, Backpropagation, dann CNN/RNN und Transformer. Die IBM-Seite und 3Blue1Brown (unten) erklären den Aufbau sehr anschaulich."
+       ]
+      }
+     ],
+     "web": [
+      [
+       "IBM: Was sind neuronale Netze?",
+       "https://www.ibm.com/de-de/think/topics/neural-networks"
+      ],
+      [
+       "3Blue1Brown: Neural Networks (visuell, engl.)",
+       "https://www.3blue1brown.com/topics/neural-networks"
+      ],
+      [
+       "Alexander Thamm: Deep Learning / Neuronale Netze",
+       "https://www.alexanderthamm.com/de/blog/large-language-models-eine-einfuehrung/"
+      ]
+     ],
      "nr": 28,
      "track": "ai"
     },
@@ -2496,8 +2800,65 @@ window.CURRICULUM = {
      "detail": "In einem langen Satz haengen manche Woerter eng zusammen, auch wenn sie weit auseinander stehen. Attention laesst das Modell fuer jedes Wort entscheiden: Auf welche anderen Woerter muss ich schauen, um dich zu verstehen? So loest es z.B. auf, worauf sich 'sie' oder 'das' bezieht. Ohne Attention gaebe es keine guten LLMs.",
      "bsp": "'Anna gab Lisa ihr Buch, weil sie es mochte' - Attention hilft zu klaeren, wer 'sie' ist.",
      "merke": "Attention = das Modell schaut gezielt auf die wichtigen Woerter.",
-     "lang": [],
-     "web": [],
+     "lang": [
+      {
+       "h": "Einfach gesagt",
+       "p": [
+        "Attention ('Aufmerksamkeit') ist der Kern-Trick, der moderne Sprach-KI so gut macht. Sie lässt das Modell für jedes Wort entscheiden: Auf welche anderen Wörter im Satz muss ich achten, um dich richtig zu verstehen?",
+        "Statt jedes Wort isoliert zu betrachten, verbindet Attention die Wörter, die zusammengehören - auch wenn sie weit auseinanderstehen."
+       ]
+      },
+      {
+       "h": "Wie es funktioniert (einfach)",
+       "p": [
+        "Für jedes Wort berechnet das Modell, wie stark es auf jedes andere Wort 'schauen' soll (ein Gewicht). Wichtige Bezüge bekommen viel Aufmerksamkeit, unwichtige wenig.",
+        "So löst Attention die klassische Frage 'Wer/was ist gemeint?': Sie verknüpft z.B. ein 'sie' oder 'das' mit dem richtigen Bezugswort.",
+        "Attention ist der Baustein, aus dem der Transformer besteht - und damit die Grundlage aller großen Sprachmodelle."
+       ]
+      },
+      {
+       "h": "Wie man es einsetzt (Praxis)",
+       "p": [
+        "Als Anwender baust du Attention nicht selbst - sie steckt fertig in jedem LLM. Aber sie zu verstehen erklärt, WARUM LLMs Zusammenhänge im Text so gut erfassen.",
+        "Praktische Folge: Weil das Modell den ganzen Kontext gewichtet, ist es sehr wichtig, WELCHEN Kontext du mitgibst (siehe Context Engineering) - relevante Infos bekommen zu Recht Aufmerksamkeit, Müll lenkt ab.",
+        "Attention steckt heute auch in Bild- und Multimodal-Modellen."
+       ]
+      },
+      {
+       "h": "Konkretes Beispiel",
+       "p": [
+        "Satz: 'Anna gab Lisa ihr Buch, weil sie es liebte.' Attention hilft dem Modell, 'sie' und 'ihr' den richtigen Personen zuzuordnen und 'es' auf 'Buch' zu beziehen - genau das, woran ältere Modelle oft scheiterten."
+       ]
+      },
+      {
+       "h": "Grenzen & Einordnung",
+       "p": [
+        "Attention über sehr lange Texte ist rechenintensiv (Kosten steigen stark mit der Länge) - ein Grund für Token-Limits.",
+        "Attention erklärt nicht automatisch, dass eine Antwort WAHR ist - sie ordnet nur Zusammenhänge; Halluzinationen bleiben möglich.",
+        "Für den Einsatz zählt weniger die Mathematik als das Prinzip: relevanter Kontext bekommt Aufmerksamkeit."
+       ]
+      },
+      {
+       "h": "So lernst du weiter",
+       "p": [
+        "Gehört untrennbar zum Transformer (davor) und erklärt LLM-Verhalten. Der bebilderte deutsche Text 'Der Transformer illustriert' unten macht Attention besonders anschaulich."
+       ]
+      }
+     ],
+     "web": [
+      [
+       "Der Transformer illustriert (deutsch)",
+       "https://www.michaelkipp.de/deeplearning/Transformer-illustriert.html"
+      ],
+      [
+       "Wikipedia (DE): Transformer (Maschinelles Lernen)",
+       "https://de.wikipedia.org/wiki/Transformer_(Maschinelles_Lernen)"
+      ],
+      [
+       "Attention Is All You Need (Original-Paper)",
+       "https://arxiv.org/abs/1706.03762"
+      ]
+     ],
      "nr": 36,
      "track": "ai"
     },
@@ -4351,8 +4712,67 @@ window.CURRICULUM = {
      "detail": null,
      "bsp": null,
      "merke": null,
-     "lang": [],
-     "web": [],
+     "lang": [
+      {
+       "h": "Einfach gesagt",
+       "p": [
+        "RAG Monitoring heißt: den Wissens-Bot im laufenden Betrieb überwachen. RAG Evaluation prüft VOR dem Live-Gang mit Testfragen; Monitoring beobachtet DANACH, was echte Nutzer erleben.",
+        "Ein Bot ist nie 'fertig': Nutzer stellen neue Fragen, Dokumente veralten, die Qualität kann leise abrutschen. Monitoring macht das sichtbar, bevor Kunden sich beschweren."
+       ]
+      },
+      {
+       "h": "Was man überwacht",
+       "p": [
+        "Qualität: Wie oft findet die Suche nichts Passendes? Wie oft bewerten Nutzer die Antwort schlecht (Daumen runter)?",
+        "Nutzung: Welche Fragen kommen am häufigsten? Wo bricht der Bot ab, wo wird an Menschen übergeben?",
+        "Technik & Kosten: Antwortzeit, Fehler, Token-Verbrauch/Kosten.",
+        "Sicherheit: verdächtige Eingaben (mögliche Prompt Injection)."
+       ]
+      },
+      {
+       "h": "Wie man es einsetzt (Praxis)",
+       "p": [
+        "Man baut Feedback direkt ein (Daumen hoch/runter, 'War das hilfreich?') und protokolliert anonymisiert, welche Fragen zu 'nichts gefunden' führen - das sind die Wissenslücken, die man schließt.",
+        "Werkzeuge wie Langfuse zeichnen jede Anfrage mit gefundenen Chunks, Antwort und Bewertung auf (Tracing/Observability). So sieht man genau, WO es hakt (Suche oder Formulierung).",
+        "In der Bank kommt Audit-Logging dazu: Wer hat wann welche Auskunft bekommen - wichtig für Aufsicht und Nachvollziehbarkeit. Dabei Datenschutz beachten (PII sparsam, sicher speichern)."
+       ]
+      },
+      {
+       "h": "Konkretes Beispiel",
+       "p": [
+        "Das Monitoring zeigt: Seit Montag häufen sich Fragen zu einem neuen Tagesgeld-Angebot, und der Bot findet nichts. Ursache: Der Artikel fehlt noch. Man pflegt ihn nach - und die 'nichts gefunden'-Rate für dieses Thema fällt sofort."
+       ]
+      },
+      {
+       "h": "Grenzen & typische Fehler",
+       "p": [
+        "Kein Feedback-Knopf: Man erfährt nie, was Nutzer wirklich schlecht fanden.",
+        "Nur Technik überwachen (läuft/schnell), aber nicht die Antwortqualität.",
+        "Logs mit sensiblen Daten unsicher speichern - Datenschutzproblem.",
+        "Daten sammeln, aber nie auswerten und nachbessern."
+       ]
+      },
+      {
+       "h": "So lernst du weiter",
+       "p": [
+        "Bildet mit RAG Evaluation ein Paar (vorher/nachher) und verwandt mit AI Model Monitoring und Observability. Langfuse (unten) ist ein verbreitetes, offenes Werkzeug dafür."
+       ]
+      }
+     ],
+     "web": [
+      [
+       "Langfuse (GitHub) - LLM/RAG Observability",
+       "https://github.com/langfuse/langfuse"
+      ],
+      [
+       "IT Sonix: RAG-Systeme - nachhaltige Qualität",
+       "https://www.itsonix.eu/de/blog/25092025-rag-systeme-im-praxis-test-von-ersten-erfolgen-zu-nachhaltiger-qualitaet"
+      ],
+      [
+       "Fraunhofer IESE: RAG in der Praxis",
+       "https://www.iese.fraunhofer.de/blog/retrieval-augmented-generation-rag/"
+      ]
+     ],
      "nr": 67,
      "track": "ai"
     },
@@ -4377,8 +4797,69 @@ window.CURRICULUM = {
      "detail": null,
      "bsp": null,
      "merke": null,
-     "lang": [],
-     "web": [],
+     "lang": [
+      {
+       "h": "Einfach gesagt",
+       "p": [
+        "Ein Knowledge Graph (Wissensgraph) ist ein Netz aus Fakten und ihren Verbindungen. Er speichert nicht nur Dinge, sondern auch, wie sie zusammenhängen: 'Kunde -besitzt-> Konto -gehört zu-> Filiale'.",
+        "Man stellt sich Punkte (Knoten/Entitäten: Kunde, Konto, Karte) und Linien dazwischen (Kanten/Beziehungen: besitzt, gehört zu) vor. Anders als eine normale Tabelle 'versteht' der Graph diese Beziehungen."
+       ]
+      },
+      {
+       "h": "Wie es funktioniert",
+       "p": [
+        "Entitäten sind die Knoten, Beziehungen die Kanten. Beides wird in einer Graphdatenbank (z.B. Neo4j) gespeichert und lässt sich als Netz darstellen.",
+        "Dadurch kann man Fragen beantworten, die über mehrere Ecken gehen: 'Welche Kunden mit Karte X hatten auch Kontakt zu Händler Y?' - das ist in einem Graphen viel natürlicher als in getrennten Tabellen."
+       ]
+      },
+      {
+       "h": "Wie man es einsetzt (Praxis)",
+       "p": [
+        "Laut den Fachquellen sind typische Einsätze: Wissensmanagement (internes Wissen vernetzen), intelligente Assistenten/Chatbots (bessere Antworten durch verknüpftes Wissen), Empfehlungssysteme und Betrugserkennung.",
+        "In der KI-Welt kombiniert man Knowledge Graphs zunehmend mit RAG ('GraphRAG'): Statt nur ähnliche Textstücke zu finden, nutzt man auch die Beziehungen - das macht Antworten präziser bei vernetzten Fragen.",
+        "In der Bank stark bei Betrug: Ein Graph zeigt verdächtige Ringe (mehrere Konten, dasselbe Gerät, gleiche Adresse), die in einzelnen Tabellen unsichtbar bleiben. Auch für Geldwäsche-Prüfung (AML) genutzt."
+       ]
+      },
+      {
+       "h": "Konkretes Beispiel",
+       "p": [
+        "Betrugsring-Erkennung: Fünf scheinbar fremde Konten hängen im Graphen über dasselbe Gerät und dieselbe Telefonnummer zusammen. Der Graph macht diese verborgene Verbindung sichtbar - und der Betrugsring fliegt auf."
+       ]
+      },
+      {
+       "h": "Grenzen & typische Fehler",
+       "p": [
+        "Aufbau und Pflege sind aufwendig: Man muss festlegen, welche Entitäten und Beziehungen es gibt (Ontologie).",
+        "Schlechte/veraltete Daten führen zu falschen Verbindungen.",
+        "Nicht für jedes Problem nötig - bei einfachem Text-Wissen reicht oft normales RAG.",
+        "Datenschutz: Ein Graph verknüpft Personendaten stark - das ist sensibel (DSGVO)."
+       ]
+      },
+      {
+       "h": "So lernst du weiter",
+       "p": [
+        "Verwandt mit RAG (GraphRAG), Semantic Search und AI Fraud Detection. Der IBM- und plusmeta-Text unten erklären Knowledge Graphs anschaulich; Neo4j ist die bekannteste Graphdatenbank zum Ausprobieren."
+       ]
+      }
+     ],
+     "web": [
+      [
+       "IBM: What is a Knowledge Graph?",
+       "https://www.ibm.com/think/topics/knowledge-graph"
+      ],
+      [
+       "plusmeta: Knowledge Graphen - smarte Verbindung von Daten",
+       "https://www.plusmeta.de/blog/knowledge-graphen/"
+      ],
+      [
+       "SAP News: Knowledge Graphs - vernetztes Wissen",
+       "https://news.sap.com/germany/2023/05/knowledge-graphs-vernetztes-wissen/"
+      ],
+      [
+       "Neo4j (GitHub) - Graphdatenbank",
+       "https://github.com/neo4j/neo4j"
+      ]
+     ],
      "nr": 68,
      "track": "ai"
     },
