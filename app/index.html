@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1" />
+<meta name="theme-color" content="#0b1220" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="Lernplan KI" />
+<title>Lernplan KI &amp; Genesys</title>
+<link rel="manifest" href="manifest.webmanifest" />
+<link rel="apple-touch-icon" href="icons/icon-180.png" />
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <span class="logo">🎓</span>
+      <div>
+        <h1>Lernplan KI &amp; Genesys</h1>
+        <p class="sub" id="subline">Von Null zur GC-AI-DB Zertifizierung</p>
+      </div>
+    </div>
+    <button id="refreshBtn" class="refresh" title="Quellen aktualisieren">
+      <span class="ico">🔄</span><span class="lbl">Quellen</span>
+    </button>
+  </div>
+  <div class="progresswrap">
+    <div class="progressbar"><div id="progressFill" class="progressfill"></div></div>
+    <span id="progressText" class="progresstext">0 %</span>
+  </div>
+  <div class="searchwrap">
+    <input id="search" type="search" inputmode="search" placeholder="🔎 Thema suchen (z.B. Intent, RAG, DSGVO)…" />
+  </div>
+</header>
+
+<main id="content" class="content"><!-- gefuellt von app.js --></main>
+
+<div id="toast" class="toast" hidden></div>
+
+<footer class="foot">
+  <p>Sehr einfaches Deutsch · IT-Begriffe im Original · Quellen aus offiziellen Seiten.</p>
+  <p class="muted">Zuletzt aktualisiert: <span id="footDate">–</span> · <span id="footCount">–</span> Themen</p>
+</footer>
+
+<script src="data/curriculum.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

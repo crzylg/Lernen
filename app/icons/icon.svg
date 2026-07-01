@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1b2846"/>
+      <stop offset="1" stop-color="#0b1220"/>
+    </linearGradient>
+    <linearGradient id="ac" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#22d3a6"/>
+      <stop offset="1" stop-color="#4f8cff"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  <!-- Graduation cap -->
+  <path d="M256 150 L400 210 L256 270 L112 210 Z" fill="url(#ac)"/>
+  <path d="M168 236 L168 316 C168 316 205 348 256 348 C307 348 344 316 344 316 L344 236 L256 270 Z" fill="#4f8cff" opacity="0.92"/>
+  <rect x="392" y="206" width="8" height="86" rx="4" fill="#22d3a6"/>
+  <circle cx="396" cy="300" r="14" fill="#22d3a6"/>
+  <!-- Spark / AI -->
+  <g fill="#eaf0fb">
+    <path d="M256 372 l10 26 l26 10 l-26 10 l-10 26 l-10 -26 l-26 -10 l26 -10 Z"/>
+  </g>
+</svg>
