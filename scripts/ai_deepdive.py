@@ -1288,3 +1288,219 @@ AI_DEEP["Pretraining vs Fine-Tuning"] = {
     "Verwandt: LLM, RAG (die Alternative für Fakten), Fine-Tuning/LoRA und Quantization im Private-AI-Teil. Der Fraunhofer-Text unten und die Hugging-Face-Doku zeigen die Praxis."),
  ],
 }
+
+# ===========================================================================
+AI_DEEP["Features & Labels"] = {
+ "web": [
+   ("Google ML Crash Course (deutsch)", "https://developers.google.com/machine-learning/crash-course?hl=de"),
+   ("datasolut Wiki: Supervised Learning (Features/Label)", "https://datasolut.com/wiki/supervised-learning/"),
+   ("Alexander Thamm: Machine Learning kompakt", "https://www.alexanderthamm.com/de/blog/machine-learning/"),
+ ],
+ "lang": [
+  S("Einfach gesagt",
+    "Ein Feature ist eine Eingabe-Information (ein Merkmal), aus der das Modell lernt - z.B. Alter, Betrag, Uhrzeit. Das Label ist die richtige Antwort, die man vorhersagen will - z.B. 'Betrug ja/nein'.",
+    "Denk an eine Tabelle: Die Info-Spalten sind die Features, die eine Spalte, die du vorhersagen willst, ist das Label."),
+  S("Wie es funktioniert",
+    "Das Modell lernt den Zusammenhang 'Features -> Label' aus vielen Beispielen. Beim Vorhersagen bekommt es nur die Features und schätzt das Label.",
+    "Wichtig: Nur beim Supervised Learning gibt es Labels. Beim Unsupervised Learning gibt es keine - da sucht das Modell selbst Muster in den Features."),
+  S("Wie man es einsetzt (Praxis) - Feature Engineering",
+    "Welche Features man wählt, entscheidet oft mehr über den Erfolg als das Modell selbst. Das gezielte Bauen guter Merkmale nennt man Feature Engineering.",
+    "Beispiele: aus einem Zeitstempel die 'Uhrzeit' und 'Wochentag' ableiten; aus dem Betrag 'ungewöhnlich hoch für diesen Kunden' berechnen. Solche klugen Features machen Muster für das Modell sichtbar.",
+    "In der Bank: Aus Rohdaten (Transaktionen) baut man aussagekräftige Features (Häufigkeit, Durchschnitt, Abweichung), damit ein Betrugsmodell überhaupt etwas erkennen kann. Datenschutz: nur nötige, erlaubte Merkmale nutzen (Datenminimierung)."),
+  S("Konkretes Beispiel",
+    "Betrugsmodell - Features: Betrag, Land, Uhrzeit, 'Abweichung vom üblichen Verhalten des Kunden'. Label: Betrug (ja/nein). Das Feature 'Abweichung vom üblichen Verhalten' ist oft wertvoller als der reine Betrag."),
+  S("Grenzen & typische Fehler",
+    "Ein Feature nutzen, das die Antwort verrät (Data Leakage) - z.B. ein Merkmal, das es erst NACH der Entscheidung gibt.",
+    "Sensible/verbotene Merkmale verwenden (Diskriminierung, DSGVO-Verstoß).",
+    "Zu viele nutzlose Features - erschwert das Lernen (mehr Rauschen).",
+    "Gute Features unterschätzen und alles vom Modell erwarten."),
+  S("So lernst du weiter",
+    "Kern von Supervised Learning; verwandt mit Klassifikation/Regression und Data Cleaning. Der Google ML Crash Course (unten) erklärt Features & Labels mit Beispielen."),
+ ],
+}
+
+# ===========================================================================
+AI_DEEP["Gewichte & Aktivierungsfunktion"] = {
+ "web": [
+   ("IBM: Neuronale Netze", "https://www.ibm.com/de-de/think/topics/neural-networks"),
+   ("Data Science Blog: Backpropagation & Gewichte", "https://data-science-blog.com/blog/2019/01/29/fehler-ruckfuhrung-mit-der-backpropagation/"),
+   ("3Blue1Brown: Neural Networks (visuell)", "https://www.3blue1brown.com/topics/neural-networks"),
+ ],
+ "lang": [
+  S("Einfach gesagt",
+    "Gewichte sind Zahlen, die sagen, wie stark eine Verbindung zwischen zwei Neuronen zählt. Das gesamte 'Wissen' eines neuronalen Netzes steckt in diesen Gewichten - beim Lernen werden genau sie eingestellt.",
+    "Die Aktivierungsfunktion ist der kleine 'Schalter' in jedem Neuron: Sie entscheidet, ob und wie stark das Neuron sein Signal weitergibt."),
+  S("Wie es funktioniert",
+    "Jedes Neuron summiert seine Eingaben, jeweils multipliziert mit ihrem Gewicht. Große Gewichte = großer Einfluss. Auf diese Summe wird die Aktivierungsfunktion angewendet.",
+    "Ohne Aktivierungsfunktion könnte ein Netz nur einfache, gerade Zusammenhänge lernen. Erst sie erlaubt komplizierte, gekrümmte Muster. Bekannte Funktionen: ReLU (heute Standard, einfach und schnell) und Sigmoid (quetscht Werte auf 0-1, gut für Wahrscheinlichkeiten)."),
+  S("Wie man es einsetzt (Praxis)",
+    "Als Anwender stellst du Gewichte nicht von Hand ein - das erledigt das Training automatisch. Aber das Konzept zu verstehen erklärt, was beim Lernen eigentlich passiert: Millionen/Milliarden Zahlen werden justiert.",
+    "Bei der Aktivierungsfunktion trifft man beim Netzbau eine Wahl; ReLU ist meist die sichere Standardwahl für die verborgenen Schichten. Am Ausgang nimmt man je nach Aufgabe z.B. Sigmoid (ja/nein) oder Softmax (mehrere Klassen).",
+    "Bei einem LLM sind es Milliarden Gewichte - genau sie machen sein 'Wissen' aus."),
+  S("Konkretes Beispiel",
+    "In einem Betrugs-Netz bekommt das Merkmal 'ungewöhnliche Uhrzeit' beim Training ein hohes Gewicht, weil es oft mit Betrug zusammenhängt - das Merkmal 'Kontoinhaber hat einen häufigen Nachnamen' ein Gewicht nahe null, weil es nichts aussagt."),
+  S("Grenzen & typische Fehler",
+    "Gewichte sind für Menschen kaum interpretierbar (Blackbox) - erschwert Erklärbarkeit.",
+    "Falsche/fehlende Aktivierungsfunktion: das Netz lernt nichts Komplexes.",
+    "Sehr große/kleine Gewichte können das Training instabil machen (siehe explodierende/verschwindende Gradienten).",
+    "Man kann Gewichte nicht 'lesen', um zu verstehen, warum eine Entscheidung fiel."),
+  S("So lernst du weiter",
+    "Direkt verbunden mit Neuronales Netz Aufbau, Loss & Training und Backpropagation. Die IBM-Seite und 3Blue1Brown (unten) machen Gewichte und Aktivierung anschaulich."),
+ ],
+}
+
+# ===========================================================================
+AI_DEEP["Loss Function & Training"] = {
+ "web": [
+   ("Google ML Crash Course: Loss (deutsch)", "https://developers.google.com/machine-learning/crash-course?hl=de"),
+   ("neuronalesnetz.de: Gradientenabstieg", "https://www.neuronalesnetz.de/backpropagation4.html"),
+   ("IBM: What is Backpropagation?", "https://www.ibm.com/think/topics/backpropagation"),
+ ],
+ "lang": [
+  S("Einfach gesagt",
+    "Die Loss Function (Verlustfunktion) ist eine Zahl, die misst, wie falsch das Modell gerade liegt. Training heißt: die Gewichte so verändern, dass dieser Loss immer kleiner wird.",
+    "Kurz: Loss = Fehler. Ziel des Trainings = Fehler minimieren."),
+  S("Wie es funktioniert",
+    "Das Modell macht eine Vorhersage, vergleicht sie mit der richtigen Antwort und berechnet daraus den Loss. Ein hoher Loss heißt 'weit daneben', ein niedriger 'nah dran'.",
+    "Dann passt es die Gewichte ein kleines Stück in die Richtung an, die den Loss verkleinert (Gradient Descent - das 'Bergab-Gehen im Nebel'). Das wiederholt es mit vielen Beispielen, tausend- oder millionenfach.",
+    "Verschiedene Aufgaben nutzen verschiedene Loss-Funktionen: z.B. Cross-Entropy für Klassifikation, MSE (mittlerer quadratischer Fehler) für Regression."),
+  S("Wie man es einsetzt (Praxis)",
+    "Man beobachtet den Loss während des Trainings: Sinkt er stetig, lernt das Modell. Bleibt er hoch, stimmt etwas nicht (Daten, Lernrate, Modell).",
+    "Wichtig: Man schaut auch auf den Loss der Validierungsdaten. Sinkt der Trainings-Loss weiter, während der Validierungs-Loss steigt, beginnt Overfitting - dann früher stoppen.",
+    "Die richtige Loss-Funktion zur Aufgabe zu wählen ist Teil des Modellbaus (Frameworks bieten sie fertig an)."),
+  S("Konkretes Beispiel",
+    "Ein Netz soll '5' vorhersagen, sagt aber '7'. Der Loss ist hoch. Das Training korrigiert die Gewichte leicht, sodass es beim nächsten Mal näher an '5' liegt. Über viele Runden nähert sich die Vorhersage der Wahrheit."),
+  S("Grenzen & typische Fehler",
+    "Nur den Trainings-Loss beobachten und Overfitting übersehen (immer auch Validierung ansehen).",
+    "Falsche Loss-Funktion für die Aufgabe wählen.",
+    "Lernrate zu hoch: Der Loss springt/zappelt statt zu sinken. Zu niedrig: es dauert ewig.",
+    "Niedriger Loss ist nicht alles - am Ende zählt die echte Leistung auf Testdaten."),
+  S("So lernst du weiter",
+    "Untrennbar mit Backpropagation und Epochs/Batch/Learning Rate. Der Google ML Crash Course (unten) erklärt Loss und Training Schritt für Schritt."),
+ ],
+}
+
+# ===========================================================================
+AI_DEEP["Backpropagation (einfach)"] = {
+ "web": [
+   ("IBM: What is Backpropagation?", "https://www.ibm.com/think/topics/backpropagation"),
+   ("michaelkipp.de: Backpropagation (deutsch)", "https://michaelkipp.de/deeplearning/Backpropagation.html"),
+   ("Data Science Blog: Fehler-Rückführung", "https://data-science-blog.com/blog/2019/01/29/fehler-ruckfuhrung-mit-der-backpropagation/"),
+ ],
+ "lang": [
+  S("Einfach gesagt",
+    "Backpropagation ('Fehler-Rückführung') ist der Trick, mit dem ein neuronales Netz überhaupt lernt. Der Fehler wird vom Ende des Netzes rückwärts durch alle Schichten geschickt, damit jedes Gewicht erfährt, wie es zum Fehler beigetragen hat - und wie es sich verbessern soll.",
+    "Bild: Ein Chef verfolgt ein Problem rückwärts durch die Abteilungen, bis klar ist, wer wie viel zur Verbesserung beitragen muss."),
+  S("Wie es funktioniert (in Schritten)",
+    "1. Vorwärts: Das Netz macht eine Vorhersage (Daten fließen von vorne nach hinten).",
+    "2. Fehler messen: Die Loss Function berechnet, wie falsch die Vorhersage war.",
+    "3. Rückwärts: Der Fehler wird Schicht für Schicht rückwärts weitergereicht; für jedes Gewicht wird berechnet, in welche Richtung es den Fehler verkleinert (der Gradient).",
+    "4. Anpassen: Alle Gewichte werden ein kleines Stück in diese Richtung verschoben (Gradient Descent, gesteuert von der Lernrate).",
+    "Wichtig: Backpropagation berechnet die Richtung (die Gradienten); Gradient Descent macht dann den Schritt. Beides zusammen ist der Lernmotor."),
+  S("Wie man es einsetzt (Praxis)",
+    "Man programmiert Backpropagation nicht selbst - Frameworks wie PyTorch/TensorFlow erledigen sie automatisch (das nennt man 'Autograd'). Man muss nur das Netz und die Loss-Funktion definieren.",
+    "Das Konzept zu verstehen hilft trotzdem: Es erklärt, warum Training Rechenzeit und viele Beispiele braucht und warum die Lernrate so wichtig ist.",
+    "In der Praxis achtet man auf Probleme wie 'verschwindende Gradienten' (bei sehr tiefen Netzen wird der Fehler rückwärts winzig) - moderne Architekturen und Funktionen wie ReLU mildern das."),
+  S("Konkretes Beispiel",
+    "Ein Netz erkennt eine Zahl falsch. Backpropagation verteilt die 'Schuld' auf die beteiligten Gewichte: Das Gewicht, das am stärksten zum Fehler beitrug, wird am stärksten korrigiert. Nach vielen solchen Runden macht das Netz kaum noch Fehler."),
+  S("Grenzen & typische Fehler",
+    "Verschwindende/explodierende Gradienten bei sehr tiefen/instabilen Netzen.",
+    "Braucht viele Daten und Rechenzeit (GPUs).",
+    "Lernrate falsch wählen - dann lernt das Netz nicht sauber.",
+    "Verwechslung: Backpropagation (Fehler zurückführen) ist nicht dasselbe wie Gradient Descent (den Schritt machen)."),
+  S("So lernst du weiter",
+    "Untrennbar mit Loss & Training, Gewichten und Learning Rate. Der IBM-Text und die deutsche michaelkipp-Seite (unten) erklären Backpropagation Schritt für Schritt - Mathe optional."),
+ ],
+}
+
+# ===========================================================================
+AI_DEEP["Epochs, Batch & Learning Rate"] = {
+ "web": [
+   ("Google ML Crash Course: Hyperparameter (deutsch)", "https://developers.google.com/machine-learning/crash-course?hl=de"),
+   ("Data Basecamp: Learning Rate & Training", "https://databasecamp.de/en/ml/backpropagation-basics"),
+   ("neuronalesnetz.de: Lernrate & Gradientenabstieg", "https://www.neuronalesnetz.de/backpropagation4.html"),
+ ],
+ "lang": [
+  S("Einfach gesagt",
+    "Das sind die drei wichtigsten Stellschrauben (Hyperparameter) beim Training - Einstellungen, die DU vor dem Training festlegst, nicht das Modell selbst:",
+    "Epoch = ein kompletter Durchlauf durch ALLE Trainingsdaten. Batch = das Häppchen an Daten, nach dem die Gewichte aktualisiert werden. Learning Rate = die Schrittgröße bei jeder Anpassung."),
+  S("Wie es funktioniert",
+    "Man geht die Daten meist mehrmals durch (mehrere Epochs), damit das Gelernte sich festigt. Statt nach jedem einzelnen Beispiel aktualisiert man nach einem Batch (z.B. 32 Beispiele) - das ist schneller und stabiler.",
+    "Die Learning Rate ist die heikelste Einstellung: Zu groß, und das Modell springt über das Ziel hinaus (der Fehler zappelt, wird nie gut). Zu klein, und es dauert ewig oder bleibt in einer schlechten Lösung stecken."),
+  S("Wie man es einsetzt (Praxis)",
+    "Man probiert Einstellungen aus und beobachtet den Loss auf den Validierungsdaten. Typisch: mit einer moderaten Learning Rate starten und anpassen.",
+    "Zu viele Epochs führen zu Overfitting (das Modell lernt auswendig) - deshalb stoppt man oft, sobald der Validierungs-Loss nicht mehr sinkt ('Early Stopping').",
+    "Batch-Größe hängt auch am Speicher der GPU: große Batches brauchen mehr Speicher. Diese Einstellungen gehören zum Experimentieren - man dokumentiert sie (Experiment Tracking)."),
+  S("Konkretes Beispiel",
+    "Ein Team trainiert mit sehr hoher Learning Rate - der Loss springt wild, das Modell wird nie gut. Sie halbieren die Learning Rate: Jetzt sinkt der Loss sauber, und nach 8 statt 3 Epochs ist das Modell top. Kleine Stellschraube, großer Effekt."),
+  S("Grenzen & typische Fehler",
+    "Learning Rate zu hoch (Modell zappelt) oder zu niedrig (quälend langsam) - der häufigste Fehler.",
+    "Zu viele Epochs -> Overfitting; zu wenige -> Underfitting.",
+    "Einstellungen raten statt an der Validierung messen.",
+    "Batch-Größe ignorieren, bis der GPU-Speicher überläuft."),
+  S("So lernst du weiter",
+    "Direkt verbunden mit Loss & Training, Backpropagation und Overfitting. Der Google ML Crash Course (unten) erklärt diese Hyperparameter mit Beispielen."),
+ ],
+}
+
+# ===========================================================================
+AI_DEEP["RNN & LSTM: Netze fuer Reihenfolgen"] = {
+ "web": [
+   ("MathWorks: Was ist ein RNN?", "https://de.mathworks.com/discovery/rnn.html"),
+   ("MathWorks: Was ist LSTM?", "https://de.mathworks.com/discovery/lstm.html"),
+   ("digitale-transformation: LSTM einfach erklärt", "https://digitale-transformation-weiterbildung.ch/digitalisierung-lexikon/lstm/"),
+ ],
+ "lang": [
+  S("Einfach gesagt",
+    "RNNs und LSTMs sind neuronale Netze für Daten mit Reihenfolge: Text, Sprache, Zeitreihen. Ihr Kniff: Sie haben ein kleines Gedächtnis und nutzen vergangene Information, um das Aktuelle besser zu verstehen.",
+    "Bei Sprache ist die Reihenfolge entscheidend: 'Hund beißt Mann' heißt etwas anderes als 'Mann beißt Hund'."),
+  S("Wie es funktioniert - und warum LSTM kam",
+    "Ein RNN (Recurrent Neural Network) liest die Daten Schritt für Schritt (z.B. Wort für Wort) und gibt bei jedem Schritt Information an den nächsten weiter - so entsteht ein Kurzzeit-Gedächtnis.",
+    "Problem: Einfache RNNs vergessen weit Zurückliegendes (das 'verschwindende Gradienten'-Problem). Deshalb wurde das LSTM (Long Short-Term Memory) erfunden: Es hat eine Speicherzelle und 'Gates' (Tore), die steuern, was behalten, was vergessen und was ausgegeben wird. So merkt es sich Wichtiges viel länger."),
+  S("Wie man es einsetzt (Praxis)",
+    "Laut den Quellen sind RNN/LSTM gut für Sprachverarbeitung (Textklassifikation, Übersetzung, Sentiment-Analyse) und Zeitreihen (Prognosen).",
+    "In der Bank denkbar: Zeitreihen-Prognosen (z.B. erwartetes Anrufaufkommen) oder Sequenz-Analysen. Für reine Sprache/Text sind sie heute aber meist vom Transformer abgelöst, der Zusammenhänge besser und schneller erfasst.",
+    "Einordnung: RNN/LSTM zu kennen hilft, die Entwicklung zu verstehen - der Transformer hat viele ihrer Aufgaben übernommen."),
+  S("Konkretes Beispiel",
+    "Anruf-Prognose: Ein LSTM lernt aus den Anrufzahlen vergangener Wochen (eine Zeitreihe) und sagt das Aufkommen der nächsten Tage voraus - hilfreich für die Personalplanung im Contact Center."),
+  S("Grenzen & typische Fehler",
+    "Einfache RNNs vergessen lange Zusammenhänge (LSTM mildert das).",
+    "Trainieren ist langsamer als beim Transformer (sie arbeiten Schritt für Schritt, schlecht parallelisierbar).",
+    "Für viele Sprachaufgaben heute nicht mehr erste Wahl (Transformer ist besser).",
+    "Bei Zeitreihen: saubere zeitliche Datenaufteilung nötig (nicht zufällig)."),
+  S("So lernst du weiter",
+    "Gehört zu Deep Learning; der Nachfolger für Sprache ist der Transformer (siehe dort). Die MathWorks-Seiten (unten) erklären RNN und LSTM klar auf Deutsch."),
+ ],
+}
+
+# ===========================================================================
+AI_DEEP["PyTorch & TensorFlow"] = {
+ "web": [
+   ("PyTorch (offiziell)", "https://pytorch.org/"),
+   ("TensorFlow (offiziell)", "https://www.tensorflow.org/?hl=de"),
+   ("PyTorch (GitHub)", "https://github.com/pytorch/pytorch"),
+   ("TensorFlow (GitHub)", "https://github.com/tensorflow/tensorflow"),
+ ],
+ "lang": [
+  S("Einfach gesagt",
+    "PyTorch und TensorFlow sind die zwei großen, kostenlosen Werkzeuge (Frameworks), mit denen man neuronale Netze baut und trainiert. Sie nehmen einem die schwere Mathematik ab.",
+    "In Forschung und Lehre ist PyTorch heute am beliebtesten und gilt als einsteigerfreundlicher; TensorFlow (von Google) ist stark im großen Produktivbetrieb."),
+  S("Was sie für dich erledigen",
+    "Du beschreibst nur den Aufbau des Netzes und die Loss-Funktion - Backpropagation, Gradienten und GPU-Nutzung laufen automatisch (Autograd).",
+    "Sie bringen fertige Bausteine mit (Schichten, Aktivierungsfunktionen, Optimizer) und kümmern sich darum, dass alles schnell auf GPUs läuft.",
+    "Rund um sie gibt es ein großes Ökosystem, z.B. Hugging Face Transformers (fertige Modelle), das meist auf PyTorch aufbaut."),
+  S("Wie man es einsetzt (Praxis)",
+    "Für die meisten Anwender in Firmen gilt: Man baut selten Netze von Grund auf, sondern nutzt fertige, vortrainierte Modelle (über Hugging Face oder eine API) und passt sie höchstens per Fine-Tuning an.",
+    "Zum Lernen empfehlen die meisten heute PyTorch, weil es sich natürlicher 'wie Python' anfühlt. TensorFlow ist eine solide Alternative, besonders im Google-Umfeld.",
+    "In der Bank läuft das Training sensibler Modelle idealerweise in kontrollierter Umgebung (On-Prem/EU-Cloud) - die Frameworks selbst sind kostenlos und laufen überall."),
+  S("Konkretes Beispiel",
+    "Mit wenigen Zeilen PyTorch definiert man ein Netz und ruft eine Trainingsschleife auf. Man muss die Ableitungen nicht selbst rechnen - PyTorch erledigt Backpropagation im Hintergrund. So kommt man schnell vom Konzept zum laufenden Modell."),
+  S("Grenzen & typische Fehler",
+    "Für einfache, tabellarische Probleme ist scikit-learn oft die bessere/leichtere Wahl als ein Deep-Learning-Framework.",
+    "Ohne GPU wird das Training großer Netze sehr langsam.",
+    "Framework-Wahl zum Glaubenskrieg machen - beide sind hervorragend; wichtiger ist das Verständnis.",
+    "Erwarten, dass das Framework fehlende/schlechte Daten ausgleicht."),
+  S("So lernst du weiter",
+    "Damit setzt du Deep Learning praktisch um; verwandt mit Hugging Face, Fine-Tuning und Model Serving. Die offiziellen PyTorch-/TensorFlow-Seiten (unten) haben gute Einsteiger-Tutorials."),
+ ],
+}
