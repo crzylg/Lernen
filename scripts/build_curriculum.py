@@ -2582,19 +2582,62 @@ M("Ergaenzende Themen (empfohlen)", "➕",
 ])
 
 # ---------------------------------------------------------------------------
-# Nummerierung (globale Lern-Reihenfolge) hinzufuegen und JS schreiben
+# Zwei Haupt-Bereiche trennen: Genesys-Pfad und AI-Pfad
 # ---------------------------------------------------------------------------
-order = 1
-total = 0
+GENESYS_MODULES = {
+    "Fundament: Bank & Contact Center",
+    "Technische Grundlagen",
+    "Genesys Cloud Plattform",
+    "Genesys Architect & Flows",
+    "Genesys AI Bausteine",
+    "Bot Flows & NLU",
+    "Knowledge (Wissen)",
+    "GC-AI-DB Zertifizierung",
+}
+for m in MODULES:
+    m["track"] = "genesys" if m["title"] in GENESYS_MODULES else "ai"
+
+# ---------------------------------------------------------------------------
+# Ausfuehrliche Langtexte (AI_DEEP) ueber den Titel zuordnen
+# ---------------------------------------------------------------------------
+try:
+    from ai_deepdive import AI_DEEP
+except Exception:
+    import importlib.util, sys
+    spec = importlib.util.spec_from_file_location(
+        "ai_deepdive", os.path.join(os.path.dirname(__file__), "ai_deepdive.py"))
+    _m = importlib.util.module_from_spec(spec); spec.loader.exec_module(_m)
+    AI_DEEP = _m.AI_DEEP
+
+deep_count = 0
 for m in MODULES:
     for tp in m["topics"]:
-        tp["nr"] = order
-        order += 1
+        d = AI_DEEP.get(tp["t"])
+        if d:
+            tp["lang"] = d.get("lang", [])
+            tp["web"] = d.get("web", [])
+            deep_count += 1
+        else:
+            tp["lang"] = tp.get("lang") or []
+            tp["web"] = tp.get("web") or []
+
+# ---------------------------------------------------------------------------
+# Nummerierung: pro Bereich (Genesys / AI) eigene Schritt-Zaehlung
+# ---------------------------------------------------------------------------
+total = 0
+counters = {"genesys": 0, "ai": 0}
+for m in MODULES:
+    tr = m["track"]
+    for tp in m["topics"]:
+        counters[tr] += 1
+        tp["nr"] = counters[tr]
+        tp["track"] = tr
         total += 1
 
 data = {
     "updated": datetime.date.today().isoformat(),
     "total": total,
+    "counts": {"genesys": counters["genesys"], "ai": counters["ai"]},
     "modules": MODULES,
 }
 
@@ -2607,5 +2650,7 @@ with open(out_path, "w", encoding="utf-8") as f:
     f.write(";\n")
 
 print("Themen gesamt:", total)
+print("  davon Genesys:", counters["genesys"], "| AI:", counters["ai"])
 print("Module:", len(MODULES))
+print("Ausfuehrliche Langtexte (AI_DEEP):", deep_count)
 print("Geschrieben:", out_path)

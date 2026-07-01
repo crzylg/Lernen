@@ -52,6 +52,23 @@ body{
 /* ---------- Content ---------- */
 .content{padding:14px 12px 0;max-width:760px;margin:0 auto}
 
+/* Tabs: Genesys vs KI/AI */
+.tabs{display:flex;gap:10px;margin-bottom:14px}
+.tab{
+  flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;
+  background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:11px 8px;cursor:pointer;color:var(--muted);transition:.15s;
+}
+.tab:active{transform:scale(.97)}
+.tab-emoji{font-size:22px}
+.tab-label{font-size:14px;font-weight:700;color:var(--txt)}
+.tab-count{font-size:10.5px;color:var(--muted)}
+.tab.active{
+  border-color:var(--accent);background:linear-gradient(135deg,#16264a,#1b2f57);
+  box-shadow:0 4px 16px rgba(79,140,255,.25);
+}
+.tab.active .tab-label{color:#8fb8ff}
+
 .intro{
   background:linear-gradient(135deg,#16213a,#1a2748);
   border:1px solid var(--line);border-radius:16px;padding:14px 16px;margin-bottom:16px;
@@ -123,7 +140,16 @@ body{
 .l-src{background:#122436;color:#5fb0ff;border-color:#234a63}
 .l-gh{background:#1a1f2e;color:#c9d2e3;border-color:#333c52}
 .l-art{background:#1f1a2e;color:#c79bff;border-color:#3d3057}
+.l-web{background:#10241f;color:#5fe0c0;border-color:#1f4a3f}
 .links a:active{transform:scale(.95)}
+
+/* Langtext (ausfuehrliche Erklaerung) */
+.lang{margin:10px 0 4px;border-left:3px solid var(--accent);padding-left:12px}
+.lang-badge{display:inline-block;font-size:11px;font-weight:700;color:#8fb8ff;
+  background:#132241;border:1px solid #234a7a;border-radius:8px;padding:3px 8px;margin-bottom:6px}
+.lang-h{font-size:13.5px;margin:12px 0 4px;color:#bcd0f0;font-weight:700}
+.lang-p{font-size:13px;margin:5px 0;color:#c4d0e6;line-height:1.62}
+.topic.deep .topic-t .nr{color:#22d3a6}
 
 /* Toast */
 .toast{
