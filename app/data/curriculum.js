@@ -7533,8 +7533,69 @@ window.CURRICULUM = {
      "detail": null,
      "bsp": null,
      "merke": null,
-     "lang": [],
-     "web": [],
+     "lang": [
+      {
+       "h": "Einfach gesagt",
+       "p": [
+        "Die Bot-Architektur ist der Bauplan deines Bots: Welche Teile gibt es und wie spielen sie zusammen? Man muss das Gesamtbild verstehen, bevor man einzelne Teile baut.",
+        "Ein moderner KI-Bot ist mehr als 'ein Chatfenster mit ChatGPT' - er verbindet mehrere Bausteine zu einem sicheren, verlässlichen System."
+       ]
+      },
+      {
+       "h": "Die Bausteine im Überblick",
+       "p": [
+        "Frontend: das Chatfenster, das der Kunde sieht (Web, App oder in Genesys eingebettet).",
+        "Backend: die Logik im Hintergrund - nimmt Nachrichten an, ruft KI, Wissen und andere Systeme auf, setzt Regeln durch.",
+        "KI-Modell (LLM): erzeugt die Antworten (über API oder selbst gehostet).",
+        "Wissen (Knowledge Base + RAG): liefert die Fakten, damit der Bot nicht rät.",
+        "Anbindungen (APIs): an Bank-Systeme (Kontostand, Kartensperre).",
+        "Sicherheit & Betrieb: Authentifizierung, Guardrails, Logging, Monitoring - von Anfang an mitgedacht."
+       ]
+      },
+      {
+       "h": "Wie man es einsetzt (Praxis)",
+       "p": [
+        "Ein typischer Weg einer Nachricht: Frontend -> Backend -> (Kunde verifizieren) -> Wissen suchen (RAG) und/oder System-API aufrufen -> LLM formuliert Antwort mit Guardrails -> zurück ans Frontend, alles protokolliert.",
+        "Wichtig ist eine klare Trennung: Das LLM formuliert, aber echte Aktionen (Geld, Sperren) laufen über kontrollierte, abgesicherte Backend-Funktionen - nie 'blind' durch das Modell.",
+        "In der Bank: EU-/On-Prem-Betrieb prüfen, Rechte-Trennung (wer darf welches Wissen), und Datensparsamkeit einplanen."
+       ]
+      },
+      {
+       "h": "Konkretes Beispiel",
+       "p": [
+        "Frage 'Wie hoch ist mein Limit?': Frontend nimmt sie an, das Backend verifiziert den Kunden, ruft die Limit-API auf, das LLM formuliert die Antwort freundlich und verständlich, Guardrails prüfen sie, das Frontend zeigt sie an - der Zugriff wird geloggt."
+       ]
+      },
+      {
+       "h": "Grenzen & typische Fehler",
+       "p": [
+        "Sicherheit erst am Ende 'draufsetzen' statt von Anfang an einplanen.",
+        "Das LLM direkt echte Aktionen ausführen lassen (gefährlich) statt über kontrollierte Backend-Funktionen.",
+        "Kein RAG - der Bot rät bei Fakten.",
+        "Zu groß starten: besser mit einem klaren Anwendungsfall beginnen und wachsen."
+       ]
+      },
+      {
+       "h": "So lernst du weiter",
+       "p": [
+        "Die folgenden Bot-Themen sind die einzelnen Bausteine (Backend, RAG-Pipeline, Authentication, Security, Deployment). Verwandt mit RAG Architektur und der Genesys-Bot-Welt."
+       ]
+      }
+     ],
+     "web": [
+      [
+       "Chatbot UI (Open Source, GitHub)",
+       "https://github.com/mckaywrigley/chatbot-ui"
+      ],
+      [
+       "LangChain (GitHub)",
+       "https://github.com/langchain-ai/langchain"
+      ],
+      [
+       "Fraunhofer IESE: RAG - Chat mit eigenen Daten",
+       "https://www.iese.fraunhofer.de/blog/retrieval-augmented-generation-rag/"
+      ]
+     ],
      "nr": 133,
      "track": "ai"
     },
@@ -7559,8 +7620,68 @@ window.CURRICULUM = {
      "detail": null,
      "bsp": null,
      "merke": null,
-     "lang": [],
-     "web": [],
+     "lang": [
+      {
+       "h": "Einfach gesagt",
+       "p": [
+        "Das Backend ist das 'Gehirn im Hintergrund' des Bots. Der Kunde sieht es nicht, aber es steuert alles: Es nimmt die Nachricht entgegen, holt Wissen und Daten, ruft das LLM und gibt die geprüfte Antwort zurück.",
+        "Hier passiert die eigentliche Arbeit - und hier werden Sicherheit und Regeln durchgesetzt."
+       ]
+      },
+      {
+       "h": "Was das Backend tut",
+       "p": [
+        "Nachricht annehmen und den Kunden ggf. authentifizieren.",
+        "Entscheiden, was nötig ist: Wissen suchen (RAG), eine System-API aufrufen (z.B. Kontostand), oder beides.",
+        "Das LLM mit dem richtigen Kontext ansprechen (Context Engineering) und Guardrails anwenden.",
+        "Die Antwort prüfen, protokollieren (Logging) und zurücksenden.",
+        "Zustand/Verlauf des Gesprächs verwalten (Memory)."
+       ]
+      },
+      {
+       "h": "Wie man es einsetzt (Praxis)",
+       "p": [
+        "Meist baut man das Backend in Python (z.B. mit FastAPI) oder JavaScript. Frameworks wie LangChain/LangGraph liefern fertige Bausteine für RAG, Tool-Aufrufe und Abläufe.",
+        "Wichtigstes Prinzip: Das LLM schlägt vor / formuliert, aber echte, riskante Aktionen (Überweisung, Sperre) führt das Backend über klar definierte, abgesicherte Funktionen aus - mit Rechteprüfung und ggf. menschlicher Freigabe.",
+        "In der Bank: sichere Verbindungen (OAuth), Rechte-Trennung, sorgfältiges Logging (aber datensparsam), und der Betriebsort nach Datenschutz."
+       ]
+      },
+      {
+       "h": "Konkretes Beispiel",
+       "p": [
+        "Der Kunde will eine Ersatzkarte. Das Backend prüft die Identität, ruft die Karten-API auf (Bestellung), lässt das LLM die Bestätigung freundlich formulieren, protokolliert den Vorgang und antwortet. Die Bestellung selbst macht das Backend, nicht das Modell."
+       ]
+      },
+      {
+       "h": "Grenzen & typische Fehler",
+       "p": [
+        "Das LLM direkt an sensible Systeme lassen, statt über kontrollierte Backend-Funktionen.",
+        "Fehler-/Ausnahmefälle nicht sauber behandeln (was, wenn die API nicht antwortet?).",
+        "Zu viel Kontext ans LLM schicken (Kosten, Datenschutz).",
+        "Geheimnisse (API-Keys) unsicher ablegen."
+       ]
+      },
+      {
+       "h": "So lernst du weiter",
+       "p": [
+        "Zentraler Baustein der Bot-Architektur; eng mit RAG-Pipeline, API-Integration, Authentication und Security verbunden. FastAPI und LangChain (unten) sind gängige Werkzeuge."
+       ]
+      }
+     ],
+     "web": [
+      [
+       "FastAPI (Python-Backend, GitHub)",
+       "https://github.com/tiangolo/fastapi"
+      ],
+      [
+       "LangChain (GitHub)",
+       "https://github.com/langchain-ai/langchain"
+      ],
+      [
+       "Anthropic: Building Effective Agents",
+       "https://www.anthropic.com/engineering/building-effective-agents"
+      ]
+     ],
      "nr": 134,
      "track": "ai"
     },
@@ -7678,8 +7799,66 @@ window.CURRICULUM = {
      "detail": null,
      "bsp": null,
      "merke": null,
-     "lang": [],
-     "web": [],
+     "lang": [
+      {
+       "h": "Einfach gesagt",
+       "p": [
+        "Die RAG-Pipeline ist der Wissens-Ablauf im Bot: Sie sorgt dafür, dass der Bot Antworten aus EUREN Dokumenten gibt statt zu raten. Sie ist das Herzstück jedes vertrauenswürdigen Firmen-Bots.",
+        "Ohne RAG-Pipeline ist ein Bot nur ein allgemeines Sprachmodell - mit ihr wird er zum Experten für eure Bank."
+       ]
+      },
+      {
+       "h": "Die Schritte der Pipeline",
+       "p": [
+        "Vorbereitung (einmalig, im Hintergrund): 1. Dokumente laden (Wiki, PDFs, Richtlinien). 2. Chunking (in sinnvolle Stücke schneiden). 3. Embeddings berechnen. 4. In der Vector Database speichern.",
+        "Beantwortung (bei jeder Frage): 5. Frage einbetten. 6. Passende Chunks suchen (Vector/Hybrid Search). 7. Frage + Chunks + Regeln an das LLM. 8. Antwort mit Quellenangabe formulieren.",
+        "Optional: Re-Ranking (Treffer neu sortieren) und Guardrails für die Ausgabe."
+       ]
+      },
+      {
+       "h": "Wie man es einsetzt (Praxis)",
+       "p": [
+        "Man baut die Pipeline nicht von Hand - Frameworks wie LlamaIndex (spezialisiert auf RAG) und LangChain liefern fertige Bausteine für jeden Schritt.",
+        "Qualität entsteht in den Details: gutes Chunking (~512 Tokens, etwas Overlap), ein zum Deutschen passendes Embedding-Modell, die richtige Trefferzahl (k) und die klare Anweisung ans LLM, nur aus den Chunks zu antworten.",
+        "In der Bank kommt dazu: Rechte-Trennung (der Bot zeigt nur Wissen, das der Nutzer sehen darf), EU-/On-Prem-Betrieb und Monitoring/Evaluation der Antwortqualität."
+       ]
+      },
+      {
+       "h": "Konkretes Beispiel",
+       "p": [
+        "Ein neues Konditionsblatt erscheint: Die Pipeline lädt es, chunkt es, bettet es ein und speichert es - fertig. Ab sofort beantwortet der Bot Fragen dazu korrekt und mit Quelle, ohne dass ein Modell neu trainiert werden musste."
+       ]
+      },
+      {
+       "h": "Grenzen & typische Fehler",
+       "p": [
+        "Schlechtes Chunking verdirbt die ganze Pipeline (unvollständige/ungenaue Treffer).",
+        "Keine Rechte-Trennung - der Bot zeigt Wissen, das der Nutzer nicht sehen darf.",
+        "Keine Quellenangabe und kein Fallback für 'nichts gefunden'.",
+        "Wissen einmal einpflegen und nie pflegen (veraltet schleichend)."
+       ]
+      },
+      {
+       "h": "So lernst du weiter",
+       "p": [
+        "Fasst Embeddings, Chunking, Vector/Hybrid Search und RAG Architektur praktisch zusammen; führt zu RAG Evaluation/Monitoring. LlamaIndex und LangChain (unten) sind die gängigen Werkzeuge."
+       ]
+      }
+     ],
+     "web": [
+      [
+       "LlamaIndex (GitHub)",
+       "https://github.com/run-llama/llama_index"
+      ],
+      [
+       "LangChain (GitHub)",
+       "https://github.com/langchain-ai/langchain"
+      ],
+      [
+       "Fraunhofer IESE: RAG - Chat mit eigenen Daten",
+       "https://www.iese.fraunhofer.de/blog/retrieval-augmented-generation-rag/"
+      ]
+     ],
      "nr": 139,
      "track": "ai"
     },
@@ -7964,8 +8143,68 @@ window.CURRICULUM = {
      "detail": null,
      "bsp": null,
      "merke": null,
-     "lang": [],
-     "web": [],
+     "lang": [
+      {
+       "h": "Einfach gesagt",
+       "p": [
+        "Handover ist die Übergabe vom Bot an einen echten Menschen. Gutes Handover-Design sorgt dafür, dass diese Übergabe reibungslos passiert - zum richtigen Zeitpunkt und ohne dass der Kunde sich wiederholen muss.",
+        "Ein Bot muss nicht alles können. Er muss aber wissen, WANN er abgeben soll - und es gut tun."
+       ]
+      },
+      {
+       "h": "Wann übergeben?",
+       "p": [
+        "Bei Überforderung: Der Bot versteht nach mehreren Versuchen nicht (No Match) oder findet kein Wissen.",
+        "Bei sensiblen/komplexen Themen: Betrug, Beschwerde, Kündigung, Trauerfälle.",
+        "Auf Kundenwunsch: 'Ich will einen Mitarbeiter sprechen' - das muss immer möglich sein.",
+        "Bei Emotion: Erkennt die KI großen Ärger (Sentiment), ist ein Mensch oft besser."
+       ]
+      },
+      {
+       "h": "Wie man es einsetzt (Praxis: gute Übergabe)",
+       "p": [
+        "Kontext mitgeben: Der Agent erhält den bisherigen Gesprächsverlauf und eine kurze Zusammenfassung - der Kunde muss NICHT alles wiederholen. Genau hier hilft Conversation Summary/Agent Assist.",
+        "Klar ankündigen: 'Ich verbinde Sie mit einem Kollegen, einen Moment.' Keine stille, verwirrende Übergabe.",
+        "Richtig routen: an die passende Queue/Skill (siehe Genesys-Teil). Wenn kein Agent frei ist: Wartezeit ansagen oder Rückruf anbieten.",
+        "In der Bank ist ein zuverlässiger Weg zum Menschen Pflicht - gerade bei Geld und Sicherheit."
+       ]
+      },
+      {
+       "h": "Konkretes Beispiel",
+       "p": [
+        "Der Bot merkt bei einer Betrugsmeldung: 'Das ist zu sensibel für mich.' Er sagt: 'Ich verbinde Sie sofort mit unserem Sicherheitsteam' und übergibt an die Fraud-Queue - inklusive Zusammenfassung ('Kunde meldet unbekannte Abbuchung, Betrag X'). Der Agent steigt direkt ein, ohne Nachfragen."
+       ]
+      },
+      {
+       "h": "Grenzen & typische Fehler",
+       "p": [
+        "Stille/harte Übergabe ohne Ankündigung - verwirrt den Kunden.",
+        "Kein Kontext mitgeben - der Kunde muss alles wiederholen (größter Frustfaktor).",
+        "Keinen Weg zum Menschen anbieten - Kunden fühlen sich gefangen.",
+        "Zu früh oder zu spät übergeben (Balance finden, mit Daten optimieren)."
+       ]
+      },
+      {
+       "h": "So lernst du weiter",
+       "p": [
+        "Verbindet sich mit Bot Fallback Design, Genesys Transfer to ACD, Queues/Skills und Conversation Summary/Agent Assist. Ein guter Handover entscheidet stark über die Kundenzufriedenheit."
+       ]
+      }
+     ],
+     "web": [
+      [
+       "Genesys: Bot-Übergabe an Agenten (Architect)",
+       "https://help.mypurecloud.com/articles/about-digital-bot-flows/"
+      ],
+      [
+       "Genesys: Agent Copilot / Agent Assist",
+       "https://help.mypurecloud.com/articles/about-agent-assist/"
+      ],
+      [
+       "Bitkom: KI im Kundenservice",
+       "https://www.bitkom.org/Themen/Technologien-Software/Kuenstliche-Intelligenz"
+      ]
+     ],
      "nr": 152,
      "track": "ai"
     },
@@ -9043,8 +9282,66 @@ window.CURRICULUM = {
      "detail": null,
      "bsp": null,
      "merke": null,
-     "lang": [],
-     "web": [],
+     "lang": [
+      {
+       "h": "Einfach gesagt",
+       "p": [
+        "AI Fraud Detection heißt Betrugserkennung mit KI. Das System lernt aus Millionen von Transaktionen, wie normales Verhalten aussieht, und schlägt Alarm, wenn etwas davon abweicht - oft in Millisekunden, in Echtzeit.",
+        "Es geht um viele Betrugsarten: Zahlungs- und Kartenbetrug, Geldwäsche, Identitätsdiebstahl, Phishing und sogar internen Betrug."
+       ]
+      },
+      {
+       "h": "Wie es funktioniert",
+       "p": [
+        "Zwei Grundansätze kombiniert man: Supervised Learning (aus alten, als 'Betrug/kein Betrug' markierten Fällen lernen) und Unsupervised/Anomalie-Erkennung (ungewöhnliche Muster finden, auch ohne Label - wichtig für neue Maschen).",
+        "Das Modell bewertet jede Transaktion anhand vieler Merkmale: Betrag, Uhrzeit, Ort/Land, Gerät, IP-Adresse, Abgleich mit Blacklists, Abweichung vom üblichen Verhalten des Kunden. Ergebnis ist ein Risiko-Score ('zu 92 % verdächtig').",
+        "Knowledge Graphs helfen zusätzlich, verborgene Verbindungen (Betrugsringe) aufzudecken."
+       ]
+      },
+      {
+       "h": "Wie man es einsetzt (Praxis in der Bank)",
+       "p": [
+        "Typischer Ablauf: Die KI bewertet Transaktionen in Echtzeit; ab einer Schwelle wird die Zahlung gestoppt/geprüft, der Kunde informiert oder ein Mitarbeiter eingeschaltet.",
+        "Man stimmt die Schwelle bewusst ab (siehe Precision/Recall): Lieber ein paar Fehlalarme als einen großen Betrug übersehen - aber nicht so viele, dass Kunden ständig genervt werden. Die Danske Bank konnte laut Bericht Fehlalarme per KI um 50 % senken.",
+        "Aufsicht/Compliance: Entscheidungen müssen nachvollziehbar sein, Modelle überwacht (Model Monitoring) und Aktionen protokolliert (Audit) werden. Datenschutz beachten (DSGVO)."
+       ]
+      },
+      {
+       "h": "Konkretes Beispiel",
+       "p": [
+        "Eine Karte, die sonst nur im Inland genutzt wird, zahlt plötzlich nachts einen hohen Betrag im Ausland und kurz darauf nochmal. Das Modell erkennt die Abweichung, blockiert vorläufig und schickt dem Kunden eine Rückfrage per App - der echte Betrug wird gestoppt, bevor Schaden entsteht."
+       ]
+      },
+      {
+       "h": "Grenzen, Risiken & typische Fehler",
+       "p": [
+        "Zu viele Fehlalarme (False Positives) frustrieren Kunden (gesperrte Karte im Urlaub); zu wenige übersehen Betrug - die Balance ist entscheidend.",
+        "Betrüger ändern ständig ihre Maschen (Model Drift) - Modelle müssen laufend nachtrainiert werden.",
+        "Bias-Gefahr: Das Modell darf nicht ganze Gruppen unfair verdächtigen.",
+        "Erklärbarkeit: Ein 'die KI sagt so' reicht der Aufsicht nicht."
+       ]
+      },
+      {
+       "h": "So lernst du weiter",
+       "p": [
+        "Baut auf Supervised/Unsupervised Learning, Metriken und Knowledge Graphs auf; verwandt mit AI Fraud Support. Die Alexander-Thamm- und BaFin-Quellen unten vertiefen es für Banken."
+       ]
+      }
+     ],
+     "web": [
+      [
+       "Alexander Thamm: Fraud Detection im Bankensektor",
+       "https://www.alexanderthamm.com/de/blog/fraud-detection-im-bankensektor/"
+      ],
+      [
+       "Computerwoche: KI-Dienste bei der Betrugserkennung",
+       "https://www.computerwoche.de/article/2779196/ki-dienste-helfen-bei-der-betrugserkennung.html"
+      ],
+      [
+       "BaFin: KI in der Finanzwirtschaft",
+       "https://www.bafin.de/DE/Aufsicht/FinTech/KuenstlicheIntelligenz/kuenstliche_intelligenz_node.html"
+      ]
+     ],
      "nr": 196,
      "track": "ai"
     },
@@ -9258,8 +9555,65 @@ window.CURRICULUM = {
      "detail": null,
      "bsp": null,
      "merke": null,
-     "lang": [],
-     "web": [],
+     "lang": [
+      {
+       "h": "Einfach gesagt",
+       "p": [
+        "KI hilft, Beschwerden schneller und besser zu bearbeiten: Sie erkennt früh, ob ein Kunde verärgert ist, sortiert die Beschwerde richtig ein, priorisiert dringende Fälle und schlägt Lösungen vor.",
+        "Ziel ist nicht, Beschwerden zu 'verstecken', sondern sie schneller und fairer zu lösen - und aus ihnen zu lernen."
+       ]
+      },
+      {
+       "h": "Wie es funktioniert",
+       "p": [
+        "Mehrere KI-Bausteine greifen ineinander: Sentiment/Emotion Detection erkennt Ärger im Text oder in der Stimme; Classification ordnet die Beschwerde dem richtigen Thema/Team zu; Summarization fasst lange Vorgänge kurz zusammen; RAG schlägt aus Richtlinien passende Lösungen vor.",
+        "So landet die Beschwerde schnell beim richtigen Bearbeiter, der sofort Kontext und Lösungsvorschläge hat."
+       ]
+      },
+      {
+       "h": "Wie man es einsetzt (Praxis in der Bank)",
+       "p": [
+        "Eingehende Beschwerden (E-Mail, Chat, Anruf) werden automatisch klassifiziert und nach Dringlichkeit/Stimmung priorisiert - ein wütender Kunde mit Eskalationsdrohung kommt nach vorne.",
+        "Speech & Text Analytics (z.B. in Genesys) wertet Gespräche automatisch aus und erkennt häufige Beschwerdethemen - so sieht das Management Trends und kann Ursachen abstellen.",
+        "Wichtig: Bei Beschwerden geht es um Menschen in Ärger - die KI unterstützt, ein Mensch übernimmt die heikle Kommunikation. Datenschutz und faire Behandlung beachten."
+       ]
+      },
+      {
+       "h": "Konkretes Beispiel",
+       "p": [
+        "Eine E-Mail 'seit Wochen keine Antwort, ich wechsle die Bank!' wird von der KI als negativ + Kündigungsrisiko erkannt, dem Team 'Eskalation' zugewiesen und mit einer Zusammenfassung des bisherigen Vorgangs plus Lösungsvorschlag versehen. Ein Mitarbeiter reagiert schnell und persönlich."
+       ]
+      },
+      {
+       "h": "Grenzen, Risiken & typische Fehler",
+       "p": [
+        "Emotion/Sentiment-Erkennung ist nicht perfekt - Ironie und Kontext sind schwierig.",
+        "Beschwerden rein automatisch abwickeln wirkt kalt und verärgert weiter - der Mensch muss ran.",
+        "Datenschutz: Beschwerden enthalten oft sensible Angaben.",
+        "Die gesammelten Erkenntnisse ignorieren, statt Ursachen abzustellen (Continuous Improvement)."
+       ]
+      },
+      {
+       "h": "So lernst du weiter",
+       "p": [
+        "Kombiniert Sentiment/Emotion Detection, Classification, Summarization und RAG. Verwandt mit Speech & Text Analytics und Continuous Improvement."
+       ]
+      }
+     ],
+     "web": [
+      [
+       "Alexander Thamm: KI im Kundenservice",
+       "https://www.alexanderthamm.com/de/blog/machine-learning/"
+      ],
+      [
+       "Genesys: Speech & Text Analytics",
+       "https://help.mypurecloud.com/articles/about-speech-and-text-analytics/"
+      ],
+      [
+       "Bitkom: KI im Kundenservice",
+       "https://www.bitkom.org/Themen/Technologien-Software/Kuenstliche-Intelligenz"
+      ]
+     ],
      "nr": 206,
      "track": "ai"
     },
@@ -9284,8 +9638,69 @@ window.CURRICULUM = {
      "detail": null,
      "bsp": null,
      "merke": null,
-     "lang": [],
-     "web": [],
+     "lang": [
+      {
+       "h": "Einfach gesagt",
+       "p": [
+        "KI kann den Kreditprozess unterstützen: Unterlagen lesen, auf Vollständigkeit prüfen, Risiken einschätzen und Sachbearbeiter entlasten. Ganz wichtig: Sie unterstützt - die Entscheidung bleibt beim Menschen.",
+        "Denn Kreditvergabe ist besonders sensibel: Sie betrifft Menschen direkt und ist streng reguliert."
+       ]
+      },
+      {
+       "h": "Wie es funktioniert",
+       "p": [
+        "Zwei Bereiche: (1) Dokumentenarbeit - KI liest Gehaltsnachweise, Kontoauszüge, Anträge (OCR, Document Processing), prüft Vollständigkeit und zieht die relevanten Zahlen heraus. (2) Risiko-Einschätzung - ein ML-Modell (Credit Scoring) schätzt aus historischen Daten die Ausfallwahrscheinlichkeit.",
+        "Der Scoring-Teil ist Supervised Learning: aus alten Krediten mit Ausgang 'zurückgezahlt/ausgefallen' lernt das Modell Muster."
+       ]
+      },
+      {
+       "h": "Wie man es einsetzt - und die strengen Regeln (EU AI Act)",
+       "p": [
+        "Kreditwürdigkeitsprüfung (Credit Scoring) gilt im EU AI Act ausdrücklich als HOCHRISIKO. Ab August 2026 gelten verbindliche Pflichten. Das heißt konkret:",
+        "Risikomanagement-System aufsetzen und dokumentieren; technische Robustheit nachweisen; Transparenz & Erklärbarkeit (Betroffene müssen erfahren, dass und wie eine KI beteiligt war); und verpflichtende menschliche Aufsicht (der Mensch entscheidet, nicht der Algorithmus).",
+        "Praktisch: KI bereitet auf und schlägt vor, ein Mensch prüft und entscheidet - mit dokumentiertem Freigabeprozess. Fairness/Bias-Prüfung ist Pflicht, damit niemand diskriminiert wird."
+       ]
+      },
+      {
+       "h": "Konkretes Beispiel",
+       "p": [
+        "Ein Antrag geht ein: Die KI liest die Unterlagen, meldet 'Gehaltsnachweis fehlt', berechnet nach Nachreichung einen Risiko-Score und fasst alles übersichtlich zusammen. Der Sachbearbeiter sieht die Begründung, prüft und entscheidet final - die Entscheidung und ihr Grund werden dokumentiert."
+       ]
+      },
+      {
+       "h": "Grenzen, Risiken & typische Fehler",
+       "p": [
+        "Bias: Waren alte Entscheidungen unfair, lernt das Modell die Unfairness - streng prüfen.",
+        "Blackbox-Modelle sind hier problematisch: Man braucht Erklärbarkeit (eher einfache, transparente Modelle bevorzugen).",
+        "Die KI allein entscheiden lassen - im Hochrisiko-Bereich unzulässig.",
+        "Dokumentationspflichten unterschätzen (der EU AI Act verlangt lückenlose Nachweise)."
+       ]
+      },
+      {
+       "h": "So lernst du weiter",
+       "p": [
+        "Verbindet Supervised Learning, Document Processing, Explainability und EU AI Act/DSGVO (Sicherheitsteil). Die PPI- und SIGS-Texte unten erklären die Kredit-Regeln konkret."
+       ]
+      }
+     ],
+     "web": [
+      [
+       "PPI AG: EU AI Act - Risikoklassifizierung für Banken",
+       "https://www.ppi-group.eu/de/insights/banken/detail/ai-act-banken.html"
+      ],
+      [
+       "SIGS: EU AI Act - KI-Kreditwürdigkeitsprüfung",
+       "https://www.sigs.de/artikel/der-eu-ai-act-neue-regeln-fuer-die-ki-basierte-kreditwuerdigkeitspruefung/"
+      ],
+      [
+       "EU AI Act (offiziell, DE)",
+       "https://artificialintelligenceact.eu/de/"
+      ],
+      [
+       "BaFin: KI in der Finanzwirtschaft",
+       "https://www.bafin.de/DE/Aufsicht/FinTech/KuenstlicheIntelligenz/kuenstliche_intelligenz_node.html"
+      ]
+     ],
      "nr": 207,
      "track": "ai"
     },
@@ -9305,8 +9720,65 @@ window.CURRICULUM = {
      "detail": null,
      "bsp": null,
      "merke": null,
-     "lang": [],
-     "web": [],
+     "lang": [
+      {
+       "h": "Einfach gesagt",
+       "p": [
+        "Im Kartenservice übernimmt KI viele Standard-Anliegen rund um die Bank- und Kreditkarte: Karte sperren, Ersatz bestellen, Umsätze erklären, Limit ändern - schnell, rund um die Uhr und oft ohne Wartezeit.",
+        "Gerade bei Kartenverlust zählt Tempo - ein Bot kann sofort reagieren, während eine Hotline besetzt sein könnte."
+       ]
+      },
+      {
+       "h": "Wie es funktioniert",
+       "p": [
+        "Ein Bot (Digital oder Voice) erkennt das Anliegen (Intent), fragt fehlende Angaben ab (Slots) und ruft über eine sichere Schnittstelle (Data Action/API) das Kartensystem der Bank auf - z.B. um eine Sperre auszulösen oder Umsätze zu holen.",
+        "Wissen (Gebühren, Ablauf einer Ersatzkarte) kommt aus der Knowledge Base (RAG). Für echte Aktionen (Sperren, Bestellen) braucht es sichere Authentifizierung des Kunden."
+       ]
+      },
+      {
+       "h": "Wie man es einsetzt (Praxis in der Bank)",
+       "p": [
+        "Typische automatisierte Fälle: Karte sperren (bei Verlust/Diebstahl), Ersatzkarte bestellen, PIN-Info, Limit temporär anpassen, unbekannte Umsätze erklären oder eine Reklamation starten.",
+        "Sicherheit zuerst: Vor sensiblen Aktionen muss der Kunde sicher verifiziert werden. Kritische/irreversible Schritte legt man einem Menschen zur Freigabe vor oder bestätigt sie doppelt (Human-in-the-loop).",
+        "Bei Betrugsverdacht übergibt der Bot nahtlos an den Fraud-Support (Handover)."
+       ]
+      },
+      {
+       "h": "Konkretes Beispiel",
+       "p": [
+        "Kunde im Chat: 'Ich habe meine Karte verloren.' Der Bot verifiziert den Kunden, bietet sofort die Sperre an, führt sie nach Bestätigung aus, bestellt auf Wunsch eine Ersatzkarte und nennt die Lieferzeit - alles in einem kurzen Dialog, jederzeit."
+       ]
+      },
+      {
+       "h": "Grenzen, Risiken & typische Fehler",
+       "p": [
+        "Ohne saubere Authentifizierung dürfen keine sensiblen Aktionen erfolgen (Missbrauchsgefahr).",
+        "Irreversibles (Sperren) ohne Bestätigung ausführen - lieber absichern.",
+        "Kein guter Fallback/Handover, wenn es kompliziert wird - dann strandet der Kunde.",
+        "Datenschutz: Kartendaten sind hochsensibel (PCI-DSS/DSGVO)."
+       ]
+      },
+      {
+       "h": "So lernst du weiter",
+       "p": [
+        "Verbindet Bot Flows, Intents/Slots, Data Actions, Authentication und Knowledge - viele davon auch im Genesys-Teil. Verwandt mit AI Fraud Support und Bot Handover Design."
+       ]
+      }
+     ],
+     "web": [
+      [
+       "Genesys: Digital Bot Flows",
+       "https://help.mypurecloud.com/articles/about-digital-bot-flows/"
+      ],
+      [
+       "Bitkom: KI im Kundenservice",
+       "https://www.bitkom.org/Themen/Technologien-Software/Kuenstliche-Intelligenz"
+      ],
+      [
+       "BaFin: KI in der Finanzwirtschaft",
+       "https://www.bafin.de/DE/Aufsicht/FinTech/KuenstlicheIntelligenz/kuenstliche_intelligenz_node.html"
+      ]
+     ],
      "nr": 208,
      "track": "ai"
     },
