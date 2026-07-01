@@ -2151,8 +2151,65 @@ window.CURRICULUM = {
      "detail": "Statt Beispielen mit Loesung gibt es hier nur Belohnung. Das Modell handelt, sieht das Ergebnis und lernt, welche Aktionen sich lohnen. So haben KIs Schach und Go besser als Menschen gelernt. Im Alltag steckt die Idee z.B. hinter der Optimierung von Ablaeufen. Auch das Feintuning moderner Chatbots (RLHF) nutzt diese Idee mit menschlichem Feedback.",
      "bsp": "Eine KI lernt ein Spiel, indem sie tausende Runden spielt und aus Sieg/Niederlage lernt.",
      "merke": "Reinforcement = Lernen durch Belohnung, wie beim Hunde-Training.",
-     "lang": [],
-     "web": [],
+     "lang": [
+      {
+       "h": "Einfach gesagt",
+       "p": [
+        "Reinforcement Learning (RL, bestärkendes Lernen) ist Lernen durch Belohnung und Bestrafung. Ein 'Agent' probiert Aktionen aus, bekommt für gute Ergebnisse Punkte (Belohnung) und lernt so mit der Zeit die beste Strategie.",
+        "Das klassische Bild: ein Hund, der durch Leckerlis Tricks lernt. Beim RL ist der 'Hund' eine Maschine und die 'Leckerlis' sind Punkte."
+       ]
+      },
+      {
+       "h": "Wie es funktioniert",
+       "p": [
+        "Es gibt einen Agenten (die KI), eine Umgebung (die Welt, in der er handelt), Aktionen (was er tun kann) und eine Belohnung (Feedback). Der Agent handelt, sieht das Ergebnis, kassiert Belohnung oder Strafe und passt sein Verhalten an.",
+        "Anders als bei Supervised Learning gibt es keine vorgegebenen 'richtigen Antworten' - nur das Belohnungssignal. Der Agent muss durch Ausprobieren selbst herausfinden, was sich lohnt (Trial and Error)."
+       ]
+      },
+      {
+       "h": "Wie man es einsetzt (Praxis)",
+       "p": [
+        "Laut den Quellen ist RL stark bei Steuerungs- und Entscheidungsproblemen: Robotik, autonomes Fahren, Videospiele, Industrieautomatisierung, personalisierte Empfehlungen (Netflix, Spotify). Google senkte per RL den Energieverbrauch seiner Rechenzentren-Kühlung um rund 40 %.",
+        "Berühmt: AlphaGo, das per RL den Go-Weltmeister schlug.",
+        "In der Bank ist RL seltener als Supervised Learning, aber denkbar für dynamische Optimierung (z.B. Kampagnen-Steuerung). Wichtig: Auch das Feintuning moderner Chatbots nutzt eine RL-Idee mit menschlichem Feedback (RLHF)."
+       ]
+      },
+      {
+       "h": "Konkretes Beispiel",
+       "p": [
+        "Ein Empfehlungssystem probiert verschiedene Vorschläge aus. Klickt/nutzt der Kunde einen Vorschlag (Belohnung), verstärkt das System dieses Verhalten. So lernt es über viele Nutzer, welche Vorschläge wirklich ankommen."
+       ]
+      },
+      {
+       "h": "Grenzen & typische Fehler",
+       "p": [
+        "Braucht sehr viele Versuche - in der echten Welt teuer/riskant (deshalb oft erst in Simulationen).",
+        "Die Belohnung muss klug definiert sein: falsch gesetzt, lernt der Agent unerwünschtes Verhalten ('Reward Hacking').",
+        "Schwerer zu kontrollieren als Supervised - in regulierten Bereichen mit Vorsicht einsetzen.",
+        "Nicht für einfache Vorhersagen gedacht (dafür Supervised)."
+       ]
+      },
+      {
+       "h": "So lernst du weiter",
+       "p": [
+        "Gehört zu den drei ML-Grundarten (mit Supervised/Unsupervised). Verwandt: Agentic AI und RLHF (Bot Fine-Tuning). Die Alexander-Thamm- und datasolut-Texte unten vertiefen es auf Deutsch."
+       ]
+      }
+     ],
+     "web": [
+      [
+       "Alexander Thamm: Reinforcement Learning kompakt",
+       "https://www.alexanderthamm.com/de/blog/einfach-erklaert-so-funktioniert-reinforcement-learning/"
+      ],
+      [
+       "datasolut: Reinforcement Learning",
+       "https://datasolut.com/reinforcement-learning/"
+      ],
+      [
+       "StudySmarter: Reinforcement Learning",
+       "https://www.studysmarter.de/studium/informatik-studium/kuenstliche-intelligenz-studium/reinforcement-learning/"
+      ]
+     ],
      "nr": 19,
      "track": "ai"
     },
@@ -2193,8 +2250,66 @@ window.CURRICULUM = {
      "detail": "Wichtig fuer Ehrlichkeit: Man darf ein Modell nicht mit denselben Daten pruefen, mit denen es gelernt hat - sonst kennt es die Antworten auswendig. Deshalb legt man Testdaten beiseite und zeigt sie dem Modell erst ganz am Ende. Nur so weiss man, wie es bei ECHTEN neuen Faellen abschneidet.",
      "bsp": "Wie eine Pruefung: Man uebt mit Uebungsaufgaben (Training), die Klausur (Test) sieht man erst am Pruefungstag.",
      "merke": "Testdaten sind heilig: erst ganz am Ende ansehen, sonst betruegt man sich selbst.",
-     "lang": [],
-     "web": [],
+     "lang": [
+      {
+       "h": "Einfach gesagt",
+       "p": [
+        "Man teilt seine Daten in drei Teile: Mit den Trainingsdaten lernt das Modell. Mit den Validierungsdaten stellt man es ein und vergleicht Varianten. Mit den Testdaten prüft man am Ende ehrlich, wie gut es bei echten neuen Fällen ist.",
+        "Typische Aufteilung: etwa 70 % Training, 15 % Validierung, 15 % Test."
+       ]
+      },
+      {
+       "h": "Warum diese Trennung so wichtig ist",
+       "p": [
+        "Wenn man ein Modell mit denselben Daten prüft, mit denen es gelernt hat, kennt es die Antworten quasi auswendig - das Ergebnis sieht super aus, ist aber wertlos.",
+        "Deshalb sind die Testdaten 'heilig': Man legt sie beiseite und zeigt sie dem Modell erst ganz am Ende, ein einziges Mal. Nur so erfährt man die echte Leistung.",
+        "Bild: Man übt mit Übungsaufgaben (Training), stellt seine Technik an Probeklausuren ein (Validierung), und die echte Klausur (Test) sieht man erst am Prüfungstag."
+       ]
+      },
+      {
+       "h": "Wie man es einsetzt (Praxis)",
+       "p": [
+        "Die Validierungsdaten nutzt man, um Einstellungen (Hyperparameter) zu wählen und Modelle zu vergleichen - ohne die Testdaten anzufassen.",
+        "Wenn Daten knapp sind, nutzt man Cross-Validation: Man teilt die Daten in mehrere Blöcke und trainiert/prüft abwechselnd - so nutzt man die Daten besser und bekommt ein stabileres Bild.",
+        "In der Bank ist saubere Trennung auch eine Frage der Seriosität gegenüber der Aufsicht: Leistungszahlen müssen ehrlich auf ungesehenen Daten gemessen sein."
+       ]
+      },
+      {
+       "h": "Konkretes Beispiel",
+       "p": [
+        "Ein Betrugsmodell zeigt 95 % Trefferquote - aber gemessen auf den Trainingsdaten. Auf den beiseitegelegten Testdaten sind es nur 71 %. Erst diese ehrliche Testzahl sagt, was im Echtbetrieb zu erwarten ist."
+       ]
+      },
+      {
+       "h": "Grenzen & typische Fehler",
+       "p": [
+        "'Data Leakage': Wenn Test-Infos versehentlich ins Training sickern, sind die Ergebnisse geschönt.",
+        "Testdaten mehrfach zum Optimieren benutzen - dann sind sie 'verbrannt' und nicht mehr ehrlich.",
+        "Bei zeitabhängigen Daten (z.B. Transaktionen) muss man nach Zeit trennen, nicht zufällig.",
+        "Zu kleiner Testsatz - dann ist die Zahl unzuverlässig."
+       ]
+      },
+      {
+       "h": "So lernst du weiter",
+       "p": [
+        "Direkt verwandt: Overfitting/Underfitting, Cross-Validation, Metriken. Der Google ML Crash Course (unten) erklärt das Splitten Schritt für Schritt."
+       ]
+      }
+     ],
+     "web": [
+      [
+       "datasolut: Train-Test-Split & Validierung",
+       "https://datasolut.com/wiki/supervised-learning/"
+      ],
+      [
+       "Rocketloop: Overfitting/Underfitting & Validation",
+       "https://rocketloop.de/en/blog/model-validation-overfitting-underfitting/"
+      ],
+      [
+       "Google ML Crash Course (deutsch)",
+       "https://developers.google.com/machine-learning/crash-course?hl=de"
+      ]
+     ],
      "nr": 21,
      "track": "ai"
     },
@@ -2293,8 +2408,72 @@ window.CURRICULUM = {
      "detail": "Fast jede ML-Aufgabe ist eines von beidem. Willst du etwas in Schubladen einsortieren (Spam/kein Spam, welche Abteilung)? Das ist Klassifikation. Willst du eine Zahl schaetzen (wie hoch wird der Umsatz, wie lange dauert der Anruf)? Das ist Regression. Zu wissen, welcher Typ vorliegt, bestimmt Modell und Bewertung.",
      "bsp": "'Welcher Kundentyp?' = Klassifikation. 'Wie hoch der erwartete Umsatz?' = Regression.",
      "merke": "Kategorie = Klassifikation, Zahl = Regression.",
-     "lang": [],
-     "web": [],
+     "lang": [
+      {
+       "h": "Einfach gesagt",
+       "p": [
+        "Beim Supervised Learning gibt es zwei Grundaufgaben. Klassifikation sagt eine Kategorie voraus (in welche Schublade gehört es?). Regression sagt eine Zahl voraus (welcher Wert?).",
+        "Die einfache Frage zur Unterscheidung: Will ich etwas einsortieren (Klassifikation) oder eine Zahl schätzen (Regression)?"
+       ]
+      },
+      {
+       "h": "Klassifikation",
+       "p": [
+        "Ausgabe ist eine Klasse: Betrug ja/nein, Anliegen -> Abteilung A/B/C, Kunde storniert ja/nein.",
+        "Oft gibt das Modell dazu eine Wahrscheinlichkeit aus ('zu 88 % Betrug'), aus der man mit einer Schwelle die Entscheidung ableitet.",
+        "Bewertet wird sie mit Accuracy, Precision, Recall, F1 und der Confusion Matrix."
+       ]
+      },
+      {
+       "h": "Regression",
+       "p": [
+        "Ausgabe ist eine Zahl: erwarteter Umsatz, Immobilienpreis, voraussichtliche Gesprächsdauer, Kreditbetrag.",
+        "Bewertet wird sie mit Fehlermaßen wie MAE (mittlerer Fehler) oder RMSE - also 'wie weit liegt die Schätzung im Schnitt daneben'."
+       ]
+      },
+      {
+       "h": "Wie man es einsetzt (Praxis in der Bank)",
+       "p": [
+        "Zuerst klärt man den Aufgabentyp - er bestimmt Modellwahl UND Bewertung. Klassifikation: Betrugserkennung, E-Mail-Routing, Kündigungsvorhersage (ja/nein). Regression: Umsatzprognose, Risiko-/Preisschätzung, erwartete Bearbeitungszeit.",
+        "Manchmal lässt sich dieselbe Frage als beides formulieren - z.B. 'Ausfallwahrscheinlichkeit' (Regression auf 0-100 %) oder 'fällt aus ja/nein' (Klassifikation). Man wählt, was zur Entscheidung passt."
+       ]
+      },
+      {
+       "h": "Konkretes Beispiel",
+       "p": [
+        "'Welcher Abteilung ordne ich diese E-Mail zu?' = Klassifikation. 'Wie hoch wird der Umsatz dieses Kunden nächstes Jahr?' = Regression. Gleiche Daten, aber unterschiedliche Aufgabe, Modelle und Metriken."
+       ]
+      },
+      {
+       "h": "Grenzen & typische Fehler",
+       "p": [
+        "Aufgabentyp verwechseln und die falschen Metriken benutzen.",
+        "Eine Zahl in Klassen pressen (oder umgekehrt), obwohl der andere Typ besser passt.",
+        "Bei Klassifikation die Schwelle unbedacht auf 50 % lassen - bei seltenen Fällen oft falsch.",
+        "Regressionsfehler nur als eine Zahl sehen, ohne Ausreißer zu prüfen."
+       ]
+      },
+      {
+       "h": "So lernst du weiter",
+       "p": [
+        "Verwandt: Supervised Learning, Metriken, Confusion Matrix. Der Google ML Crash Course (unten) zeigt beide Aufgabentypen mit Beispielen."
+       ]
+      }
+     ],
+     "web": [
+      [
+       "datasolut: Klassifikation vs. Regression",
+       "https://datasolut.com/wiki/supervised-learning/"
+      ],
+      [
+       "Google ML Crash Course (deutsch)",
+       "https://developers.google.com/machine-learning/crash-course?hl=de"
+      ],
+      [
+       "Alexander Thamm: Machine Learning kompakt",
+       "https://www.alexanderthamm.com/de/blog/machine-learning/"
+      ]
+     ],
      "nr": 23,
      "track": "ai"
     },
@@ -2319,8 +2498,72 @@ window.CURRICULUM = {
      "detail": "Ein Decision Tree stellt nacheinander Ja/Nein-Fragen ('Betrag > 1000? Ausland?') bis zur Entscheidung - sehr gut nachvollziehbar. Ein Random Forest fragt viele solcher Baeume und nimmt die Mehrheit - genauer, aber weniger durchschaubar. Fuer den Anfang reicht: es gibt einfache, erklaerbare Modelle und komplexe, genauere. In Banken zaehlt Erklaerbarkeit oft mehr als das letzte Prozent Genauigkeit.",
      "bsp": "Ein Decision Tree fuer Kredit: Einkommen hoch? -> Schulden niedrig? -> genehmigen.",
      "merke": "Du musst Algorithmen nicht bauen - nur wissen, welcher wofuer passt.",
-     "lang": [],
-     "web": [],
+     "lang": [
+      {
+       "h": "Einfach gesagt",
+       "p": [
+        "Es gibt viele Lern-Verfahren (Algorithmen). Man muss sie nicht selbst bauen - fertige Bibliotheken wie scikit-learn liefern sie. Wichtig ist nur zu wissen, welche es gibt und wofür sie gut sind.",
+        "Ein paar Klassiker reichen für den Anfang völlig aus."
+       ]
+      },
+      {
+       "h": "Die wichtigsten Verfahren",
+       "p": [
+        "Decision Tree (Entscheidungsbaum): stellt nacheinander Ja/Nein-Fragen ('Betrag > 1000? Ausland?') bis zur Entscheidung. Sehr gut nachvollziehbar.",
+        "Random Forest: viele Entscheidungsbäume gemeinsam. Jeder sieht einen zufälligen Ausschnitt der Daten; die Mehrheit entscheidet. Genauer und weniger anfällig für Overfitting als ein einzelner Baum.",
+        "k-Nearest-Neighbors (k-NN): schaut, was bei den ähnlichsten früheren Fällen passiert ist.",
+        "k-Means: bildet Gruppen (Clustering, unsupervised).",
+        "Logistische Regression: einfaches, gut erklärbares Verfahren für ja/nein-Entscheidungen."
+       ]
+      },
+      {
+       "h": "Wie man wählt (Praxis in der Bank)",
+       "p": [
+        "Faustregel: Erst ein einfaches, erklärbares Modell (Entscheidungsbaum, logistische Regression) als Basis. Reicht das nicht, ein stärkeres wie Random Forest oder Gradient Boosting.",
+        "In Banken zählt Erklärbarkeit oft mehr als das letzte Prozent Genauigkeit - eine Kreditentscheidung muss man begründen können (EU AI Act, Aufsicht). Deshalb ist ein etwas schwächeres, aber transparentes Modell manchmal die bessere Wahl.",
+        "Für Bild/Sprache/Text nimmt man Deep Learning statt dieser klassischen Verfahren."
+       ]
+      },
+      {
+       "h": "Konkretes Beispiel",
+       "p": [
+        "Kredit-Vorprüfung: Ein Entscheidungsbaum liefert eine klare, begründbare Kette ('Einkommen hoch -> Schulden niedrig -> geringe Ausfallwahrscheinlichkeit'). Ein Random Forest wäre etwas genauer, aber schwerer zu erklären - man wägt ab."
+       ]
+      },
+      {
+       "h": "Grenzen & typische Fehler",
+       "p": [
+        "Gleich das komplexeste Modell nehmen, obwohl ein einfaches reicht (schwerer erklärbar, überflüssig).",
+        "Einzelne Entscheidungsbäume neigen stark zu Overfitting (Random Forest mildert das).",
+        "Algorithmus wählen, ohne auf Erklärbarkeit und Regulierung zu achten.",
+        "Datenqualität unterschätzen - kein Algorithmus rettet schlechte Daten."
+       ]
+      },
+      {
+       "h": "So lernst du weiter",
+       "p": [
+        "Verwandt: Supervised/Unsupervised, Overfitting, Metriken. Zum Ausprobieren ist scikit-learn (unten) ideal; die IBM- und statologie-Texte erklären Random Forest anschaulich."
+       ]
+      }
+     ],
+     "web": [
+      [
+       "IBM: What is Random Forest?",
+       "https://www.ibm.com/think/topics/random-forest"
+      ],
+      [
+       "bigdata-insider: Was ist Random Forest?",
+       "https://www.bigdata-insider.de/was-ist-random-forest-a-913937/"
+      ],
+      [
+       "statologie: Random Forests einfach erklärt",
+       "https://statologie.de/random-forests-maschinelles-lernen/"
+      ],
+      [
+       "scikit-learn (GitHub)",
+       "https://github.com/scikit-learn/scikit-learn"
+      ]
+     ],
      "nr": 24,
      "track": "ai"
     },
@@ -2427,8 +2670,67 @@ window.CURRICULUM = {
      "detail": "Nicht jeder Fehler ist gleich schlimm. Ein falscher Betrugsalarm (False Positive) aergert einen Kunden. Ein uebersehener echter Betrug (False Negative) kostet richtig Geld. Die Confusion Matrix trennt diese Faelle sauber auf, damit man entscheiden kann, welchen Fehler man eher in Kauf nimmt.",
      "bsp": "Lieber ein paar Kunden mit falschem Alarm nerven, als einen grossen Betrug uebersehen? Die Matrix macht das sichtbar.",
      "merke": "Nicht nur WIE OFT falsch, sondern WELCHE Art Fehler - das entscheidet in der Praxis.",
-     "lang": [],
-     "web": [],
+     "lang": [
+      {
+       "h": "Einfach gesagt",
+       "p": [
+        "Die Confusion Matrix ('Verwechslungsmatrix') ist eine kleine Tabelle, die zeigt, wo ein Klassifikations-Modell richtig und wo es falsch lag - getrennt nach Art des Fehlers.",
+        "Sie ist die Grundlage, aus der man Precision, Recall & Co. abliest."
+       ]
+      },
+      {
+       "h": "Die vier Felder",
+       "p": [
+        "True Positive (TP): richtig als 'ja' erkannt (echter Betrug erkannt).",
+        "True Negative (TN): richtig als 'nein' erkannt (harmlose Zahlung durchgelassen).",
+        "False Positive (FP): fälschlich 'ja' - Fehlalarm (harmlose Zahlung als Betrug markiert).",
+        "False Negative (FN): fälschlich 'nein' - übersehen (echter Betrug durchgerutscht)."
+       ]
+      },
+      {
+       "h": "Warum die Fehlerart zählt (Praxis)",
+       "p": [
+        "Nicht jeder Fehler ist gleich schlimm. Ein False Positive (Fehlalarm) ärgert einen Kunden - z.B. gesperrte Karte im Urlaub. Ein False Negative (übersehener Betrug) kostet richtig Geld.",
+        "Die Confusion Matrix macht sichtbar, welcher Fehlertyp wie oft passiert. So kann die Bank bewusst entscheiden: Nehmen wir mehr Fehlalarme in Kauf, um weniger Betrug zu übersehen? Diese Abwägung steuert man über die Schwelle.",
+        "Aus der Matrix berechnet man Precision (TP / (TP+FP)) und Recall (TP / (TP+FN))."
+       ]
+      },
+      {
+       "h": "Konkretes Beispiel",
+       "p": [
+        "Von 100 echten Betrugsfällen erkennt das Modell 80 (TP) und übersieht 20 (FN). Gleichzeitig löst es 50 Fehlalarme aus (FP). Die Matrix zeigt beides klar - und man sieht sofort: Recall = 80 %, aber viele Fehlalarme. Jetzt kann man gezielt nachjustieren."
+       ]
+      },
+      {
+       "h": "Grenzen & typische Fehler",
+       "p": [
+        "Nur die Gesamt-Trefferquote (Accuracy) ansehen und die Fehlerarten ignorieren.",
+        "FP und FN als gleich schlimm behandeln, obwohl ihre Kosten sehr unterschiedlich sind.",
+        "Bei mehr als zwei Klassen wird die Matrix größer - man muss sie sorgfältig lesen.",
+        "Die Schwelle nie anpassen, obwohl die Matrix ein Ungleichgewicht zeigt."
+       ]
+      },
+      {
+       "h": "So lernst du weiter",
+       "p": [
+        "Direkt verbunden mit Modell-Metriken (Precision/Recall/F1) und Klassifikation. Der artemoppermann- und ki.engineering-Text unten zeigen die Matrix mit Rechenbeispielen."
+       ]
+      }
+     ],
+     "web": [
+      [
+       "artemoppermann: Accuracy, Precision, Recall, F1",
+       "https://artemoppermann.com/de/accuracy-precision-recall-f1-score-und-specificity/"
+      ],
+      [
+       "ki.engineering: Präzision & Recall",
+       "https://ki.engineering/glossar/praezision-recall/"
+      ],
+      [
+       "Google ML Crash Course (deutsch)",
+       "https://developers.google.com/machine-learning/crash-course?hl=de"
+      ]
+     ],
      "nr": 26,
      "track": "ai"
     }
@@ -2464,8 +2766,65 @@ window.CURRICULUM = {
      "detail": "'Deep' (tief) bedeutet: das Netz hat viele Schichten hintereinander. Jede Schicht erkennt etwas komplexeres - bei einem Gesicht erst Kanten, dann Augen/Nase, dann das ganze Gesicht. Weil Deep Learning selbst aus Rohdaten lernt, was wichtig ist, hat es die KI-Revolution ausgeloest. Alle modernen LLMs sind Deep Learning.",
      "bsp": "Ein Foto-Erkenner lernt Schicht fuer Schicht: Kanten -> Formen -> 'das ist eine Katze'.",
      "merke": "Deep Learning = ML mit vielen Schichten. Es lernt selbst, was wichtig ist.",
-     "lang": [],
-     "web": [],
+     "lang": [
+      {
+       "h": "Einfach gesagt",
+       "p": [
+        "Deep Learning ist ein Teilgebiet von Machine Learning, das auf neuronalen Netzen mit vielen Schichten beruht. 'Deep' (tief) bezieht sich genau auf diese vielen Schichten.",
+        "Kurz: Künstliche Intelligenz ist der Oberbegriff, Machine Learning ein Teil davon, und Deep Learning wiederum ein Teil von Machine Learning - drei ineinander liegende Kreise."
+       ]
+      },
+      {
+       "h": "Wie es sich von klassischem ML unterscheidet",
+       "p": [
+        "Beim klassischen Machine Learning muss ein Mensch oft vorgeben, welche Merkmale (Features) wichtig sind. Deep Learning findet die wichtigen Merkmale selbst aus den Rohdaten heraus - das ist sein großer Vorteil.",
+        "Der Preis dafür: Deep Learning braucht deutlich mehr Daten und Rechenleistung (GPUs). Bei kleinen, tabellarischen Datensätzen ist klassisches ML oft gleich gut oder besser - und leichter erklärbar."
+       ]
+      },
+      {
+       "h": "Wie man es einsetzt (Praxis)",
+       "p": [
+        "Deep Learning glänzt bei komplexen, unstrukturierten Daten: Bilder, Sprache, Text, Ton. Es steckt hinter selbstfahrenden Autos, Sprachassistenten und allen modernen LLMs.",
+        "In der Bank: Dokumenten- und Ausweiserkennung (Bild), Sprachbots (Ton/Text), anspruchsvolle Betrugsmuster und natürlich alle GenAI-Anwendungen (Chatbots, Zusammenfassungen).",
+        "Faustregel: Für einfache Tabellen klassisches ML, für Bild/Sprache/Text Deep Learning."
+       ]
+      },
+      {
+       "h": "Konkretes Beispiel",
+       "p": [
+        "Ausweisprüfung: Ein klassisches System bräuchte mühsam von Hand definierte Regeln, wie ein Gesicht aussieht. Ein Deep-Learning-CNN lernt das selbst aus vielen Beispielbildern - und erkennt danach zuverlässig, ob Foto und Ausweis zusammenpassen."
+       ]
+      },
+      {
+       "h": "Grenzen & typische Fehler",
+       "p": [
+        "Braucht viele Daten und teure Rechenleistung (GPUs) - nicht immer verhältnismäßig.",
+        "Blackbox: schwer zu erklären, warum es so entscheidet (Problem bei Aufsicht/Compliance).",
+        "Für einfache Aufgaben Overkill - klassisches ML wäre günstiger und transparenter.",
+        "Ohne genug Daten neigt es stark zu Overfitting."
+       ]
+      },
+      {
+       "h": "So lernst du weiter",
+       "p": [
+        "Direkt danach im Plan: neuronale Netze, Gewichte, Loss/Training, Backpropagation, CNN/RNN, Transformer. Die datasolut- und kobold.ai-Texte unten erklären den Unterschied ML vs DL klar auf Deutsch."
+       ]
+      }
+     ],
+     "web": [
+      [
+       "datasolut: Machine Learning vs. Deep Learning",
+       "https://datasolut.com/machine-learning-vs-deep-learning/"
+      ],
+      [
+       "kobold.ai: ML vs. DL - Unterschied",
+       "https://www.kobold.ai/ml-vs-dl/"
+      ],
+      [
+       "acquisa: Deep Learning vs. Machine Learning",
+       "https://www.acquisa.de/magazin/deep-learning-vs-machine-learning"
+      ]
+     ],
      "nr": 27,
      "track": "ai"
     },
@@ -2656,8 +3015,66 @@ window.CURRICULUM = {
      "detail": "Ein CNN schaut ein Bild nicht als Ganzes an, sondern in kleinen Ausschnitten, und sucht ueberall nach denselben Mustern (z.B. Kanten). Diese werden Schicht fuer Schicht zu groesseren Formen kombiniert. So erkennt es am Ende ganze Objekte. In Banken steckt das z.B. hinter dem automatischen Lesen von Ausweisen und Dokumenten.",
      "bsp": "Automatische Pruefung eines gescannten Ausweises: Ist das Foto echt, stimmen die Felder?",
      "merke": "CNN = Bild-Spezialist: von kleinen Kanten zum ganzen Objekt.",
-     "lang": [],
-     "web": [],
+     "lang": [
+      {
+       "h": "Einfach gesagt",
+       "p": [
+        "Ein CNN (Convolutional Neural Network, 'gefaltetes neuronales Netz') ist ein neuronales Netz, das besonders gut Bilder versteht. Es ist dem Sehzentrum im menschlichen Gehirn nachempfunden.",
+        "Es hat die Bilderkennung revolutioniert - von Gesichtserkennung bis zur Objekterkennung im selbstfahrenden Auto."
+       ]
+      },
+      {
+       "h": "Wie es funktioniert",
+       "p": [
+        "Ein CNN schaut ein Bild nicht als Ganzes an, sondern in kleinen Ausschnitten, und sucht überall nach denselben Mustern. Es baut Verständnis in Ebenen auf:",
+        "Erste Ebenen erkennen einfache Dinge: Kanten, Linien, Farbtupfer. Spätere Ebenen kombinieren diese zu Formen, dann zu Objektteilen (Auge, Rad), schließlich zum ganzen Objekt.",
+        "Typische Bausteine: Convolutional-Schichten (Merkmale finden/filtern), Pooling-Schichten (Daten auf das Wichtigste eindampfen) und am Ende vollständig verbundene Schichten (Ergebnis zusammenführen)."
+       ]
+      },
+      {
+       "h": "Wie man es einsetzt (Praxis in der Bank)",
+       "p": [
+        "Überall, wo Bilder/Scans verarbeitet werden: Ausweis- und Dokumentenerkennung (mit OCR), Prüfung eingereichter Fotos, Unterschriftenabgleich, automatische Verarbeitung von Formularen.",
+        "Oft ein Baustein größerer Abläufe: Ein CNN 'sieht' das Dokument, ein anderes System verarbeitet den erkannten Inhalt weiter.",
+        "Bei sensiblen Bilddaten (Ausweise) gelten strenge Datenschutzregeln - wo läuft das Modell, was wird gespeichert (DSGVO)."
+       ]
+      },
+      {
+       "h": "Konkretes Beispiel",
+       "p": [
+        "Beim Online-Konto-Abschluss fotografiert der Kunde seinen Ausweis. Ein CNN prüft, ob es ein echter Ausweis ist, liest die Felder und vergleicht das Passfoto mit einem Selfie - in Sekunden, automatisch."
+       ]
+      },
+      {
+       "h": "Grenzen & typische Fehler",
+       "p": [
+        "Braucht viele Beispielbilder zum Training und Rechenleistung.",
+        "Anfällig für schlechte Bildqualität, ungewöhnliche Winkel oder absichtliche Täuschung (Fälschungen).",
+        "Blackbox: schwer zu erklären, warum es ein Bild so einordnet.",
+        "Datenschutz bei biometrischen Daten (Gesicht) besonders heikel."
+       ]
+      },
+      {
+       "h": "So lernst du weiter",
+       "p": [
+        "Gehört zu Deep Learning; verwandt mit AI OCR, Document Processing und Multimodalität. Für Text/Reihenfolgen sind stattdessen RNN/LSTM bzw. Transformer zuständig. Die mindsquare- und rnt.de-Texte unten erklären CNN anschaulich."
+       ]
+      }
+     ],
+     "web": [
+      [
+       "mindsquare: Convolutional Neural Network (CNN)",
+       "https://mindsquare.de/knowhow/convolutional-neural-network/"
+      ],
+      [
+       "bigdata-insider: Was ist ein CNN?",
+       "https://www.bigdata-insider.de/was-ist-ein-convolutional-neural-network-a-801246/"
+      ],
+      [
+       "rnt.de: CNN einfach erklärt",
+       "https://rnt.de/glossar/convolutional-neural-networks-cnn/"
+      ]
+     ],
      "nr": 33,
      "track": "ai"
     },
@@ -2878,8 +3295,65 @@ window.CURRICULUM = {
      "detail": "Ein LLM lernt erst allgemeine Sprache aus dem halben Internet (Pretraining) - das kostet Millionen und machen nur grosse Firmen. Danach kann man es guenstig fuer den eigenen Zweck nachschaerfen (Fine-Tuning), z.B. auf Bank-Sprache. Fuer die meisten Firmen-Anwendungen reicht aber RAG (eigenes Wissen mitgeben), ohne das Modell selbst zu trainieren.",
      "bsp": "Ein vortrainiertes Modell kann schon Deutsch; mit Fine-Tuning bringt man ihm den Bank-Ton bei.",
      "merke": "Pretraining = Allgemeinbildung, Fine-Tuning = Spezialisierung. Oft reicht schon RAG.",
-     "lang": [],
-     "web": [],
+     "lang": [
+      {
+       "h": "Einfach gesagt",
+       "p": [
+        "Pretraining ist das große Grundtraining eines Modells mit riesigen Textmengen - dabei lernt es allgemeine Sprache und Weltwissen. Fine-Tuning ist das anschließende Feinschleifen für eine bestimmte Aufgabe oder einen Stil.",
+        "Bild: Pretraining ist die allgemeine Schulbildung, Fine-Tuning die Spezialausbildung für einen konkreten Job."
+       ]
+      },
+      {
+       "h": "Wie es funktioniert",
+       "p": [
+        "Pretraining kostet Millionen und braucht enorme Rechenleistung - das machen nur große Anbieter (OpenAI, Anthropic, Meta ...). Das Ergebnis ist ein fertiges 'Basismodell'.",
+        "Fine-Tuning nimmt so ein Basismodell und trainiert es mit eigenen, meist kleineren Beispieldaten weiter. Das ist viel günstiger. Besonders sparsam ist LoRA: Man trainiert nur einen kleinen Zusatz-Teil statt des ganzen Modells."
+       ]
+      },
+      {
+       "h": "Wie man es einsetzt (Praxis) - und wann man es NICHT braucht",
+       "p": [
+        "Fine-Tuning lohnt, wenn man einen speziellen Stil/Ton oder ein enges Fachgebiet dauerhaft einbauen will (z.B. der Bank-Tonfall, ein Spezialformat).",
+        "Ganz wichtig: Für aktuelles Faktenwissen ist Fine-Tuning der falsche Weg - dafür nimmt man RAG (Wissen zur Laufzeit mitgeben). RAG ist einfacher, aktueller und belegbar. Faustregel: Erst RAG und gutes Prompting versuchen; Fine-Tuning nur, wenn das nicht reicht.",
+        "In der Bank: Beim Fine-Tuning ist der Datenschutz der Trainingsdaten zu klären (was wird ins Modell 'eingebrannt'?). Oft ist RAG die sicherere Wahl."
+       ]
+      },
+      {
+       "h": "Konkretes Beispiel",
+       "p": [
+        "Ein Basismodell kann schon gut Deutsch. Mit RAG bekommt es die aktuellen Konditionen (Fakten). Mit Fine-Tuning bringt man ihm zusätzlich den einheitlichen, freundlichen Bank-Tonfall bei - aber die Preise kommen weiter aus RAG, nicht aus dem Fine-Tuning."
+       ]
+      },
+      {
+       "h": "Grenzen & typische Fehler",
+       "p": [
+        "Fine-Tuning für Faktenwissen missbrauchen (Fakten veralten - dafür ist RAG da).",
+        "Zu wenige oder schlechte Trainingsdaten -> das Modell wird schlechter statt besser.",
+        "Aufwand/Kosten unterschätzen (Datenaufbereitung, Rechenzeit, Pflege).",
+        "Datenschutz übersehen: Sensible Trainingsdaten landen dauerhaft im Modell."
+       ]
+      },
+      {
+       "h": "So lernst du weiter",
+       "p": [
+        "Verwandt: LLM, RAG (die Alternative für Fakten), Fine-Tuning/LoRA und Quantization im Private-AI-Teil. Der Fraunhofer-Text unten und die Hugging-Face-Doku zeigen die Praxis."
+       ]
+      }
+     ],
+     "web": [
+      [
+       "Hugging Face: Fine-tuning (Doku)",
+       "https://huggingface.co/docs/transformers/training"
+      ],
+      [
+       "Fraunhofer IESE: Open-Source-LLMs selbst betreiben",
+       "https://www.iese.fraunhofer.de/blog/open-source-large-language-models-selbst-betreiben/"
+      ],
+      [
+       "Hugging Face PEFT / LoRA (GitHub)",
+       "https://github.com/huggingface/peft"
+      ]
+     ],
      "nr": 37,
      "track": "ai"
     },
