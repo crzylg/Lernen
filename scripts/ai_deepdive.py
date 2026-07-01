@@ -303,3 +303,223 @@ AI_DEEP["Agentic AI"] = {
     "Im Plan gehören dazu: KI-Agenten-Grundlagen, Single-/Multi-Agent, Agent Memory/Planning/Tools, Guardrails, Human-in-the-loop und AgentOps. Die Fraunhofer- und IHK-Texte unten sind ein guter, seriöser Einstieg auf Deutsch."),
  ],
 }
+
+# ===========================================================================
+AI_DEEP["Embeddings"] = {
+ "web": [
+   ("ki-trainingszentrum: Embeddings einfach erklaert", "https://ki-trainingszentrum.com/embeddings-einfach-erklaert-die-grundlage-moderner-ki-suche/"),
+   ("Data Basecamp: Vector Database, Embeddings & RAG", "https://databasecamp.de/daten/vector-database"),
+   ("ki.engineering: Embeddings - KI-Vektoren verstehen", "https://ki.engineering/glossar/embeddings/"),
+   ("Conciso: RAG und Embeddings einfach erklaert", "https://conciso.de/rag-und-embeddings-die-helfer-von-ki-systemen/"),
+ ],
+ "lang": [
+  S("Einfach gesagt",
+    "Ein Embedding verwandelt Text (oder Bilder, Ton) in eine lange Liste von Zahlen - einen Vektor. Dieser Vektor ist wie ein 'Bedeutungs-Fingerabdruck': Texte mit ähnlicher Bedeutung bekommen ähnliche Zahlen.",
+    "Das ist der Trick, mit dem ein Computer plötzlich 'Bedeutung' vergleichen kann, obwohl er eigentlich nur rechnet. Statt Buchstaben zu vergleichen, vergleicht er Zahlen - und ähnliche Zahlen heißt ähnliche Bedeutung."),
+  S("Wie es funktioniert",
+    "Ein spezielles KI-Modell (Embedding-Modell) liest einen Text und gibt einen Vektor zurück - typischerweise mehrere hundert bis tausend Zahlen lang.",
+    "Jede Zahl steht für einen winzigen Bedeutungs-Aspekt. Man kann sich das wie Koordinaten in einem riesigen 'Bedeutungs-Raum' vorstellen: 'Katze' und 'Hund' liegen nah beieinander (beides Haustiere), 'Katze' und 'Kontoauszug' weit auseinander.",
+    "Wie ähnlich zwei Texte sind, misst man über den Abstand ihrer Vektoren. Kleiner Abstand = ähnliche Bedeutung. Ein bekanntes frühes Beispiel ist Word2Vec, das Wörter aus ihrem Kontext heraus in Vektoren umwandelt."),
+  S("Wie man es einsetzt (Praxis)",
+    "Embeddings sind die Grundlage jeder modernen semantischen Suche und jedes RAG-Systems. Man wandelt alle eigenen Dokumente einmal in Embeddings um und speichert sie in einer Vector Database.",
+    "Kommt eine Frage, wird auch sie in ein Embedding umgewandelt, und das System findet die Dokumente mit dem geringsten Abstand - also der ähnlichsten Bedeutung.",
+    "In der Bank heißt das: Ein Kunde fragt 'Karte weg', und das System findet den Artikel 'Karte verloren oder gestohlen', obwohl kein einziges Wort exakt übereinstimmt. Auch Empfehlungssysteme und das Gruppieren ähnlicher Kunden nutzen Embeddings."),
+  S("Konkretes Beispiel",
+    "Die Sätze 'Ich möchte mein Konto kündigen' und 'Wie löse ich mein Girokonto auf?' enthalten kaum gleiche Wörter, meinen aber dasselbe. Ihre Embeddings liegen sehr nah beieinander - deshalb findet der Bot für beide denselben richtigen Wissens-Artikel."),
+  S("Grenzen & typische Fehler",
+    "Embeddings kennen keine Aktualität: Ein einmal berechneter Vektor ändert sich nicht, wenn sich der Inhalt ändert - man muss neu einbetten, wenn Dokumente sich ändern.",
+    "Verschiedene Embedding-Modelle sind nicht kompatibel: Frage und Dokumente müssen mit demselben Modell eingebettet werden.",
+    "Für exakte Dinge (Kontonummern, genaue Beträge) ist reine Embedding-Suche schwach - dafür kombiniert man sie mit klassischer Wortsuche (Hybrid Search).",
+    "Datenschutz: Auch Embeddings können Rückschlüsse auf den Originaltext zulassen - sie sind kein Ersatz für Anonymisierung."),
+  S("So lernst du weiter",
+    "Direkt danach im Plan: Vector Search (wie man in Embeddings sucht), Chunking (wie man Texte vorher zuschneidet) und Semantic/Hybrid Search. Die Data-Basecamp-Quelle unten erklärt das Zusammenspiel mit RAG sehr anschaulich."),
+ ],
+}
+
+# ===========================================================================
+AI_DEEP["Vector Search"] = {
+ "web": [
+   ("Google Cloud: Was ist eine Vektordatenbank?", "https://cloud.google.com/discover/what-is-a-vector-database"),
+   ("it-schulungen.com: Vektordatenbanken im Ueberblick", "https://www.it-schulungen.com/wir-ueber-uns/wissensblog/vektordatenbanken-im-ueberblick-architektur-anbieterbeispiele-und-einsatzszenarien.html"),
+   ("Elastic: Was ist eine Vektordatenbank?", "https://www.elastic.co/de/what-is/vector-database"),
+   ("IONOS: Vektordatenbank - was ist das?", "https://www.ionos.com/digitalguide/server/know-how/vector-database/"),
+ ],
+ "lang": [
+  S("Einfach gesagt",
+    "Vector Search (Vektorsuche) ist eine Suche nach Bedeutung statt nach exakten Wörtern. Sie vergleicht die Embedding-Vektoren und findet die inhaltlich ähnlichsten Treffer.",
+    "Die klassische Suche fragt: 'Welches Dokument enthält genau dieses Wort?' Die Vektorsuche fragt: 'Welches Dokument meint dasselbe?' - auch bei ganz anderer Wortwahl."),
+  S("Wie es funktioniert",
+    "Alle Dokumente werden als Vektoren in einer Vector Database gespeichert. Bei einer Frage wird die Frage ebenfalls zu einem Vektor.",
+    "Die Datenbank misst den Abstand zwischen dem Frage-Vektor und allen gespeicherten Vektoren und liefert die 'Top-k' nächsten Treffer (z.B. die 5 ähnlichsten Chunks).",
+    "Bei Millionen Vektoren wäre ein Vergleich mit jedem einzelnen zu langsam. Deshalb nutzen Vektordatenbanken clevere Verfahren (ANN - Approximate Nearest Neighbor), die fast so genau, aber viel schneller sind."),
+  S("Wie man es einsetzt (Praxis)",
+    "Vector Search ist der 'Retrieval'-Schritt in RAG: Die gefundenen Top-k Chunks werden dem LLM als Kontext übergeben.",
+    "Laut den Fachquellen gibt es zwei Wege: dedizierte Vektordatenbanken (z.B. Pinecone, Weaviate, Milvus, Chroma) oder bestehende Datenbanken mit Vektor-Erweiterung (PostgreSQL + pgvector, MongoDB Atlas, Elasticsearch, Redis). Letzteres vermeidet ein zweites System und reduziert Abhängigkeiten (Lock-in).",
+    "In der Bank: Damit durchsucht ein Bot Handbücher und Richtlinien nach Bedeutung; auch Betrugsabwehr und Empfehlungen nutzen Ähnlichkeitssuche."),
+  S("Konkretes Beispiel",
+    "Frage: 'Was passiert, wenn ich meine PIN dreimal falsch eingebe?' Die Vektorsuche findet den Chunk aus dem Sicherheitsleitfaden über 'Kartensperrung nach fehlerhafter PIN-Eingabe' - selbst wenn dort das Wort 'dreimal' gar nicht vorkommt, sondern 'nach mehreren Fehlversuchen'."),
+  S("Grenzen & typische Fehler",
+    "Zu viele oder zu wenige Treffer (k) einstellen: zu wenige = wichtige Info fehlt, zu viele = das LLM wird mit Beiwerk zugemüllt.",
+    "Rein semantisch reicht nicht bei exakten Begriffen/Nummern - dann Hybrid Search (Wort + Bedeutung) nutzen.",
+    "Qualität steht und fällt mit gutem Chunking und gutem Embedding-Modell.",
+    "Datenschutz/Region beachten: Wo liegt die Vektordatenbank? In der Bank möglichst EU/On-Prem."),
+  S("So lernst du weiter",
+    "Davor: Embeddings. Danach: Chunking, RAG-Architektur, Hybrid Search. Der Google-Cloud- und der IONOS-Text unten erklären Vektordatenbanken einsteigerfreundlich."),
+ ],
+}
+
+# ===========================================================================
+AI_DEEP["Chunking"] = {
+ "web": [
+   ("IBM: Chunking-Strategien fuer RAG (Tutorial)", "https://www.ibm.com/think/tutorials/chunking-strategies-for-rag-with-langchain-watsonx-ai"),
+   ("Unstructured: Chunking for RAG - Best Practices", "https://unstructured.io/blog/chunking-for-rag-best-practices"),
+   ("Databricks: Ultimate Guide to Chunking Strategies", "https://community.databricks.com/t5/technical-blog/the-ultimate-guide-to-chunking-strategies-for-rag-applications/ba-p/113089"),
+ ],
+ "lang": [
+  S("Einfach gesagt",
+    "Chunking heißt, lange Dokumente in kleine, sinnvolle Stücke (Chunks) zu schneiden, bevor man sie in Embeddings umwandelt und speichert.",
+    "Warum? Ein ganzes 50-Seiten-Handbuch als ein Stück wäre für die Suche unbrauchbar - man würde nie die genaue Stelle finden. Kleine Häppchen lassen die Suche gezielt die richtige Passage liefern."),
+  S("Wie es funktioniert",
+    "Man legt eine Chunk-Größe fest (oft in Tokens) und meist einen Overlap (Überlappung), damit an den Schnittstellen kein Zusammenhang verloren geht.",
+    "Gängige Strategien laut den Quellen: Fixed-size (feste Größe, einfachster Weg), Recursive (schneidet an natürlichen Grenzen wie Absätzen/Sätzen) und Sliding-Window (überlappende Fenster). Recursive erhält den Sinn oft besser."),
+  S("Wie man es einsetzt (Praxis) & Richtwerte",
+    "Ein bewährter Startpunkt aus der Praxis: RecursiveCharacterTextSplitter mit ca. 512 Tokens und 50 Tokens Overlap - das funktioniert laut Databricks/IBM für rund 80 % der Fälle. Alternativ ~250 Tokens (~1000 Zeichen) als kleinerer Start.",
+    "Faustregel: Chunks groß genug für sinnvollen Zusammenhang, aber klein genug, um genau zu bleiben. Wichtig: An den eigenen Daten und echten Fragen testen (benchmarken), nicht raten.",
+    "In der Bank: Ein Preis- und Leistungsverzeichnis schneidet man sinnvollerweise pro Leistung/Abschnitt, nicht mitten im Satz - so liefert die Suche saubere, vollständige Antworten."),
+  S("Konkretes Beispiel",
+    "Schlechtes Chunking: Ein Chunk endet mitten in 'Die Gebühr beträgt' - der Betrag steht im nächsten Chunk. Die KI findet nur die Hälfte und antwortet unvollständig.",
+    "Gutes Chunking: Der ganze Absatz 'Kontoführungsgebühr: 4,90 € pro Monat, entfällt ab 700 € Geldeingang' bleibt zusammen - die Antwort stimmt."),
+  S("Grenzen & typische Fehler",
+    "Zu große Chunks: Die Suche wird ungenau, das LLM bekommt zu viel Beiwerk (und es kostet mehr Tokens).",
+    "Zu kleine Chunks: Der Zusammenhang zerbricht, Antworten werden lückenhaft.",
+    "Kein Overlap: An den Schnittkanten geht Information verloren.",
+    "Tabellen/Listen stur nach Zeichen schneiden zerstört ihre Bedeutung - hier braucht es strukturbewusstes Chunking."),
+  S("So lernst du weiter",
+    "Chunking ist der erste Schritt der RAG-Pipeline (davor: Dokumente laden; danach: Embeddings, Vector Search). Die IBM- und Unstructured-Guides unten zeigen konkrete Strategien mit Beispielen."),
+ ],
+}
+
+# ===========================================================================
+AI_DEEP["Halluzinationen"] = {
+ "web": [
+   ("Fraunhofer IESE: Halluzinationen von GenAI/LLMs", "https://www.iese.fraunhofer.de/blog/halluzinationen-generative-ki-llm/"),
+   ("Google Cloud: Was sind KI-Halluzinationen?", "https://cloud.google.com/discover/what-are-ai-hallucinations"),
+   ("IBM: Was sind KI-Halluzinationen?", "https://www.ibm.com/think/topics/ai-hallucinations"),
+   ("mindsquare: KI-Halluzinationen erkennen & vermeiden", "https://mindsquare.de/fachartikel/kuenstliche-intelligenz/ki-halluzinationen/"),
+ ],
+ "lang": [
+  S("Einfach gesagt",
+    "Eine Halluzination ist, wenn eine KI etwas Falsches behauptet - aber so überzeugend und flüssig, dass es echt klingt. Die KI 'lügt' nicht absichtlich; sie erzeugt einfach die statistisch plausibelste Wortfolge, auch wenn diese sachlich falsch ist.",
+    "Genau das macht Halluzinationen in der Bank gefährlich: Eine falsche Auskunft zu Gebühren, Fristen oder Rechten kann echten Schaden anrichten. Deshalb muss man sie verstehen und aktiv eindämmen."),
+  S("Warum es passiert (Ursachen)",
+    "Ein LLM sagt immer nur das wahrscheinlichste nächste Wort voraus - es hat kein echtes 'Wissen' und keine Wahrheitsprüfung eingebaut.",
+    "Häufige Ursachen laut den Fachquellen: fehlerhafte oder unvollständige Trainingsdaten; veraltete Daten (das Modell kennt eure heutigen Konditionen nicht); fehlendes Spezialwissen; und die Grundfunktion selbst (plausibel statt korrekt).",
+    "Besonders oft passiert es bei sehr speziellen Fragen, zu denen das Modell nichts gelernt hat - dann 'füllt' es die Lücke mit erfundenen, aber glaubwürdig klingenden Details."),
+  S("Wie man es einsetzt/verhindert (Praxis)",
+    "Der wichtigste Gegenmechanismus ist Grounding per RAG: Man gibt dem Modell vor der Antwort echte, geprüfte Dokumente und lässt es NUR daraus antworten. Ein gutes System gibt zu, wenn der Kontext nicht ausreicht, statt zu raten.",
+    "Weitere Maßnahmen: Quellen anzeigen (damit man prüfen kann), klare Prompts ('Antworte nur aus dem gegebenen Kontext; wenn unklar, sage das'), Temperatur/Kreativität niedrig halten, und bei heiklen Themen einen Menschen prüfen lassen (Human-in-the-loop).",
+    "In der Bank: Für rechts- oder geldrelevante Auskünfte nie ein rohes LLM ohne Quellen einsetzen - immer RAG plus Prüfung."),
+  S("Konkretes Beispiel",
+    "Frage: 'Bis wann kann ich eine Überweisung zurückrufen?' Ein rohes LLM erfindet vielleicht selbstbewusst 'innerhalb von 24 Stunden'. Mit Grounding sucht das System die echte Hausregel und antwortet korrekt mit Quelle - oder sagt ehrlich, dass es dazu keine Info hat und verbindet an einen Mitarbeiter."),
+  S("Grenzen & typische Fehler",
+    "Man kann Halluzinationen stark reduzieren, aber nie zu 100 % ausschließen - deshalb bleibt Prüfung wichtig.",
+    "Typischer Fehler: dem flüssigen, selbstsicheren Ton der KI vertrauen ('klingt richtig, also ist es richtig').",
+    "Ohne Quellenangabe kann niemand die Antwort kontrollieren.",
+    "Kein Fallback für 'weiß ich nicht' - dann rät die KI, statt zu übergeben."),
+  S("So lernst du weiter",
+    "Direkt danach im Plan: Grounding und die ganze RAG-Kette. Der Fraunhofer-IESE-Text unten erklärt Ursachen und Gegenmittel ausführlich und seriös auf Deutsch."),
+ ],
+}
+
+# ===========================================================================
+AI_DEEP["Grounding"] = {
+ "web": [
+   ("Fraunhofer IESE: Halluzinationen & Gegenmittel", "https://www.iese.fraunhofer.de/blog/halluzinationen-generative-ki-llm/"),
+   ("undetectable.ai: Grounding and Hallucinations in AI", "https://undetectable.ai/blog/grounding-and-hallucinations-in-ai/"),
+   ("copilotenschule.de: KI-Halluzinationen vermeiden", "https://copilotenschule.de/wissen/ki-halluzinationen-vermeiden"),
+ ],
+ "lang": [
+  S("Einfach gesagt",
+    "Grounding heißt wörtlich 'erden' - die KI-Antwort wird auf den Boden echter, geprüfter Fakten gestellt. Statt frei aus dem Gedächtnis zu reden, stützt sich die KI auf konkrete Quellen, die man ihr mitgibt.",
+    "Grounding ist das wichtigste Gegenmittel gegen Halluzinationen und die Voraussetzung für vertrauenswürdige KI in einer Bank."),
+  S("Wie es funktioniert",
+    "Der Ablauf: 1. Die Frage kommt rein. 2. Das System sucht in glaubwürdigen Quellen (eure Dokumente, eine Datenbank, eine Live-Suche) die passenden Fakten. 3. Diese Fakten werden dem LLM zusammen mit der Frage übergeben. 4. Das LLM formuliert die Antwort aus diesen Fakten - idealerweise mit Quellenangabe.",
+    "Technisch ist Retrieval Augmented Generation (RAG) die häufigste Form von Grounding. Ein gut 'geerdetes' System sagt außerdem ehrlich, wenn die Quellen nicht ausreichen, statt etwas zu erfinden."),
+  S("Wie man es einsetzt (Praxis)",
+    "Man verbindet das LLM mit einer verlässlichen Wissensquelle: interne Knowledge Base, Produktdatenbank, geprüfte Handbücher. Im Genesys-Teil ist genau das die Knowledge Base, die man mit dem Bot Flow verbindet.",
+    "Wichtig: Nur geprüfte, aktuelle Quellen anbinden - Grounding auf schlechte Quellen erdet auf falschen Fakten.",
+    "In der Bank sorgt Grounding dafür, dass Auskünfte zu Konto, Karte und Kredit aus den offiziellen Unterlagen kommen und mit Quelle belegbar sind - wichtig für Kundenvertrauen und Aufsicht."),
+  S("Konkretes Beispiel",
+    "Ohne Grounding: 'Ihr Tageslimit beträgt vermutlich 1.000 €' (geraten). Mit Grounding: Das System liest das hinterlegte Limit des Kunden aus dem System und antwortet: 'Ihr aktuelles Tageslimit beträgt 1.500 € (Quelle: Kontoeinstellungen).'"),
+  S("Grenzen & typische Fehler",
+    "Grounding ist nur so gut wie die Quelle: veraltete oder falsche Dokumente führen zu falschen, aber 'belegten' Antworten.",
+    "Findet die Suche die falsche Stelle, wird selbstbewusst falsch geantwortet - deshalb regelmäßig evaluieren.",
+    "Typischer Fehler: Grounding einbauen, aber keine Quelle anzeigen - dann bleibt die Prüfbarkeit auf der Strecke.",
+    "Kein Plan für 'nichts Passendes gefunden' - der Bot sollte dann übergeben statt zu raten."),
+  S("So lernst du weiter",
+    "Grounding und Halluzinationen gehören zusammen; danach folgt die komplette RAG-Kette (Embeddings, Vector Search, Chunking, Evaluation). Die Fraunhofer-Quelle unten ordnet beides gut ein."),
+ ],
+}
+
+# ===========================================================================
+AI_DEEP["Token und Kosten"] = {
+ "web": [
+   ("Anthropic: Pricing & Tokens", "https://docs.anthropic.com/en/docs/about-claude/pricing"),
+   ("OpenAI: Tokenizer & wie Tokens zaehlen", "https://platform.openai.com/tokenizer"),
+   ("Alexander Thamm: LLM-Grundlagen (Tokens)", "https://www.alexanderthamm.com/de/blog/large-language-models-eine-einfuehrung/"),
+ ],
+ "lang": [
+  S("Einfach gesagt",
+    "KI-Sprachmodelle rechnen nicht in Wörtern, sondern in Tokens - kleinen Textbausteinen. Ein Token ist grob 3-4 Zeichen; ein längeres Wort kann aus mehreren Tokens bestehen. Faustregel: 100 Tokens ≈ 75 englische Wörter (Deutsch oft etwas mehr Tokens).",
+    "Wichtig fürs Geld: Fast alle Anbieter rechnen pro Token ab - für den Text, den du hineingibst (Input), UND für den Text, den die KI erzeugt (Output)."),
+  S("Wie es funktioniert",
+    "Vor der Verarbeitung zerlegt ein 'Tokenizer' den Text in Tokens. Das Modell verarbeitet und erzeugt Tokens; am Ende werden sie wieder zu lesbarem Text.",
+    "Jedes Modell hat ein Kontextfenster (Context Window) - die maximale Zahl an Tokens für Eingabe + Ausgabe zusammen. Ist der Text länger, muss man kürzen oder aufteilen.",
+    "Kosten = (Input-Tokens × Input-Preis) + (Output-Tokens × Output-Preis). Output ist oft teurer als Input."),
+  S("Wie man es einsetzt (Praxis: Kosten steuern)",
+    "Kurz und gezielt prompten: unnötig langer Kontext kostet bei JEDEM Aufruf mit.",
+    "Das richtige Modell wählen: für einfache Aufgaben ein kleines/günstiges Modell (SLM), nur für Schwieriges ein großes.",
+    "Bei RAG nur die wirklich relevanten Chunks mitgeben, nicht ganze Dokumente.",
+    "Caching nutzen (wiederkehrende Kontexte), Antwortlänge begrenzen, und die Kosten laufend überwachen (siehe AI Cost Monitoring).",
+    "In der Bank: Kosten pro Gespräch grob kalkulieren und Budgets/Alarme setzen, damit ein Bot nicht unbemerkt teuer wird."),
+  S("Konkretes Beispiel",
+    "Ein Bot, der bei jeder Frage das komplette 20-Seiten-Handbuch mitschickt, verbraucht pro Anfrage zehntausende Tokens - unnötig teuer. Mit RAG schickt er nur die 2-3 passenden Chunks (ein paar hundert Tokens) und liefert dieselbe Antwort für einen Bruchteil der Kosten."),
+  S("Grenzen & typische Fehler",
+    "Deutsch und Fachbegriffe/Zahlen erzeugen oft mehr Tokens als erwartet - lieber real messen (Tokenizer-Tools).",
+    "Typischer Fehler: das teuerste Modell für alles nehmen.",
+    "Zu langer Kontext 'für alle Fälle' - bläht Kosten und kann die Qualität sogar senken.",
+    "Kosten nicht überwachen und am Monatsende überrascht werden."),
+  S("So lernst du weiter",
+    "Passt zu: LLM-Grundlagen, RAG (spart Tokens) und AI Cost Monitoring. Die Anthropic-Preisseite und der OpenAI-Tokenizer unten zeigen konkret, wie Tokens gezählt und abgerechnet werden."),
+ ],
+}
+
+# ===========================================================================
+AI_DEEP["Semantic Search"] = {
+ "web": [
+   ("Elastic: Was ist semantische Suche?", "https://www.elastic.co/de/what-is/semantic-search"),
+   ("Google Cloud: Vektordatenbank & semantische Suche", "https://cloud.google.com/discover/what-is-a-vector-database"),
+   ("Data Basecamp: semantische Suche & RAG", "https://databasecamp.de/daten/vector-database"),
+ ],
+ "lang": [
+  S("Einfach gesagt",
+    "Semantic Search (semantische Suche) ist eine Suche, die die Bedeutung versteht. Man muss nicht das exakte Wort treffen - die Suche findet, was gemeint ist.",
+    "Die klassische Suche vergleicht Buchstaben ('kommt das Wort vor?'). Die semantische Suche vergleicht Bedeutung (über Embeddings) - deshalb findet sie 'Karte weg' auch beim Artikel 'Karte verloren'."),
+  S("Wie es funktioniert",
+    "Sie baut auf Embeddings und Vector Search auf: Dokumente und Frage werden zu Vektoren, und die Suche liefert die bedeutungsähnlichsten Treffer.",
+    "Dadurch versteht sie Synonyme, Umschreibungen und Tippfehler viel besser als die reine Wortsuche."),
+  S("Wie man es einsetzt (Praxis)",
+    "Semantische Suche steckt im Retrieval-Schritt jedes RAG-Systems, im Genesys Knowledge-Portal und in jeder guten Wissenssuche für Kunden und Mitarbeiter.",
+    "In der Praxis kombiniert man sie oft mit der klassischen Wortsuche zu Hybrid Search: semantisch für Formulierungen, Wortsuche für exakte Begriffe, Produktnamen und Nummern.",
+    "In der Bank: Kunden und Agenten finden Antworten, ohne die 'richtigen' Fachwörter zu kennen - das senkt Frust und entlastet die Hotline."),
+  S("Konkretes Beispiel",
+    "Ein Kunde sucht 'Geld ins Ausland schicken'. Die semantische Suche findet den Artikel 'Auslandsüberweisung / SEPA & SWIFT', obwohl der Kunde keinen dieser Fachbegriffe verwendet hat."),
+  S("Grenzen & typische Fehler",
+    "Bei exakten Codes, IBANs oder Produktnummern ist reine Semantik schwächer - dann Hybrid Search nutzen.",
+    "Qualität hängt vom Embedding-Modell und von gutem Chunking ab.",
+    "Sprache beachten: Für deutsche Inhalte ein Modell wählen, das Deutsch gut kann.",
+    "Ohne Prüfung/Feedback bleiben schlechte Treffer unentdeckt."),
+  S("So lernst du weiter",
+    "Direkt verwandt: Embeddings, Vector Search und Hybrid Search. Der Elastic-Text unten erklärt semantische Suche einsteigerfreundlich auf Deutsch."),
+ ],
+}
