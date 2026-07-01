@@ -1,7 +1,7 @@
 // Automatisch erzeugt von scripts/build_curriculum.py - nicht direkt bearbeiten.
 window.CURRICULUM = {
  "updated": "2026-07-01",
- "total": 229,
+ "total": 285,
  "modules": [
   {
    "title": "Fundament: Bank & Contact Center",
@@ -24,6 +24,9 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
+     "detail": null,
+     "bsp": null,
+     "merke": null,
      "nr": 1
     },
     {
@@ -47,6 +50,9 @@ window.CURRICULUM = {
        "https://www.bafin.de/DE/Aufsicht/FinTech/KuenstlicheIntelligenz/kuenstliche_intelligenz_node.html"
       ]
      ],
+     "detail": null,
+     "bsp": null,
+     "merke": null,
      "nr": 2
     },
     {
@@ -65,6 +71,9 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
+     "detail": null,
+     "bsp": null,
+     "merke": null,
      "nr": 3
     },
     {
@@ -83,6 +92,9 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
+     "detail": null,
+     "bsp": null,
+     "merke": null,
      "nr": 4
     },
     {
@@ -101,6 +113,9 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
+     "detail": null,
+     "bsp": null,
+     "merke": null,
      "nr": 5
     },
     {
@@ -119,6 +134,9 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
+     "detail": null,
+     "bsp": null,
+     "merke": null,
      "nr": 6
     }
    ]
@@ -144,6 +162,9 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
+     "detail": null,
+     "bsp": null,
+     "merke": null,
      "nr": 7
     },
     {
@@ -162,6 +183,9 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
+     "detail": null,
+     "bsp": null,
+     "merke": null,
      "nr": 8
     },
     {
@@ -185,6 +209,9 @@ window.CURRICULUM = {
       ]
      ],
      "art": [],
+     "detail": null,
+     "bsp": null,
+     "merke": null,
      "nr": 9
     }
    ]
@@ -210,6 +237,9 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
+     "detail": null,
+     "bsp": null,
+     "merke": null,
      "nr": 10
     },
     {
@@ -228,6 +258,9 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
+     "detail": null,
+     "bsp": null,
+     "merke": null,
      "nr": 11
     },
     {
@@ -246,6 +279,9 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
+     "detail": null,
+     "bsp": null,
+     "merke": null,
      "nr": 12
     },
     {
@@ -264,6 +300,9 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
+     "detail": null,
+     "bsp": null,
+     "merke": null,
      "nr": 13
     },
     {
@@ -282,6 +321,9 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
+     "detail": null,
+     "bsp": null,
+     "merke": null,
      "nr": 14
     },
     {
@@ -300,6 +342,9 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
+     "detail": null,
+     "bsp": null,
+     "merke": null,
      "nr": 15
     },
     {
@@ -318,6 +363,9 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
+     "detail": null,
+     "bsp": null,
+     "merke": null,
      "nr": 16
     }
    ]
@@ -348,6 +396,9 @@ window.CURRICULUM = {
       ]
      ],
      "art": [],
+     "detail": null,
+     "bsp": null,
+     "merke": null,
      "nr": 17
     },
     {
@@ -366,6 +417,9 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
+     "detail": null,
+     "bsp": null,
+     "merke": null,
      "nr": 18
     },
     {
@@ -384,6 +438,9 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
+     "detail": null,
+     "bsp": null,
+     "merke": null,
      "nr": 19
     },
     {
@@ -402,6 +459,9 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
+     "detail": null,
+     "bsp": null,
+     "merke": null,
      "nr": 20
     },
     {
@@ -420,6 +480,9 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
+     "detail": null,
+     "bsp": null,
+     "merke": null,
      "nr": 21
     },
     {
@@ -438,6 +501,9 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
+     "detail": null,
+     "bsp": null,
+     "merke": null,
      "nr": 22
     },
     {
@@ -461,6 +527,9 @@ window.CURRICULUM = {
       ]
      ],
      "art": [],
+     "detail": null,
+     "bsp": null,
+     "merke": null,
      "nr": 23
     },
     {
@@ -488,6 +557,9 @@ window.CURRICULUM = {
       ]
      ],
      "art": [],
+     "detail": null,
+     "bsp": null,
+     "merke": null,
      "nr": 24
     }
    ]
@@ -513,6 +585,9 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
+     "detail": null,
+     "bsp": null,
+     "merke": null,
      "nr": 25
     },
     {
@@ -531,6 +606,9 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
+     "detail": null,
+     "bsp": null,
+     "merke": null,
      "nr": 26
     },
     {
@@ -549,6 +627,9 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
+     "detail": null,
+     "bsp": null,
+     "merke": null,
      "nr": 27
     },
     {
@@ -567,6 +648,9 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
+     "detail": null,
+     "bsp": null,
+     "merke": null,
      "nr": 28
     },
     {
@@ -585,6 +669,9 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
+     "detail": null,
+     "bsp": null,
+     "merke": null,
      "nr": 29
     }
    ]
@@ -610,6 +697,9 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
+     "detail": null,
+     "bsp": null,
+     "merke": null,
      "nr": 30
     },
     {
@@ -628,6 +718,9 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
+     "detail": null,
+     "bsp": null,
+     "merke": null,
      "nr": 31
     },
     {
@@ -646,6 +739,9 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
+     "detail": null,
+     "bsp": null,
+     "merke": null,
      "nr": 32
     },
     {
@@ -664,6 +760,9 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
+     "detail": null,
+     "bsp": null,
+     "merke": null,
      "nr": 33
     },
     {
@@ -682,6 +781,9 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
+     "detail": null,
+     "bsp": null,
+     "merke": null,
      "nr": 34
     },
     {
@@ -700,6 +802,9 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
+     "detail": null,
+     "bsp": null,
+     "merke": null,
      "nr": 35
     },
     {
@@ -718,6 +823,9 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
+     "detail": null,
+     "bsp": null,
+     "merke": null,
      "nr": 36
     },
     {
@@ -736,6 +844,9 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
+     "detail": null,
+     "bsp": null,
+     "merke": null,
      "nr": 37
     },
     {
@@ -754,6 +865,9 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
+     "detail": null,
+     "bsp": null,
+     "merke": null,
      "nr": 38
     },
     {
@@ -772,6 +886,9 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
+     "detail": null,
+     "bsp": null,
+     "merke": null,
      "nr": 39
     },
     {
@@ -790,6 +907,9 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
+     "detail": null,
+     "bsp": null,
+     "merke": null,
      "nr": 40
     },
     {
@@ -808,6 +928,9 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
+     "detail": null,
+     "bsp": null,
+     "merke": null,
      "nr": 41
     },
     {
@@ -826,6 +949,9 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
+     "detail": null,
+     "bsp": null,
+     "merke": null,
      "nr": 42
     },
     {
@@ -844,6 +970,9 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
+     "detail": null,
+     "bsp": null,
+     "merke": null,
      "nr": 43
     },
     {
@@ -862,6 +991,9 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
+     "detail": null,
+     "bsp": null,
+     "merke": null,
      "nr": 44
     },
     {
@@ -880,6 +1012,9 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
+     "detail": null,
+     "bsp": null,
+     "merke": null,
      "nr": 45
     },
     {
@@ -898,6 +1033,9 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
+     "detail": null,
+     "bsp": null,
+     "merke": null,
      "nr": 46
     }
    ]
@@ -923,6 +1061,9 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
+     "detail": null,
+     "bsp": null,
+     "merke": null,
      "nr": 47
     },
     {
@@ -941,6 +1082,9 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
+     "detail": null,
+     "bsp": null,
+     "merke": null,
      "nr": 48
     },
     {
@@ -959,6 +1103,9 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
+     "detail": null,
+     "bsp": null,
+     "merke": null,
      "nr": 49
     },
     {
@@ -977,6 +1124,9 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
+     "detail": null,
+     "bsp": null,
+     "merke": null,
      "nr": 50
     },
     {
@@ -995,6 +1145,9 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
+     "detail": null,
+     "bsp": null,
+     "merke": null,
      "nr": 51
     },
     {
@@ -1013,6 +1166,9 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
+     "detail": null,
+     "bsp": null,
+     "merke": null,
      "nr": 52
     },
     {
@@ -1031,6 +1187,9 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
+     "detail": null,
+     "bsp": null,
+     "merke": null,
      "nr": 53
     },
     {
@@ -1049,6 +1208,9 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
+     "detail": null,
+     "bsp": null,
+     "merke": null,
      "nr": 54
     },
     {
@@ -1067,6 +1229,9 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
+     "detail": null,
+     "bsp": null,
+     "merke": null,
      "nr": 55
     }
    ]
@@ -1097,7 +1262,1047 @@ window.CURRICULUM = {
        "https://www.genesys.com/de/customer-success/genesys-university"
       ]
      ],
+     "detail": null,
+     "bsp": null,
+     "merke": null,
      "nr": 56
+    }
+   ]
+  },
+  {
+   "title": "AI-Fundament: Programmieren & Daten",
+   "emoji": "🐍",
+   "ziel": "Die Basis jedes AI-Bootcamps: einfache Programmierung mit Python und der Umgang mit Daten.",
+   "topics": [
+    {
+     "t": "Warum Python fuer KI",
+     "was": "Python ist eine Programmiersprache, die sich fast wie einfaches Englisch liest. Fast die gesamte KI-Welt benutzt Python, weil es leicht zu lernen ist und es fertige KI-Bausteine (Libraries) gibt.",
+     "pts": [
+      "Programmiersprache = Sprache, mit der man dem Computer Anweisungen gibt",
+      "Python ist einsteigerfreundlich und weit verbreitet",
+      "Es gibt fertige Bausteine fuer KI, Daten und Mathe",
+      "Standard in fast jedem AI-Bootcamp"
+     ],
+     "yt": "Python lernen fuer Anfaenger deutsch",
+     "src": [
+      "Python Tutorial (offiziell, deutsch)",
+      "https://docs.python.org/de/3/tutorial/"
+     ],
+     "gh": [
+      [
+       "CPython (die Sprache selbst)",
+       "https://github.com/python/cpython"
+      ]
+     ],
+     "art": [
+      [
+       "Elements of AI (Uni Helsinki, kostenlos, deutsch)",
+       "https://www.elementsofai.de/"
+      ]
+     ],
+     "detail": "Du musst kein Mathe-Genie sein, um Python zu lernen. Man schreibt kurze Zeilen, der Computer fuehrt sie sofort aus. So sieht man direkt, was passiert. Genau deshalb starten Bootcamps mit Python, bevor es an KI geht.",
+     "bsp": "print('Hallo Welt') laesst den Computer den Text 'Hallo Welt' anzeigen.",
+     "merke": "Python ist das Werkzeug. KI ist das, was du damit baust.",
+     "nr": 57
+    },
+    {
+     "t": "Variablen & Datentypen (Python)",
+     "was": "Eine Variable ist ein benannter Behaelter fuer einen Wert, z.B. name = 'Anna'. Ein Datentyp sagt, welche Art von Wert drin ist: Text, Zahl oder Wahrheitswert.",
+     "pts": [
+      "Variable = Behaelter mit Namen",
+      "String = Text (in Anfuehrungszeichen)",
+      "Integer/Float = ganze/kommazahlen",
+      "Boolean = wahr oder falsch (True/False)"
+     ],
+     "yt": "Python Variablen Datentypen erklaert",
+     "src": [
+      "Python Tutorial (deutsch)",
+      "https://docs.python.org/de/3/tutorial/"
+     ],
+     "gh": [],
+     "art": [],
+     "detail": "Stell dir Variablen wie beschriftete Schachteln vor. In eine Schachtel 'alter' legst du die Zahl 30, in 'name' den Text 'Anna'. Spaeter holst du den Wert einfach ueber den Namen wieder heraus. Der Datentyp bestimmt, was du mit dem Wert tun kannst (rechnen bei Zahlen, verbinden bei Text).",
+     "bsp": "alter = 30  (Zahl)  ·  name = 'Anna'  (Text)  ·  ist_kunde = True  (wahr/falsch)",
+     "merke": "Erst Wert in die Variable legen, dann ueber den Namen wieder benutzen.",
+     "nr": 58
+    },
+    {
+     "t": "Kontrollfluss: if & Schleifen",
+     "was": "Mit 'if' trifft das Programm Entscheidungen (wenn ... dann ...). Mit Schleifen (for/while) wiederholt es Dinge automatisch, statt sie 100-mal abzutippen.",
+     "pts": [
+      "if / else = Entscheidung treffen",
+      "for-Schleife = etwas fuer jedes Element tun",
+      "while-Schleife = wiederholen, solange etwas gilt",
+      "Einrueckung (Leerzeichen) zeigt in Python, was zusammengehoert"
+     ],
+     "yt": "Python if else schleifen erklaert",
+     "src": null,
+     "gh": [],
+     "art": [],
+     "detail": "Der Computer arbeitet Zeile fuer Zeile von oben nach unten. Mit 'if' kann er abbiegen ('wenn Betrag groesser 1000, dann pruefe genauer'). Mit einer Schleife macht er dieselbe Arbeit fuer viele Daten, z.B. fuer jeden Kunden in einer Liste. Das ist die Grundlage, um grosse Datenmengen zu verarbeiten.",
+     "bsp": "for kunde in kundenliste: begruesse(kunde) - macht dasselbe fuer jeden Kunden.",
+     "merke": "if = entscheiden, Schleife = wiederholen. Mehr steckt am Anfang nicht dahinter.",
+     "nr": 59
+    },
+    {
+     "t": "Funktionen & Libraries",
+     "was": "Eine Funktion ist ein benannter Arbeitsschritt, den man immer wieder aufrufen kann. Eine Library (Bibliothek) ist eine Sammlung fertiger Funktionen von anderen, die man einfach mitbenutzt.",
+     "pts": [
+      "Funktion = wiederverwendbarer Arbeitsschritt",
+      "Aufruf mit Namen und Klammern: begruesse('Anna')",
+      "Library = fertige Bausteine zum Importieren",
+      "import pandas -> holt die Daten-Library herein"
+     ],
+     "yt": "Python funktionen libraries erklaert",
+     "src": [
+      "https://docs.python.org/de/3/tutorial/",
+      null
+     ],
+     "gh": [],
+     "art": [],
+     "detail": "Statt alles selbst zu bauen, nutzt man fertige Libraries. Fuer Daten gibt es pandas, fuer Mathe numpy, fuer KI scikit-learn. Das ist wie Kochen mit fertigen Zutaten statt alles vom Feld zu ernten. Deshalb kann man mit wenig Code viel erreichen.",
+     "bsp": "import pandas as pd  laedt die Daten-Library. Danach kann man Tabellen laden und auswerten.",
+     "merke": "Nicht neu erfinden - fertige Libraries sparen dir 90 % der Arbeit.",
+     "nr": 60
+    },
+    {
+     "t": "NumPy",
+     "was": "NumPy ist die Basis-Library fuer Zahlen und Rechnen in Python. Sie kann blitzschnell mit grossen Zahlenlisten (Arrays) rechnen - die Grundlage fast aller KI.",
+     "pts": [
+      "NumPy = schnelles Rechnen mit Zahlen",
+      "Array = geordnete Liste von Zahlen",
+      "Rechnet mit ganzen Listen auf einmal",
+      "Basis fuer pandas und KI-Libraries"
+     ],
+     "yt": "NumPy tutorial deutsch anfaenger",
+     "src": null,
+     "gh": [
+      [
+       "NumPy",
+       "https://github.com/numpy/numpy"
+      ]
+     ],
+     "art": [],
+     "detail": "KI rechnet mit riesigen Zahlentabellen. Normale Python-Schleifen waeren dafuer zu langsam. NumPy erledigt das im Hintergrund extrem schnell. Du schreibst 'a + b' und NumPy addiert Tausende Zahlen gleichzeitig.",
+     "bsp": "Alle Gehaelter um 5 % erhoehen: gehaelter * 1.05 - in EINER Zeile fuer die ganze Liste.",
+     "merke": "NumPy = der Taschenrechner fuer riesige Zahlenmengen.",
+     "nr": 61
+    },
+    {
+     "t": "Pandas",
+     "was": "Pandas ist die Library fuer Tabellen (wie Excel, aber in Python). Damit laedt, filtert und analysiert man Daten - der wichtigste Schritt vor jeder KI.",
+     "pts": [
+      "Pandas = Tabellen in Python",
+      "DataFrame = eine Tabelle mit Zeilen und Spalten",
+      "Filtern, sortieren, gruppieren, zusammenfassen",
+      "Liest CSV, Excel, Datenbanken"
+     ],
+     "yt": "Pandas tutorial deutsch anfaenger",
+     "src": null,
+     "gh": [
+      [
+       "pandas",
+       "https://github.com/pandas-dev/pandas"
+      ]
+     ],
+     "art": [
+      [
+       "Kaggle: Pandas Kurs (kostenlos)",
+       "https://www.kaggle.com/learn"
+      ]
+     ],
+     "detail": "Bevor eine KI lernen kann, muessen die Daten sauber und geordnet sein. Genau das macht man mit pandas: Tabelle laden, fehlende Werte finden, Spalten auswaehlen, Durchschnitte berechnen. Fachleute sagen: 80 % der Arbeit in KI-Projekten ist Datenaufbereitung - und die passiert meist in pandas.",
+     "bsp": "df[df['betrag'] > 1000] zeigt nur die Zeilen, in denen der Betrag ueber 1000 liegt.",
+     "merke": "Erst die Daten in Ordnung bringen (pandas), dann die KI. Nie umgekehrt.",
+     "nr": 62
+    },
+    {
+     "t": "Daten bereinigen (Data Cleaning)",
+     "was": "Data Cleaning heisst, Daten sauber zu machen: fehlende Werte ergaenzen, Fehler korrigieren, Doppelte entfernen. Schmutzige Daten fuehren zu schlechter KI.",
+     "pts": [
+      "Fehlende Werte behandeln (leere Felder)",
+      "Doppelte Eintraege entfernen",
+      "Falsche/unlogische Werte korrigieren",
+      "Einheitliches Format herstellen"
+     ],
+     "yt": "data cleaning erklaert deutsch",
+     "src": null,
+     "gh": [],
+     "art": [],
+     "detail": "Echte Daten sind fast nie perfekt: mal fehlt das Alter, mal ist ein Datum falsch, mal steht derselbe Kunde doppelt drin. Wenn man solche Daten ungeprueft in eine KI gibt, lernt sie Unsinn. 'Garbage in, garbage out' - Muell rein, Muell raus. Deshalb ist Cleaning einer der wichtigsten Schritte.",
+     "bsp": "Ein Konto mit Alter = 999 Jahre ist ein Tippfehler und muss korrigiert oder entfernt werden.",
+     "merke": "Garbage in, garbage out: Saubere Daten sind wichtiger als das schlauste Modell.",
+     "nr": 63
+    },
+    {
+     "t": "Datenvisualisierung",
+     "was": "Visualisierung heisst, Daten als Bilder/Diagramme darzustellen. Ein Diagramm zeigt Muster, die man in einer Zahlentabelle nie sehen wuerde.",
+     "pts": [
+      "Diagramme statt nackter Zahlen",
+      "Balken, Linien, Streudiagramme (Scatter)",
+      "Libraries: matplotlib, seaborn",
+      "Muster und Ausreisser schnell erkennen"
+     ],
+     "yt": "datenvisualisierung python matplotlib deutsch",
+     "src": null,
+     "gh": [
+      [
+       "matplotlib",
+       "https://github.com/matplotlib/matplotlib"
+      ]
+     ],
+     "art": [],
+     "detail": "Menschen erkennen Muster viel besser in Bildern als in Tabellen. Ein Liniendiagramm zeigt sofort, ob Betrug im Sommer steigt. Ein Streudiagramm zeigt, ob teureres Wohnen auch mehr Kredit bedeutet. Vor jedem KI-Modell schaut man sich die Daten erst als Bild an (das nennt man EDA - Explorative Datenanalyse).",
+     "bsp": "Ein Balkendiagramm der Anrufe pro Wochentag zeigt sofort, dass Montag der Stresstag ist.",
+     "merke": "Erst anschauen, dann rechnen. Ein Bild verraet mehr als 1000 Zahlen.",
+     "nr": 64
+    },
+    {
+     "t": "Jupyter Notebook",
+     "was": "Ein Jupyter Notebook ist eine digitale Seite, auf der man Code, Ergebnisse und Notizen mischt. Man fuehrt Code Stueck fuer Stueck aus und sieht sofort das Ergebnis.",
+     "pts": [
+      "Code + Ergebnis + Text auf einer Seite",
+      "Schrittweise ausfuehren (Zelle fuer Zelle)",
+      "Ideal zum Lernen und Ausprobieren",
+      "Laeuft im Browser"
+     ],
+     "yt": "Jupyter Notebook tutorial deutsch",
+     "src": null,
+     "gh": [
+      [
+       "Jupyter",
+       "https://github.com/jupyter/notebook"
+      ]
+     ],
+     "art": [],
+     "detail": "Statt ein ganzes Programm auf einmal laufen zu lassen, teilt ein Notebook alles in kleine Bloecke (Zellen). Du fuehrst eine Zelle aus, siehst das Ergebnis (auch Diagramme), aenderst etwas und probierst weiter. Fast jeder Data-Science-Kurs arbeitet damit.",
+     "bsp": "In einer Zelle laedst du die Daten, in der naechsten zeigst du ein Diagramm - alles untereinander sichtbar.",
+     "merke": "Notebook = Ausprobieren mit sofortiger Rueckmeldung. Perfekt zum Lernen.",
+     "nr": 65
+    },
+    {
+     "t": "Git & GitHub Grundlagen",
+     "was": "Git speichert die Versionen deines Codes (wie ein Speicherpunkt im Spiel). GitHub ist die Webseite, auf der man den Code ablegt, teilt und zusammenarbeitet.",
+     "pts": [
+      "Git = Versionsverwaltung (Speicherpunkte)",
+      "Commit = ein Speicherpunkt mit Beschreibung",
+      "GitHub = Ort zum Ablegen und Teilen",
+      "Repository = ein Projekt-Ordner online"
+     ],
+     "yt": "Git GitHub Grundlagen deutsch anfaenger",
+     "src": null,
+     "gh": [
+      [
+       "Git",
+       "https://github.com/git/git"
+      ]
+     ],
+     "art": [],
+     "detail": "Beim Programmieren aendert man staendig etwas. Mit Git kannst du jederzeit zu einer frueheren Version zurueck, falls etwas kaputtgeht. GitHub ist der Online-Speicher dafuer - und gleichzeitig dein oeffentliches Schaufenster (Portfolio) fuer Bewerbungen. Diese App liegt uebrigens auch auf GitHub.",
+     "bsp": "Du machst einen Fehler? Mit Git springst du zum letzten funktionierenden Speicherpunkt zurueck.",
+     "merke": "Git ist deine Zeitmaschine fuer Code - und GitHub dein Portfolio.",
+     "nr": 66
+    }
+   ]
+  },
+  {
+   "title": "Mathematik fuer KI (sehr einfach)",
+   "emoji": "📐",
+   "ziel": "Nur die Mathe-Ideen, die man wirklich braucht - ganz ohne Formel-Angst erklaert.",
+   "topics": [
+    {
+     "t": "Warum Mathe fuer KI?",
+     "was": "KI ist im Kern Rechnen mit Zahlen. Man muss die Mathe nicht selbst rechnen (das macht der Computer), aber die Grundideen verstehen, um zu wissen, was passiert.",
+     "pts": [
+      "KI trifft Entscheidungen ueber Zahlen",
+      "Drei Bereiche reichen: Statistik, Lineare Algebra, Ableitung",
+      "Computer rechnet - du musst nur die Idee verstehen",
+      "Keine Angst: es geht um Verstehen, nicht um Klausuren"
+     ],
+     "yt": "Mathe fuer machine learning einfach erklaert",
+     "src": null,
+     "gh": [],
+     "art": [
+      [
+       "Elements of AI (Uni Helsinki, kostenlos, deutsch)",
+       "https://www.elementsofai.de/"
+      ]
+     ],
+     "detail": "Viele haben Angst vor Mathe und denken, KI sei deshalb nichts fuer sie. Das stimmt nicht. Du brauchst kein Studium. Es reicht, drei Grundideen zu verstehen: Wie fasse ich Daten zusammen (Statistik)? Wie rechnet man mit Zahlenlisten (Lineare Algebra)? Wie wird ein Modell Schritt fuer Schritt besser (Ableitung/Gradient)? Den Rest erledigt der Computer.",
+     "bsp": null,
+     "merke": "Du musst Mathe nicht koennen, sondern verstehen, wofuer sie da ist.",
+     "nr": 67
+    },
+    {
+     "t": "Statistik Grundlagen",
+     "was": "Statistik fasst viele Zahlen zu wenigen Kennzahlen zusammen, z.B. Durchschnitt. So versteht man grosse Datenmengen auf einen Blick.",
+     "pts": [
+      "Mittelwert = Durchschnitt",
+      "Median = der mittlere Wert (robuster als der Durchschnitt)",
+      "Standardabweichung = wie stark streuen die Werte",
+      "Ausreisser = einzelne, sehr abweichende Werte"
+     ],
+     "yt": "Statistik grundlagen einfach erklaert deutsch",
+     "src": null,
+     "gh": [],
+     "art": [],
+     "detail": "Wenn 1000 Kunden anrufen, kannst du nicht jede Zahl einzeln ansehen. Statistik verdichtet das: Der Durchschnittsanruf dauert 4 Minuten, die meisten liegen zwischen 2 und 6. Achtung beim Durchschnitt: Ein einziger Millionaer hebt den 'Durchschnittskunden' stark an - deshalb ist der Median oft ehrlicher.",
+     "bsp": "Gehaelter 2000, 2100, 2200, 50000: Durchschnitt = 14075 (irrefuehrend), Median = 2150 (ehrlicher).",
+     "merke": "Der Durchschnitt kann luegen - der Median ist oft der ehrlichere Wert.",
+     "nr": 68
+    },
+    {
+     "t": "Wahrscheinlichkeit",
+     "was": "Wahrscheinlichkeit sagt, wie sicher etwas eintritt - von 0 (nie) bis 1 (immer). KI arbeitet fast immer mit Wahrscheinlichkeiten, nicht mit sicheren Fakten.",
+     "pts": [
+      "0 = unmoeglich, 1 = sicher, 0.5 = 50:50",
+      "KI sagt: 'zu 92 % ist das Betrug'",
+      "Kein 'ja/nein', sondern 'wie wahrscheinlich'",
+      "Grundlage des Confidence Score"
+     ],
+     "yt": "wahrscheinlichkeit einfach erklaert deutsch",
+     "src": null,
+     "gh": [],
+     "art": [],
+     "detail": "Eine KI sagt selten 'das ist sicher so'. Sie sagt 'das ist zu 92 % Betrug'. Diese 92 % sind eine Wahrscheinlichkeit. Deshalb legt man Schwellen fest: Ab 90 % Alarm ausloesen, darunter erst nachfragen. Genau dieselbe Idee steckt im Confidence Score eines Bots.",
+     "bsp": "Der Bot ist zu 40 % sicher, den Wunsch verstanden zu haben - zu wenig, also fragt er lieber nach.",
+     "merke": "KI denkt in Wahrscheinlichkeiten, nicht in absoluten Wahrheiten.",
+     "nr": 69
+    },
+    {
+     "t": "Lineare Algebra: Vektoren & Matrizen",
+     "was": "Ein Vektor ist eine Liste von Zahlen, eine Matrix eine Tabelle von Zahlen. KI speichert fast alles so - z.B. ist ein Embedding einfach ein Vektor.",
+     "pts": [
+      "Vektor = Zahlenliste (z.B. [0.2, 0.9, 0.1])",
+      "Matrix = Zahlentabelle (Zeilen x Spalten)",
+      "KI rechnet in riesigen Vektoren/Matrizen",
+      "Ein Embedding ist ein Vektor"
+     ],
+     "yt": "vektoren matrizen einfach erklaert deutsch",
+     "src": null,
+     "gh": [],
+     "art": [],
+     "detail": "Das klingt schlimmer, als es ist. Ein Vektor ist nur eine Reihe von Zahlen. Ein Bild, ein Wort, ein Kunde - all das verwandelt KI in solche Zahlenreihen, um damit zu rechnen. Wenn du frueher 'Embeddings' und 'Vector Search' gelernt hast: genau das ist Lineare Algebra in Aktion.",
+     "bsp": "Das Wort 'Konto' wird zu einem Vektor wie [0.12, 0.88, ...] - aehnliche Woerter haben aehnliche Zahlen.",
+     "merke": "Vektor = Zahlenliste. Mehr musst du dir zum Start nicht merken.",
+     "nr": 70
+    },
+    {
+     "t": "Ableitung & Gradient (ganz einfach)",
+     "was": "Eine Ableitung sagt, in welche Richtung es 'bergab' geht. KI nutzt das, um ihre Fehler Schritt fuer Schritt zu verkleinern - wie beim Bergabgehen im Nebel.",
+     "pts": [
+      "Gradient = Richtung des staerksten Gefaelles",
+      "KI will den Fehler (Loss) verkleinern",
+      "Sie geht in kleinen Schritten 'bergab'",
+      "Das nennt man Gradient Descent"
+     ],
+     "yt": "gradient descent einfach erklaert deutsch",
+     "src": null,
+     "gh": [],
+     "art": [],
+     "detail": "Stell dir vor, du stehst im Nebel auf einem Berg und willst ins Tal. Du fuehlst mit dem Fuss, wo es am steilsten bergab geht, und machst einen kleinen Schritt. Das wiederholst du. Genauso lernt eine KI: Der 'Berg' ist der Fehler, das 'Tal' ist die beste Loesung, und der Gradient zeigt die Richtung bergab. Nach vielen kleinen Schritten ist das Modell gut.",
+     "bsp": "Das Modell raet, liegt daneben, korrigiert sich ein kleines Stueck - tausendfach, bis es kaum noch Fehler macht.",
+     "merke": "Lernen = Fehler messen und in kleinen Schritten bergab wandern.",
+     "nr": 71
+    }
+   ]
+  },
+  {
+   "title": "Machine Learning Grundlagen",
+   "emoji": "📊",
+   "ziel": "Wie Computer aus Daten lernen - das Herz klassischer KI, ausfuehrlich erklaert.",
+   "topics": [
+    {
+     "t": "Was ist Machine Learning?",
+     "was": "Machine Learning (ML) heisst: Der Computer lernt Regeln selbst aus Beispielen, statt dass ein Mensch jede Regel vorgibt. Man zeigt ihm viele Beispiele, er erkennt das Muster.",
+     "pts": [
+      "Klassisch: Mensch schreibt jede Regel",
+      "ML: Computer lernt Regeln aus Daten",
+      "Braucht viele Beispiele (Daten)",
+      "Grundlage fast aller heutigen KI"
+     ],
+     "yt": "machine learning einfach erklaert deutsch",
+     "src": [
+      "Google ML Crash Course (deutsch)",
+      "https://developers.google.com/machine-learning/crash-course?hl=de"
+     ],
+     "gh": [
+      [
+       "scikit-learn",
+       "https://github.com/scikit-learn/scikit-learn"
+      ]
+     ],
+     "art": [
+      [
+       "Elements of AI (Uni Helsinki, kostenlos)",
+       "https://www.elementsofai.de/"
+      ]
+     ],
+     "detail": "Frueher hat man einem Computer jede Regel einzeln gesagt: 'Wenn Betrag > 10000 UND Ausland, dann verdaechtig'. Das ist muehsam und unvollstaendig. Machine Learning dreht das um: Man zeigt dem Computer 100000 alte Faelle mit der Info 'war Betrug / war kein Betrug', und er findet die Muster selbst. Danach erkennt er auch neue Betrugsfaelle, die kein Mensch als Regel formuliert haette.",
+     "bsp": "Statt Regeln fuer Spam zu schreiben, zeigt man dem Modell 10000 Spam- und 10000 gute Mails - es lernt den Unterschied selbst.",
+     "merke": "ML lernt Regeln aus Beispielen. Je besser die Beispiele, desto besser die KI.",
+     "nr": 72
+    },
+    {
+     "t": "Supervised Learning",
+     "was": "Supervised (ueberwachtes) Learning heisst: Man lernt mit Loesung. Jedes Beispiel hat schon die richtige Antwort (Label), und das Modell lernt, sie vorherzusagen.",
+     "pts": [
+      "Daten haben die richtige Antwort dabei (Label)",
+      "Modell lernt: Eingabe -> richtige Antwort",
+      "Beispiel: E-Mail -> Spam ja/nein",
+      "Haeufigste Art im Geschaeftsalltag"
+     ],
+     "yt": "supervised learning einfach erklaert deutsch",
+     "src": [
+      "Google ML Crash Course",
+      "https://developers.google.com/machine-learning/crash-course?hl=de"
+     ],
+     "gh": [],
+     "art": [],
+     "detail": "Wie ein Schueler mit Loesungsheft: Man zeigt Aufgabe UND richtige Antwort. Das Modell vergleicht seine Vermutung mit der richtigen Antwort und korrigiert sich. Nach vielen Beispielen kann es die Antwort auch fuer neue, ungesehene Faelle geben. Die meisten Bank-Anwendungen (Betrug, Kredit-Scoring) sind Supervised Learning.",
+     "bsp": "Alte Kredite mit 'zurueckgezahlt / ausgefallen' trainieren ein Modell, das bei neuen Antraegen das Risiko schaetzt.",
+     "merke": "Supervised = Lernen mit Loesungsheft (Eingabe + richtige Antwort).",
+     "nr": 73
+    },
+    {
+     "t": "Unsupervised Learning",
+     "was": "Unsupervised (unueberwachtes) Learning heisst: Lernen ohne Loesung. Das Modell bekommt nur Daten und findet selbst Gruppen oder Muster darin.",
+     "pts": [
+      "Daten ohne richtige Antwort",
+      "Modell findet selbst Gruppen (Cluster)",
+      "Beispiel: Kunden in Typen einteilen",
+      "Gut, wenn man die Antwort noch nicht kennt"
+     ],
+     "yt": "unsupervised learning clustering erklaert deutsch",
+     "src": null,
+     "gh": [],
+     "art": [],
+     "detail": "Hier gibt es kein Loesungsheft. Man gibt dem Modell z.B. alle Kundendaten, und es gruppiert aehnliche Kunden von selbst: 'junge Sparer', 'aktive Anleger', 'Gelegenheitsnutzer'. Niemand hat diese Gruppen vorgegeben - das Modell hat sie in den Daten entdeckt. Nuetzlich fuer Marketing oder um ueberhaupt erst zu verstehen, was in den Daten steckt.",
+     "bsp": "Clustering teilt die Kundschaft automatisch in 5 Typen ein, die man dann gezielt anspricht.",
+     "merke": "Unsupervised = Gruppen/Muster finden, ohne dass jemand die Antwort kennt.",
+     "nr": 74
+    },
+    {
+     "t": "Reinforcement Learning",
+     "was": "Reinforcement Learning heisst: Lernen durch Belohnung und Bestrafung. Das Modell probiert Aktionen aus und lernt aus dem Ergebnis - wie ein Hund, der Leckerlis bekommt.",
+     "pts": [
+      "Lernen durch Ausprobieren",
+      "Gute Aktion -> Belohnung, schlechte -> Strafe",
+      "Ueber Zeit: die beste Strategie",
+      "Beispiel: Spiele, Robotik, Optimierung"
+     ],
+     "yt": "reinforcement learning einfach erklaert deutsch",
+     "src": null,
+     "gh": [],
+     "art": [],
+     "detail": "Statt Beispielen mit Loesung gibt es hier nur Belohnung. Das Modell handelt, sieht das Ergebnis und lernt, welche Aktionen sich lohnen. So haben KIs Schach und Go besser als Menschen gelernt. Im Alltag steckt die Idee z.B. hinter der Optimierung von Ablaeufen. Auch das Feintuning moderner Chatbots (RLHF) nutzt diese Idee mit menschlichem Feedback.",
+     "bsp": "Eine KI lernt ein Spiel, indem sie tausende Runden spielt und aus Sieg/Niederlage lernt.",
+     "merke": "Reinforcement = Lernen durch Belohnung, wie beim Hunde-Training.",
+     "nr": 75
+    },
+    {
+     "t": "Features & Labels",
+     "was": "Ein Feature ist eine Eingabe-Information (z.B. Alter, Betrag). Das Label ist die richtige Antwort, die man vorhersagen will (z.B. Betrug ja/nein).",
+     "pts": [
+      "Feature = Eingabe/Merkmal (Alter, Betrag, Ort)",
+      "Label = die gesuchte Antwort (Ziel)",
+      "Modell lernt: Features -> Label",
+      "Gute Features sind Gold wert"
+     ],
+     "yt": "features labels machine learning erklaert",
+     "src": null,
+     "gh": [],
+     "art": [],
+     "detail": "Denk an eine Tabelle: Die Spalten mit Infos (Alter, Betrag, Uhrzeit) sind die Features. Die eine Spalte, die du vorhersagen willst (war es Betrug?), ist das Label. Das Modell sucht den Zusammenhang zwischen Features und Label. Welche Features du waehlst, entscheidet oft mehr ueber den Erfolg als das Modell selbst.",
+     "bsp": "Features: Betrag, Uhrzeit, Land. Label: Betrug (ja/nein). Das Modell lernt den Zusammenhang.",
+     "merke": "Features rein, Label raus. Gute Features schlagen jedes fancy Modell.",
+     "nr": 76
+    },
+    {
+     "t": "Trainings-, Validierungs- & Testdaten",
+     "was": "Man teilt die Daten in drei Teile: mit Trainingsdaten lernt das Modell, mit Validierungsdaten stellt man es ein, mit Testdaten prueft man ehrlich, wie gut es ist.",
+     "pts": [
+      "Training = zum Lernen (der groesste Teil)",
+      "Validierung = zum Einstellen/Vergleichen",
+      "Test = zum ehrlichen Endpruefen (nie vorher ansehen!)",
+      "Typisch: 70 / 15 / 15 Prozent"
+     ],
+     "yt": "train test split erklaert deutsch",
+     "src": null,
+     "gh": [],
+     "art": [],
+     "detail": "Wichtig fuer Ehrlichkeit: Man darf ein Modell nicht mit denselben Daten pruefen, mit denen es gelernt hat - sonst kennt es die Antworten auswendig. Deshalb legt man Testdaten beiseite und zeigt sie dem Modell erst ganz am Ende. Nur so weiss man, wie es bei ECHTEN neuen Faellen abschneidet.",
+     "bsp": "Wie eine Pruefung: Man uebt mit Uebungsaufgaben (Training), die Klausur (Test) sieht man erst am Pruefungstag.",
+     "merke": "Testdaten sind heilig: erst ganz am Ende ansehen, sonst betruegt man sich selbst.",
+     "nr": 77
+    },
+    {
+     "t": "Overfitting & Underfitting",
+     "was": "Overfitting heisst: Das Modell lernt die Beispiele auswendig statt das Muster - und versagt bei Neuem. Underfitting heisst: Es lernt zu wenig und ist zu simpel.",
+     "pts": [
+      "Overfitting = auswendig gelernt, versagt bei Neuem",
+      "Underfitting = zu simpel, erkennt das Muster nicht",
+      "Ziel: die goldene Mitte (gut verallgemeinern)",
+      "Erkennbar am Unterschied Training vs Test"
+     ],
+     "yt": "overfitting underfitting einfach erklaert deutsch",
+     "src": null,
+     "gh": [],
+     "art": [],
+     "detail": "Ein Schueler, der nur die Uebungsaufgaben auswendig lernt, scheitert an neuen Aufgaben - das ist Overfitting. Einer, der gar nicht lernt, scheitert auch - das ist Underfitting. Man erkennt Overfitting daran, dass das Modell auf Trainingsdaten super, auf Testdaten aber schlecht ist. Gegenmittel: mehr Daten, einfacheres Modell, Techniken wie Dropout.",
+     "bsp": "99 % richtig im Training, aber nur 60 % im Test = klassisches Overfitting (auswendig gelernt).",
+     "merke": "Ziel ist nicht, die Beispiele zu kennen, sondern Neues richtig zu meistern.",
+     "nr": 78
+    },
+    {
+     "t": "Klassifikation vs Regression",
+     "was": "Zwei Grundaufgaben: Klassifikation sagt eine Kategorie voraus (Betrug ja/nein). Regression sagt eine Zahl voraus (Kreditbetrag, Preis).",
+     "pts": [
+      "Klassifikation = Kategorie/Klasse (ja/nein, A/B/C)",
+      "Regression = eine Zahl (Preis, Betrag, Dauer)",
+      "Frage: sortiere ich ein oder schaetze ich eine Zahl?",
+      "Braucht je andere Metriken"
+     ],
+     "yt": "klassifikation regression unterschied erklaert",
+     "src": null,
+     "gh": [],
+     "art": [],
+     "detail": "Fast jede ML-Aufgabe ist eines von beidem. Willst du etwas in Schubladen einsortieren (Spam/kein Spam, welche Abteilung)? Das ist Klassifikation. Willst du eine Zahl schaetzen (wie hoch wird der Umsatz, wie lange dauert der Anruf)? Das ist Regression. Zu wissen, welcher Typ vorliegt, bestimmt Modell und Bewertung.",
+     "bsp": "'Welcher Kundentyp?' = Klassifikation. 'Wie hoch der erwartete Umsatz?' = Regression.",
+     "merke": "Kategorie = Klassifikation, Zahl = Regression.",
+     "nr": 79
+    },
+    {
+     "t": "Wichtige ML-Algorithmen",
+     "was": "Es gibt viele Lern-Verfahren (Algorithmen). Man muss sie nicht selbst bauen - man sollte nur wissen, welche es gibt und wofuer sie gut sind.",
+     "pts": [
+      "Decision Tree = Ja/Nein-Fragebaum",
+      "Random Forest = viele Baeume gemeinsam (stark)",
+      "k-NN = schau, was aehnliche Faelle taten",
+      "k-Means = bildet Gruppen (Clustering)"
+     ],
+     "yt": "machine learning algorithmen ueberblick deutsch",
+     "src": null,
+     "gh": [
+      [
+       "scikit-learn",
+       "https://github.com/scikit-learn/scikit-learn"
+      ]
+     ],
+     "art": [],
+     "detail": "Ein Decision Tree stellt nacheinander Ja/Nein-Fragen ('Betrag > 1000? Ausland?') bis zur Entscheidung - sehr gut nachvollziehbar. Ein Random Forest fragt viele solcher Baeume und nimmt die Mehrheit - genauer, aber weniger durchschaubar. Fuer den Anfang reicht: es gibt einfache, erklaerbare Modelle und komplexe, genauere. In Banken zaehlt Erklaerbarkeit oft mehr als das letzte Prozent Genauigkeit.",
+     "bsp": "Ein Decision Tree fuer Kredit: Einkommen hoch? -> Schulden niedrig? -> genehmigen.",
+     "merke": "Du musst Algorithmen nicht bauen - nur wissen, welcher wofuer passt.",
+     "nr": 80
+    },
+    {
+     "t": "Modell-Metriken: Accuracy, Precision, Recall, F1",
+     "was": "Metriken messen, wie gut ein Modell ist. Accuracy allein taeuscht oft - Precision und Recall zeigen das wahre Bild, besonders bei seltenen Faellen wie Betrug.",
+     "pts": [
+      "Accuracy = Anteil insgesamt richtig",
+      "Precision = wie viele Alarme stimmten wirklich",
+      "Recall = wie viele echte Faelle wurden gefunden",
+      "F1 = fairer Mix aus Precision und Recall"
+     ],
+     "yt": "accuracy precision recall f1 einfach erklaert",
+     "src": null,
+     "gh": [],
+     "art": [],
+     "detail": "Beispiel Betrug: Nur 1 von 1000 Faellen ist Betrug. Ein Modell, das IMMER 'kein Betrug' sagt, hat 99,9 % Accuracy - und ist trotzdem nutzlos, weil es keinen einzigen Betrug findet. Deshalb schaut man auf Recall (wie viele echte Betruege gefunden?) und Precision (wie oft war der Alarm berechtigt?). F1 fasst beide fair zusammen.",
+     "bsp": "99,9 % Accuracy klingt top - aber wenn Recall = 0 %, wird KEIN Betrug erkannt. Wertlos.",
+     "merke": "Bei seltenen Faellen luegt Accuracy. Schau immer auf Precision und Recall.",
+     "nr": 81
+    },
+    {
+     "t": "Confusion Matrix",
+     "was": "Die Confusion Matrix ist eine kleine Tabelle, die zeigt, wo das Modell richtig und wo es falsch lag - getrennt nach Art des Fehlers.",
+     "pts": [
+      "Zeigt richtige und falsche Vorhersagen",
+      "False Positive = falscher Alarm",
+      "False Negative = uebersehener echter Fall",
+      "Basis fuer Precision und Recall"
+     ],
+     "yt": "confusion matrix einfach erklaert deutsch",
+     "src": null,
+     "gh": [],
+     "art": [],
+     "detail": "Nicht jeder Fehler ist gleich schlimm. Ein falscher Betrugsalarm (False Positive) aergert einen Kunden. Ein uebersehener echter Betrug (False Negative) kostet richtig Geld. Die Confusion Matrix trennt diese Faelle sauber auf, damit man entscheiden kann, welchen Fehler man eher in Kauf nimmt.",
+     "bsp": "Lieber ein paar Kunden mit falschem Alarm nerven, als einen grossen Betrug uebersehen? Die Matrix macht das sichtbar.",
+     "merke": "Nicht nur WIE OFT falsch, sondern WELCHE Art Fehler - das entscheidet in der Praxis.",
+     "nr": 82
+    }
+   ]
+  },
+  {
+   "title": "Deep Learning & Neuronale Netze",
+   "emoji": "🧠",
+   "ziel": "Die Technik hinter moderner KI und LLMs - von Neuronen bis zum Transformer.",
+   "topics": [
+    {
+     "t": "Was ist Deep Learning?",
+     "was": "Deep Learning ist eine Art von Machine Learning mit kuenstlichen 'neuronalen Netzen', die dem Gehirn nachempfunden sind. Es ist besonders stark bei Bildern, Sprache und Text.",
+     "pts": [
+      "Teilgebiet von Machine Learning",
+      "Nutzt neuronale Netze mit vielen Schichten",
+      "Stark bei Bild, Ton, Sprache, Text",
+      "Basis von LLMs wie GPT und Claude"
+     ],
+     "yt": "deep learning einfach erklaert deutsch",
+     "src": [
+      "Google ML Crash Course",
+      "https://developers.google.com/machine-learning/crash-course?hl=de"
+     ],
+     "gh": [],
+     "art": [
+      [
+       "fast.ai (kostenloser Kurs)",
+       "https://course.fast.ai/"
+      ]
+     ],
+     "detail": "'Deep' (tief) bedeutet: das Netz hat viele Schichten hintereinander. Jede Schicht erkennt etwas komplexeres - bei einem Gesicht erst Kanten, dann Augen/Nase, dann das ganze Gesicht. Weil Deep Learning selbst aus Rohdaten lernt, was wichtig ist, hat es die KI-Revolution ausgeloest. Alle modernen LLMs sind Deep Learning.",
+     "bsp": "Ein Foto-Erkenner lernt Schicht fuer Schicht: Kanten -> Formen -> 'das ist eine Katze'.",
+     "merke": "Deep Learning = ML mit vielen Schichten. Es lernt selbst, was wichtig ist.",
+     "nr": 83
+    },
+    {
+     "t": "Neuronales Netz: Aufbau",
+     "was": "Ein neuronales Netz besteht aus vielen kleinen Recheneinheiten (Neuronen), die in Schichten (Layers) angeordnet sind. Daten fliessen von der Eingabe zur Ausgabe durch.",
+     "pts": [
+      "Input Layer = Eingabe (die Daten)",
+      "Hidden Layers = die 'Denk-Schichten' dazwischen",
+      "Output Layer = Ergebnis",
+      "Neuronen sind ueber Gewichte verbunden"
+     ],
+     "yt": "neuronales netz aufbau einfach erklaert deutsch",
+     "src": null,
+     "gh": [],
+     "art": [],
+     "detail": "Stell dir viele kleine Schalter vor, die in Reihen angeordnet sind. Jeder Schalter (Neuron) bekommt Zahlen, rechnet kurz und gibt das Ergebnis an die naechste Reihe weiter. Vorne kommen die Daten rein (z.B. Pixel eines Bildes), hinten kommt das Ergebnis raus (z.B. 'Katze'). Dazwischen verarbeiten die verborgenen Schichten die Information Schritt fuer Schritt.",
+     "bsp": "Bild rein (Input) -> mehrere Denk-Schichten -> 'Katze zu 97 %' (Output).",
+     "merke": "Neuronen in Schichten: Daten fliessen vorne rein, Ergebnis kommt hinten raus.",
+     "nr": 84
+    },
+    {
+     "t": "Gewichte & Aktivierungsfunktion",
+     "was": "Gewichte sind Zahlen, die sagen, wie wichtig eine Verbindung ist - sie werden beim Lernen angepasst. Die Aktivierungsfunktion entscheidet, ob ein Neuron 'feuert'.",
+     "pts": [
+      "Gewicht = Wichtigkeit einer Verbindung",
+      "Lernen = Gewichte richtig einstellen",
+      "Aktivierungsfunktion = An/Aus-Entscheidung des Neurons",
+      "Bekannt: ReLU, Sigmoid"
+     ],
+     "yt": "gewichte aktivierungsfunktion neuronales netz erklaert",
+     "src": null,
+     "gh": [],
+     "art": [],
+     "detail": "Das eigentliche 'Wissen' eines Netzes steckt in den Gewichten - Millionen oder Milliarden Zahlen. Beim Training werden genau diese Zahlen so lange nachjustiert, bis das Netz gute Antworten gibt. Die Aktivierungsfunktion sorgt dafuer, dass das Netz auch komplizierte, nicht-gerade Zusammenhaenge lernen kann - ohne sie koennte es nur simple Linien.",
+     "bsp": "Beim Training eines LLM werden Milliarden Gewichte angepasst - das ist sein 'Wissen'.",
+     "merke": "Das Wissen einer KI = ihre Gewichte. Lernen = diese Zahlen richtig einstellen.",
+     "nr": 85
+    },
+    {
+     "t": "Loss Function & Training",
+     "was": "Die Loss Function misst, wie falsch das Modell liegt. Training heisst, die Gewichte so zu aendern, dass der Loss (Fehler) immer kleiner wird.",
+     "pts": [
+      "Loss = Mass fuer den Fehler",
+      "Ziel: Loss so klein wie moeglich",
+      "Training = Gewichte anpassen, Loss senken",
+      "Nutzt Gradient Descent (bergab)"
+     ],
+     "yt": "loss function training neuronales netz erklaert",
+     "src": null,
+     "gh": [],
+     "art": [],
+     "detail": "Das Modell raet, vergleicht mit der richtigen Antwort und berechnet den Fehler (Loss). Dann aendert es seine Gewichte ein winziges Stueck in die Richtung, die den Fehler verkleinert (Gradient - das Bergab-Bild von vorhin). Das wiederholt es millionenfach mit vielen Beispielen. So 'lernt' ein neuronales Netz.",
+     "bsp": "Modell raet '7', richtig war '5' -> Loss hoch -> Gewichte leicht korrigieren -> naechster Versuch besser.",
+     "merke": "Training = Fehler messen und Gewichte in kleinen Schritten verbessern.",
+     "nr": 86
+    },
+    {
+     "t": "Backpropagation (einfach)",
+     "was": "Backpropagation ist der Trick, der neuronale Netze lernen laesst: Der Fehler wird von hinten nach vorne durchs Netz zurueckgereicht, damit jede Schicht weiss, wie sie sich verbessern muss.",
+     "pts": [
+      "Fehler von hinten nach vorne zurueckgeben",
+      "Jede Schicht erfaehrt ihren Anteil am Fehler",
+      "So werden alle Gewichte klug angepasst",
+      "Der Motor hinter dem Lernen"
+     ],
+     "yt": "backpropagation einfach erklaert deutsch",
+     "src": null,
+     "gh": [],
+     "art": [],
+     "detail": "Wenn am Ende ein Fehler herauskommt, muss das Netz wissen, welche der Millionen Gewichte schuld waren. Backpropagation rechnet den Fehler rueckwaerts durch alle Schichten und verteilt die 'Schuld'. Jedes Gewicht wird dann passend nachjustiert. Du musst die Mathe nicht koennen - der Computer macht sie automatisch.",
+     "bsp": "Wie ein Chef, der ein Problem rueckwaerts durch die Abteilungen verfolgt, bis er die Ursache findet.",
+     "merke": "Backpropagation verteilt den Fehler rueckwaerts, damit jede Schicht besser wird.",
+     "nr": 87
+    },
+    {
+     "t": "Epochs, Batch & Learning Rate",
+     "was": "Das sind die drei wichtigsten Stellschrauben beim Training: wie oft (Epochs), in wie grossen Haeppchen (Batch) und wie grosse Schritte (Learning Rate) das Modell lernt.",
+     "pts": [
+      "Epoch = ein kompletter Durchlauf durch alle Daten",
+      "Batch = Haeppchen von Daten pro Schritt",
+      "Learning Rate = Schrittgroesse beim Lernen",
+      "Zu gross = ungenau, zu klein = zu langsam"
+     ],
+     "yt": "epochs batch size learning rate erklaert deutsch",
+     "src": null,
+     "gh": [],
+     "art": [],
+     "detail": "Hyperparameter sind Einstellungen, die DU vor dem Training festlegst (nicht das Modell). Die Learning Rate ist die wichtigste: Zu grosse Schritte, und das Modell springt ueber das Ziel hinaus; zu kleine, und es braucht ewig. Mehrere Epochs bedeuten, das Modell sieht die Daten mehrmals und festigt das Gelernte.",
+     "bsp": "Learning Rate zu hoch: das Modell 'zappelt' und wird nie gut. Zu niedrig: es dauert Stunden statt Minuten.",
+     "merke": "Learning Rate ist die wichtigste Stellschraube: die richtige Schrittgroesse macht den Unterschied.",
+     "nr": 88
+    },
+    {
+     "t": "CNN: Netze fuer Bilder",
+     "was": "Ein CNN (Convolutional Neural Network) ist ein neuronales Netz, das besonders gut Bilder versteht. Es erkennt zuerst kleine Muster (Kanten) und setzt sie zu ganzen Objekten zusammen.",
+     "pts": [
+      "CNN = neuronales Netz fuer Bilder",
+      "Erkennt Kanten -> Formen -> Objekte",
+      "Basis von Bild- und Gesichtserkennung",
+      "Auch fuer Dokumente/OCR nutzbar"
+     ],
+     "yt": "CNN convolutional neural network einfach erklaert",
+     "src": null,
+     "gh": [],
+     "art": [],
+     "detail": "Ein CNN schaut ein Bild nicht als Ganzes an, sondern in kleinen Ausschnitten, und sucht ueberall nach denselben Mustern (z.B. Kanten). Diese werden Schicht fuer Schicht zu groesseren Formen kombiniert. So erkennt es am Ende ganze Objekte. In Banken steckt das z.B. hinter dem automatischen Lesen von Ausweisen und Dokumenten.",
+     "bsp": "Automatische Pruefung eines gescannten Ausweises: Ist das Foto echt, stimmen die Felder?",
+     "merke": "CNN = Bild-Spezialist: von kleinen Kanten zum ganzen Objekt.",
+     "nr": 89
+    },
+    {
+     "t": "RNN & LSTM: Netze fuer Reihenfolgen",
+     "was": "RNNs und LSTMs sind Netze fuer Daten mit Reihenfolge, z.B. Text oder Zeitreihen. Sie haben ein kleines 'Gedaechtnis' fuer das, was vorher kam.",
+     "pts": [
+      "Fuer Reihenfolgen: Text, Sprache, Zeitreihen",
+      "Haben ein Kurzzeit-Gedaechtnis",
+      "LSTM = merkt sich laenger Wichtiges",
+      "Heute oft durch Transformer abgeloest"
+     ],
+     "yt": "RNN LSTM einfach erklaert deutsch",
+     "src": null,
+     "gh": [],
+     "art": [],
+     "detail": "Bei Text kommt es auf die Reihenfolge an: 'Hund beisst Mann' heisst etwas anderes als 'Mann beisst Hund'. RNNs lesen Wort fuer Wort und merken sich den Zusammenhang. LSTMs koennen sich Wichtiges laenger merken. Sie waren lange der Standard fuer Sprache - bis der Transformer kam und sie in den meisten Faellen ueberholte.",
+     "bsp": "Wettervorhersage aus vergangenen Tagen oder Textverstaendnis Wort fuer Wort.",
+     "merke": "RNN/LSTM = fuer Reihenfolgen mit Gedaechtnis. Der Transformer hat sie meist ersetzt.",
+     "nr": 90
+    },
+    {
+     "t": "Transformer Architektur",
+     "was": "Der Transformer ist die Netz-Architektur hinter allen modernen LLMs (GPT, Claude, Gemini). Er kann einen ganzen Text auf einmal betrachten und die wichtigen Zusammenhaenge erfassen.",
+     "pts": [
+      "Basis aller heutigen LLMs",
+      "Betrachtet den ganzen Text gleichzeitig",
+      "Sehr gut parallelisierbar (schnell auf GPUs)",
+      "2017 vorgestellt ('Attention is all you need')"
+     ],
+     "yt": "Transformer architektur einfach erklaert deutsch",
+     "src": null,
+     "gh": [
+      [
+       "Hugging Face Transformers",
+       "https://github.com/huggingface/transformers"
+      ]
+     ],
+     "art": [
+      [
+       "Attention Is All You Need (Original-Paper)",
+       "https://arxiv.org/abs/1706.03762"
+      ]
+     ],
+     "detail": "Frueher las KI Text Wort fuer Wort (RNN). Der Transformer schaut stattdessen den ganzen Satz auf einmal an und entscheidet, welche Woerter zusammengehoeren. Das macht ihn viel schlauer im Verstehen von Zusammenhaengen und viel schneller im Training. Diese Erfindung von 2017 hat die heutige KI-Welle (ChatGPT & Co.) erst moeglich gemacht.",
+     "bsp": "Im Satz 'Die Bank am Fluss' erkennt der Transformer aus dem Wort 'Fluss', dass 'Bank' das Ufer meint, nicht das Geldinstitut.",
+     "merke": "Transformer = das Herz jedes LLM. Ohne ihn gaebe es kein ChatGPT.",
+     "nr": 91
+    },
+    {
+     "t": "Attention Mechanism",
+     "was": "Attention (Aufmerksamkeit) ist der Kern-Trick des Transformers: Das Modell lernt, bei jedem Wort auf die wirklich wichtigen anderen Woerter zu 'achten'.",
+     "pts": [
+      "Modell gewichtet, welche Woerter wichtig sind",
+      "Verbindet zusammengehoerende Woerter",
+      "Loest das Problem 'Wer/was ist gemeint?'",
+      "Herzstueck des Transformers"
+     ],
+     "yt": "attention mechanism einfach erklaert deutsch",
+     "src": null,
+     "gh": [],
+     "art": [],
+     "detail": "In einem langen Satz haengen manche Woerter eng zusammen, auch wenn sie weit auseinander stehen. Attention laesst das Modell fuer jedes Wort entscheiden: Auf welche anderen Woerter muss ich schauen, um dich zu verstehen? So loest es z.B. auf, worauf sich 'sie' oder 'das' bezieht. Ohne Attention gaebe es keine guten LLMs.",
+     "bsp": "'Anna gab Lisa ihr Buch, weil sie es mochte' - Attention hilft zu klaeren, wer 'sie' ist.",
+     "merke": "Attention = das Modell schaut gezielt auf die wichtigen Woerter.",
+     "nr": 92
+    },
+    {
+     "t": "Pretraining vs Fine-Tuning",
+     "was": "Pretraining ist das grosse Grundtraining eines Modells mit riesigen Textmengen. Fine-Tuning ist das anschliessende Feinschleifen fuer eine bestimmte Aufgabe.",
+     "pts": [
+      "Pretraining = grosses Grundwissen aufbauen (teuer)",
+      "Fine-Tuning = auf eigene Aufgabe anpassen (guenstig)",
+      "Meist nutzt man fertig vortrainierte Modelle",
+      "Fuer Firmen reicht oft RAG statt Fine-Tuning"
+     ],
+     "yt": "pretraining fine-tuning erklaert deutsch",
+     "src": null,
+     "gh": [],
+     "art": [],
+     "detail": "Ein LLM lernt erst allgemeine Sprache aus dem halben Internet (Pretraining) - das kostet Millionen und machen nur grosse Firmen. Danach kann man es guenstig fuer den eigenen Zweck nachschaerfen (Fine-Tuning), z.B. auf Bank-Sprache. Fuer die meisten Firmen-Anwendungen reicht aber RAG (eigenes Wissen mitgeben), ohne das Modell selbst zu trainieren.",
+     "bsp": "Ein vortrainiertes Modell kann schon Deutsch; mit Fine-Tuning bringt man ihm den Bank-Ton bei.",
+     "merke": "Pretraining = Allgemeinbildung, Fine-Tuning = Spezialisierung. Oft reicht schon RAG.",
+     "nr": 93
+    },
+    {
+     "t": "PyTorch & TensorFlow",
+     "was": "PyTorch und TensorFlow sind die zwei grossen Werkzeuge (Frameworks), mit denen man neuronale Netze baut und trainiert. In Forschung und Bootcamps ist PyTorch heute am beliebtesten.",
+     "pts": [
+      "Frameworks zum Bauen neuronaler Netze",
+      "PyTorch = sehr beliebt, einsteigerfreundlich",
+      "TensorFlow = von Google, stark in Produktion",
+      "Beide kostenlos und Open Source"
+     ],
+     "yt": "PyTorch vs TensorFlow anfaenger deutsch",
+     "src": null,
+     "gh": [
+      [
+       "PyTorch",
+       "https://github.com/pytorch/pytorch"
+      ],
+      [
+       "TensorFlow",
+       "https://github.com/tensorflow/tensorflow"
+      ]
+     ],
+     "art": [],
+     "detail": "Diese Frameworks nehmen dir die schwere Mathe ab: Backpropagation, Gradienten, GPU-Nutzung - alles erledigen sie automatisch. Du beschreibst nur den Aufbau des Netzes, sie kuemmern sich um den Rest. Zum Lernen empfehlen die meisten heute PyTorch, weil es sich natuerlicher anfuehlt.",
+     "bsp": "Mit wenigen Zeilen PyTorch definierst du ein Netz - Training und Ableitungen laufen automatisch.",
+     "merke": "PyTorch/TensorFlow erledigen die schwere Mathe - du beschreibst nur das Netz.",
+     "nr": 94
+    }
+   ]
+  },
+  {
+   "title": "MLOps & Data Engineering",
+   "emoji": "🔧",
+   "ziel": "KI-Modelle zuverlaessig in den echten Betrieb bringen und mit Daten versorgen.",
+   "topics": [
+    {
+     "t": "Was ist MLOps?",
+     "was": "MLOps bedeutet, KI-Modelle nicht nur zu bauen, sondern sie sauber in den Dauerbetrieb zu bringen, zu ueberwachen und aktuell zu halten - wie ein TueV fuer KI im Alltag.",
+     "pts": [
+      "Betrieb & Pflege von ML-Modellen",
+      "Vom Notebook zum echten Produkt",
+      "Automatisieren, ueberwachen, aktualisieren",
+      "Kombiniert Data Science mit IT-Betrieb"
+     ],
+     "yt": "MLOps einfach erklaert deutsch",
+     "src": null,
+     "gh": [
+      [
+       "MLflow",
+       "https://github.com/mlflow/mlflow"
+      ]
+     ],
+     "art": [],
+     "detail": "Viele Modelle funktionieren im Test super, scheitern aber im echten Einsatz - weil niemand sie pflegt. MLOps sorgt dafuer, dass ein Modell zuverlaessig laeuft: automatisch neu trainiert wird, ueberwacht wird und bei Problemen Alarm schlaegt. Ohne MLOps bleibt KI ein nettes Experiment; mit MLOps wird sie ein verlaessliches Produkt.",
+     "bsp": "Ein Betrugsmodell wird monatlich automatisch mit neuen Daten nachtrainiert und ueberwacht.",
+     "merke": "Ein Modell zu bauen ist der Anfang - MLOps haelt es dauerhaft am Leben.",
+     "nr": 95
+    },
+    {
+     "t": "Data Pipeline",
+     "was": "Eine Data Pipeline ist ein automatischer 'Foerderband' fuer Daten: Sie holt Daten, reinigt sie und bringt sie an den richtigen Ort - immer wieder, ganz von selbst.",
+     "pts": [
+      "Automatischer Datenfluss von A nach B",
+      "Schritte: holen -> reinigen -> speichern",
+      "Laeuft regelmaessig ohne Handarbeit",
+      "Versorgt Modelle mit frischen Daten"
+     ],
+     "yt": "data pipeline einfach erklaert deutsch",
+     "src": null,
+     "gh": [],
+     "art": [],
+     "detail": "Daten liegen an vielen Orten (Datenbanken, Dateien, Systeme). Eine Pipeline sammelt sie automatisch ein, bringt sie in Form und legt sie dort ab, wo Modelle und Berichte sie brauchen. Ohne Pipeline muesste jemand das jeden Tag von Hand machen - fehleranfaellig und langsam.",
+     "bsp": "Jede Nacht zieht die Pipeline die neuen Transaktionen, reinigt sie und stellt sie fuer die Betrugs-KI bereit.",
+     "merke": "Data Pipeline = automatisches Foerderband, das die KI mit frischen Daten fuettert.",
+     "nr": 96
+    },
+    {
+     "t": "Experiment Tracking",
+     "was": "Beim Bauen von KI probiert man viele Varianten aus. Experiment Tracking notiert automatisch, welche Einstellung welches Ergebnis brachte - damit man den Ueberblick behaelt.",
+     "pts": [
+      "Protokolliert jede Modell-Variante",
+      "Was wurde eingestellt, was kam heraus",
+      "Vergleichbar und wiederholbar",
+      "Tools: MLflow, Weights & Biases"
+     ],
+     "yt": "experiment tracking mlflow erklaert deutsch",
+     "src": null,
+     "gh": [
+      [
+       "MLflow",
+       "https://github.com/mlflow/mlflow"
+      ]
+     ],
+     "art": [],
+     "detail": "Ohne Tracking verliert man schnell den Ueberblick: 'Welche Einstellung war nochmal die beste?' Experiment Tracking speichert automatisch jede Variante mit Ergebnis. So kann man Modelle sauber vergleichen und das beste wiederfinden - wichtig fuer Nachweise gegenueber der Aufsicht.",
+     "bsp": "Nach 50 Versuchen zeigt das Tracking auf einen Blick, welche Einstellung die beste Trefferquote hatte.",
+     "merke": "Ohne Tracking vergisst du, was funktioniert hat. Alles automatisch mitschreiben lassen.",
+     "nr": 97
+    },
+    {
+     "t": "Model Registry & Deployment",
+     "was": "Eine Model Registry ist ein Regal, in dem fertige Modelle mit Versionsnummer liegen. Deployment heisst, ein Modell in den echten Einsatz zu bringen, damit Programme es nutzen.",
+     "pts": [
+      "Registry = Regal mit Modell-Versionen",
+      "Deployment = Modell live schalten",
+      "Als API bereitstellen fuer andere Systeme",
+      "Zurueckrollen auf alte Version moeglich"
+     ],
+     "yt": "model deployment registry erklaert deutsch",
+     "src": null,
+     "gh": [],
+     "art": [],
+     "detail": "Wenn ein Modell fertig ist, wird es mit Versionsnummer in der Registry abgelegt (v1, v2, ...). Beim Deployment macht man es als API verfuegbar, sodass z.B. das Banking-System es fragen kann. Geht eine neue Version schief, schaltet man einfach auf die alte zurueck - genau wie bei Software.",
+     "bsp": "Version 3 des Betrugsmodells geht live; zeigt sie Probleme, wechselt man in Minuten zurueck auf Version 2.",
+     "merke": "Registry = versioniertes Modell-Regal, Deployment = live schalten mit Rueckweg.",
+     "nr": 98
+    },
+    {
+     "t": "Data Engineering Grundlagen",
+     "was": "Data Engineering baut das Fundament: die Systeme, in denen Daten sauber gespeichert und bereitgestellt werden. Ohne gute Daten-Infrastruktur keine gute KI.",
+     "pts": [
+      "Daten speichern, ordnen, bereitstellen",
+      "Data Warehouse / Data Lake = grosse Datenspeicher",
+      "ETL = Extract, Transform, Load",
+      "Fundament fuer Analyse und KI"
+     ],
+     "yt": "data engineering einfach erklaert deutsch",
+     "src": null,
+     "gh": [],
+     "art": [],
+     "detail": "Bevor Data Scientists mit Daten arbeiten koennen, muss jemand die Daten-Infrastruktur bauen: grosse Speicher (Data Warehouse/Lake) und Prozesse, die Daten einsammeln und aufbereiten (ETL). Das ist Data Engineering. Man sagt: Data Engineers bauen die Kueche, Data Scientists kochen darin.",
+     "bsp": "Ein Data Warehouse buendelt Daten aus Filialen, App und Hotline an einem Ort fuer Auswertungen.",
+     "merke": "Erst die Daten-Infrastruktur (Engineering), dann die schoene KI obendrauf.",
+     "nr": 99
+    }
+   ]
+  },
+  {
+   "title": "KI-Karriere, Projekte & Praxis",
+   "emoji": "🎯",
+   "ziel": "Wie du das Gelernte in echte Faehigkeiten, Projekte und einen Nachweis verwandelst.",
+   "topics": [
+    {
+     "t": "AI Bootcamp: was & fuer wen",
+     "was": "Ein AI Bootcamp ist ein intensiver, praxisnaher Kurs, der einem in wenigen Wochen/Monaten KI beibringt - oft berufsbegleitend und projektorientiert.",
+     "pts": [
+      "Intensiv, praxisnah, in kurzer Zeit",
+      "Vom Anfaenger zum ersten KI-Projekt",
+      "Oft mit Betreuung und Community",
+      "Alternative: kostenlose Kurse in eigenem Tempo"
+     ],
+     "yt": "AI bootcamp erklaert deutsch",
+     "src": null,
+     "gh": [],
+     "art": [
+      [
+       "Forbes: Beste AI Bootcamps (EU)",
+       "https://www.forbes.com/advisor/l/best-ai-bootcamps-eu/"
+      ],
+      [
+       "Elements of AI (kostenlos, Uni Helsinki)",
+       "https://www.elementsofai.de/"
+      ]
+     ],
+     "detail": "Bootcamps sind beliebt, weil sie strukturiert und praxisnah sind: Man baut echte Projekte statt nur Theorie zu hoeren. Du musst aber nicht zahlen, um anzufangen - kostenlose Angebote wie 'Elements of AI' (Universitaet Helsinki, auf Deutsch), der Google ML Crash Course oder fast.ai decken sehr viel ab. Diese App ist selbst ein strukturierter Lernpfad in dieser Richtung.",
+     "bsp": null,
+     "merke": "Wichtig ist nicht das teure Bootcamp, sondern dass du dranbleibst und echte Projekte baust.",
+     "nr": 100
+    },
+    {
+     "t": "Lernpfad & Zeitplan",
+     "was": "Ein guter Plan schlaegt Talent: kleine, regelmaessige Schritte bringen mehr als seltene Marathon-Sessions. Diese App ist bereits als Reihenfolge aufgebaut.",
+     "pts": [
+      "Lieber taeglich 30-60 Min als selten 8 Stunden",
+      "Reihenfolge einhalten: Basis zuerst",
+      "Gelerntes sofort anwenden (kleine Uebungen)",
+      "Fortschritt abhaken und sichtbar machen"
+     ],
+     "yt": "wie lerne ich KI als anfaenger deutsch",
+     "src": null,
+     "gh": [],
+     "art": [],
+     "detail": "Der haeufigste Fehler ist, mit dem Schwersten zu starten und dann aufzugeben. Halte die Reihenfolge ein: erst Python und Daten, dann Machine Learning, dann Deep Learning und LLMs. Nimm dir realistische Etappen vor. Nutze den Fortschrittsbalken dieser App - sichtbarer Fortschritt haelt die Motivation hoch.",
+     "bsp": null,
+     "merke": "Kleine, regelmaessige Schritte in der richtigen Reihenfolge schlagen jeden Kraftakt.",
+     "nr": 101
+    },
+    {
+     "t": "Eigene KI-Projekte (Portfolio)",
+     "was": "Ein Portfolio ist eine Sammlung eigener Projekte, die zeigt, was du kannst. Fuer KI-Jobs zaehlt es oft mehr als Zeugnisse - Zeigen schlaegt Erzaehlen.",
+     "pts": [
+      "Portfolio = deine gezeigten Projekte",
+      "Auf GitHub veroeffentlichen",
+      "Lieber kleine, fertige Projekte als grosse Ruinen",
+      "Erklaere: Problem, Loesung, Ergebnis"
+     ],
+     "yt": "AI portfolio projekte anfaenger deutsch",
+     "src": null,
+     "gh": [
+      [
+       "GitHub (dein Portfolio-Zuhause)",
+       "https://github.com/"
+      ]
+     ],
+     "art": [],
+     "detail": "Arbeitgeber wollen sehen, dass du Dinge wirklich baust. Ein kleines, sauber dokumentiertes Projekt (z.B. ein Betrugs-Erkenner mit oeffentlichen Daten, ein einfacher Chatbot) auf GitHub sagt mehr als jedes Zertifikat. Beschreibe zu jedem Projekt kurz: Welches Problem? Welche Loesung? Welches Ergebnis?",
+     "bsp": "Ein kleiner Chatbot fuer FAQ, oeffentlich auf GitHub, mit klarer README - das ueberzeugt im Bewerbungsgespraech.",
+     "merke": "Zeigen schlaegt Erzaehlen: Ein GitHub-Portfolio ist dein bester Nachweis.",
+     "nr": 102
+    },
+    {
+     "t": "Kaggle: ueben mit echten Daten",
+     "was": "Kaggle ist eine kostenlose Plattform mit echten Datensaetzen, Uebungen und Wettbewerben. Ideal, um KI praktisch zu ueben und von anderen zu lernen.",
+     "pts": [
+      "Kostenlose Datensaetze und Uebungen",
+      "Wettbewerbe mit echten Problemen",
+      "Fertige Loesungen anderer zum Lernen",
+      "Guter Beleg fuer praktische Erfahrung"
+     ],
+     "yt": "Kaggle fuer anfaenger deutsch",
+     "src": null,
+     "gh": [],
+     "art": [
+      [
+       "Kaggle Learn (kostenlose Kurse)",
+       "https://www.kaggle.com/learn"
+      ]
+     ],
+     "detail": "Auf Kaggle findest du echte Daten und kannst direkt im Browser ueben - ohne komplizierte Installation. Die kostenlosen Mini-Kurse (Kaggle Learn) sind ideal fuer Python, pandas und Machine Learning. In Wettbewerben loest du echte Probleme und siehst, wie Profis vorgehen.",
+     "bsp": null,
+     "merke": "Kaggle = Fitnessstudio fuer KI: echte Daten, kostenlos, mit Vorbildern zum Abschauen.",
+     "nr": 103
+    },
+    {
+     "t": "KI-Berufe & naechste Schritte",
+     "was": "Es gibt viele Wege mit KI: von der Anwendung (Prompting, Bots bauen) bis zur Entwicklung (ML/Data). Man muss nicht alles koennen - eine klare Richtung reicht.",
+     "pts": [
+      "AI/ML Engineer = baut und trainiert Modelle",
+      "Data Scientist = analysiert Daten, findet Muster",
+      "Data Engineer = baut die Daten-Infrastruktur",
+      "AI Solution/Bot Builder = setzt KI in Firmen ein (z.B. Genesys)"
+     ],
+     "yt": "KI berufe ueberblick deutsch",
+     "src": null,
+     "gh": [],
+     "art": [],
+     "detail": "Nicht jeder muss Modelle von Grund auf bauen. Viele gefragte Rollen setzen KI klug EIN: Bots und Wissen aufbauen (genau das deckt die Genesys GC-AI-DB ab), Prozesse automatisieren, Prompts und RAG gestalten. Ueberlege, ob du eher anwenden oder entwickeln willst - und richte deinen Lernpfad danach aus. Mit dieser App deckst du beide Seiten ab.",
+     "bsp": null,
+     "merke": "Du musst nicht alles koennen. Eine klare Richtung (anwenden ODER entwickeln) reicht zum Start.",
+     "nr": 104
     }
    ]
   },
@@ -1127,7 +2332,10 @@ window.CURRICULUM = {
        "https://www.bitkom.org/Themen/Technologien-Software/Kuenstliche-Intelligenz"
       ]
      ],
-     "nr": 57
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 105
     },
     {
      "t": "Large Language Models",
@@ -1145,7 +2353,10 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
-     "nr": 58
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 106
     },
     {
      "t": "Small Language Models",
@@ -1160,7 +2371,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 59
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 107
     },
     {
      "t": "Multimodalitaet",
@@ -1175,7 +2389,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 60
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 108
     },
     {
      "t": "Reasoning",
@@ -1190,7 +2407,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 61
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 109
     },
     {
      "t": "Prompting",
@@ -1208,7 +2428,10 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
-     "nr": 62
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 110
     },
     {
      "t": "Advanced Prompting",
@@ -1226,7 +2449,10 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
-     "nr": 63
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 111
     },
     {
      "t": "Prompt Engineering",
@@ -1249,7 +2475,10 @@ window.CURRICULUM = {
       ]
      ],
      "art": [],
-     "nr": 64
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 112
     },
     {
      "t": "Context Engineering",
@@ -1264,7 +2493,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 65
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 113
     },
     {
      "t": "Token und Kosten",
@@ -1282,7 +2514,10 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
-     "nr": 66
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 114
     },
     {
      "t": "Halluzinationen",
@@ -1302,7 +2537,10 @@ window.CURRICULUM = {
        "https://www.iis.fraunhofer.de/de/ff/ki.html"
       ]
      ],
-     "nr": 67
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 115
     },
     {
      "t": "Grounding",
@@ -1317,7 +2555,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 68
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 116
     }
    ]
   },
@@ -1348,7 +2589,10 @@ window.CURRICULUM = {
       ]
      ],
      "art": [],
-     "nr": 69
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 117
     },
     {
      "t": "Embeddings",
@@ -1363,7 +2607,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 70
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 118
     },
     {
      "t": "Vector Search",
@@ -1387,7 +2634,10 @@ window.CURRICULUM = {
       ]
      ],
      "art": [],
-     "nr": 71
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 119
     },
     {
      "t": "Chunking",
@@ -1402,7 +2652,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 72
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 120
     },
     {
      "t": "RAG Architektur",
@@ -1422,7 +2675,10 @@ window.CURRICULUM = {
       ]
      ],
      "art": [],
-     "nr": 73
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 121
     },
     {
      "t": "RAG Evaluation",
@@ -1442,7 +2698,10 @@ window.CURRICULUM = {
       ]
      ],
      "art": [],
-     "nr": 74
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 122
     },
     {
      "t": "RAG Monitoring",
@@ -1457,7 +2716,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 75
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 123
     },
     {
      "t": "Knowledge Graphs",
@@ -1477,7 +2739,10 @@ window.CURRICULUM = {
       ]
      ],
      "art": [],
-     "nr": 76
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 124
     },
     {
      "t": "Semantic Search",
@@ -1492,7 +2757,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 77
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 125
     },
     {
      "t": "Hybrid Search",
@@ -1507,7 +2775,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 78
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 126
     }
    ]
   },
@@ -1532,7 +2803,10 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
-     "nr": 79
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 127
     },
     {
      "t": "Function Calling",
@@ -1547,7 +2821,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 80
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 128
     },
     {
      "t": "Model Context Protocol",
@@ -1574,7 +2851,10 @@ window.CURRICULUM = {
       ]
      ],
      "art": [],
-     "nr": 81
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 129
     },
     {
      "t": "MCP Server",
@@ -1594,7 +2874,10 @@ window.CURRICULUM = {
       ]
      ],
      "art": [],
-     "nr": 82
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 130
     },
     {
      "t": "MCP Client",
@@ -1609,7 +2892,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 83
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 131
     },
     {
      "t": "MCP Tools",
@@ -1624,7 +2910,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 84
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 132
     },
     {
      "t": "MCP Security",
@@ -1644,7 +2933,10 @@ window.CURRICULUM = {
       ]
      ],
      "art": [],
-     "nr": 85
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 133
     }
    ]
   },
@@ -1669,7 +2961,10 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
-     "nr": 86
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 134
     },
     {
      "t": "KI-Agenten Grundlagen",
@@ -1684,7 +2979,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 87
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 135
     },
     {
      "t": "Single-Agent-Systeme",
@@ -1699,7 +2997,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 88
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 136
     },
     {
      "t": "Multi-Agent-Systeme",
@@ -1723,7 +3024,10 @@ window.CURRICULUM = {
       ]
      ],
      "art": [],
-     "nr": 89
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 137
     },
     {
      "t": "Agent Runtime",
@@ -1738,7 +3042,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 90
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 138
     },
     {
      "t": "Agent State",
@@ -1753,7 +3060,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 91
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 139
     },
     {
      "t": "Agent Memory",
@@ -1768,7 +3078,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 92
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 140
     },
     {
      "t": "Agent Planning",
@@ -1783,7 +3096,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 93
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 141
     },
     {
      "t": "Agent Reasoning",
@@ -1798,7 +3114,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 94
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 142
     },
     {
      "t": "Agent Tools",
@@ -1813,7 +3132,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 95
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 143
     },
     {
      "t": "Agent Workflows",
@@ -1833,7 +3155,10 @@ window.CURRICULUM = {
       ]
      ],
      "art": [],
-     "nr": 96
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 144
     },
     {
      "t": "Loop Engineering",
@@ -1848,7 +3173,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 97
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 145
     },
     {
      "t": "AgentOps",
@@ -1863,7 +3191,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 98
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 146
     },
     {
      "t": "Agent Observability",
@@ -1883,7 +3214,10 @@ window.CURRICULUM = {
       ]
      ],
      "art": [],
-     "nr": 99
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 147
     },
     {
      "t": "Agent Tracing",
@@ -1903,7 +3237,10 @@ window.CURRICULUM = {
       ]
      ],
      "art": [],
-     "nr": 100
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 148
     },
     {
      "t": "Agent Debugging",
@@ -1918,7 +3255,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 101
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 149
     },
     {
      "t": "Agent Evaluation",
@@ -1933,7 +3273,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 102
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 150
     },
     {
      "t": "Agent Guardrails",
@@ -1957,7 +3300,10 @@ window.CURRICULUM = {
       ]
      ],
      "art": [],
-     "nr": 103
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 151
     },
     {
      "t": "Agent Mesh",
@@ -1972,7 +3318,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 104
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 152
     },
     {
      "t": "Agent-to-Agent Communication",
@@ -1987,7 +3336,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 105
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 153
     },
     {
      "t": "A2A Protocol",
@@ -2007,7 +3359,10 @@ window.CURRICULUM = {
       ]
      ],
      "art": [],
-     "nr": 106
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 154
     },
     {
      "t": "Human-in-the-loop",
@@ -2022,7 +3377,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 107
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 155
     },
     {
      "t": "Human-on-the-loop",
@@ -2037,7 +3395,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 108
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 156
     }
    ]
   },
@@ -2064,7 +3425,10 @@ window.CURRICULUM = {
       ]
      ],
      "art": [],
-     "nr": 109
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 157
     },
     {
      "t": "AI Safety",
@@ -2084,7 +3448,10 @@ window.CURRICULUM = {
        "https://www.iis.fraunhofer.de/de/ff/ki.html"
       ]
      ],
-     "nr": 110
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 158
     },
     {
      "t": "AI Governance",
@@ -2104,7 +3471,10 @@ window.CURRICULUM = {
        "https://www.bitkom.org/Themen/Technologien-Software/Kuenstliche-Intelligenz"
       ]
      ],
-     "nr": 111
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 159
     },
     {
      "t": "AI Risk Management",
@@ -2128,7 +3498,10 @@ window.CURRICULUM = {
        "https://www.nist.gov/itl/ai-risk-management-framework"
       ]
      ],
-     "nr": 112
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 160
     },
     {
      "t": "AI Compliance",
@@ -2148,7 +3521,10 @@ window.CURRICULUM = {
        "https://artificialintelligenceact.eu/de/"
       ]
      ],
-     "nr": 113
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 161
     },
     {
      "t": "EU AI Act",
@@ -2171,7 +3547,10 @@ window.CURRICULUM = {
        "https://digital-strategy.ec.europa.eu/de/policies/regulatory-framework-ai"
       ]
      ],
-     "nr": 114
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 162
     },
     {
      "t": "DSGVO fuer KI-Systeme",
@@ -2194,7 +3573,10 @@ window.CURRICULUM = {
        "https://www.datenschutzkonferenz-online.de/"
       ]
      ],
-     "nr": 115
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 163
     },
     {
      "t": "Datenschutz und Datenminimierung",
@@ -2212,7 +3594,10 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
-     "nr": 116
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 164
     },
     {
      "t": "Datenklassifizierung",
@@ -2227,7 +3612,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 117
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 165
     }
    ]
   },
@@ -2252,7 +3640,10 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
-     "nr": 118
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 166
     },
     {
      "t": "Prompt Injection",
@@ -2275,7 +3666,10 @@ window.CURRICULUM = {
       ]
      ],
      "art": [],
-     "nr": 119
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 167
     },
     {
      "t": "Sensitive Information Disclosure",
@@ -2293,7 +3687,10 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
-     "nr": 120
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 168
     },
     {
      "t": "Insecure Output Handling",
@@ -2311,7 +3708,10 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
-     "nr": 121
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 169
     },
     {
      "t": "Excessive Agency",
@@ -2329,7 +3729,10 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
-     "nr": 122
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 170
     },
     {
      "t": "Model Denial of Service",
@@ -2347,7 +3750,10 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
-     "nr": 123
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 171
     },
     {
      "t": "AI Red Teaming",
@@ -2367,7 +3773,10 @@ window.CURRICULUM = {
       ]
      ],
      "art": [],
-     "nr": 124
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 172
     },
     {
      "t": "AI Penetration Testing",
@@ -2382,7 +3791,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 125
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 173
     },
     {
      "t": "AI Audit Logging",
@@ -2397,7 +3809,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 126
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 174
     },
     {
      "t": "AI Incident Management",
@@ -2412,7 +3827,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 127
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 175
     },
     {
      "t": "AI Change Management",
@@ -2427,7 +3845,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 128
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 176
     }
    ]
   },
@@ -2454,7 +3875,10 @@ window.CURRICULUM = {
       ]
      ],
      "art": [],
-     "nr": 129
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 177
     },
     {
      "t": "Model Drift",
@@ -2469,7 +3893,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 130
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 178
     },
     {
      "t": "Model Versioning",
@@ -2484,7 +3911,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 131
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 179
     },
     {
      "t": "Prompt Versioning",
@@ -2504,7 +3934,10 @@ window.CURRICULUM = {
       ]
      ],
      "art": [],
-     "nr": 132
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 180
     },
     {
      "t": "Knowledge Versioning",
@@ -2519,7 +3952,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 133
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 181
     },
     {
      "t": "AI Testing",
@@ -2534,7 +3970,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 134
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 182
     },
     {
      "t": "AI Evaluation",
@@ -2554,7 +3993,10 @@ window.CURRICULUM = {
       ]
      ],
      "art": [],
-     "nr": 135
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 183
     },
     {
      "t": "AI Quality Management",
@@ -2569,7 +4011,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 136
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 184
     },
     {
      "t": "AI Cost Monitoring",
@@ -2584,7 +4029,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 137
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 185
     },
     {
      "t": "AI ROI Berechnung",
@@ -2608,7 +4056,10 @@ window.CURRICULUM = {
        "https://www.bcg.com/publications"
       ]
      ],
-     "nr": 138
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 186
     },
     {
      "t": "AI Business Case",
@@ -2628,7 +4079,10 @@ window.CURRICULUM = {
        "https://www.bcg.com/capabilities/artificial-intelligence"
       ]
      ],
-     "nr": 139
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 187
     }
    ]
   },
@@ -2655,7 +4109,10 @@ window.CURRICULUM = {
       ]
      ],
      "art": [],
-     "nr": 140
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 188
     },
     {
      "t": "Bot Architektur",
@@ -2670,7 +4127,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 141
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 189
     },
     {
      "t": "Bot Backend",
@@ -2690,7 +4150,10 @@ window.CURRICULUM = {
       ]
      ],
      "art": [],
-     "nr": 142
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 190
     },
     {
      "t": "Bot Frontend",
@@ -2705,7 +4168,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 143
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 191
     },
     {
      "t": "Bot API Integration",
@@ -2720,7 +4186,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 144
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 192
     },
     {
      "t": "Bot Datenbank",
@@ -2740,7 +4209,10 @@ window.CURRICULUM = {
       ]
      ],
      "art": [],
-     "nr": 145
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 193
     },
     {
      "t": "Bot Knowledge Base",
@@ -2755,7 +4227,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 146
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 194
     },
     {
      "t": "Bot RAG Pipeline",
@@ -2779,7 +4254,10 @@ window.CURRICULUM = {
       ]
      ],
      "art": [],
-     "nr": 147
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 195
     },
     {
      "t": "Bot Authentication",
@@ -2794,7 +4272,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 148
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 196
     },
     {
      "t": "Bot Logging",
@@ -2809,7 +4290,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 149
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 197
     },
     {
      "t": "Bot Monitoring",
@@ -2824,7 +4308,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 150
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 198
     },
     {
      "t": "Bot Deployment",
@@ -2844,7 +4331,10 @@ window.CURRICULUM = {
       ]
      ],
      "art": [],
-     "nr": 151
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 199
     },
     {
      "t": "Bot Hosting",
@@ -2859,7 +4349,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 152
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 200
     },
     {
      "t": "Bot Security",
@@ -2877,7 +4370,10 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
-     "nr": 153
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 201
     },
     {
      "t": "Bot Testing",
@@ -2892,7 +4388,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 154
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 202
     },
     {
      "t": "Bot Training",
@@ -2907,7 +4406,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 155
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 203
     },
     {
      "t": "Bot Fine-Tuning",
@@ -2927,7 +4429,10 @@ window.CURRICULUM = {
       ]
      ],
      "art": [],
-     "nr": 156
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 204
     },
     {
      "t": "Bot Personality",
@@ -2942,7 +4447,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 157
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 205
     },
     {
      "t": "Bot Tone of Voice",
@@ -2957,7 +4465,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 158
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 206
     },
     {
      "t": "Bot Fallback Design",
@@ -2972,7 +4483,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 159
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 207
     },
     {
      "t": "Bot Handover Design",
@@ -2987,7 +4501,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 160
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 208
     },
     {
      "t": "Bot Analytics",
@@ -3002,7 +4519,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 161
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 209
     },
     {
      "t": "Bot Continuous Improvement",
@@ -3017,7 +4537,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 162
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 210
     }
    ]
   },
@@ -3039,7 +4562,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 163
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 211
     },
     {
      "t": "Local AI",
@@ -3059,7 +4585,10 @@ window.CURRICULUM = {
       ]
      ],
      "art": [],
-     "nr": 164
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 212
     },
     {
      "t": "On-Prem AI",
@@ -3074,7 +4603,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 165
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 213
     },
     {
      "t": "Open-Source LLMs",
@@ -3098,7 +4630,10 @@ window.CURRICULUM = {
       ]
      ],
      "art": [],
-     "nr": 166
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 214
     },
     {
      "t": "Ollama",
@@ -3118,7 +4653,10 @@ window.CURRICULUM = {
       ]
      ],
      "art": [],
-     "nr": 167
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 215
     },
     {
      "t": "llama.cpp",
@@ -3138,7 +4676,10 @@ window.CURRICULUM = {
       ]
      ],
      "art": [],
-     "nr": 168
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 216
     },
     {
      "t": "Hugging Face Models",
@@ -3158,7 +4699,10 @@ window.CURRICULUM = {
       ]
      ],
      "art": [],
-     "nr": 169
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 217
     },
     {
      "t": "Fine-Tuning",
@@ -3178,7 +4722,10 @@ window.CURRICULUM = {
       ]
      ],
      "art": [],
-     "nr": 170
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 218
     },
     {
      "t": "LoRA",
@@ -3198,7 +4745,10 @@ window.CURRICULUM = {
       ]
      ],
      "art": [],
-     "nr": 171
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 219
     },
     {
      "t": "Quantization",
@@ -3213,7 +4763,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 172
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 220
     },
     {
      "t": "Model Serving",
@@ -3233,7 +4786,10 @@ window.CURRICULUM = {
       ]
      ],
      "art": [],
-     "nr": 173
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 221
     },
     {
      "t": "Inference Server",
@@ -3253,7 +4809,10 @@ window.CURRICULUM = {
       ]
      ],
      "art": [],
-     "nr": 174
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 222
     },
     {
      "t": "GPU Grundlagen",
@@ -3268,7 +4827,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 175
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 223
     },
     {
      "t": "CPU Inference",
@@ -3283,7 +4845,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 176
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 224
     }
    ]
   },
@@ -3310,7 +4875,10 @@ window.CURRICULUM = {
       ]
      ],
      "art": [],
-     "nr": 177
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 225
     },
     {
      "t": "LangChain",
@@ -3330,7 +4898,10 @@ window.CURRICULUM = {
       ]
      ],
      "art": [],
-     "nr": 178
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 226
     },
     {
      "t": "LangGraph",
@@ -3350,7 +4921,10 @@ window.CURRICULUM = {
       ]
      ],
      "art": [],
-     "nr": 179
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 227
     },
     {
      "t": "LlamaIndex",
@@ -3370,7 +4944,10 @@ window.CURRICULUM = {
       ]
      ],
      "art": [],
-     "nr": 180
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 228
     },
     {
      "t": "CrewAI",
@@ -3390,7 +4967,10 @@ window.CURRICULUM = {
       ]
      ],
      "art": [],
-     "nr": 181
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 229
     },
     {
      "t": "AutoGen",
@@ -3410,7 +4990,10 @@ window.CURRICULUM = {
       ]
      ],
      "art": [],
-     "nr": 182
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 230
     },
     {
      "t": "n8n AI Automation",
@@ -3430,7 +5013,10 @@ window.CURRICULUM = {
       ]
      ],
      "art": [],
-     "nr": 183
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 231
     },
     {
      "t": "Flowise",
@@ -3450,7 +5036,10 @@ window.CURRICULUM = {
       ]
      ],
      "art": [],
-     "nr": 184
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 232
     },
     {
      "t": "Dify",
@@ -3470,7 +5059,10 @@ window.CURRICULUM = {
       ]
      ],
      "art": [],
-     "nr": 185
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 233
     },
     {
      "t": "Microsoft Copilot Studio",
@@ -3488,7 +5080,10 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
-     "nr": 186
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 234
     },
     {
      "t": "Azure AI Foundry",
@@ -3506,7 +5101,10 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
-     "nr": 187
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 235
     },
     {
      "t": "AWS Bedrock",
@@ -3524,7 +5122,10 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
-     "nr": 188
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 236
     },
     {
      "t": "Google Vertex AI",
@@ -3542,7 +5143,10 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
-     "nr": 189
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 237
     },
     {
      "t": "OpenAI API",
@@ -3560,7 +5164,10 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
-     "nr": 190
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 238
     },
     {
      "t": "Anthropic Claude API",
@@ -3587,7 +5194,10 @@ window.CURRICULUM = {
       ]
      ],
      "art": [],
-     "nr": 191
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 239
     }
    ]
   },
@@ -3609,7 +5219,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 192
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 240
     },
     {
      "t": "AI Workflow Automation",
@@ -3629,7 +5242,10 @@ window.CURRICULUM = {
       ]
      ],
      "art": [],
-     "nr": 193
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 241
     },
     {
      "t": "AI Document Processing",
@@ -3644,7 +5260,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 194
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 242
     },
     {
      "t": "AI OCR",
@@ -3659,7 +5278,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 195
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 243
     },
     {
      "t": "AI Speech-to-Text",
@@ -3674,7 +5296,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 196
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 244
     },
     {
      "t": "AI Text-to-Speech",
@@ -3689,7 +5314,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 197
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 245
     },
     {
      "t": "AI Voice Bot",
@@ -3704,7 +5332,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 198
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 246
     },
     {
      "t": "AI Translation",
@@ -3719,7 +5350,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 199
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 247
     },
     {
      "t": "AI Summarization",
@@ -3734,7 +5368,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 200
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 248
     },
     {
      "t": "AI Classification",
@@ -3749,7 +5386,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 201
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 249
     },
     {
      "t": "AI Sentiment Analysis",
@@ -3764,7 +5404,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 202
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 250
     },
     {
      "t": "AI Emotion Detection",
@@ -3779,7 +5422,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 203
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 251
     },
     {
      "t": "AI Fraud Detection",
@@ -3799,7 +5445,10 @@ window.CURRICULUM = {
        "https://www.bafin.de/DE/Aufsicht/FinTech/KuenstlicheIntelligenz/kuenstliche_intelligenz_node.html"
       ]
      ],
-     "nr": 204
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 252
     },
     {
      "t": "AI Recommendation Systems",
@@ -3814,7 +5463,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 205
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 253
     },
     {
      "t": "AI Search",
@@ -3829,7 +5481,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 206
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 254
     },
     {
      "t": "AI Knowledge Management",
@@ -3844,7 +5499,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 207
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 255
     },
     {
      "t": "AI Customer Service Automation",
@@ -3859,7 +5517,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 208
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 256
     },
     {
      "t": "AI Agent Assist",
@@ -3874,7 +5535,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 209
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 257
     },
     {
      "t": "AI Copilot Systeme",
@@ -3889,7 +5553,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 210
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 258
     },
     {
      "t": "AI Banking Use Cases",
@@ -3909,7 +5576,10 @@ window.CURRICULUM = {
        "https://www.bitkom.org/Themen/Technologien-Software/Kuenstliche-Intelligenz"
       ]
      ],
-     "nr": 211
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 259
     },
     {
      "t": "AI Contact Center Use Cases",
@@ -3924,7 +5594,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 212
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 260
     },
     {
      "t": "AI Service Desk Use Cases",
@@ -3939,7 +5612,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 213
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 261
     },
     {
      "t": "AI Beschwerdemanagement",
@@ -3954,7 +5630,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 214
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 262
     },
     {
      "t": "AI Kreditprozess Unterstuetzung",
@@ -3974,7 +5653,10 @@ window.CURRICULUM = {
        "https://artificialintelligenceact.eu/de/"
       ]
      ],
-     "nr": 215
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 263
     },
     {
      "t": "AI Kartenservice Unterstuetzung",
@@ -3989,7 +5671,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 216
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 264
     },
     {
      "t": "AI Online-Banking Support",
@@ -4004,7 +5689,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 217
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 265
     },
     {
      "t": "AI Depotservice Support",
@@ -4019,7 +5707,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 218
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 266
     },
     {
      "t": "AI Fraud Support",
@@ -4034,7 +5725,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 219
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 267
     },
     {
      "t": "AI Management Reporting",
@@ -4049,7 +5743,253 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 220
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 268
+    }
+   ]
+  },
+  {
+   "title": "AI fuer Fuehrung & Organisation",
+   "emoji": "🧑‍💼",
+   "ziel": "KI aus Sicht von Fuehrung, Strategie und Organisation - nach dem ESMT Berlin AI Executive Certificate.",
+   "topics": [
+    {
+     "t": "AI for Managers",
+     "was": "Fuehrungskraefte muessen KI nicht programmieren, aber verstehen: was sie kann, was nicht, und wo sie dem Unternehmen nuetzt. Es geht um kluge Entscheidungen, nicht um Technik-Details.",
+     "pts": [
+      "KI verstehen, ohne sie zu programmieren",
+      "Chancen und Grenzen realistisch einschaetzen",
+      "Sinnvolle Einsatzfelder erkennen",
+      "Hype von echtem Nutzen unterscheiden"
+     ],
+     "yt": "AI for managers deutsch",
+     "src": [
+      "ESMT Berlin Executive Education",
+      "https://www.esmt.berlin/executive-education"
+     ],
+     "gh": [],
+     "art": [
+      [
+       "Harvard Business manager: KI-Fuehrung",
+       "https://www.harvardbusinessmanager.de/"
+      ],
+      [
+       "McKinsey: The State of AI",
+       "https://www.mckinsey.com/capabilities/quantumblack/our-insights"
+      ]
+     ],
+     "detail": "Als Fuehrungskraft musst du nicht wissen, wie ein neuronales Netz rechnet. Du musst wissen: Welches Problem loest KI wirklich? Was kostet sie? Welche Risiken bringt sie? Deine Aufgabe ist, die richtigen Fragen zu stellen und Ressourcen dorthin zu lenken, wo KI echten Wert schafft - statt jedem Trend hinterherzulaufen.",
+     "bsp": "Statt 'Wir brauchen auch einen Chatbot' zu fordern, fragt eine gute Fuehrungskraft: 'Welches Kundenproblem loesen wir damit konkret - und wie messen wir Erfolg?'",
+     "merke": "Fuehrung heisst bei KI: die richtigen Fragen stellen, nicht selbst programmieren.",
+     "nr": 269
+    },
+    {
+     "t": "Implementing AI in the Organization",
+     "was": "KI einzufuehren ist zu 20 % Technik und zu 80 % Menschen, Prozesse und Daten. Der haeufigste Grund fuer Scheitern ist nicht schlechte Technik, sondern schlechte Einfuehrung.",
+     "pts": [
+      "Start mit klarem Anwendungsfall (Use Case)",
+      "Klein anfangen (Pilot), dann ausweiten",
+      "Daten, Prozesse und Mitarbeiter vorbereiten",
+      "Erfolg vorher messbar definieren"
+     ],
+     "yt": "implementing AI in organizations deutsch",
+     "src": [
+      "ESMT Berlin Executive Education",
+      "https://www.esmt.berlin/executive-education"
+     ],
+     "gh": [],
+     "art": [
+      [
+       "BCG: AI at Scale",
+       "https://www.bcg.com/capabilities/artificial-intelligence"
+      ],
+      [
+       "MIT Sloan Management Review (KI)",
+       "https://sloanreview.mit.edu/topic/artificial-intelligence/"
+      ]
+     ],
+     "detail": "Viele KI-Projekte scheitern nicht an der Technik, sondern daran, dass niemand sie nutzt oder die Daten fehlen. Erfolgreiche Einfuehrung startet mit einem klaren, kleinen Anwendungsfall, beweist dort den Nutzen (Pilot) und skaliert dann. Parallel muessen Daten verfuegbar, Prozesse angepasst und Mitarbeiter mitgenommen werden.",
+     "bsp": "Erst ein Bot fuer EINE haeufige Frage (z.B. Kartensperre), Nutzen messen, dann Schritt fuer Schritt erweitern.",
+     "merke": "KI-Einfuehrung ist 80 % Menschen, Prozesse, Daten - und nur 20 % Technik.",
+     "nr": 270
+    },
+    {
+     "t": "AI Governance & Compliance (Fuehrungssicht)",
+     "was": "Governance heisst, klare Regeln und Verantwortliche fuer KI festzulegen. Fuer die Fuehrung geht es um Haftung, Aufsicht und Vertrauen - besonders streng in Banken.",
+     "pts": [
+      "Wer entscheidet und haftet fuer KI?",
+      "Regeln, Freigaben, Dokumentation",
+      "EU AI Act und Aufsicht (BaFin) einhalten",
+      "Vertrauen von Kunden und Aufsicht sichern"
+     ],
+     "yt": "AI governance compliance leadership deutsch",
+     "src": [
+      "ESMT Berlin Executive Education",
+      "https://www.esmt.berlin/executive-education"
+     ],
+     "gh": [],
+     "art": [
+      [
+       "EU AI Act (offiziell, DE)",
+       "https://artificialintelligenceact.eu/de/"
+      ],
+      [
+       "BaFin: KI in der Finanzwirtschaft",
+       "https://www.bafin.de/DE/Aufsicht/FinTech/KuenstlicheIntelligenz/kuenstliche_intelligenz_node.html"
+      ]
+     ],
+     "detail": "Ohne klare Governance wird KI zum Risiko: Niemand weiss, wer verantwortlich ist, wenn die KI einen Fehler macht. Die Fuehrung muss festlegen, wer KI freigibt, wie sie dokumentiert wird und wie Gesetze (EU AI Act, DSGVO) und Aufsicht (BaFin) eingehalten werden. Das schuetzt vor Strafen und schafft Vertrauen.",
+     "bsp": "Bevor ein Kredit-Modell live geht, gibt es einen dokumentierten Freigabe-Prozess mit klaren Verantwortlichen.",
+     "merke": "Ohne klare Verantwortliche und Regeln ist KI ein Haftungsrisiko - erst recht in Banken.",
+     "nr": 271
+    },
+    {
+     "t": "Innovation in the Age of AI",
+     "was": "KI veraendert ganze Geschaeftsmodelle, nicht nur einzelne Aufgaben. Fuehrung muss Innovation ermoeglichen, ohne dabei Sicherheit und Vertrauen zu verlieren.",
+     "pts": [
+      "KI schafft neue Produkte und Geschaeftsmodelle",
+      "Experimentierraeume schaffen (safe to try)",
+      "Schnell lernen, aus Fehlern lernen",
+      "Balance: mutig sein, aber verantwortungsvoll"
+     ],
+     "yt": "innovation in the age of AI deutsch",
+     "src": [
+      "ESMT Berlin Executive Education",
+      "https://www.esmt.berlin/executive-education"
+     ],
+     "gh": [],
+     "art": [
+      [
+       "MIT Sloan Management Review",
+       "https://sloanreview.mit.edu/topic/artificial-intelligence/"
+      ]
+     ],
+     "detail": "Wer KI nur nutzt, um Bestehendes etwas guenstiger zu machen, verschenkt das Potenzial. Die groessten Gewinne entstehen, wenn KI neue Angebote ermoeglicht (z.B. rund um die Uhr persoenlicher Service). Fuehrung muss Raum zum Ausprobieren geben - kontrolliert, mit klaren Grenzen, aber ohne jede Idee sofort zu ersticken.",
+     "bsp": "Eine Bank testet einen KI-Assistenten, der Kunden proaktiv beim Sparen hilft - ein neues Angebot, nicht nur Kostensenkung.",
+     "merke": "Die groessten KI-Gewinne kommen aus neuen Angeboten, nicht nur aus Sparen.",
+     "nr": 272
+    },
+    {
+     "t": "Leading in the Age of AI",
+     "was": "Fuehren in der KI-Zeit heisst, Menschen durch Veraenderung zu begleiten: Aengste ernst nehmen, Faehigkeiten aufbauen und eine Kultur schaffen, die KI als Hilfe sieht.",
+     "pts": [
+      "Mitarbeiter durch Veraenderung fuehren",
+      "Aengste (Jobverlust) ernst nehmen",
+      "Weiterbildung ermoeglichen (Upskilling)",
+      "Kultur: KI als Werkzeug, nicht als Bedrohung"
+     ],
+     "yt": "leading in the age of AI deutsch",
+     "src": [
+      "ESMT Berlin Executive Education",
+      "https://www.esmt.berlin/executive-education"
+     ],
+     "gh": [],
+     "art": [
+      [
+       "Harvard Business manager",
+       "https://www.harvardbusinessmanager.de/"
+      ],
+      [
+       "World Economic Forum: Future of Jobs",
+       "https://www.weforum.org/publications/the-future-of-jobs-report-2025/"
+      ]
+     ],
+     "detail": "KI verunsichert viele Mitarbeiter - aus Angst um ihren Job. Gute Fuehrung nimmt das ernst, erklaert ehrlich, was sich aendert, und investiert in Weiterbildung. Wenn Mitarbeiter erleben, dass KI ihnen laestige Arbeit abnimmt und sie sich auf Wichtigeres konzentrieren koennen, wird aus Angst Akzeptanz.",
+     "bsp": "Agents, die frueher Standardfragen beantworteten, werden geschult, um mit KI-Unterstuetzung schwierige Faelle zu loesen.",
+     "merke": "Nicht die Technik ist die groesste Huerde, sondern die Menschen mitzunehmen.",
+     "nr": 273
+    },
+    {
+     "t": "Data Strategy for Enterprise AI",
+     "was": "KI ist nur so gut wie die Daten dahinter. Eine Datenstrategie sorgt dafuer, dass ein Unternehmen die richtigen Daten sauber, sicher und nutzbar hat.",
+     "pts": [
+      "Daten sind der Treibstoff jeder KI",
+      "Welche Daten haben wir, welche brauchen wir?",
+      "Qualitaet, Zugriff, Datenschutz regeln",
+      "Datensilos aufbrechen (Daten teilen)"
+     ],
+     "yt": "data strategy for enterprise AI deutsch",
+     "src": [
+      "ESMT Berlin Executive Education",
+      "https://www.esmt.berlin/executive-education"
+     ],
+     "gh": [],
+     "art": [
+      [
+       "McKinsey: Data Strategy",
+       "https://www.mckinsey.com/capabilities/quantumblack/our-insights"
+      ],
+      [
+       "Bitkom: Datenwirtschaft",
+       "https://www.bitkom.org/Themen/Technologien-Software/Kuenstliche-Intelligenz"
+      ]
+     ],
+     "detail": "Ohne gute Daten hilft die beste KI nicht. Oft liegen Daten verstreut in vielen Systemen (Silos), sind unvollstaendig oder darf man sie nicht nutzen. Eine Datenstrategie klaert: Welche Daten brauchen wir fuer unsere Ziele, wie halten wir sie sauber und sicher, und wie machen wir sie - im Rahmen der DSGVO - nutzbar.",
+     "bsp": "Eine Bank fuehrt Kundendaten aus Filiale, App und Hotline zusammen, damit die KI ein vollstaendiges Bild hat.",
+     "merke": "Keine Datenstrategie = keine gute KI. Daten sind das Fundament, nicht das Modell.",
+     "nr": 274
+    },
+    {
+     "t": "Agentic AI Beyond the Hype",
+     "was": "Um KI-Agenten gibt es viel Wirbel. Fuehrung muss trennen: Was koennen Agenten heute wirklich zuverlaessig, und wo ist es noch Zukunftsmusik oder Risiko?",
+     "pts": [
+      "Agenten koennen Aufgaben selbststaendig erledigen",
+      "Aber: nicht alles ist heute schon zuverlaessig",
+      "Klein und kontrolliert starten (mit Guardrails)",
+      "Nutzen ehrlich gegen Risiko abwaegen"
+     ],
+     "yt": "agentic AI beyond the hype deutsch",
+     "src": [
+      "ESMT Berlin Executive Education",
+      "https://www.esmt.berlin/executive-education"
+     ],
+     "gh": [],
+     "art": [
+      [
+       "Anthropic: Building Effective Agents",
+       "https://www.anthropic.com/engineering/building-effective-agents"
+      ],
+      [
+       "Gartner: AI Hype Cycle",
+       "https://www.gartner.com/en/articles/hype-cycle-for-artificial-intelligence"
+      ]
+     ],
+     "detail": "Agentic AI (KI, die selbst handelt) ist vielversprechend, aber auch ueberhypt. Fuehrung sollte weder alles glauben noch alles ablehnen. Der kluge Weg: konkrete, klar begrenzte Aufgaben mit Guardrails und menschlicher Kontrolle (Human-in-the-loop), Erfolg messen, dann ausweiten. Gerade in Banken gilt: erst Vertrauen aufbauen, dann Verantwortung an Agenten geben.",
+     "bsp": "Ein Agent bereitet einen Fall komplett vor, aber ein Mensch gibt die finale Ueberweisung frei (Human-in-the-loop).",
+     "merke": "Weder Hype glauben noch verteufeln: klein, kontrolliert, messbar starten.",
+     "nr": 275
+    },
+    {
+     "t": "GenAI Fundamentals for the Workplace",
+     "was": "Jeder im Unternehmen sollte die Grundlagen von GenAI kennen und sie sicher im Arbeitsalltag nutzen koennen - produktiv, aber ohne Datenschutz- und Sicherheitsfehler.",
+     "pts": [
+      "GenAI sicher im Arbeitsalltag nutzen",
+      "Keine sensiblen Daten in oeffentliche Tools",
+      "Ergebnisse immer pruefen (Halluzinationen)",
+      "Klare Nutzungsregeln im Unternehmen"
+     ],
+     "yt": "GenAI for the workplace deutsch",
+     "src": [
+      "ESMT Berlin Executive Education",
+      "https://www.esmt.berlin/executive-education"
+     ],
+     "gh": [],
+     "art": [
+      [
+       "Bitkom: Leitfaden GenAI",
+       "https://www.bitkom.org/Themen/Technologien-Software/Kuenstliche-Intelligenz"
+      ],
+      [
+       "Elements of AI (kostenlos)",
+       "https://www.elementsofai.de/"
+      ]
+     ],
+     "detail": "GenAI-Tools wie ChatGPT oder Claude koennen die taegliche Arbeit enorm erleichtern - beim Schreiben, Zusammenfassen, Ideen sammeln. Aber jeder Mitarbeiter muss die Regeln kennen: keine Kundendaten oder Geheimnisse in oeffentliche Tools eingeben, Ergebnisse immer pruefen (die KI kann sich sicher irren) und die firmeneigenen Richtlinien beachten.",
+     "bsp": "Eine Zusammenfassung von der KI schreiben lassen - ja. Echte Kundendaten dafuer hineinkopieren - nein.",
+     "merke": "GenAI produktiv nutzen, aber nie sensible Daten preisgeben und immer gegenpruefen.",
+     "nr": 276
     }
    ]
   },
@@ -4071,7 +6011,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 221
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 277
     },
     {
      "t": "Genesys Predictive Routing",
@@ -4089,7 +6032,10 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
-     "nr": 222
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 278
     },
     {
      "t": "Genesys Journey Management",
@@ -4107,7 +6053,10 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
-     "nr": 223
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 279
     },
     {
      "t": "Speech & Text Analytics",
@@ -4125,7 +6074,10 @@ window.CURRICULUM = {
      ],
      "gh": [],
      "art": [],
-     "nr": 224
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 280
     },
     {
      "t": "Bias & Fairness",
@@ -4145,7 +6097,10 @@ window.CURRICULUM = {
        "https://www.iis.fraunhofer.de/de/ff/ki.html"
       ]
      ],
-     "nr": 225
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 281
     },
     {
      "t": "Explainability (Erklaerbarkeit)",
@@ -4165,7 +6120,10 @@ window.CURRICULUM = {
        "https://artificialintelligenceact.eu/de/"
       ]
      ],
-     "nr": 226
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 282
     },
     {
      "t": "Mehrsprachigkeit & Lokalisierung",
@@ -4180,7 +6138,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 227
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 283
     },
     {
      "t": "KI-Adoption & Change Management",
@@ -4200,7 +6161,10 @@ window.CURRICULUM = {
        "https://www.mckinsey.com/de/publikationen"
       ]
      ],
-     "nr": 228
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 284
     },
     {
      "t": "Nachhaltige KI (Green AI)",
@@ -4215,7 +6179,10 @@ window.CURRICULUM = {
      "src": null,
      "gh": [],
      "art": [],
-     "nr": 229
+     "detail": null,
+     "bsp": null,
+     "merke": null,
+     "nr": 285
     }
    ]
   }

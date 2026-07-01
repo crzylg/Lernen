@@ -104,7 +104,13 @@ body{
 
 .topic-body{display:none;padding:0 12px 12px;border-top:1px solid var(--line);margin-top:2px}
 .topic.expanded .topic-body{display:block}
-.topic-body .was{font-size:13.5px;margin:10px 0 6px;color:#dce6f7}
+.topic-body .was{font-size:13.5px;margin:10px 0 6px;color:#dce6f7;font-weight:600}
+.topic-body .detail{font-size:13px;margin:6px 0;color:#c4d0e6;line-height:1.6}
+.topic-body .bsp{font-size:12.5px;margin:8px 0 4px;color:#dbe6d0;background:#132115;border:1px solid #244a26;border-radius:9px;padding:8px 10px}
+.topic-body .bsp b{color:#7fd08a}
+.topic-body .merke{font-size:12.5px;margin:6px 0 2px;color:#e6dfc4;background:#221d10;border:1px solid #4a3f22;border-radius:9px;padding:8px 10px}
+.topic-body .merke b{color:#ffcf6b}
+.topic[data-deep] .topic-t .nr{color:#22d3a6}
 .topic-body ul{margin:6px 0 4px;padding-left:18px}
 .topic-body li{font-size:13px;color:var(--muted);margin:3px 0}
 

@@ -62,16 +62,23 @@
 
     var pts = (tp.pts || []).map(function (p) { return "<li>" + esc(p) + "</li>"; }).join("");
 
+    var detail = tp.detail ? '<p class="detail">' + esc(tp.detail) + "</p>" : "";
+    var bsp = tp.bsp ? '<p class="bsp"><b>💡 Beispiel:</b> ' + esc(tp.bsp) + "</p>" : "";
+    var merke = tp.merke ? '<p class="merke"><b>📌 Merke:</b> ' + esc(tp.merke) + "</p>" : "";
+    var deep = (detail || bsp || merke) ? ' data-deep="1"' : "";
+
     return (
-      '<article class="topic' + (isDone ? " done" : "") + '" data-nr="' + tp.nr + '" data-name="' + esc((tp.t + " " + tp.was).toLowerCase()) + '">' +
+      '<article class="topic' + (isDone ? " done" : "") + '" data-nr="' + tp.nr + '" data-name="' + esc((tp.t + " " + tp.was).toLowerCase()) + '"' + deep + ">" +
         '<div class="topic-head">' +
           '<div class="check" data-check="' + tp.nr + '">✓</div>' +
-          '<div class="topic-t"><span class="nr">Schritt ' + tp.nr + '</span><h4>' + esc(tp.t) + "</h4></div>" +
+          '<div class="topic-t"><span class="nr">Schritt ' + tp.nr + (deep ? ' · ausführlich' : '') + '</span><h4>' + esc(tp.t) + "</h4></div>" +
           '<span class="chev2">▶</span>' +
         "</div>" +
         '<div class="topic-body">' +
           '<p class="was">' + esc(tp.was) + "</p>" +
+          detail +
           "<ul>" + pts + "</ul>" +
+          bsp + merke +
           '<div class="links">' + links + "</div>" +
         "</div>" +
       "</article>"
