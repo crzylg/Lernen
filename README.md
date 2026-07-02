@@ -38,10 +38,14 @@ python3 -m http.server 8080
 ## ✨ Funktionen
 
 - **Zwei getrennte Bereiche (Tabs):** 🏦 **Genesys** (56 Themen, bis zur
-  GC-AI-DB-Zertifizierung) und 🤖 **KI / AI** (229 Themen). Jeder Bereich hat
+  GC-AI-DB-Zertifizierung) und 🤖 **KI / AI** (231 Themen). Jeder Bereich hat
   seine eigene Schritt-Nummerierung und seinen eigenen Fortschritt.
-- **285 Themen** in **27 Modulen**, in didaktischer Reihenfolge
-  (Schritt 1 = zuerst lernen).
+- **287 Themen** in **27 Modulen**, in didaktischer Reihenfolge
+  (Schritt 1 = zuerst lernen). Der AI-Pfad folgt dem Weg
+  *Grundlagen → Verstehen (ML/DL) → Anwenden (GenAI/RAG/Agenten) →
+  Bauen & Betreiben → Bank-Einsatz → Absichern → Führen → Karriere*.
+- **📋 Inhaltsverzeichnis:** klickbare Modul-Übersicht mit Fortschritt
+  pro Modul – ein Tipp springt direkt zum Modul.
 - **Ausführliche AI-Erklärungen 📖:** wichtige AI-Themen haben einen
   mehrseitigen Langtext (Einfach gesagt · Wie es funktioniert · Wie man es
   einsetzt · Beispiel · Vorteile · Grenzen & Risiken · Typische Fehler · Best

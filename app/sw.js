@@ -1,5 +1,6 @@
-/* Service Worker - macht die App offline nutzbar und installierbar (iPhone: "Zum Home-Bildschirm"). */
-var CACHE = "lernplan-v1";
+/* Service Worker - macht die App offline nutzbar und installierbar (iPhone: "Zum Home-Bildschirm").
+   Strategie: Netz zuerst (damit Updates sofort ankommen), Cache als Offline-Fallback. */
+var CACHE = "lernplan-v3";
 var ASSETS = [
   "./",
   "./index.html",
@@ -22,22 +23,25 @@ self.addEventListener("activate", function (e) {
   }).then(function () { return self.clients.claim(); }));
 });
 
-// App-Dateien: erst Cache (schnell/offline). Externe Links (YouTube etc.) laufen normal ueber das Netz.
+// App-Dateien: Netz zuerst (frisch), bei Offline aus dem Cache.
+// Externe Links (YouTube, Quellen) laufen normal ueber das Netz.
 self.addEventListener("fetch", function (e) {
   var url = new URL(e.request.url);
-  if (url.origin !== self.location.origin) return; // externe Quellen nicht cachen
+  if (url.origin !== self.location.origin) return;
   e.respondWith(
-    caches.match(e.request).then(function (hit) {
-      return hit || fetch(e.request).then(function (resp) {
-        var copy = resp.clone();
-        caches.open(CACHE).then(function (c) { c.put(e.request, copy); });
-        return resp;
-      }).catch(function () { return caches.match("./index.html"); });
+    fetch(e.request).then(function (resp) {
+      var copy = resp.clone();
+      caches.open(CACHE).then(function (c) { c.put(e.request, copy); });
+      return resp;
+    }).catch(function () {
+      return caches.match(e.request).then(function (hit) {
+        return hit || caches.match("./index.html");
+      });
     })
   );
 });
 
-// "Quellen aktualisieren": App-Cache neu laden.
+// "Quellen aktualisieren": App-Cache komplett erneuern.
 self.addEventListener("message", function (e) {
   if (e.data && e.data.type === "refresh") {
     caches.open(CACHE).then(function (c) {

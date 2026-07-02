@@ -4,7 +4,7 @@
   "use strict";
 
   var DATA = window.CURRICULUM || { modules: [], total: 0, updated: "", counts: {} };
-  var LS_DONE = "lernplan_done_v2";     // v2: Schluessel jetzt track:nr
+  var LS_DONE = "lernplan_done_v3";     // v3: stabile IDs (track:tid) - ueberleben Umsortierungen
   var LS_OPEN = "lernplan_open_v1";
   var LS_REFRESH = "lernplan_refresh_v1";
   var LS_TRACK = "lernplan_track_v1";
@@ -25,7 +25,7 @@
     try { var v = JSON.parse(localStorage.getItem(k)); return v == null ? def : v; } catch (e) { return def; }
   }
   function save(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
-  function uid(tp) { return tp.track + ":" + tp.nr; }
+  function uid(tp) { return tp.track + ":" + (tp.tid || tp.nr); }
 
   /* ---------- Link-Builder ---------- */
   function ytLink(q) {
@@ -147,6 +147,25 @@
       "</div>";
   }
 
+  /* ---------- Inhaltsverzeichnis (TOC) ---------- */
+  function tocHTML() {
+    var html = '<nav class="toc"><h3 class="toc-title">📋 Lern-Reihenfolge (Module)</h3><div class="toc-grid">';
+    var n = 0;
+    DATA.modules.forEach(function (mod, idx) {
+      if (mod.track !== activeTrack) return;
+      n++;
+      var dc = mod.topics.filter(function (t) { return done[uid(t)]; }).length;
+      var full = dc === mod.topics.length && mod.topics.length > 0;
+      html += '<button class="toc-item' + (full ? " full" : "") + '" data-toc="' + idx + '">' +
+        '<span class="toc-num">' + n + "</span>" +
+        '<span class="toc-emoji">' + mod.emoji + "</span>" +
+        '<span class="toc-name">' + esc(mod.title) + "</span>" +
+        '<span class="toc-prog">' + dc + "/" + mod.topics.length + "</span>" +
+        "</button>";
+    });
+    return html + "</div></nav>";
+  }
+
   /* ---------- Render ---------- */
   function render() {
     var isG = activeTrack === "genesys";
@@ -175,10 +194,13 @@
       mods += moduleHTML(mod, idx, dc);
     });
 
-    content.innerHTML = tabsHTML() + intro + mods;
+    content.innerHTML = tabsHTML() + intro + tocHTML() + mods;
     if (searchInput.value.trim()) applySearch();
     updateProgress();
 
+    var sub = document.getElementById("subline");
+    if (sub) sub.textContent = DATA.total + " Themen · " + (DATA.deep || 0) +
+      " ausführliche Artikel · Von Null zur GC-AI-DB";
     document.getElementById("footDate").textContent = load(LS_REFRESH, DATA.updated) || DATA.updated;
     document.getElementById("footCount").textContent = DATA.total;
   }
@@ -191,12 +213,18 @@
     var pct = Math.round((d / total) * 100);
     progressFill.style.width = pct + "%";
     progressText.textContent = pct + " %";
+    var tocN = 0;
     DATA.modules.forEach(function (mod, idx) {
       if (mod.track !== activeTrack) return;
+      tocN++;
+      var dc = mod.topics.filter(function (t) { return done[uid(t)]; }).length;
       var el = document.querySelector('.module[data-mod="' + idx + '"] .mod-count');
-      if (el) {
-        var dc = mod.topics.filter(function (t) { return done[uid(t)]; }).length;
-        el.textContent = dc + "/" + mod.topics.length + " ✓";
+      if (el) el.textContent = dc + "/" + mod.topics.length + " ✓";
+      var tEl = document.querySelector('.toc-item[data-toc="' + idx + '"]');
+      if (tEl) {
+        tEl.classList.toggle("full", dc === mod.topics.length && mod.topics.length > 0);
+        var pEl = tEl.querySelector(".toc-prog");
+        if (pEl) pEl.textContent = dc + "/" + mod.topics.length;
       }
     });
   }
@@ -210,6 +238,19 @@
         activeTrack = tr; save(LS_TRACK, tr);
         window.scrollTo(0, 0);
         render();
+      }
+      return;
+    }
+
+    var tocEl = e.target.closest("[data-toc]");
+    if (tocEl) {
+      var ti = tocEl.getAttribute("data-toc");
+      var target = document.querySelector('.module[data-mod="' + ti + '"]');
+      if (target) {
+        target.classList.add("open");
+        openState[ti] = true;
+        save(LS_OPEN, openState);
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
       }
       return;
     }
@@ -257,6 +298,8 @@
     });
     var introEl = document.querySelector(".intro");
     if (introEl) introEl.style.display = q ? "none" : "";
+    var tocEl = document.querySelector(".toc");
+    if (tocEl) tocEl.style.display = q ? "none" : "";
     var old = document.getElementById("noResult");
     if (old) old.remove();
     if (!anyVisible) {

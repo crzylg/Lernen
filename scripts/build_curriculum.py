@@ -1246,6 +1246,15 @@ M("RAG & Suche", "🔎",
     "Semantisch ist gut bei anderer Wortwahl",
     "Kombination liefert beste Treffer"],
    "hybrid search RAG explained"),
+ T("RAG oder Fine-Tuning? (Entscheidungshilfe)",
+   "Beide geben der KI eigenes Wissen - aber auf verschiedene Art. RAG gibt Wissen zur Laufzeit mit (aktuell, belegbar). Fine-Tuning schult das Modell dauerhaft um (Stil, Fachton). Die richtige Wahl spart viel Geld und Aerger.",
+   ["RAG: fuer Fakten, die sich aendern (Preise, Regeln)",
+    "Fine-Tuning: fuer Stil/Ton und Spezialformate",
+    "Faustregel: erst Prompting, dann RAG, zuletzt Fine-Tuning",
+    "Kombination moeglich: Ton per Fine-Tuning, Fakten per RAG"],
+   "RAG vs fine-tuning wann was",
+   ("Anthropic Doku", "https://docs.anthropic.com/"),
+   art=[("Fraunhofer IESE: RAG", "https://www.iese.fraunhofer.de/blog/retrieval-augmented-generation-rag/")]),
 ])
 
 # ===========================================================================
@@ -1545,6 +1554,16 @@ M("Sicherheit, Governance & Recht", "🛡️",
    "EU AI Act einfach erklaert deutsch",
    ("EU AI Act (offiziell)", EU_ACT),
    art=[("EU-Kommission: KI-Gesetz", "https://digital-strategy.ec.europa.eu/de/policies/regulatory-framework-ai")]),
+ T("DORA (Digital Operational Resilience Act)",
+   "DORA ist die EU-Verordnung fuer die digitale Widerstandsfaehigkeit von Banken und Finanzfirmen - seit Januar 2025 verbindlich. Sie verlangt, dass IT-Systeme (auch KI!) Angriffe und Ausfaelle aushalten.",
+   ["Gilt fuer Banken, Versicherer, Zahlungsdienste + ihre IT-Dienstleister",
+    "IKT-Risikomanagement ist Pflicht",
+    "Vorfaelle strukturiert melden, Resilienz regelmaessig testen",
+    "Strenge Regeln fuer kritische Drittanbieter (z.B. Cloud/KI-Anbieter)"],
+   "DORA Verordnung einfach erklaert",
+   ("Bankenverband: DORA erklaert", "https://bankenverband.de/en/digital-world/3-answers-3-questions-dora-digital-operational-resilience-act"),
+   art=[("OpenKRITIS: EU DORA", "https://www.openkritis.de/eu/dora-digital-operational-resilience-act_nis-2.html"),
+        ("VinciWorks: DORA einfach erklaert", "https://vinciworks.com/blog/dora-einfach-erklart-das-neue-regelwerk-fur-digitale-resilienz-in-der-finanzwelt/")]),
  T("DSGVO fuer KI-Systeme",
    "Die DSGVO ist das EU-Datenschutzgesetz. Bei KI heisst das: personenbezogene Daten nur mit Grund nutzen, sparsam und geschuetzt.",
    ["DSGVO = EU-Datenschutz-Grundverordnung",
@@ -2598,6 +2617,47 @@ for m in MODULES:
     m["track"] = "genesys" if m["title"] in GENESYS_MODULES else "ai"
 
 # ---------------------------------------------------------------------------
+# Didaktische Modul-Reihenfolge im AI-Pfad:
+# Grundlagen -> Verstehen (ML/DL) -> Anwenden (GenAI/RAG/Agenten) ->
+# Bauen & Betreiben -> Einsatz in der Bank -> Absichern -> Fuehren -> Karriere
+# ---------------------------------------------------------------------------
+AI_ORDER = [
+    "AI-Fundament: Programmieren & Daten",
+    "Mathematik fuer KI (sehr einfach)",
+    "Machine Learning Grundlagen",
+    "Deep Learning & Neuronale Netze",
+    "GenAI Grundlagen",
+    "RAG & Suche",
+    "Tools & MCP",
+    "Agentic AI (KI-Agenten)",
+    "MLOps & Data Engineering",
+    "Eigenen Bot bauen",
+    "Private & lokale AI",
+    "AI Orchestration & Plattformen",
+    "AI Anwendungen & Bank-Use-Cases",
+    "Sicherheit, Governance & Recht",
+    "AI Security (OWASP)",
+    "AI Ops, Qualitaet & Nutzen",
+    "AI fuer Fuehrung & Organisation",
+    "KI-Karriere, Projekte & Praxis",
+    "Ergaenzende Themen (empfohlen)",
+]
+_ai_rank = {t: i for i, t in enumerate(AI_ORDER)}
+MODULES.sort(key=lambda m: (0, 0) if m["track"] == "genesys"
+             else (1, _ai_rank.get(m["title"], 99)))
+
+# ---------------------------------------------------------------------------
+# Stabile Themen-IDs (tid): ueberleben Umsortierungen, damit der
+# gespeicherte Lern-Fortschritt nicht verloren geht.
+# ---------------------------------------------------------------------------
+import re as _re
+def _slug(s):
+    s = s.lower()
+    for a, b in [("ae", "ae"), ("ä", "ae"), ("ö", "oe"), ("ü", "ue"), ("ß", "ss")]:
+        s = s.replace(a, b)
+    return _re.sub(r"[^a-z0-9]+", "-", s).strip("-")[:60]
+
+# ---------------------------------------------------------------------------
 # Ausfuehrliche Langtexte (AI_DEEP) ueber den Titel zuordnen
 # ---------------------------------------------------------------------------
 try:
@@ -2632,11 +2692,13 @@ for m in MODULES:
         counters[tr] += 1
         tp["nr"] = counters[tr]
         tp["track"] = tr
+        tp["tid"] = _slug(tp["t"])
         total += 1
 
 data = {
     "updated": datetime.date.today().isoformat(),
     "total": total,
+    "deep": deep_count,
     "counts": {"genesys": counters["genesys"], "ai": counters["ai"]},
     "modules": MODULES,
 }
