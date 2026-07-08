@@ -1,0 +1,304 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  html,body{margin:0;padding:0;background:#000;overflow:hidden}
+  #stage{width:1080px;height:1920px;position:relative}
+  canvas{display:block;width:1080px;height:1920px}
+</style>
+</head>
+<body>
+<div id="stage"><canvas id="c" width="1080" height="1920"></canvas></div>
+<script>
+const W=1080,H=1920;
+const cv=document.getElementById('c');
+const ctx=cv.getContext('2d');
+
+// ---------- config ----------
+const FPS=30;
+const DUR=16.8;                 // seconds
+const TOTAL=Math.round(FPS*DUR);
+window.TOTAL_FRAMES=TOTAL;
+window.FPS=FPS;
+
+// ---------- palette (aged parchment / ink) ----------
+const COL={
+  paper:'#ece0c4', paper2:'#e2d3ae',
+  ink:'#2c241b', ink2:'#443626',
+  red:'#b23a26', gold:'#d7a33d', goldL:'#f0cf78',
+  lava:'#e7671f', lavaL:'#f6c34a',
+  green:'#5f6b39', greenD:'#3f4a27',
+  sky:'#c9b78a', skyD:'#a9906a',
+  blood:'#8f2417'
+};
+
+// ---------- deterministic PRNG ----------
+function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;}}
+let BOIL=0;        // changes every few frames -> hand-drawn "line boil"
+function rndFor(seed){return mulberry32((seed*2654435761 ^ BOIL*40503)>>>0);}
+
+// wobbly polyline (hand-drawn)
+function inkPath(pts,seed,amp){
+  const r=rndFor(seed);
+  ctx.beginPath();
+  for(let i=0;i<pts.length;i++){
+    const jx=(r()*2-1)*amp, jy=(r()*2-1)*amp;
+    const x=pts[i][0]+jx, y=pts[i][1]+jy;
+    if(i===0)ctx.moveTo(x,y); else ctx.lineTo(x,y);
+  }
+}
+function inkShape(pts,seed,amp,fill,stroke,lw){
+  inkPath(pts,seed,amp);
+  ctx.closePath();
+  if(fill){ctx.fillStyle=fill;ctx.fill();}
+  if(stroke){ctx.strokeStyle=stroke;ctx.lineWidth=lw||6;ctx.lineJoin='round';ctx.lineCap='round';ctx.stroke();}
+}
+// wobbly circle
+function circlePts(cx,cy,rad,n){const a=[];for(let i=0;i<n;i++){const t=i/n*Math.PI*2;a.push([cx+Math.cos(t)*rad,cy+Math.sin(t)*rad]);}return a;}
+
+// ---------- static grain texture (precomputed) ----------
+const grain=document.createElement('canvas');grain.width=W;grain.height=H;
+(function(){const g=grain.getContext('2d');const img=g.createImageData(W,H);const r=mulberry32(12345);
+  for(let i=0;i<img.data.length;i+=4){const v=200+Math.floor(r()*55);img.data[i]=v;img.data[i+1]=v;img.data[i+2]=v;img.data[i+3]=Math.floor(r()*22);}
+  g.putImageData(img,0,0);
+})();
+
+function paperBg(){
+  // warm parchment gradient
+  const g=ctx.createLinearGradient(0,0,0,H);
+  g.addColorStop(0,COL.paper);g.addColorStop(0.6,COL.paper2);g.addColorStop(1,'#d4c197');
+  ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+  // subtle blotches
+  ctx.globalAlpha=0.05;ctx.fillStyle=COL.ink2;
+  const r=mulberry32(7);
+  for(let i=0;i<40;i++){ctx.beginPath();ctx.arc(r()*W,r()*H,20+r()*90,0,7);ctx.fill();}
+  ctx.globalAlpha=1;
+  ctx.drawImage(grain,0,0);
+}
+function vignette(){
+  const g=ctx.createRadialGradient(W/2,H/2,H*0.25,W/2,H/2,H*0.72);
+  g.addColorStop(0,'rgba(0,0,0,0)');g.addColorStop(1,'rgba(40,28,14,0.42)');
+  ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+}
+
+// ---------- caption box (hand-drawn) ----------
+function wrap(text,max){const w=text.split(' ');const lines=[];let cur='';for(const word of w){const t=cur?cur+' '+word:word;if(t.length>max){lines.push(cur);cur=word;}else cur=t;}if(cur)lines.push(cur);return lines;}
+function caption(title,sub,appear){
+  // appear: 0..1 slide-in
+  const yBase=H-360;
+  ctx.save();
+  ctx.translate(0,(1-appear)*40);
+  ctx.globalAlpha=appear;
+  // banner
+  const bx=70,bw=W-140,by=yBase-10;
+  const lines= sub? wrap(sub,26):[];
+  const bh=150+lines.length*66;
+  inkShape([[bx,by],[bx+bw,by-8],[bx+bw+6,by+bh],[bx-4,by+bh+8]], 900,7, 'rgba(30,22,12,0.82)', COL.gold,5);
+  // title
+  ctx.textAlign='center';ctx.fillStyle=COL.goldL;
+  ctx.font='700 62px Georgia, "Times New Roman", serif';
+  ctx.fillText(title, W/2, by+80);
+  // sub lines
+  ctx.fillStyle='#f4ead0';
+  ctx.font='500 44px Georgia, serif';
+  lines.forEach((l,i)=>ctx.fillText(l,W/2,by+150+i*60));
+  ctx.restore();
+}
+
+// ---------- reusable actors ----------
+function eagle(cx,cy,scale,flap,dir){
+  // flap: -1..1 wing phase ; dir: facing +1 right
+  ctx.save();ctx.translate(cx,cy);ctx.scale(scale*dir,scale);
+  const wy=-Math.abs(flap)*70 - 10;
+  // far wing
+  inkShape([[0,-8],[-150,wy-30],[-210,wy+20],[-70,30]],11,5,COL.ink2,COL.ink,7);
+  // body
+  inkShape(circlePts(0,0,55,14),12,5,COL.ink,COL.ink,6);
+  // tail
+  inkShape([[40,10],[130,50+flap*20],[120,90],[35,45]],13,5,COL.ink2,COL.ink,6);
+  // head + beak
+  inkShape(circlePts(-60,-18,30,12),14,4,'#efe3c6',COL.ink,5);
+  inkShape([[-88,-18],[-120,-8],[-88,4]],15,3,COL.gold,COL.ink,4);
+  // eye
+  ctx.fillStyle=COL.ink;ctx.beginPath();ctx.arc(-70,-22,5,0,7);ctx.fill();
+  // near wing (over body)
+  inkShape([[0,-4],[150,wy-30],[215,wy+25],[75,34]],16,5,COL.ink,COL.ink,7);
+  // feather hints
+  ctx.strokeStyle=COL.ink2;ctx.lineWidth=3;
+  for(let i=0;i<4;i++){inkPath([[40+i*35,wy-10+i*12],[70+i*35,wy+15+i*12]],20+i,4);ctx.stroke();}
+  ctx.restore();
+}
+function hobbit(cx,cy,scale,step){
+  ctx.save();ctx.translate(cx,cy);ctx.scale(scale,scale);
+  // cloak
+  inkShape([[-42,-70],[42,-70],[60,90+Math.sin(step)*4],[-60,90-Math.sin(step)*4]],31,5,COL.greenD,COL.ink,6);
+  // hood/head
+  inkShape(circlePts(0,-92,34,12),32,4,'#e7d8b4',COL.ink,5);
+  inkShape([[-40,-96],[40,-96],[26,-124],[-26,-124]],33,4,COL.green,COL.ink,5);
+  // legs stepping
+  inkShape([[-22,86],[-6,86],[-10,140+Math.sin(step)*18],[-30,140+Math.sin(step)*18]],34,4,COL.ink2,COL.ink,5);
+  inkShape([[8,86],[24,86],[30,140-Math.sin(step)*18],[10,140-Math.sin(step)*18]],35,4,COL.ink2,COL.ink,5);
+  ctx.restore();
+}
+function mountain(cx,base,w,h,seed,fill){
+  inkShape([[cx-w,base],[cx-w*0.2,base-h*0.75],[cx,base-h],[cx+w*0.25,base-h*0.7],[cx+w,base]],seed,6,fill,COL.ink,6);
+}
+
+// ---------- Eye of Sauron ----------
+function eyeOfSauron(cx,cy,scale,intensity){
+  ctx.save();ctx.translate(cx,cy);ctx.scale(scale,scale);
+  // flame halo
+  const r=rndFor(50);
+  for(let i=0;i<26;i++){
+    const a=i/26*Math.PI*2;const len=120+r()*80*intensity;
+    ctx.strokeStyle=i%2?COL.lava:COL.lavaL;ctx.globalAlpha=0.55;
+    inkPath([[Math.cos(a)*110,Math.sin(a)*150],[Math.cos(a)*(110+len),Math.sin(a)*(150+len)]],60+i,10);
+    ctx.lineWidth=10;ctx.stroke();
+  }
+  ctx.globalAlpha=1;
+  // eye almond
+  inkShape([[-170,0],[0,-95],[170,0],[0,95]],70,7, COL.lavaL, COL.blood,8);
+  inkShape([[-150,0],[0,-78],[150,0],[0,78]],71,6, COL.lava, null,0);
+  // pupil (vertical slit)
+  inkShape([[-16,-70],[16,-70],[10,70],[-10,70]],72,4, COL.ink, COL.blood,4);
+  ctx.restore();
+}
+function nazgul(cx,cy,scale,flap){
+  ctx.save();ctx.translate(cx,cy);ctx.scale(scale,scale);
+  inkShape([[0,0],[-140,-40-flap*30],[-180,10],[-60,26]],41,6,'#1c1712',COL.ink,5);
+  inkShape([[0,0],[140,-40-flap*30],[180,10],[60,26]],42,6,'#1c1712',COL.ink,5);
+  inkShape(circlePts(0,0,26,10),43,4,'#1c1712',COL.ink,5);
+  ctx.restore();
+}
+
+// ---------- clouds ----------
+function cloud(cx,cy,s,seed){ctx.save();ctx.globalAlpha=0.5;
+  ctx.fillStyle='#efe6cd';
+  for(let i=0;i<4;i++){const r=rndFor(seed+i);ctx.beginPath();ctx.arc(cx+i*60*s-90*s,cy+(r()*20-10),(50+r()*30)*s,0,7);ctx.fill();}
+  ctx.restore();}
+
+// ================= SCENES =================
+function easeInOut(t){return t<0.5?2*t*t:1-Math.pow(-2*t+2,2)/2;}
+function scene1(t,local){ // 0..6 : eagles carrying the ring over mountains
+  // sky
+  const g=ctx.createLinearGradient(0,0,0,H);g.addColorStop(0,COL.sky);g.addColorStop(1,COL.skyD);
+  ctx.fillStyle=g;ctx.fillRect(0,0,W,H);ctx.drawImage(grain,0,0);
+  // sun disc
+  inkShape(circlePts(820,430,120,18),80,5,'rgba(240,207,120,0.55)',COL.gold,4);
+  // distant mountains
+  mountain(300,1500,340,520,101,COL.skyD);
+  mountain(760,1520,380,560,102,'#93794f');
+  mountain(540,1560,300,430,103,'#a88b58');
+  // clouds drifting
+  cloud(200+ (local*30)%1200,720,1.4,201);
+  cloud(700+ (local*22)%1000,560,1.1,202);
+  // eagle formation flying across, gentle bob
+  const bob=Math.sin(local*2.2)*24;
+  const px=W*0.5 + Math.sin(local*0.7)*60;
+  eagle(px, 900+bob, 1.35, Math.sin(local*7), 1);
+  eagle(px-260, 760-bob*0.5, 0.8, Math.sin(local*7+1), 1);
+  eagle(px+240, 1080+bob*0.6, 0.9, Math.sin(local*7+2), 1);
+  // the RING dangling under the lead eagle, glinting
+  const rx=px+70, ry=1010+bob;
+  ctx.strokeStyle=COL.ink;ctx.lineWidth=3;inkPath([[px+30,955+bob],[rx,ry-40]],88,2);ctx.stroke();
+  inkShape(circlePts(rx,ry,26,16),90,3,'rgba(0,0,0,0)',COL.gold,10);
+  inkShape(circlePts(rx,ry,26,16),91,3,'rgba(0,0,0,0)',COL.goldL,4);
+  const glint=(Math.sin(local*6)*0.5+0.5);
+  ctx.globalAlpha=glint;ctx.fillStyle=COL.goldL;ctx.beginPath();ctx.arc(rx-8,ry-8,6,0,7);ctx.fill();ctx.globalAlpha=1;
+}
+function scene2(t,local){ // 6..11.5 : Mordor sky watched — Eye + Nazgul
+  const g=ctx.createLinearGradient(0,0,0,H);g.addColorStop(0,'#2a1c16');g.addColorStop(1,'#0e0a08');
+  ctx.fillStyle=g;ctx.fillRect(0,0,W,H);ctx.drawImage(grain,0,0);
+  // jagged Mordor peaks (bottom)
+  ctx.fillStyle='#120c09';
+  mountain(200,1920,340,560,111,'#171009');
+  mountain(880,1920,380,620,112,'#120c08');
+  mountain(540,1920,320,460,113,'#1c130b');
+  // Mount Doom glow far right
+  ctx.save();ctx.globalAlpha=0.6;inkShape([[860,1920],[960,1360],[1080,1920]],114,6,COL.lava,null,0);ctx.restore();
+  // ember particles
+  const r=rndFor(500);ctx.fillStyle=COL.lavaL;
+  for(let i=0;i<30;i++){const ex=r()*W, ey=H-(local*120+r()*H)% H;ctx.globalAlpha=0.5*r();ctx.beginPath();ctx.arc(ex,ey,2+r()*3,0,7);ctx.fill();}
+  ctx.globalAlpha=1;
+  // Eye of Sauron opening
+  const open=Math.min(1,easeInOut(Math.min(1,local/1.4)));
+  eyeOfSauron(W/2,760,0.85+0.15*open, 0.5+open);
+  // scanning beam sweeping
+  ctx.save();ctx.globalAlpha=0.16*open;ctx.fillStyle=COL.lavaL;
+  const ang=Math.sin(local*1.4)*0.5;ctx.translate(W/2,760);ctx.rotate(ang);
+  ctx.beginPath();ctx.moveTo(0,0);ctx.lineTo(-180,1400);ctx.lineTo(180,1400);ctx.closePath();ctx.fill();ctx.restore();
+  // Nazgul rising into the sky
+  const nz=1300-local*120;
+  nazgul(300,nz,0.9,Math.sin(local*8));
+  nazgul(820,nz+80,0.7,Math.sin(local*8+1.5));
+  nazgul(560,nz-140,1.1,Math.sin(local*8+0.7));
+}
+function scene3(t,local){ // 11.5..16.8 : stealth — hobbits sneaking in the dark
+  const g=ctx.createLinearGradient(0,0,0,H);g.addColorStop(0,'#20261c');g.addColorStop(1,'#0c0f0a');
+  ctx.fillStyle=g;ctx.fillRect(0,0,W,H);ctx.drawImage(grain,0,0);
+  // moon
+  inkShape(circlePts(300,470,110,18),120,5,'rgba(230,222,190,0.5)','#cbbf90',4);
+  // rocky ground
+  ctx.fillStyle='#141810';
+  inkShape([[0,1520],[300,1470],[640,1520],[1080,1480],[1080,1920],[0,1920]],121,8,'#141810',COL.ink,5);
+  // faint far Mount Doom
+  ctx.save();ctx.globalAlpha=0.4;inkShape([[720,1520],[850,1150],[1000,1520]],122,6,COL.blood,null,0);ctx.restore();
+  // two hobbits creeping left->right
+  const march=easeInOut(Math.min(1,local/4));
+  const baseX=200+march*520;
+  const step=local*6;
+  hobbit(baseX,1500,1.15,step);
+  hobbit(baseX-120,1512,1.0,step+1.6);
+  // long dramatic shadows
+  ctx.save();ctx.globalAlpha=0.25;ctx.fillStyle='#000';
+  ctx.beginPath();ctx.ellipse(baseX+10,1620,120,26,0,0,7);ctx.fill();
+  ctx.beginPath();ctx.ellipse(baseX-110,1626,100,22,0,0,7);ctx.fill();ctx.restore();
+}
+
+// ---------- master timeline ----------
+const beats=[
+  {a:0.0, b:6.0,  fn:scene1, title:'THE EAGLE PLAN', sub:'Why not just fly the Ring to Mount Doom?'},
+  {a:6.0, b:11.5, fn:scene2, title:'MORDOR WAS WATCHING', sub:'The Eye and the Nazgul rule those skies — eagles would be seen at once.'},
+  {a:11.5,b:16.8, fn:scene3, title:'SECRECY WON THE WAR', sub:'The plan needed stealth: two small hobbits, unnoticed.'}
+];
+
+function drawFrame(frame){
+  BOIL=Math.floor(frame/3);            // boil on "threes" ~10fps line jitter
+  const t=frame/FPS;
+  ctx.clearRect(0,0,W,H);
+  paperBg();
+  // find beat
+  let beat=beats[0];
+  for(const bt of beats){if(t>=bt.a && t<bt.b){beat=bt;break;} if(t>=beats[beats.length-1].b) beat=beats[beats.length-1];}
+  const local=t-beat.a;
+  ctx.save();
+  // draw the parchment "frame" content clipped with a border margin
+  beat.fn(t,local);
+  ctx.restore();
+  // overlay grain + vignette for scene
+  ctx.drawImage(grain,0,0);
+  vignette();
+  // scene transition flashes (quick ink wipe near cuts)
+  const dtStart=t-beat.a, dtEnd=beat.b-t;
+  if(dtStart<0.35){ctx.globalAlpha=(0.35-dtStart)/0.35*0.9;ctx.fillStyle=COL.paper;ctx.fillRect(0,0,W,H);ctx.globalAlpha=1;}
+  // caption
+  const appear=Math.min(1,(local)/0.5);
+  caption(beat.title,beat.sub,appear);
+  // hand-drawn border
+  ctx.strokeStyle=COL.ink;ctx.lineWidth=10;
+  inkPath([[40,40],[W-40,44],[W-44,H-40],[44,H-44],[40,40]],777,6);ctx.stroke();
+  // progress ticks (retro film feel) top
+  ctx.fillStyle='rgba(44,36,27,0.5)';
+  for(let i=0;i<12;i++){ctx.fillRect(70+i*82, 60, 40, 14);}
+  // top label
+  ctx.textAlign='left';ctx.fillStyle=COL.ink;ctx.font='700 40px Georgia,serif';
+  ctx.fillText('LOTR EXPLAINED', 70, 130);
+}
+
+window.renderFrame=function(frame){drawFrame(frame);};
+// initial
+drawFrame(0);
+</script>
+</body>
+</html>
