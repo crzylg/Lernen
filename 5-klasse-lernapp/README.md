@@ -76,6 +76,18 @@ Interleaving) wurden folgende Mechaniken ergänzt, alles ohne Backend, rein
   abwechselnde, ermutigende Formulierungen ("Fast! Schau mal…", "Stark
   erkannt!").
 
+## Fortschrittsbericht (für Eltern & Lehrkräfte)
+
+Unten im Footer gibt es einen Link "📊 Fortschrittsbericht (für Eltern)".
+Er ist mit einem Passwort geschützt (kein echter Sicherheitsmechanismus,
+nur ein Hinweis, dass dieser Bereich nicht für Kinder gedacht ist). Der
+Bericht zeigt pro geübtem Thema: Sterne, beste Erfolgsquote, wie viele
+Fragen noch zur Wiederholung anstehen, und eine Ampel-Einschätzung
+(🟢/🟡/🔴). Themen werden nach Schwäche sortiert, ganz oben steht eine
+konkrete Empfehlung, welches Thema am meisten Übung braucht – ein Klick
+auf "Nochmal lernen" führt direkt zur Lektion mit den Beispielrechnungen
+dieses Themas.
+
 ## Struktur
 
 ```

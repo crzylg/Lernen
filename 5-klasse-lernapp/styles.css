@@ -72,6 +72,10 @@ body {
 
 .topbar h1 {
   flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   font-size: 1.15rem;
   margin: 0;
   font-weight: 800;
@@ -169,6 +173,18 @@ main {
 }
 .footer p { margin: 2px 0; }
 .footer-datum { opacity: 0.7; }
+.footer-link {
+  margin-top: 10px;
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  font-size: 0.8rem;
+  text-decoration: underline;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 4px;
+}
+.footer-link:hover { color: var(--cyan); }
 
 /* Streak & Wiederholung */
 .streak-pill {
@@ -312,6 +328,47 @@ main {
   border-radius: 12px;
   padding: 12px 14px;
   line-height: 1.5;
+}
+
+/* Beispielrechnungen (Schritt-für-Schritt) */
+.beispiele-ueberschrift {
+  text-align: left;
+  font-size: 1.05rem;
+  margin: 4px 0 12px;
+  color: var(--gold);
+}
+.beispiel-karte {
+  text-align: left;
+  background: rgba(255, 209, 102, 0.06);
+  border: 1px solid rgba(255, 209, 102, 0.3);
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin-bottom: 14px;
+}
+.beispiel-aufgabe {
+  font-weight: 800;
+  font-size: 1.05rem;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+.beispiel-schritte {
+  margin: 0 0 10px;
+  padding-left: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.beispiel-schritte li {
+  line-height: 1.5;
+  color: var(--muted);
+}
+.beispiel-ergebnis {
+  font-weight: 800;
+  color: var(--good);
+  background: rgba(52, 238, 160, 0.12);
+  border-radius: 10px;
+  padding: 8px 12px;
+  display: inline-block;
 }
 
 /* Vokabelkarten */
@@ -499,3 +556,52 @@ main {
   box-shadow: none;
 }
 .btn-secondary:hover { box-shadow: 0 0 14px rgba(255, 255, 255, 0.2); }
+
+/* Fortschrittsbericht */
+.fortschritt-liste {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 16px;
+}
+.fortschritt-zeile {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  padding: 14px 16px;
+  text-align: left;
+}
+.fortschritt-zeile-kopf {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+.fortschritt-fach { flex: 1; }
+.fortschritt-sterne { color: var(--gold); white-space: nowrap; }
+.fortschritt-zeile-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 0.85rem;
+}
+.status-badge {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.status-gut { background: rgba(52, 238, 160, 0.15); color: var(--good); }
+.status-mittel { background: rgba(255, 209, 102, 0.15); color: var(--gold); }
+.status-schlecht { background: rgba(255, 77, 109, 0.15); color: var(--bad); }
+.fortschritt-prozent, .fortschritt-offene { color: var(--muted); }
+.fortschritt-zeile .btn-secondary {
+  width: 100%;
+  padding: 10px 14px;
+  margin-top: 0;
+  font-size: 0.9rem;
+}

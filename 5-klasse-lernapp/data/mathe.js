@@ -20,6 +20,35 @@ window.LERNDATA.mathe = {
         "➗ Geteilt (:) heißt dividieren: Du teilst eine Zahl in gleiche Teile auf. Das Ergebnis heißt Quotient.",
         "⭐ Wichtige Regel: 'Punkt vor Strich' – zuerst rechnest du Mal und Geteilt, danach erst Plus und Minus."
       ],
+      beispiele: [
+        {
+          aufgabe: "5 + 3 × 4 = ?",
+          schritte: [
+            "Schau zuerst, ob eine Mal- oder Geteilt-Aufgabe dabei ist.",
+            "3 × 4 rechnest du zuerst: 3 × 4 = 12.",
+            "Jetzt rechnest du die Plus-Aufgabe: 5 + 12 = 17."
+          ],
+          ergebnis: "17"
+        },
+        {
+          aufgabe: "(4 + 6) × 3 = ?",
+          schritte: [
+            "Steht eine Klammer da, rechnest du die immer zuerst.",
+            "In der Klammer steht 4 + 6 = 10.",
+            "Jetzt rechnest du 10 × 3 = 30."
+          ],
+          ergebnis: "30"
+        },
+        {
+          aufgabe: "234 + 158 = ?",
+          schritte: [
+            "Du addierst zuerst die Einer (rechte Spalte): 4 + 8 = 12. Du schreibst die 2 auf und merkst dir die 1.",
+            "Jetzt die Zehner: 3 + 5 = 8, plus die gemerkte 1 macht 9.",
+            "Zum Schluss die Hunderter: 2 + 1 = 3."
+          ],
+          ergebnis: "392"
+        }
+      ],
       aufgaben: [
         { frage: "Wie heißt das Ergebnis einer Plus-Aufgabe?", typ: "mc", optionen: ["Summe", "Differenz", "Produkt", "Quotient"], loesung: "Summe", erklaerung: "Bei einer Addition (Plus) nennt man das Ergebnis Summe." },
         { frage: "Wie heißt das Ergebnis einer Minus-Aufgabe?", typ: "mc", optionen: ["Summe", "Differenz", "Produkt", "Quotient"], loesung: "Differenz", erklaerung: "Bei einer Subtraktion (Minus) nennt man das Ergebnis Differenz." },
@@ -54,6 +83,35 @@ window.LERNDATA.mathe = {
         "🔄 Runden heißt: Eine Zahl einfacher machen. Du schaust auf die Ziffer rechts von der Rundungsstelle.",
         "⬇️⬆️ Ist diese Ziffer 0,1,2,3,4 → abrunden. Ist sie 5,6,7,8,9 → aufrunden."
       ],
+      beispiele: [
+        {
+          aufgabe: "Runde 748 auf die nächsten Zehner.",
+          schritte: [
+            "Schau auf die Ziffer rechts von der Zehnerstelle, also die Einerstelle: bei 748 ist das die 8.",
+            "Die 8 ist 5 oder größer, also wird aufgerundet.",
+            "Die Zehnerstelle wird deshalb eins größer: aus 740 wird 750."
+          ],
+          ergebnis: "750"
+        },
+        {
+          aufgabe: "Runde 8.499 auf die nächsten Tausender.",
+          schritte: [
+            "Schau auf die Ziffer rechts von der Tausenderstelle, also die Hunderterstelle: bei 8.499 ist das die 4.",
+            "Die 4 ist kleiner als 5, also wird abgerundet.",
+            "Die Tausenderstelle bleibt einfach gleich: aus 8.499 wird 8.000."
+          ],
+          ergebnis: "8.000"
+        },
+        {
+          aufgabe: "Welche Zahl ist größer: 45.900 oder 45.090?",
+          schritte: [
+            "Vergleiche Ziffer für Ziffer von links nach rechts.",
+            "Zehntausender (4) und Tausender (5) sind bei beiden Zahlen gleich.",
+            "Bei der Hunderterstelle hat 45.900 eine 9, aber 45.090 nur eine 0 – ab hier gewinnt die Zahl mit der größeren Ziffer."
+          ],
+          ergebnis: "45.900 ist größer"
+        }
+      ],
       aufgaben: [
         { frage: "Wie viele Nullen hat eine Million (1.000.000)?", typ: "zahl", loesung: "6", erklaerung: "1.000.000 hat sechs Nullen." },
         { frage: "Welche Stelle steht in 4.372 an der Hunderterstelle?", typ: "zahl", loesung: "3", erklaerung: "4.372 → 4 = Tausender, 3 = Hunderter, 7 = Zehner, 2 = Einer." },
@@ -86,6 +144,35 @@ window.LERNDATA.mathe = {
         "💶 Geld misst man in Euro und Cent. 100 Cent sind 1 Euro.",
         "💡 Tipp: Von einer kleinen in eine große Einheit rechnest du meistens durch Teilen. Umgekehrt durch Malnehmen."
       ],
+      beispiele: [
+        {
+          aufgabe: "3 m sind wie viele cm?",
+          schritte: [
+            "Du weißt: 1 m sind 100 cm.",
+            "Für 3 m rechnest du also 3-mal so viel: 3 × 100.",
+            "3 × 100 = 300."
+          ],
+          ergebnis: "300 cm"
+        },
+        {
+          aufgabe: "2.500 g sind wie viele kg?",
+          schritte: [
+            "Du weißt: 1.000 g sind 1 kg.",
+            "Du willst von der kleinen Einheit (g) in die große Einheit (kg), also teilst du.",
+            "2.500 : 1.000 = 2,5."
+          ],
+          ergebnis: "2,5 kg"
+        },
+        {
+          aufgabe: "Wie viele Minuten sind 2 Stunden?",
+          schritte: [
+            "Du weißt: 1 Stunde hat 60 Minuten.",
+            "Für 2 Stunden rechnest du 2-mal so viel: 2 × 60.",
+            "2 × 60 = 120."
+          ],
+          ergebnis: "120 Minuten"
+        }
+      ],
       aufgaben: [
         { frage: "Wie viele Zentimeter sind 1 Meter?", typ: "zahl", loesung: "100", erklaerung: "1 m = 100 cm" },
         { frage: "Wie viele Meter sind 1 Kilometer?", typ: "zahl", loesung: "1000", erklaerung: "1 km = 1000 m" },
@@ -117,6 +204,35 @@ window.LERNDATA.mathe = {
         "⬇️ Die untere Zahl heißt Nenner – sie zeigt, in wie viele Teile das Ganze geteilt wurde.",
         "📊 Je größer der Nenner, desto kleiner ist ein einzelnes Teil (1/8 ist kleiner als 1/2)."
       ],
+      beispiele: [
+        {
+          aufgabe: "Ein Kuchen hat 8 Stücke. Du isst 3 Stücke. Welcher Bruch beschreibt das?",
+          schritte: [
+            "Der Nenner (unten) ist die Gesamtzahl aller Stücke: 8.",
+            "Der Zähler (oben) ist die Anzahl, die du gegessen hast: 3.",
+            "Du schreibst den Zähler oben und den Nenner unten."
+          ],
+          ergebnis: "3/8"
+        },
+        {
+          aufgabe: "Was ist 1/2 als Bruch mit Nenner 4?",
+          schritte: [
+            "Du willst aus dem Nenner 2 den Nenner 4 machen: dafür rechnest du 2 × 2 = 4.",
+            "Was du unten mit der Zahl machst, musst du oben genauso machen: 1 × 2 = 2.",
+            "Der neue Bruch hat oben die 2 und unten die 4."
+          ],
+          ergebnis: "2/4"
+        },
+        {
+          aufgabe: "Was ist größer: 1/2 oder 1/4?",
+          schritte: [
+            "Bei gleichem Zähler (hier: 1) schaust du nur auf den Nenner.",
+            "Je größer der Nenner, desto kleiner ist ein einzelnes Stück.",
+            "4 ist größer als 2, also ist 1/4 das kleinere Stück."
+          ],
+          ergebnis: "1/2 ist größer"
+        }
+      ],
       aufgaben: [
         { frage: "Ein Kuchen wird in 4 gleiche Teile geteilt. Wie heißt ein Teil als Bruch?", typ: "mc", optionen: ["1/4", "4/1", "1/2", "2/4"], loesung: "1/4", erklaerung: "Ein Teil von vier gleichen Teilen ist ein Viertel: 1/4." },
         { frage: "Wie nennt man die untere Zahl eines Bruchs?", typ: "mc", optionen: ["Zähler", "Nenner", "Summe", "Faktor"], loesung: "Nenner", erklaerung: "Die untere Zahl zeigt, in wie viele Teile geteilt wurde – das ist der Nenner." },
@@ -144,6 +260,35 @@ window.LERNDATA.mathe = {
         "📏 Ein rechter Winkel hat genau 90°. Ein spitzer Winkel ist kleiner, ein stumpfer Winkel größer als 90°.",
         "🔲 Der Umfang ist die Länge, wenn du einmal außen um eine Figur herumgehst.",
         "🟦 Die Fläche ist der Platz innerhalb einer Figur. Bei einem Rechteck gilt: Fläche = Länge × Breite."
+      ],
+      beispiele: [
+        {
+          aufgabe: "Ein Rechteck ist 5 cm lang und 3 cm breit. Wie groß ist der Umfang?",
+          schritte: [
+            "Die Formel für den Umfang ist: 2 × (Länge + Breite).",
+            "Zuerst rechnest du Länge + Breite: 5 + 3 = 8.",
+            "Dann multiplizierst du mit 2: 2 × 8 = 16."
+          ],
+          ergebnis: "16 cm"
+        },
+        {
+          aufgabe: "Ein Rechteck ist 4 cm lang und 3 cm breit. Wie groß ist die Fläche?",
+          schritte: [
+            "Die Formel für die Fläche ist: Länge × Breite.",
+            "Du setzt die Zahlen ein: 4 × 3.",
+            "4 × 3 = 12."
+          ],
+          ergebnis: "12 cm²"
+        },
+        {
+          aufgabe: "Ein Quadrat hat die Seitenlänge 5 cm. Wie groß ist der Umfang?",
+          schritte: [
+            "Ein Quadrat hat 4 gleich lange Seiten.",
+            "Die Formel für den Umfang ist deshalb: 4 × Seitenlänge.",
+            "4 × 5 = 20."
+          ],
+          ergebnis: "20 cm"
+        }
       ],
       aufgaben: [
         { frage: "Wie nennt man einen Winkel, der genau 90° hat?", typ: "mc", optionen: ["rechter Winkel", "spitzer Winkel", "stumpfer Winkel", "gestreckter Winkel"], loesung: "rechter Winkel", erklaerung: "Ein Winkel mit genau 90° heißt rechter Winkel." },
