@@ -1,7 +1,7 @@
 // Einfacher Service Worker: macht die App offline nutzbar (iPhone/iPad "Zum Home-Bildschirm").
 // Netzwerk zuerst (damit der 🔄-Button immer frische Inhalte holen kann),
 // bei fehlendem Netz wird die zuletzt gespeicherte Version genutzt.
-var CACHE = "lk5-cache-v1";
+var CACHE = "lk5-cache-v2";
 var ASSETS = [
   "./",
   "./index.html",
@@ -14,6 +14,7 @@ var ASSETS = [
   "./data/erdkunde.js",
   "./data/biologie.js",
   "./data/lesen.js",
+  "./data/spiele.js",
   "./icons/icon-192.png",
   "./icons/icon-512.png",
   "./icons/icon-180.png"

@@ -5,10 +5,40 @@
   var LS_REFRESH = "lk5_refresh";
   var LS_LEITNER = "lk5_leitner";
   var LS_STREAK = "lk5_streak";
+  var LS_SPIELE_XP = "lk5_spiele_xp";
+  var LS_SPIELE_BADGES = "lk5_spiele_badges";
+  var LS_SPIELE_GESPIELT = "lk5_spiele_gespielt";
 
   var AKTIVE_FAECHER = ["mathe", "deutsch", "englisch", "erdkunde", "biologie", "lesen"];
 
   var KOMMEND = [];
+
+  // ---------- Spiele-Arena: Konfiguration ----------
+  // Quiz-Duell & Blitz-Runde laufen über die echten Aufgaben aus window.LERNDATA
+  // (nur Typ "mc"), damit dieselben Inhalte wie in den normalen Missionen
+  // geübt werden. Sortierschlacht/Erinnerungs-Duell/Lückenzauber nutzen die
+  // Zusatzinhalte aus window.SPIELE_EXTRA. Logik ist ein Bonus-Bereich ohne
+  // eigenes Schulfach.
+  var SPIELE_FAECHER = ["mathe", "deutsch", "englisch", "erdkunde", "biologie", "lesen", "logik"];
+  var SPIELE_MODI = {
+    quiz: { emoji: "⚔️", name: "Quiz-Duell", desc: "Besiege den Wissens-Dämon mit richtigen Antworten" },
+    blitz: { emoji: "⚡", name: "Blitz-Runde", desc: "So viele Treffer wie möglich in 45 Sekunden" },
+    dragdrop: { emoji: "🧲", name: "Sortierschlacht", desc: "Bring alles in die richtige Reihenfolge" },
+    memory: { emoji: "🧠", name: "Erinnerungs-Duell", desc: "Finde alle passenden Paare" },
+    luecken: { emoji: "✨", name: "Lückenzauber", desc: "Wähle das richtige Wort für die Lücke" },
+  };
+  var SPIELE_BADGES = [
+    { id: "erstsieg", emoji: "🏆", name: "Erster Sieg", desc: "Gewinne dein erstes Duell" },
+    { id: "combo5", emoji: "🔥", name: "Combo x5", desc: "5 richtige Antworten in Folge" },
+    { id: "mathe_meister", emoji: "🧮", name: "Mathe-Meister", desc: "Mathe Quiz-Duell ohne Fehler" },
+    { id: "deutsch_meister", emoji: "📖", name: "Deutsch-Meister", desc: "Deutsch Quiz-Duell ohne Fehler" },
+    { id: "alleskoenner", emoji: "🌟", name: "Alleskönner", desc: "Spiele in allen Fächern" },
+    { id: "blitz_champion", emoji: "⚡", name: "Blitz-Champion", desc: "15 Treffer in einer Blitz-Runde" },
+    { id: "gedaechtnis_profi", emoji: "🧠", name: "Gedächtnis-Profi", desc: "Memory ohne Fehlversuch" },
+    { id: "serientaenzer", emoji: "📅", name: "Serientänzer", desc: "3 Tage Streak" },
+    { id: "legende_serie", emoji: "👑", name: "Serien-Legende", desc: "7 Tage Streak" },
+  ];
+  var SPIELE_XP_PRO_LEVEL = 80;
 
   var appEl = document.getElementById("app");
   var titelEl = document.getElementById("titel");
@@ -30,7 +60,9 @@
     falscheDiesesmal: [],
     kurzcheckFragen: [],
     kurzcheckIndex: 0,
-    geplanteAnzahl: null
+    geplanteAnzahl: null,
+    spielFachId: null,
+    spiel: null
   };
 
   // ---------- Aufgaben-Index (für Wiederholung über alle Fächer) ----------
@@ -173,9 +205,596 @@
     setTimeout(function () { toast.remove(); }, dauerMs || 4000);
   }
 
+  // ==================== Spiele-Arena ====================
+  // Eigenständiger Mini-Spiele-Bereich innerhalb derselben App. Quiz-Duell
+  // und Blitz-Runde nutzen echte Aufgaben aus window.LERNDATA (nur Typ
+  // "mc") und dieselbe Frage-UI wie die normalen Missionen (renderFrageInhalt),
+  // damit Inhalte, Fortschritt bei der Wiederholungswarteschlange (Leitner)
+  // und der Tages-Streak einheitlich bleiben. XP/Level/Abzeichen sind eine
+  // eigene, zusätzliche Fortschrittsebene nur für die Spiele-Arena.
+
+  function ladeSpieleXp() {
+    try { return parseInt(localStorage.getItem(LS_SPIELE_XP), 10) || 0; } catch (e) { return 0; }
+  }
+  function speichereSpieleXp(xp) {
+    try { localStorage.setItem(LS_SPIELE_XP, String(xp)); } catch (e) {}
+  }
+  function spielLevelAus(xp) { return Math.floor(xp / SPIELE_XP_PRO_LEVEL) + 1; }
+  function spielXpImLevel(xp) { return xp % SPIELE_XP_PRO_LEVEL; }
+  function spielRangName(level) {
+    if (level >= 19) return "Legende";
+    if (level >= 14) return "Superstar";
+    if (level >= 10) return "Headliner";
+    if (level >= 7) return "Rising Star";
+    if (level >= 5) return "Support-Act";
+    if (level >= 3) return "Backup-Tänzer:in";
+    return "Trainee";
+  }
+  function vergibSpielXp(betrag) {
+    var xp = ladeSpieleXp() + betrag;
+    speichereSpieleXp(xp);
+    aktualisiereStreak();
+    return xp;
+  }
+
+  function ladeSpieleBadges() {
+    try { return JSON.parse(localStorage.getItem(LS_SPIELE_BADGES)) || []; } catch (e) { return []; }
+  }
+  function speichereSpieleBadges(b) {
+    try { localStorage.setItem(LS_SPIELE_BADGES, JSON.stringify(b)); } catch (e) {}
+  }
+  function ladeSpieleGespielt() {
+    try { return JSON.parse(localStorage.getItem(LS_SPIELE_GESPIELT)) || []; } catch (e) { return []; }
+  }
+  function vermerkeSpielGespielt(fachId) {
+    var g = ladeSpieleGespielt();
+    if (g.indexOf(fachId) === -1) {
+      g.push(fachId);
+      try { localStorage.setItem(LS_SPIELE_GESPIELT, JSON.stringify(g)); } catch (e) {}
+    }
+    return g;
+  }
+  function schalteBadgeFrei(id, neuListe) {
+    var badges = ladeSpieleBadges();
+    if (badges.indexOf(id) !== -1) return;
+    badges.push(id);
+    speichereSpieleBadges(badges);
+    for (var i = 0; i < SPIELE_BADGES.length; i++) {
+      if (SPIELE_BADGES[i].id === id) { neuListe.push(SPIELE_BADGES[i]); return; }
+    }
+  }
+  function pruefeSpielAbzeichen(ctx) {
+    var neu = [];
+    if (ctx.richtig > 0) schalteBadgeFrei("erstsieg", neu);
+    if (ctx.comboMax >= 5) schalteBadgeFrei("combo5", neu);
+    if (ctx.modus === "quiz" && ctx.fachId === "mathe" && ctx.richtig === ctx.gesamt) schalteBadgeFrei("mathe_meister", neu);
+    if (ctx.modus === "quiz" && ctx.fachId === "deutsch" && ctx.richtig === ctx.gesamt) schalteBadgeFrei("deutsch_meister", neu);
+    if (ctx.modus === "blitz" && ctx.richtig >= 15) schalteBadgeFrei("blitz_champion", neu);
+    if (ctx.modus === "memory" && ctx.perfekt) schalteBadgeFrei("gedaechtnis_profi", neu);
+    var streak = ladeStreak();
+    if (streak && streak.anzahl >= 3) schalteBadgeFrei("serientaenzer", neu);
+    if (streak && streak.anzahl >= 7) schalteBadgeFrei("legende_serie", neu);
+    var gespielt = vermerkeSpielGespielt(ctx.fachId);
+    var alleFaecherOhneBonus = SPIELE_FAECHER.filter(function (f) { return f !== "logik"; });
+    if (alleFaecherOhneBonus.every(function (f) { return gespielt.indexOf(f) !== -1; })) schalteBadgeFrei("alleskoenner", neu);
+    return neu;
+  }
+
+  function spielFachMeta(fachId) {
+    if (fachId === "logik") return { id: "logik", name: "Logik", icon: "🧩", farbe: "#f472b6" };
+    var fach = window.LERNDATA[fachId];
+    return fach ? { id: fach.id, name: fach.name, icon: fach.icon, farbe: fach.farbe } : null;
+  }
+
+  // Sammelt alle Multiple-Choice-Aufgaben eines Fachs aus window.LERNDATA
+  // (dieselben Objekte, inkl. _id — Antworten hier fließen daher auch in
+  // die Leitner-Wiederholungswarteschlange ein).
+  function mcPoolFuerFach(fachId) {
+    var fach = window.LERNDATA[fachId];
+    if (!fach) return [];
+    var pool = [];
+    fach.themen.forEach(function (thema) {
+      thema.aufgaben.forEach(function (a) { if (a.typ === "mc") pool.push(a); });
+    });
+    return pool;
+  }
+
+  // Vokabelkarten (Wort/Übersetzung) aus window.LERNDATA lassen sich direkt
+  // als Erinnerungs-Duell-Paare wiederverwenden (bisher nur bei Englisch).
+  function vokabelPaareFuerFach(fachId) {
+    var fach = window.LERNDATA[fachId];
+    if (!fach) return [];
+    var paare = [];
+    fach.themen.forEach(function (thema) {
+      if (!thema.vokabeln) return;
+      thema.vokabeln.forEach(function (v) { paare.push([v.en, v.de.split(" / ")[0]]); });
+    });
+    return paare;
+  }
+  function memoryPaareFuerFach(fachId) {
+    return (window.SPIELE_EXTRA.memory[fachId] || []).concat(vokabelPaareFuerFach(fachId));
+  }
+
+  function verfuegbareSpielModi(fachId) {
+    var modi = ["quiz", "blitz"];
+    if (window.SPIELE_EXTRA.dragdrop[fachId]) modi.push("dragdrop");
+    if (memoryPaareFuerFach(fachId).length > 0) modi.push("memory");
+    if (window.SPIELE_EXTRA.fillblank[fachId]) modi.push("luecken");
+    return modi;
+  }
+
+  function raeumeSpielSession() {
+    if (state.spiel && state.spiel.timerId) clearInterval(state.spiel.timerId);
+    state.spiel = null;
+  }
+
+  function starSterne(anteil) {
+    if (anteil >= 0.99) return 3;
+    if (anteil >= 0.6) return 2;
+    return anteil > 0 ? 1 : 0;
+  }
+
+  // ---------- Spiele-Übersicht (Fächer-Auswahl) ----------
+  function renderSpieleUebersicht() {
+    titelEl.textContent = "🎤⚔️ Spiele-Arena";
+    var xp = ladeSpieleXp();
+    var level = spielLevelAus(xp);
+    var imLevel = spielXpImLevel(xp);
+
+    appEl.appendChild(el("div", { class: "spiele-xp-pill", text: "🎤 Lvl " + level + " · " + spielRangName(level) + " · " + imLevel + "/" + SPIELE_XP_PRO_LEVEL + " XP" }));
+
+    var badgeBtn = el("button", { class: "wiederhol-karte" }, [
+      el("div", { class: "wiederhol-text", text: "🏅 Abzeichen" }),
+      el("div", { class: "wiederhol-anzahl", text: ladeSpieleBadges().length + " von " + SPIELE_BADGES.length + " freigeschaltet" })
+    ]);
+    badgeBtn.addEventListener("click", function () { state.view = "spiele-abzeichen"; render(); });
+    appEl.appendChild(badgeBtn);
+
+    var grid = el("div", { class: "grid" });
+    SPIELE_FAECHER.forEach(function (fachId) {
+      var meta = spielFachMeta(fachId);
+      if (!meta) return;
+      var tile = el("button", { class: "tile fach", style: "--fach-color:" + meta.farbe }, [
+        el("div", { class: "emoji", text: meta.icon }),
+        el("div", { class: "name", text: meta.name })
+      ]);
+      tile.addEventListener("click", function () {
+        state.spielFachId = fachId;
+        state.view = "spiele-modi";
+        render();
+      });
+      grid.appendChild(tile);
+    });
+
+    appEl.appendChild(el("p", { class: "intro-box", text: "✨ Wähle ein Fach und dann ein Mini-Spiel!" }));
+    appEl.appendChild(grid);
+  }
+
+  function renderSpieleModi() {
+    var meta = spielFachMeta(state.spielFachId);
+    titelEl.textContent = meta.icon + " " + meta.name + " — Spiele";
+    appEl.appendChild(el("p", { class: "intro-box", text: "Wähle dein Mini-Spiel." }));
+    var liste = el("div", { class: "modus-liste" });
+    verfuegbareSpielModi(state.spielFachId).forEach(function (modusId) {
+      var m = SPIELE_MODI[modusId];
+      var karte = el("button", { class: "modus-karte" }, [
+        el("span", { class: "emoji", text: m.emoji }),
+        el("span", { class: "info" }, [
+          el("div", { class: "name", text: m.name }),
+          el("div", { class: "desc", text: m.desc })
+        ])
+      ]);
+      karte.addEventListener("click", function () { starteSpielModus(modusId); });
+      liste.appendChild(karte);
+    });
+    appEl.appendChild(liste);
+  }
+
+  function starteSpielModus(modusId) {
+    if (modusId === "quiz") starteSpielQuiz();
+    else if (modusId === "blitz") starteSpielBlitz();
+    else if (modusId === "dragdrop") starteSpielDragdrop();
+    else if (modusId === "memory") starteSpielMemory();
+    else if (modusId === "luecken") starteSpielLuecken();
+  }
+
+  // ---------- Quiz-Duell ----------
+  function starteSpielQuiz() {
+    var quelle = state.spielFachId === "logik" ? window.SPIELE_EXTRA.logikQuiz : mcPoolFuerFach(state.spielFachId);
+    var anzahl = Math.min(8, quelle.length);
+    state.spiel = {
+      typ: "quiz", fachId: state.spielFachId,
+      aufgaben: shuffle(quelle).slice(0, anzahl),
+      index: 0, richtig: 0, combo: 0, comboMax: 0, herzen: 3, xp: 0,
+    };
+    state.view = "spiele-quiz";
+    render();
+  }
+  function renderSpielQuizFrage() {
+    var s = state.spiel;
+    var gesamt = s.aufgaben.length;
+    titelEl.textContent = "⚔️ Quiz-Duell";
+    var box = el("div", { class: "frage-box" });
+
+    var hud = el("div", { class: "demon-hud" });
+    var demon = el("div", { class: "demon-emoji", text: "👹" });
+    hud.appendChild(demon);
+    var mitte = el("div", { class: "demon-hud-mitte" });
+    mitte.appendChild(el("div", { class: "hp-leiste" }, [el("div", { style: "width:" + (((gesamt - s.index) / gesamt) * 100) + "%" })]));
+    var herzen = el("div", { class: "herzen" });
+    for (var i = 0; i < 3; i++) herzen.appendChild(el("span", { class: "herz" + (i < s.herzen ? "" : " verloren"), text: "❤️" }));
+    mitte.appendChild(herzen);
+    hud.appendChild(mitte);
+    hud.appendChild(el("div", { class: "combo-chip", text: "🔥" + s.combo + "x" }));
+    box.appendChild(hud);
+
+    var aufgabe = s.aufgaben[s.index];
+    box.appendChild(el("div", { class: "frage-text", text: (s.index + 1) + " / " + gesamt + " — " + aufgabe.frage }));
+
+    renderFrageInhalt(box, aufgabe, function (richtig) {
+      if (aufgabe._id) aktualisiereLeitner(aufgabe._id, richtig);
+      if (richtig) {
+        s.richtig++; s.combo++; s.comboMax = Math.max(s.comboMax, s.combo);
+        s.xp += s.combo >= 3 ? 20 : 10;
+        demon.classList.add("getroffen");
+        setTimeout(function () { demon.classList.remove("getroffen"); }, 350);
+      } else {
+        s.combo = 0; s.herzen--;
+      }
+      box.appendChild(el("div", { class: "erklaerung", text: (richtig ? "✅ " : "💡 ") + aufgabe.erklaerung }));
+      setTimeout(function () {
+        s.index++;
+        if (s.index >= gesamt || s.herzen <= 0) beendeSpielQuiz();
+        else render();
+      }, 1100);
+    });
+
+    appEl.appendChild(box);
+  }
+  function beendeSpielQuiz() {
+    var s = state.spiel;
+    var sterne = starSterne(s.richtig / s.aufgaben.length);
+    vergibSpielXp(s.xp);
+    var neueBadges = pruefeSpielAbzeichen({ modus: "quiz", fachId: s.fachId, richtig: s.richtig, gesamt: s.aufgaben.length, comboMax: s.comboMax });
+    state.spielErgebnis = { modus: "quiz", fachId: s.fachId, sterne: sterne, richtig: s.richtig, gesamt: s.aufgaben.length, xp: s.xp, neueBadges: neueBadges };
+    raeumeSpielSession();
+    state.view = "spiele-ergebnis";
+    render();
+  }
+
+  // ---------- Blitz-Runde ----------
+  function starteSpielBlitz() {
+    var pool = state.spielFachId === "logik" ? window.SPIELE_EXTRA.logikQuiz : mcPoolFuerFach(state.spielFachId);
+    state.spiel = { typ: "blitz", fachId: state.spielFachId, pool: pool, zeit: 45, richtig: 0, combo: 0, comboMax: 0, xp: 0, aktuelle: null };
+    naechsteSpielBlitzFrage();
+    state.view = "spiele-blitz";
+    render();
+    state.spiel.timerId = setInterval(function () {
+      if (!state.spiel) return;
+      state.spiel.zeit--;
+      aktualisiereBlitzTimer();
+      if (state.spiel.zeit <= 0) beendeSpielBlitz();
+    }, 1000);
+  }
+  function naechsteSpielBlitzFrage() {
+    var s = state.spiel;
+    var q;
+    do { q = s.pool[Math.floor(Math.random() * s.pool.length)]; } while (s.pool.length > 1 && q === s.aktuelle);
+    s.aktuelle = q;
+  }
+  function aktualisiereBlitzTimer() {
+    var s = state.spiel;
+    var leiste = document.getElementById("spBlitzTimer");
+    if (!leiste) return;
+    var pct = Math.max(0, (s.zeit / 45) * 100);
+    leiste.style.width = pct + "%";
+    leiste.classList.toggle("dringend", s.zeit <= 10);
+    var lbl = document.getElementById("spBlitzZeit");
+    if (lbl) lbl.textContent = Math.max(0, s.zeit) + "s";
+  }
+  function renderSpielBlitz() {
+    var s = state.spiel;
+    titelEl.textContent = "⚡ Blitz-Runde";
+    var box = el("div", { class: "frage-box" });
+    box.appendChild(el("div", { class: "timer-leiste" }, [el("div", { id: "spBlitzTimer", style: "width:100%" })]));
+    box.appendChild(el("p", { class: "blitz-score", text: String(s.richtig) }));
+    box.appendChild(el("p", { class: "blitz-label" }, [
+      document.createTextNode("Treffer · Combo 🔥" + s.combo + "x · "),
+      el("span", { id: "spBlitzZeit", text: s.zeit + "s" })
+    ]));
+    box.appendChild(el("div", { class: "frage-text", text: s.aktuelle.frage }));
+    renderFrageInhalt(box, s.aktuelle, function (richtig) {
+      if (s.zeit <= 0) return;
+      if (richtig) {
+        s.richtig++; s.combo++; s.comboMax = Math.max(s.comboMax, s.combo);
+        s.xp += s.combo >= 5 ? 12 : 6;
+      } else {
+        s.combo = 0;
+      }
+      setTimeout(function () {
+        if (!state.spiel || state.spiel.zeit <= 0) return;
+        naechsteSpielBlitzFrage();
+        render();
+      }, 320);
+    });
+    appEl.appendChild(box);
+  }
+  function beendeSpielBlitz() {
+    var s = state.spiel;
+    if (!s) return;
+    clearInterval(s.timerId);
+    var sterne = s.richtig >= 20 ? 3 : s.richtig >= 12 ? 2 : s.richtig >= 5 ? 1 : 0;
+    vergibSpielXp(s.xp);
+    var neueBadges = pruefeSpielAbzeichen({ modus: "blitz", fachId: s.fachId, richtig: s.richtig, gesamt: s.richtig, comboMax: s.comboMax });
+    state.spielErgebnis = { modus: "blitz", fachId: s.fachId, sterne: sterne, richtig: s.richtig, gesamt: null, xp: s.xp, neueBadges: neueBadges };
+    state.spiel = null;
+    state.view = "spiele-ergebnis";
+    render();
+  }
+
+  // ---------- Sortierschlacht (Drag&Drop / Tippen zum Sortieren) ----------
+  function starteSpielDragdrop() {
+    var pool = window.SPIELE_EXTRA.dragdrop[state.spielFachId] || [];
+    var anzahl = Math.min(3, pool.length);
+    state.spiel = { typ: "dragdrop", fachId: state.spielFachId, runden: shuffle(pool).slice(0, anzahl), index: 0, richtigeRunden: 0, xp: 0 };
+    state.view = "spiele-dragdrop";
+    render();
+  }
+  function renderSpielDragdropRunde() {
+    var s = state.spiel;
+    var aufgabe = s.runden[s.index];
+    var n = aufgabe.items.length;
+    var gemischt = shuffle(aufgabe.items);
+    var versuche = 0;
+    while (n > 1 && versuche < 10 && gemischt.every(function (v, i) { return v === aufgabe.items[i]; })) {
+      gemischt = shuffle(aufgabe.items); versuche++;
+    }
+    s.korrekt = aufgabe.items;
+    s.platziert = new Array(n).fill(null);
+    s.pool = gemischt;
+
+    titelEl.textContent = "🧲 Sortierschlacht";
+    var box = el("div", { class: "frage-box" });
+    box.appendChild(el("p", { class: "dd-prompt", text: aufgabe.prompt }));
+    var slots = el("div", { class: "dd-slots", id: "spDdSlots" });
+    for (var i = 0; i < n; i++) {
+      var slotBtn = el("button", { class: "dd-slot", text: "Platz " + (i + 1), "data-slot": i });
+      (function (idx) { slotBtn.addEventListener("click", function () { entferneDragdropChip(idx); }); })(i);
+      slots.appendChild(slotBtn);
+    }
+    box.appendChild(slots);
+    var pool = el("div", { class: "dd-pool", id: "spDdPool" });
+    box.appendChild(pool);
+    appEl.appendChild(box);
+    renderSpielDragdropPool();
+  }
+  function renderSpielDragdropPool() {
+    var s = state.spiel;
+    var poolEl = document.getElementById("spDdPool");
+    poolEl.innerHTML = "";
+    s.pool.forEach(function (wert) {
+      var chip = el("button", { class: "dd-chip", text: wert });
+      chip.addEventListener("click", function () { platziereDragdropChip(wert); });
+      poolEl.appendChild(chip);
+    });
+    var slotEls = document.querySelectorAll("#spDdSlots .dd-slot");
+    slotEls.forEach(function (elm, i) {
+      var wert = s.platziert[i];
+      elm.textContent = wert !== null ? wert : "Platz " + (i + 1);
+      elm.classList.toggle("gefuellt", wert !== null);
+    });
+  }
+  function platziereDragdropChip(wert) {
+    var s = state.spiel;
+    var leerIdx = s.platziert.indexOf(null);
+    if (leerIdx === -1) return;
+    s.platziert[leerIdx] = wert;
+    var poolIdx = s.pool.indexOf(wert);
+    if (poolIdx !== -1) s.pool.splice(poolIdx, 1);
+    renderSpielDragdropPool();
+    if (s.platziert.indexOf(null) === -1) setTimeout(pruefeDragdropRunde, 400);
+  }
+  function entferneDragdropChip(slotIdx) {
+    var s = state.spiel;
+    var wert = s.platziert[slotIdx];
+    if (wert === null) return;
+    s.platziert[slotIdx] = null;
+    s.pool.push(wert);
+    renderSpielDragdropPool();
+  }
+  function pruefeDragdropRunde() {
+    var s = state.spiel;
+    var stimmt = s.platziert.every(function (wert, i) { return wert === s.korrekt[i]; });
+    var slotsEl = document.getElementById("spDdSlots");
+    if (stimmt) {
+      s.richtigeRunden++; s.xp += 15;
+      zeigeToast("✅ Richtig sortiert!");
+      setTimeout(function () {
+        s.index++;
+        if (s.index >= s.runden.length) beendeSpielDragdrop();
+        else render();
+      }, 700);
+    } else {
+      if (slotsEl) { slotsEl.classList.add("wackeln"); setTimeout(function () { slotsEl.classList.remove("wackeln"); }, 350); }
+      zeigeToast("Noch nicht ganz richtig — versuch's nochmal!", "warn");
+      s.pool = shuffle(s.platziert.slice());
+      s.platziert = new Array(s.korrekt.length).fill(null);
+      renderSpielDragdropPool();
+    }
+  }
+  function beendeSpielDragdrop() {
+    var s = state.spiel;
+    var sterne = s.richtigeRunden === s.runden.length ? 3 : s.richtigeRunden >= Math.ceil(s.runden.length / 2) ? 2 : 1;
+    vergibSpielXp(s.xp);
+    var neueBadges = pruefeSpielAbzeichen({ modus: "dragdrop", fachId: s.fachId, richtig: s.richtigeRunden, gesamt: s.runden.length, comboMax: 0 });
+    state.spielErgebnis = { modus: "dragdrop", fachId: s.fachId, sterne: sterne, richtig: s.richtigeRunden, gesamt: s.runden.length, xp: s.xp, neueBadges: neueBadges };
+    raeumeSpielSession();
+    state.view = "spiele-ergebnis";
+    render();
+  }
+
+  // ---------- Erinnerungs-Duell (Memory) ----------
+  function starteSpielMemory() {
+    var paare = memoryPaareFuerFach(state.spielFachId);
+    var anzahl = Math.min(6, paare.length);
+    var gewaehlt = shuffle(paare).slice(0, anzahl);
+    var karten = [];
+    gewaehlt.forEach(function (p, i) {
+      karten.push({ paarIdx: i, text: p[0] });
+      karten.push({ paarIdx: i, text: p[1] });
+    });
+    karten = shuffle(karten);
+    state.spiel = { typ: "memory", fachId: state.spielFachId, paare: gewaehlt, karten: karten, aufgedeckt: [], gefundenAnzahl: 0, fehlversuche: 0, xp: 0, sperre: false };
+    state.view = "spiele-memory";
+    render();
+  }
+  function renderSpielMemory() {
+    var s = state.spiel;
+    titelEl.textContent = "🧠 Erinnerungs-Duell";
+    var box = el("div", {});
+    box.appendChild(el("p", { class: "intro-box", text: s.gefundenAnzahl + " / " + s.paare.length + " Paare gefunden" }));
+    var grid = el("div", { class: "memory-grid" });
+    s.karten.forEach(function (karte, i) {
+      var aufgedeckt = s.aufgedeckt.indexOf(i) !== -1;
+      var cls = "memory-karte" + (aufgedeckt ? " aufgedeckt" : "") + (karte.gefunden ? " gefunden" : "");
+      var kartenBtn = el("button", { class: cls }, [
+        el("div", { class: "memory-karte-innen" }, [
+          el("div", { class: "memory-seite vorn", text: "❓" }),
+          el("div", { class: "memory-seite hinten", text: karte.text })
+        ])
+      ]);
+      kartenBtn.addEventListener("click", function () { klickMemoryKarte(i); });
+      grid.appendChild(kartenBtn);
+    });
+    box.appendChild(grid);
+    appEl.appendChild(box);
+  }
+  function klickMemoryKarte(i) {
+    var s = state.spiel;
+    var karte = s.karten[i];
+    if (s.sperre || karte.gefunden || s.aufgedeckt.indexOf(i) !== -1 || s.aufgedeckt.length >= 2) return;
+    s.aufgedeckt.push(i);
+    render();
+    if (s.aufgedeckt.length === 2) {
+      s.sperre = true;
+      var a = s.karten[s.aufgedeckt[0]], b = s.karten[s.aufgedeckt[1]];
+      if (a.paarIdx === b.paarIdx) {
+        a.gefunden = true; b.gefunden = true;
+        s.gefundenAnzahl++; s.xp += 8;
+        s.aufgedeckt = []; s.sperre = false;
+        setTimeout(render, 250);
+        if (s.gefundenAnzahl === s.paare.length) setTimeout(beendeSpielMemory, 500);
+      } else {
+        s.fehlversuche++;
+        setTimeout(function () { s.aufgedeckt = []; s.sperre = false; render(); }, 750);
+      }
+    }
+  }
+  function beendeSpielMemory() {
+    var s = state.spiel;
+    var perfekt = s.fehlversuche === 0;
+    var sterne = perfekt ? 3 : s.fehlversuche <= 2 ? 2 : 1;
+    vergibSpielXp(s.xp);
+    var neueBadges = pruefeSpielAbzeichen({ modus: "memory", fachId: s.fachId, richtig: s.paare.length, gesamt: s.paare.length, comboMax: 0, perfekt: perfekt });
+    state.spielErgebnis = { modus: "memory", fachId: s.fachId, sterne: sterne, richtig: s.paare.length, gesamt: s.paare.length, xp: s.xp, neueBadges: neueBadges };
+    raeumeSpielSession();
+    state.view = "spiele-ergebnis";
+    render();
+  }
+
+  // ---------- Lückenzauber ----------
+  function starteSpielLuecken() {
+    var pool = window.SPIELE_EXTRA.fillblank[state.spielFachId] || [];
+    var anzahl = Math.min(6, pool.length);
+    state.spiel = { typ: "luecken", fachId: state.spielFachId, items: shuffle(pool).slice(0, anzahl), index: 0, richtig: 0, xp: 0 };
+    state.view = "spiele-luecken";
+    render();
+  }
+  function renderSpielLuecken() {
+    var s = state.spiel;
+    var item = s.items[s.index];
+    titelEl.textContent = "✨ Lückenzauber";
+    var box = el("div", { class: "frage-box" });
+    box.appendChild(el("div", { class: "fortschritt-leiste" }, [el("div", { style: "width:" + Math.round((s.index / s.items.length) * 100) + "%" })]));
+    var teile = item.text.split("___");
+    var satzEl = el("p", { class: "luecken-satz" });
+    satzEl.appendChild(document.createTextNode(teile[0]));
+    satzEl.appendChild(el("span", { class: "luecke", id: "spLueckeSpot", text: "?" }));
+    satzEl.appendChild(document.createTextNode(teile[1] || ""));
+    box.appendChild(satzEl);
+
+    // Frage-Objekt im selben Format wie window.LERNDATA, damit renderFrageInhalt
+    // wiederverwendet werden kann.
+    var aufgabeAdapter = { typ: "mc", frage: "", optionen: item.options.slice(), loesung: item.options[item.correct] };
+    renderFrageInhalt(box, aufgabeAdapter, function (richtig) {
+      var spot = document.getElementById("spLueckeSpot");
+      if (spot) spot.textContent = item.options[item.correct];
+      if (richtig) { s.richtig++; s.xp += 10; }
+      setTimeout(function () {
+        s.index++;
+        if (s.index >= s.items.length) beendeSpielLuecken();
+        else render();
+      }, 1000);
+    });
+    appEl.appendChild(box);
+  }
+  function beendeSpielLuecken() {
+    var s = state.spiel;
+    var sterne = starSterne(s.richtig / s.items.length);
+    vergibSpielXp(s.xp);
+    var neueBadges = pruefeSpielAbzeichen({ modus: "luecken", fachId: s.fachId, richtig: s.richtig, gesamt: s.items.length, comboMax: 0 });
+    state.spielErgebnis = { modus: "luecken", fachId: s.fachId, sterne: sterne, richtig: s.richtig, gesamt: s.items.length, xp: s.xp, neueBadges: neueBadges };
+    raeumeSpielSession();
+    state.view = "spiele-ergebnis";
+    render();
+  }
+
+  // ---------- Ergebnis & Abzeichen ----------
+  function renderSpielErgebnis() {
+    var r = state.spielErgebnis;
+    titelEl.textContent = "Ergebnis";
+    var titelText = r.sterne === 3 ? "🏆 Perfektes Duell!" : r.sterne === 2 ? "🔥 Starker Kampf!" : r.sterne === 1 ? "✨ Geschafft!" : "💪 Nächstes Mal klappt's!";
+    var subText = r.gesamt ? r.richtig + " von " + r.gesamt + " richtig" : r.richtig + " Treffer";
+    var box = el("div", { class: "ergebnis-box" }, [
+      el("div", { class: "ergebnis-spruch", text: titelText }),
+      el("div", { text: subText }),
+      el("div", { class: "ergebnis-sterne", text: sterneAnzeige(r.sterne) }),
+      el("div", { class: "ergebnis-text", text: "+" + r.xp + " XP" })
+    ]);
+    (r.neueBadges || []).forEach(function (b) {
+      box.appendChild(el("div", { class: "badge-unlock" }, [
+        el("span", { class: "emoji", text: b.emoji }),
+        el("span", { class: "txt", text: "Neues Abzeichen: " + b.name })
+      ]));
+    });
+    var reihe = el("div", { class: "button-reihe" });
+    var nochmalBtn = el("button", { class: "btn-primary btn-glow", text: "🔁 Nochmal" });
+    nochmalBtn.addEventListener("click", function () { starteSpielModus(r.modus); });
+    var zurueckBtn = el("button", { class: "btn-primary btn-secondary", text: "Zurück" });
+    zurueckBtn.addEventListener("click", function () { state.view = "spiele-modi"; render(); });
+    reihe.appendChild(nochmalBtn);
+    reihe.appendChild(zurueckBtn);
+    box.appendChild(reihe);
+    appEl.appendChild(box);
+  }
+
+  function renderSpielAbzeichen() {
+    titelEl.textContent = "🏅 Abzeichen";
+    var freigeschaltet = ladeSpieleBadges();
+    var grid = el("div", { class: "badge-grid" });
+    SPIELE_BADGES.forEach(function (b) {
+      var frei = freigeschaltet.indexOf(b.id) !== -1;
+      grid.appendChild(el("div", { class: "badge-kachel" + (frei ? "" : " gesperrt"), title: b.desc }, [
+        el("span", { class: "emoji", text: b.emoji }),
+        el("span", { class: "lbl", text: b.name })
+      ]));
+    });
+    appEl.appendChild(grid);
+  }
+
   // Ansichten, in denen eine Mission/Übung gerade läuft – hier soll ein
   // Reload durch den Aktualisieren-Button nicht mitten drin passieren.
-  var ANSICHTEN_MIT_LAUFENDER_AUFGABE = ["uebung", "kurzcheck"];
+  var ANSICHTEN_MIT_LAUFENDER_AUFGABE = ["uebung", "kurzcheck", "spiele-quiz", "spiele-blitz", "spiele-dragdrop", "spiele-memory", "spiele-luecken"];
 
   function render() {
     appEl.innerHTML = "";
@@ -189,6 +808,15 @@
     else if (state.view === "ergebnis") renderErgebnis();
     else if (state.view === "fortschritt-login") renderFortschrittLogin();
     else if (state.view === "fortschritt") renderFortschritt();
+    else if (state.view === "spiele") renderSpieleUebersicht();
+    else if (state.view === "spiele-modi") renderSpieleModi();
+    else if (state.view === "spiele-quiz") renderSpielQuizFrage();
+    else if (state.view === "spiele-blitz") renderSpielBlitz();
+    else if (state.view === "spiele-dragdrop") renderSpielDragdropRunde();
+    else if (state.view === "spiele-memory") renderSpielMemory();
+    else if (state.view === "spiele-luecken") renderSpielLuecken();
+    else if (state.view === "spiele-ergebnis") renderSpielErgebnis();
+    else if (state.view === "spiele-abzeichen") renderSpielAbzeichen();
   }
 
   function renderFaecher() {
@@ -209,6 +837,18 @@
       wiederholKarte.addEventListener("click", function () { starteWiederholung(); });
       appEl.appendChild(wiederholKarte);
     }
+
+    var spielXp = ladeSpieleXp();
+    var spielLevel = spielLevelAus(spielXp);
+    var spieleKarte = el("button", { class: "spiele-karte" }, [
+      el("span", { class: "emoji", text: "🎤⚔️" }),
+      el("span", {}, [
+        el("div", { class: "titel", text: "Spiele-Arena · Lvl " + spielLevel }),
+        el("div", { class: "sub", text: "Mathe, Deutsch & mehr als schnelle Mini-Duelle" })
+      ])
+    ]);
+    spieleKarte.addEventListener("click", function () { state.view = "spiele"; render(); });
+    appEl.appendChild(spieleKarte);
 
     var grid = el("div", { class: "grid" });
 
@@ -756,6 +1396,13 @@
     else if (state.view === "lektion" || state.view === "vokabeln" || state.view === "kurzcheck") state.view = "themen";
     else if (state.view === "uebung" || state.view === "ergebnis") state.view = state.fach ? "themen" : "faecher";
     else if (state.view === "fortschritt-login" || state.view === "fortschritt") state.view = "faecher";
+    else if (state.view === "spiele" || state.view === "spiele-abzeichen") state.view = "faecher";
+    else if (state.view === "spiele-modi") state.view = "spiele";
+    else if (state.view === "spiele-ergebnis") state.view = "spiele-modi";
+    else if (["spiele-quiz", "spiele-blitz", "spiele-dragdrop", "spiele-memory", "spiele-luecken"].indexOf(state.view) !== -1) {
+      raeumeSpielSession();
+      state.view = "spiele-modi";
+    }
     render();
   });
 
