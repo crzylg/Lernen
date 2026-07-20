@@ -1,0 +1,234 @@
+:root {
+  --bg: #f4f7fb;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --accent: #3B82F6;
+  --good: #22c55e;
+  --bad: #ef4444;
+  --star: #fbbf24;
+  --radius: 16px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Verdana, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background: var(--card);
+  box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.topbar h1 {
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+.btn-back {
+  border: none;
+  background: #e5e7eb;
+  color: var(--text);
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+.btn-back:hover { background: #d1d5db; }
+
+main {
+  flex: 1;
+  padding: 20px;
+  max-width: 720px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.85rem;
+  padding: 14px;
+}
+
+/* Kachel-Grids */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 14px;
+  margin-top: 12px;
+}
+
+.tile {
+  background: var(--card);
+  border: none;
+  border-radius: var(--radius);
+  padding: 20px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: transform 0.12s ease;
+  font-family: inherit;
+  color: var(--text);
+}
+.tile:hover { transform: translateY(-3px); }
+.tile:active { transform: translateY(0); }
+
+.tile .emoji { font-size: 2.4rem; }
+.tile .name { font-weight: 600; text-align: center; }
+.tile .stars { font-size: 0.9rem; color: var(--star); }
+
+.tile.locked {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+.tile.locked:hover { transform: none; }
+
+.tile.fach {
+  border-top: 6px solid var(--fach-color, var(--accent));
+}
+
+.intro-box {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  margin-bottom: 16px;
+  color: var(--muted);
+}
+
+/* Übungsansicht */
+.frage-box {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.fortschritt-leiste {
+  height: 8px;
+  background: #e5e7eb;
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 18px;
+}
+.fortschritt-leiste > div {
+  height: 100%;
+  background: var(--accent);
+  transition: width 0.2s ease;
+}
+
+.lesetext {
+  background: #eef2ff;
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 18px;
+  line-height: 1.5;
+}
+
+.frage-text {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+.optionen {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.option-btn {
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 2px solid #e5e7eb;
+  background: #fafafa;
+  font-size: 1rem;
+  text-align: left;
+  cursor: pointer;
+  font-family: inherit;
+}
+.option-btn:hover { background: #f0f0f0; }
+.option-btn.richtig { background: #dcfce7; border-color: var(--good); }
+.option-btn.falsch { background: #fee2e2; border-color: var(--bad); }
+.option-btn:disabled { cursor: default; }
+
+.zahl-eingabe {
+  display: flex;
+  gap: 10px;
+}
+.zahl-eingabe input {
+  flex: 1;
+  padding: 12px 14px;
+  font-size: 1.1rem;
+  border-radius: 12px;
+  border: 2px solid #e5e7eb;
+}
+.zahl-eingabe input.richtig { border-color: var(--good); background: #dcfce7; }
+.zahl-eingabe input.falsch { border-color: var(--bad); background: #fee2e2; }
+
+.btn-primary {
+  margin-top: 18px;
+  padding: 12px 20px;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+}
+.btn-primary:hover { filter: brightness(1.05); }
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.erklaerung {
+  margin-top: 16px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: #f9fafb;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* Ergebnis */
+.ergebnis-box {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 32px 24px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+.ergebnis-sterne {
+  font-size: 3rem;
+  margin: 12px 0;
+}
+.ergebnis-text {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+.button-reihe {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+.button-reihe .btn-primary { margin-top: 0; }
+.btn-secondary {
+  background: #e5e7eb;
+  color: var(--text);
+}
