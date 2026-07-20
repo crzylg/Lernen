@@ -4,13 +4,9 @@
   var LS_PROGRESS = "lk5_progress"; // eigener Präfix, damit nichts mit der anderen App im Repo kollidiert
   var LS_REFRESH = "lk5_refresh";
 
-  var AKTIVE_FAECHER = ["mathe", "deutsch", "lesen"];
+  var AKTIVE_FAECHER = ["mathe", "deutsch", "englisch", "erdkunde", "biologie", "lesen"];
 
-  var KOMMEND = [
-    { name: "Englisch", icon: "🇬🇧" },
-    { name: "Erdkunde", icon: "🌍" },
-    { name: "Biologie", icon: "🌱" }
-  ];
+  var KOMMEND = [];
 
   var appEl = document.getElementById("app");
   var titelEl = document.getElementById("titel");
@@ -77,6 +73,7 @@
     if (state.view === "faecher") renderFaecher();
     else if (state.view === "themen") renderThemen();
     else if (state.view === "lektion") renderLektion();
+    else if (state.view === "vokabeln") renderVokabeln();
     else if (state.view === "uebung") renderUebung();
     else if (state.view === "ergebnis") renderErgebnis();
   }
@@ -136,7 +133,9 @@
       ]);
       tile.addEventListener("click", function () {
         state.thema = thema;
-        if (thema.lektion) {
+        if (thema.vokabeln) {
+          state.view = "vokabeln";
+        } else if (thema.lektion) {
           state.view = "lektion";
         } else {
           starteUebungDirekt(thema);
@@ -169,6 +168,40 @@
     box.appendChild(liste);
 
     var startBtn = el("button", { class: "btn-primary btn-glow", text: "⚔️ Mission starten" });
+    startBtn.addEventListener("click", function () { starteUebung(state.fach, thema); });
+    box.appendChild(startBtn);
+
+    appEl.appendChild(box);
+  }
+
+  function renderVokabeln() {
+    var thema = state.thema;
+    titelEl.textContent = "🗂️ " + thema.titel;
+    var box = el("div", { class: "lektion-box" });
+    box.appendChild(el("div", { class: "lektion-emoji", text: thema.icon }));
+    box.appendChild(el("h2", { class: "lektion-titel", text: thema.titel }));
+
+    if (thema.lektion) {
+      var hinweise = el("div", { class: "lektion-liste" });
+      thema.lektion.forEach(function (satz) {
+        hinweise.appendChild(el("div", { class: "lektion-punkt", text: satz }));
+      });
+      box.appendChild(hinweise);
+    }
+
+    var karten = el("div", { class: "vokabel-liste" });
+    thema.vokabeln.forEach(function (v) {
+      karten.appendChild(el("div", { class: "vokabel-karte" }, [
+        el("div", { class: "vokabel-wort" }, [
+          el("span", { class: "vokabel-en", text: v.en }),
+          el("span", { class: "vokabel-de", text: v.de })
+        ]),
+        el("div", { class: "vokabel-satz", text: "„" + v.satz + "“" })
+      ]));
+    });
+    box.appendChild(karten);
+
+    var startBtn = el("button", { class: "btn-primary btn-glow", text: "⚔️ Zur Übung" });
     startBtn.addEventListener("click", function () { starteUebung(state.fach, thema); });
     box.appendChild(startBtn);
 
@@ -229,7 +262,13 @@
       box.appendChild(optionenBox);
     } else {
       var inputWrap = el("div", { class: "zahl-eingabe" });
-      var input = el("input", { type: "text", inputmode: "numeric", placeholder: "Deine Antwort" });
+      var input = el("input", {
+        type: "text",
+        inputmode: aufgabe.typ === "zahl" ? "numeric" : "text",
+        autocapitalize: "off",
+        autocomplete: "off",
+        placeholder: "Deine Antwort"
+      });
       var pruefenBtn = el("button", { class: "btn-primary", text: "Prüfen" });
       pruefenBtn.style.width = "auto";
       inputWrap.appendChild(input);
@@ -318,7 +357,7 @@
 
   backBtn.addEventListener("click", function () {
     if (state.view === "themen") state.view = "faecher";
-    else if (state.view === "lektion") state.view = "themen";
+    else if (state.view === "lektion" || state.view === "vokabeln") state.view = "themen";
     else if (state.view === "uebung" || state.view === "ergebnis") state.view = "themen";
     render();
   });
