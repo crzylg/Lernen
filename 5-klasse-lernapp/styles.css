@@ -123,6 +123,63 @@ main {
 .footer p { margin: 2px 0; }
 .footer-datum { opacity: 0.7; }
 
+/* Streak & Wiederholung */
+.streak-pill {
+  display: inline-block;
+  background: rgba(255, 209, 102, 0.15);
+  border: 1px solid rgba(255, 209, 102, 0.4);
+  color: var(--gold);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.wiederhol-karte {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: linear-gradient(90deg, rgba(255, 46, 154, 0.14), rgba(34, 229, 255, 0.14));
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  margin-bottom: 16px;
+  cursor: pointer;
+  color: var(--text);
+  font-family: inherit;
+}
+.wiederhol-karte:hover { box-shadow: 0 0 22px rgba(255, 46, 154, 0.35); }
+.wiederhol-text { font-weight: 800; font-size: 1.05rem; }
+.wiederhol-anzahl { color: var(--muted); font-size: 0.9rem; margin-top: 2px; }
+
+.review-tag {
+  display: inline-block;
+  font-size: 0.8rem;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(34, 229, 255, 0.15);
+  border: 1px solid rgba(34, 229, 255, 0.4);
+  color: var(--cyan);
+  margin-bottom: 12px;
+}
+
+.kurzcheck-hinweis {
+  display: inline-block;
+  font-size: 0.85rem;
+  color: var(--gold);
+  background: rgba(255, 209, 102, 0.12);
+  border: 1px solid rgba(255, 209, 102, 0.35);
+  padding: 6px 12px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+}
+
+.laenge-hinweis {
+  color: var(--muted);
+  margin-bottom: 10px;
+  text-align: center;
+}
+
 /* Kachel-Grids */
 .grid {
   display: grid;

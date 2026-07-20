@@ -30,9 +30,9 @@ python3 -m http.server 8080
   Ozeane, Deutschland & Bundesländer, Wetter & Klima, Stadt & Land
 - **Biologie** (5 Missionen): Kennzeichen des Lebens, Die Zelle, Bau der
   Pflanzen, Tierklassen, Sinnesorgane des Menschen
-- **Lesegeschichten** (4 Kurzgeschichten mit je 6–8 Verständnisfragen): eine
-  eigene Fortsetzungsgeschichte um "Team Mondlicht", drei Freundinnen, die
-  heimlich Schattenwesen jagen
+- **Lesegeschichten** (4 Kurzgeschichten, je ~400 Wörter, mit 11–12
+  Verständnisfragen): eine eigene Fortsetzungsgeschichte um "Team Mondlicht",
+  drei Freundinnen, die heimlich Schattenwesen jagen
 
 Jedes Thema (außer den Lesegeschichten) startet mit einer **Lektion**: eine
 kurze Erklärung in ganz einfacher Sprache, bevor die Übung beginnt. Die
@@ -43,6 +43,31 @@ es Sterne (⭐) je nach Ergebnis. Der Fortschritt wird im Browser gespeichert
 
 Ein 🔄-Button oben rechts aktualisiert die App (holt die neuesten Themen/
 Aufgaben-Dateien erneut und merkt sich das Datum unten im Footer).
+
+## Lernwirksamkeit (Version 4)
+
+Auf Basis von Lernforschung (Testeffekt/Retrieval Practice, Spaced Practice,
+Interleaving) wurden folgende Mechaniken ergänzt, alles ohne Backend, rein
+über `localStorage`:
+
+- **Wiederholungs-Warteschlange (Leitner-System)**: Falsch beantwortete
+  Aufgaben werden gespeichert (`lk5_leitner`) und nach 1/3/7 Tagen erneut
+  fällig. Auf der Startseite erscheint dann eine Karte "🔁 Wiederholung
+  bereit" mit einer fachübergreifend gemischten Wiederholungsrunde
+  (Interleaving).
+- **Tages-Streak** (`lk5_streak`): zählt aufeinanderfolgende Übungstage,
+  mit einer "Freeze" pro Woche, damit ein verpasster Tag nicht gleich den
+  ganzen Streak zerstört.
+- **Kurz-Check**: vor jedem Quiz (außer Lesegeschichten) 2–3 ungewertete
+  Aufwärm-Fragen ("zählt noch nicht mit") aus dem Thema.
+- **Kurz/Alle-Wahl**: bei Themen mit mehr als 10 Aufgaben kann zwischen
+  "Kurz (8)" und "Alle" gewählt werden.
+- **Mini-Wiederholungsrunde**: Wurden in einer Mission 2 oder mehr Aufgaben
+  falsch beantwortet, bietet das Ergebnis einen Button "Nur die Fehler
+  üben" an.
+- **Sanftere Rückmeldungen**: statt nur "Richtig/Falsch" gibt es
+  abwechselnde, ermutigende Formulierungen ("Fast! Schau mal…", "Stark
+  erkannt!").
 
 ## Struktur
 
