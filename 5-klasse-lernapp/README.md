@@ -42,7 +42,14 @@ es Sterne (⭐) je nach Ergebnis. Der Fortschritt wird im Browser gespeichert
 (`localStorage`, Schlüssel `lk5_progress`).
 
 Ein 🔄-Button oben rechts aktualisiert die App (holt die neuesten Themen/
-Aufgaben-Dateien erneut und merkt sich das Datum unten im Footer).
+Aufgaben-Dateien erneut und merkt sich das Datum unten im Footer). Während
+eine Übung oder ein Kurz-Check läuft, aktualisiert der Button nicht (sonst
+ginge der Fortschritt verloren) – stattdessen erscheint ein kurzer freundlicher
+Hinweis.
+
+Ein ⏱️-Timer (30:00) sitzt ebenfalls oben in der Kopfzeile und ist damit auf
+jedem Bildschirm sichtbar, auch bei den Lesegeschichten. Tippen startet/
+pausiert ihn; nach 30 Minuten erscheint eine kurze Pause-Erinnerung.
 
 ## Lernwirksamkeit (Version 4)
 
@@ -54,7 +61,7 @@ Interleaving) wurden folgende Mechaniken ergänzt, alles ohne Backend, rein
   Aufgaben werden gespeichert (`lk5_leitner`) und nach 1/3/7 Tagen erneut
   fällig. Auf der Startseite erscheint dann eine Karte "🔁 Wiederholung
   bereit" mit einer fachübergreifend gemischten Wiederholungsrunde
-  (Interleaving).
+  (Interleaving, maximal 20 Aufgaben auf einmal).
 - **Tages-Streak** (`lk5_streak`): zählt aufeinanderfolgende Übungstage,
   mit einer "Freeze" pro Woche, damit ein verpasster Tag nicht gleich den
   ganzen Streak zerstört.

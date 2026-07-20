@@ -15,6 +15,7 @@
   var backBtn = document.getElementById("btnZurueck");
   var refreshBtn = document.getElementById("btnRefresh");
   var footDate = document.getElementById("footDate");
+  var timerBtn = document.getElementById("btnTimer");
 
   var state = {
     view: "faecher",
@@ -163,6 +164,16 @@
     (children || []).forEach(function (c) { if (c) node.appendChild(c); });
     return node;
   }
+
+  function zeigeToast(text, art, dauerMs) {
+    var toast = el("div", { class: "toast" + (art ? " toast-" + art : "") , text: text });
+    document.body.appendChild(toast);
+    setTimeout(function () { toast.remove(); }, dauerMs || 4000);
+  }
+
+  // Ansichten, in denen eine Mission/Übung gerade läuft – hier soll ein
+  // Reload durch den Aktualisieren-Button nicht mitten drin passieren.
+  var ANSICHTEN_MIT_LAUFENDER_AUFGABE = ["uebung", "kurzcheck"];
 
   function render() {
     appEl.innerHTML = "";
@@ -386,7 +397,7 @@
   function starteWiederholung() {
     var faellige = faelligeAufgaben().map(function (e) { return e.aufgabe; });
     if (faellige.length === 0) return;
-    starteUebung(null, null, { aufgaben: faellige, modus: "review", limit: 15 });
+    starteUebung(null, null, { aufgaben: faellige, modus: "review", limit: 20 });
   }
 
   function starteUebung(fach, thema, opts) {
@@ -583,8 +594,66 @@
     render();
   });
 
+  // ---------- 30-Minuten-Lernzeit-Timer (sichtbar auf jedem Bildschirm, auch beim Lesen) ----------
+  var TIMER_DAUER_SEK = 30 * 60;
+  var timerSekunden = TIMER_DAUER_SEK;
+  var timerLaeuft = false;
+  var timerIntervall = null;
+
+  function formatiereZeit(sek) {
+    var m = Math.floor(sek / 60);
+    var s = sek % 60;
+    return (m < 10 ? "0" : "") + m + ":" + (s < 10 ? "0" : "") + s;
+  }
+  function aktualisiereTimerAnzeige() {
+    if (!timerBtn) return;
+    timerBtn.textContent = "⏱️ " + formatiereZeit(timerSekunden);
+    timerBtn.classList.toggle("laeuft", timerLaeuft);
+    timerBtn.classList.toggle("gleich-null", timerSekunden <= 60 && timerSekunden > 0);
+  }
+  function pausiereTimer() {
+    timerLaeuft = false;
+    clearInterval(timerIntervall);
+    aktualisiereTimerAnzeige();
+  }
+  function zeigeTimerEndeMeldung() {
+    zeigeToast("🎉 30 Minuten geschafft! Zeit für eine kleine Pause. 💪", "info", 6000);
+  }
+  function timerTick() {
+    timerSekunden--;
+    if (timerSekunden <= 0) {
+      timerSekunden = 0;
+      pausiereTimer();
+      zeigeTimerEndeMeldung();
+      return;
+    }
+    aktualisiereTimerAnzeige();
+  }
+  function starteTimer() {
+    if (timerLaeuft) return;
+    timerLaeuft = true;
+    timerIntervall = setInterval(timerTick, 1000);
+    aktualisiereTimerAnzeige();
+  }
+  if (timerBtn) {
+    timerBtn.addEventListener("click", function () {
+      if (timerSekunden <= 0) {
+        timerSekunden = TIMER_DAUER_SEK;
+        starteTimer();
+        return;
+      }
+      if (timerLaeuft) pausiereTimer();
+      else starteTimer();
+    });
+    aktualisiereTimerAnzeige();
+  }
+
   if (refreshBtn) {
     refreshBtn.addEventListener("click", function () {
+      if (ANSICHTEN_MIT_LAUFENDER_AUFGABE.indexOf(state.view) !== -1) {
+        zeigeToast("😊 Beende erst deine Mission, dann kannst du aktualisieren!", "warn");
+        return;
+      }
       refreshBtn.classList.add("spin");
       var heute = new Date().toISOString().slice(0, 10);
       try { localStorage.setItem(LS_REFRESH, heute); } catch (e) {}
