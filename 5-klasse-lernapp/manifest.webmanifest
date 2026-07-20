@@ -1,0 +1,15 @@
+{
+  "name": "Idol Academy – Lernspaß 5. Klasse",
+  "short_name": "Idol Academy",
+  "description": "Lern-App für die 5. Klasse Gymnasium: Mathe, Deutsch, Englisch, Erdkunde, Biologie und Lesegeschichten.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0a0118",
+  "theme_color": "#0a0118",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}

@@ -1,0 +1,396 @@
+:root {
+  --bg-deep: #0a0118;
+  --bg-mid: #170b2e;
+  --card: rgba(255, 255, 255, 0.055);
+  --card-border: rgba(255, 255, 255, 0.12);
+  --text: #f5f3ff;
+  --muted: #b9a9d9;
+  --pink: #ff2e9a;
+  --purple: #a855f7;
+  --cyan: #22e5ff;
+  --gold: #ffd166;
+  --good: #34eea0;
+  --bad: #ff4d6d;
+  --radius: 18px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: "Segoe UI", Verdana, Arial, sans-serif;
+  background: radial-gradient(ellipse at 20% -10%, #351550 0%, var(--bg-mid) 45%, var(--bg-deep) 100%);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Funkelnder Sternenhimmel als Hintergrund */
+.sternenhimmel {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(2px 2px at 10% 20%, #fff, transparent),
+    radial-gradient(2px 2px at 80% 10%, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 45% 60%, #fff, transparent),
+    radial-gradient(2px 2px at 70% 80%, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 25% 85%, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 90% 45%, #fff, transparent),
+    radial-gradient(2px 2px at 55% 15%, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 15% 55%, #fff, transparent);
+  background-repeat: repeat;
+  background-size: 100% 100%;
+  opacity: 0.5;
+  animation: funkeln 4s ease-in-out infinite alternate;
+}
+@keyframes funkeln {
+  0% { opacity: 0.25; }
+  100% { opacity: 0.65; }
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: calc(16px + env(safe-area-inset-top)) calc(20px + env(safe-area-inset-right)) 16px calc(20px + env(safe-area-inset-left));
+  background: rgba(10, 1, 24, 0.75);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.topbar h1 {
+  flex: 1;
+  font-size: 1.15rem;
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  background: linear-gradient(90deg, var(--pink), var(--purple) 55%, var(--cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 18px rgba(168, 85, 247, 0.35);
+}
+
+.btn-back, .btn-refresh {
+  border: 1px solid var(--card-border);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+.btn-back:hover, .btn-refresh:hover {
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 14px rgba(168, 85, 247, 0.5);
+}
+.btn-refresh { font-size: 1.1rem; padding: 6px 12px; }
+.btn-refresh.spin { animation: spin 0.6s linear; }
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+main {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  padding: 20px;
+  max-width: 720px;
+  width: 100%;
+  margin: 0 auto;
+  padding-left: calc(20px + env(safe-area-inset-left));
+  padding-right: calc(20px + env(safe-area-inset-right));
+}
+
+.footer {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.85rem;
+  padding: 14px 20px calc(14px + env(safe-area-inset-bottom));
+}
+.footer p { margin: 2px 0; }
+.footer-datum { opacity: 0.7; }
+
+/* Kachel-Grids */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 14px;
+  margin-top: 12px;
+}
+
+.tile {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 20px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  font-family: inherit;
+  color: var(--text);
+}
+.tile:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 22px rgba(168, 85, 247, 0.45);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+.tile:active { transform: translateY(0); }
+
+.tile .emoji { font-size: 2.4rem; filter: drop-shadow(0 0 10px rgba(255, 46, 154, 0.5)); }
+.tile .name { font-weight: 700; text-align: center; }
+.tile .stars { font-size: 0.9rem; color: var(--gold); text-shadow: 0 0 8px rgba(255, 209, 102, 0.6); }
+
+.tile.locked {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.tile.locked:hover { transform: none; box-shadow: none; }
+
+.tile.fach {
+  border-top: 3px solid var(--fach-color, var(--purple));
+  box-shadow: 0 0 16px color-mix(in srgb, var(--fach-color, var(--purple)) 40%, transparent);
+}
+
+.intro-box {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  margin-bottom: 16px;
+  color: var(--muted);
+}
+
+/* Lektion (einfache Erklärung) */
+.lektion-box {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(168, 85, 247, 0.2);
+}
+.lektion-emoji { font-size: 3rem; margin-bottom: 6px; filter: drop-shadow(0 0 14px rgba(255, 46, 154, 0.5)); }
+.lektion-titel {
+  margin: 4px 0 18px;
+  font-size: 1.3rem;
+  background: linear-gradient(90deg, var(--cyan), var(--pink));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.lektion-liste {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+.lektion-punkt {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 12px 14px;
+  line-height: 1.5;
+}
+
+/* Vokabelkarten */
+.vokabel-liste {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 22px;
+  max-height: 420px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+.vokabel-karte {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--card-border);
+  border-left: 3px solid var(--cyan);
+  border-radius: 12px;
+  padding: 12px 14px;
+}
+.vokabel-wort {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+.vokabel-en {
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: var(--cyan);
+}
+.vokabel-de {
+  color: var(--muted);
+}
+.vokabel-satz {
+  font-style: italic;
+  color: var(--text);
+  opacity: 0.85;
+  line-height: 1.4;
+}
+
+/* Übungsansicht */
+.frage-box {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: 0 0 30px rgba(34, 229, 255, 0.12);
+}
+
+.fortschritt-leiste {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 18px;
+}
+.fortschritt-leiste > div {
+  height: 100%;
+  background: linear-gradient(90deg, var(--pink), var(--purple), var(--cyan));
+  transition: width 0.2s ease;
+}
+
+.lesetext {
+  background: rgba(168, 85, 247, 0.12);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 18px;
+  line-height: 1.55;
+}
+
+.frage-text {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.optionen {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.option-btn {
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--card-border);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  font-size: 1rem;
+  text-align: left;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s ease, box-shadow 0.15s ease;
+}
+.option-btn:hover { background: rgba(255, 255, 255, 0.09); box-shadow: 0 0 12px rgba(34, 229, 255, 0.3); }
+.option-btn.richtig { background: rgba(52, 238, 160, 0.18); border-color: var(--good); box-shadow: 0 0 14px rgba(52, 238, 160, 0.4); }
+.option-btn.falsch { background: rgba(255, 77, 109, 0.18); border-color: var(--bad); box-shadow: 0 0 14px rgba(255, 77, 109, 0.4); }
+.option-btn:disabled { cursor: default; }
+
+.zahl-eingabe {
+  display: flex;
+  gap: 10px;
+}
+.zahl-eingabe input {
+  flex: 1;
+  padding: 12px 14px;
+  font-size: 1.1rem;
+  border-radius: 12px;
+  border: 1px solid var(--card-border);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text);
+}
+.zahl-eingabe input.richtig { border-color: var(--good); background: rgba(52, 238, 160, 0.15); }
+.zahl-eingabe input.falsch { border-color: var(--bad); background: rgba(255, 77, 109, 0.15); }
+
+.btn-primary {
+  margin-top: 18px;
+  padding: 12px 20px;
+  background: linear-gradient(90deg, var(--pink), var(--purple));
+  color: white;
+  border: none;
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  width: 100%;
+  box-shadow: 0 0 16px rgba(255, 46, 154, 0.35);
+}
+.btn-primary:hover { filter: brightness(1.1); box-shadow: 0 0 24px rgba(255, 46, 154, 0.55); }
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; box-shadow: none; }
+.btn-glow { background: linear-gradient(90deg, var(--cyan), var(--purple), var(--pink)); background-size: 200% auto; animation: glowmove 3s linear infinite; }
+@keyframes glowmove { to { background-position: 200% center; } }
+
+.erklaerung {
+  margin-top: 16px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--card-border);
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* Ergebnis */
+.ergebnis-box {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 32px 24px;
+  text-align: center;
+  box-shadow: 0 0 34px rgba(255, 46, 154, 0.2);
+}
+.ergebnis-spruch {
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg, var(--gold), var(--pink));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.ergebnis-sterne {
+  font-size: 3rem;
+  margin: 12px 0;
+  filter: drop-shadow(0 0 12px rgba(255, 209, 102, 0.6));
+}
+.ergebnis-text {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: var(--muted);
+}
+.button-reihe {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+.button-reihe .btn-primary { margin-top: 0; }
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+  box-shadow: none;
+}
+.btn-secondary:hover { box-shadow: 0 0 14px rgba(255, 255, 255, 0.2); }
