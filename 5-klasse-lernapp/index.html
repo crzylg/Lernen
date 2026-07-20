@@ -3,24 +3,29 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Lernspaß 5. Klasse</title>
-<meta name="description" content="Einfache Lern-App für die 5. Klasse Gymnasium – Mathematik und Deutsch üben." />
+<title>⚔️ Idol Academy · Lernspaß 5. Klasse</title>
+<meta name="description" content="Einfache Lern-App für die 5. Klasse Gymnasium – Mathematik, Deutsch und Lesegeschichten im Dämonenjäger-Look." />
 <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <div class="sternenhimmel" aria-hidden="true"></div>
+
   <header class="topbar">
     <button id="btnZurueck" class="btn-back" hidden>← Zurück</button>
-    <h1 id="titel">Lernspaß 5. Klasse</h1>
+    <h1 id="titel">⚔️ Idol Academy · 5. Klasse</h1>
+    <button id="btnRefresh" class="btn-refresh" title="Themen &amp; Aufgaben aktualisieren">🔄</button>
   </header>
 
   <main id="app"></main>
 
   <footer class="footer">
-    <p>Für die 5. Klasse Gymnasium · Mathe &amp; Deutsch</p>
+    <p>Für die 5. Klasse Gymnasium · Mathe · Deutsch · Lesegeschichten</p>
+    <p class="footer-datum">Zuletzt aktualisiert: <span id="footDate">–</span></p>
   </footer>
 
   <script src="data/mathe.js"></script>
   <script src="data/deutsch.js"></script>
+  <script src="data/lesen.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

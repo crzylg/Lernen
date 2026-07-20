@@ -2,6 +2,9 @@
   "use strict";
 
   var LS_PROGRESS = "lk5_progress"; // eigener Präfix, damit nichts mit der anderen App im Repo kollidiert
+  var LS_REFRESH = "lk5_refresh";
+
+  var AKTIVE_FAECHER = ["mathe", "deutsch", "lesen"];
 
   var KOMMEND = [
     { name: "Englisch", icon: "🇬🇧" },
@@ -12,6 +15,8 @@
   var appEl = document.getElementById("app");
   var titelEl = document.getElementById("titel");
   var backBtn = document.getElementById("btnZurueck");
+  var refreshBtn = document.getElementById("btnRefresh");
+  var footDate = document.getElementById("footDate");
 
   var state = {
     view: "faecher",
@@ -71,17 +76,19 @@
     backBtn.hidden = state.view === "faecher";
     if (state.view === "faecher") renderFaecher();
     else if (state.view === "themen") renderThemen();
+    else if (state.view === "lektion") renderLektion();
     else if (state.view === "uebung") renderUebung();
     else if (state.view === "ergebnis") renderErgebnis();
   }
 
   function renderFaecher() {
-    titelEl.textContent = "Lernspaß 5. Klasse";
+    titelEl.textContent = "⚔️ Idol Academy · 5. Klasse";
     var progress = ladeProgress();
     var grid = el("div", { class: "grid" });
 
-    ["mathe", "deutsch"].forEach(function (fachId) {
+    AKTIVE_FAECHER.forEach(function (fachId) {
       var fach = window.LERNDATA[fachId];
+      if (!fach) return;
       var anzahlThemen = fach.themen.length;
       var summeSterne = 0;
       fach.themen.forEach(function (t) {
@@ -109,31 +116,63 @@
       ]));
     });
 
-    appEl.appendChild(el("p", { class: "intro-box", text: "Wähle ein Fach aus und übe Schritt für Schritt." }));
+    appEl.appendChild(el("p", { class: "intro-box", text: "✨ Wähle einen Bereich und starte deine Mission!" }));
     appEl.appendChild(grid);
   }
 
   function renderThemen() {
-    titelEl.textContent = state.fach.name;
+    titelEl.textContent = state.fach.icon + " " + state.fach.name;
     var progress = ladeProgress();
     var grid = el("div", { class: "grid" });
 
-    state.fach.themen.forEach(function (thema) {
+    state.fach.themen.forEach(function (thema, i) {
       var p = progress[progressKey(state.fach.id, thema.id)];
       var sterne = p ? p.sterne : 0;
+      var label = state.fach.id === "lesen" ? thema.titel : "Mission " + (i + 1) + ": " + thema.titel;
       var tile = el("button", { class: "tile" }, [
         el("div", { class: "emoji", text: thema.icon }),
-        el("div", { class: "name", text: thema.titel }),
+        el("div", { class: "name", text: label }),
         el("div", { class: "stars", text: sterneAnzeige(sterne) })
       ]);
       tile.addEventListener("click", function () {
-        starteUebung(state.fach, thema);
+        state.thema = thema;
+        if (thema.lektion) {
+          state.view = "lektion";
+        } else {
+          starteUebungDirekt(thema);
+          return;
+        }
+        render();
       });
       grid.appendChild(tile);
     });
 
-    appEl.appendChild(el("p", { class: "intro-box", text: "Tippe auf ein Thema, um zu üben." }));
+    appEl.appendChild(el("p", { class: "intro-box", text: "🎤 Tippe auf eine Mission, um loszulegen." }));
     appEl.appendChild(grid);
+  }
+
+  function starteUebungDirekt(thema) {
+    starteUebung(state.fach, thema);
+  }
+
+  function renderLektion() {
+    var thema = state.thema;
+    titelEl.textContent = "📖 " + thema.titel;
+    var box = el("div", { class: "lektion-box" });
+    box.appendChild(el("div", { class: "lektion-emoji", text: thema.icon }));
+    box.appendChild(el("h2", { class: "lektion-titel", text: thema.titel }));
+
+    var liste = el("div", { class: "lektion-liste" });
+    (thema.lektion || []).forEach(function (satz) {
+      liste.appendChild(el("div", { class: "lektion-punkt", text: satz }));
+    });
+    box.appendChild(liste);
+
+    var startBtn = el("button", { class: "btn-primary btn-glow", text: "⚔️ Mission starten" });
+    startBtn.addEventListener("click", function () { starteUebung(state.fach, thema); });
+    box.appendChild(startBtn);
+
+    appEl.appendChild(box);
   }
 
   function starteUebung(fach, thema) {
@@ -249,18 +288,26 @@
     render();
   }
 
+  function ergebnisSpruch(sterne) {
+    if (sterne === 3) return "🏆 Legendärer Sieg!";
+    if (sterne === 2) return "🔥 Starker Kampf!";
+    if (sterne === 1) return "✨ Gut gemacht!";
+    return "💪 Nächstes Mal schaffst du mehr Sterne!";
+  }
+
   function renderErgebnis() {
     titelEl.textContent = "Ergebnis";
     var box = el("div", { class: "ergebnis-box" }, [
+      el("div", { class: "ergebnis-spruch", text: ergebnisSpruch(state.letzteSterne) }),
       el("div", { text: "Du hast " + state.richtigCount + " von " + state.aufgaben.length + " Aufgaben richtig gelöst." }),
       el("div", { class: "ergebnis-sterne", text: sterneAnzeige(state.letzteSterne) }),
       el("div", { class: "ergebnis-text", text: state.letztesProzent + " % richtig" })
     ]);
 
     var reihe = el("div", { class: "button-reihe" });
-    var nochmalBtn = el("button", { class: "btn-primary", text: "Nochmal üben" });
+    var nochmalBtn = el("button", { class: "btn-primary btn-glow", text: "🔁 Nochmal üben" });
     nochmalBtn.addEventListener("click", function () { starteUebung(state.fach, state.thema); });
-    var zurueckBtn = el("button", { class: "btn-primary btn-secondary", text: "Zurück zu den Themen" });
+    var zurueckBtn = el("button", { class: "btn-primary btn-secondary", text: "Zurück zu den Missionen" });
     zurueckBtn.addEventListener("click", function () { state.view = "themen"; render(); });
     reihe.appendChild(nochmalBtn);
     reihe.appendChild(zurueckBtn);
@@ -271,9 +318,30 @@
 
   backBtn.addEventListener("click", function () {
     if (state.view === "themen") state.view = "faecher";
+    else if (state.view === "lektion") state.view = "themen";
     else if (state.view === "uebung" || state.view === "ergebnis") state.view = "themen";
     render();
   });
+
+  if (refreshBtn) {
+    refreshBtn.addEventListener("click", function () {
+      refreshBtn.classList.add("spin");
+      var heute = new Date().toISOString().slice(0, 10);
+      try { localStorage.setItem(LS_REFRESH, heute); } catch (e) {}
+      if (footDate) footDate.textContent = heute;
+      setTimeout(function () {
+        var url = new URL(window.location.href);
+        url.searchParams.set("_v", Date.now().toString());
+        window.location.href = url.toString();
+      }, 400);
+    });
+  }
+
+  if (footDate) {
+    var gespeichertesDatum = null;
+    try { gespeichertesDatum = localStorage.getItem(LS_REFRESH); } catch (e) {}
+    footDate.textContent = gespeichertesDatum || "noch nie";
+  }
 
   render();
 })();
