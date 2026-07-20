@@ -279,6 +279,7 @@ main {
   padding: 14px 16px;
   margin-bottom: 18px;
   line-height: 1.55;
+  white-space: pre-line;
 }
 
 .frage-text {
