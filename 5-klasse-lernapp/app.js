@@ -16,6 +16,8 @@
   var refreshBtn = document.getElementById("btnRefresh");
   var footDate = document.getElementById("footDate");
   var timerBtn = document.getElementById("btnTimer");
+  var fortschrittBtn = document.getElementById("btnFortschritt");
+  var FORTSCHRITT_PASSWORT = "11061985";
 
   var state = {
     view: "faecher",
@@ -185,6 +187,8 @@
     else if (state.view === "kurzcheck") renderKurzcheck();
     else if (state.view === "uebung") renderUebung();
     else if (state.view === "ergebnis") renderErgebnis();
+    else if (state.view === "fortschritt-login") renderFortschrittLogin();
+    else if (state.view === "fortschritt") renderFortschritt();
   }
 
   function renderFaecher() {
@@ -325,9 +329,27 @@
     });
     box.appendChild(liste);
 
+    renderBeispiele(box, thema.beispiele);
     renderStartBlock(box, state.fach, thema, "⚔️ Mission starten");
 
     appEl.appendChild(box);
+  }
+
+  // ---------- Beispielrechnungen: Schritt-für-Schritt-Lösungswege ----------
+  function renderBeispiele(box, beispiele) {
+    if (!beispiele || !beispiele.length) return;
+    box.appendChild(el("h3", { class: "beispiele-ueberschrift", text: "✏️ So geht's: Beispielrechnungen" }));
+    beispiele.forEach(function (b) {
+      var karte = el("div", { class: "beispiel-karte" });
+      karte.appendChild(el("div", { class: "beispiel-aufgabe", text: b.aufgabe }));
+      var schritteListe = el("ol", { class: "beispiel-schritte" });
+      b.schritte.forEach(function (s) {
+        schritteListe.appendChild(el("li", { text: s }));
+      });
+      karte.appendChild(schritteListe);
+      karte.appendChild(el("div", { class: "beispiel-ergebnis", text: "✅ Ergebnis: " + b.ergebnis }));
+      box.appendChild(karte);
+    });
   }
 
   function renderVokabeln() {
@@ -587,10 +609,153 @@
     appEl.appendChild(box);
   }
 
+  // ---------- Fortschrittsbericht (passwortgeschützt, für Eltern/Lehrkräfte) ----------
+  function renderFortschrittLogin() {
+    titelEl.textContent = "🔒 Fortschritt";
+    var box = el("div", { class: "lektion-box" });
+    box.appendChild(el("div", { class: "lektion-emoji", text: "🔒" }));
+    box.appendChild(el("h2", { class: "lektion-titel", text: "Für Eltern & Lehrkräfte" }));
+    box.appendChild(el("p", { class: "laenge-hinweis", text: "Bitte gib das Passwort ein, um den Fortschrittsbericht zu sehen." }));
+
+    var inputWrap = el("div", { class: "zahl-eingabe" });
+    var input = el("input", { type: "password", inputmode: "numeric", autocomplete: "off", placeholder: "Passwort" });
+    var pruefenBtn = el("button", { class: "btn-primary", text: "Anzeigen" });
+    pruefenBtn.style.width = "auto";
+    inputWrap.appendChild(input);
+    inputWrap.appendChild(pruefenBtn);
+    box.appendChild(inputWrap);
+
+    var fehlerBox = el("div");
+    box.appendChild(fehlerBox);
+
+    var pruefen = function () {
+      if (input.value === FORTSCHRITT_PASSWORT) {
+        input.value = "";
+        state.view = "fortschritt";
+        render();
+      } else {
+        fehlerBox.innerHTML = "";
+        fehlerBox.appendChild(el("div", { class: "erklaerung", text: "❌ Das Passwort stimmt leider nicht." }));
+        input.value = "";
+        input.focus();
+      }
+    };
+    pruefenBtn.addEventListener("click", pruefen);
+    input.addEventListener("keydown", function (e) { if (e.key === "Enter") pruefen(); });
+
+    appEl.appendChild(box);
+  }
+
+  function statusFuerBeste(beste) {
+    if (beste >= 90) return { label: "🟢 Sehr gut gemeistert", klasse: "status-gut" };
+    if (beste >= 50) return { label: "🟡 Kann noch geübt werden", klasse: "status-mittel" };
+    return { label: "🔴 Braucht Wiederholung", klasse: "status-schlecht" };
+  }
+
+  function baueFortschrittsBericht() {
+    var progress = ladeProgress();
+    var leitner = ladeLeitner();
+    var offeneFehlerProThema = {};
+    Object.keys(leitner).forEach(function (aufgabeId) {
+      var meta = AUFGABEN_INDEX[aufgabeId];
+      if (!meta) return;
+      var key = progressKey(meta.fachId, meta.themaId);
+      offeneFehlerProThema[key] = (offeneFehlerProThema[key] || 0) + 1;
+    });
+
+    var zeilen = [];
+    AKTIVE_FAECHER.forEach(function (fachId) {
+      var fach = window.LERNDATA[fachId];
+      if (!fach) return;
+      fach.themen.forEach(function (thema) {
+        var key = progressKey(fach.id, thema.id);
+        var p = progress[key];
+        var offeneFehler = offeneFehlerProThema[key] || 0;
+        if (!p && offeneFehler === 0) return; // noch nie versucht
+        zeilen.push({
+          fach: fach, thema: thema,
+          sterne: p ? p.sterne : 0,
+          beste: p ? p.beste : 0,
+          offeneFehler: offeneFehler
+        });
+      });
+    });
+
+    zeilen.sort(function (a, b) { return a.beste - b.beste || b.offeneFehler - a.offeneFehler; });
+    return zeilen;
+  }
+
+  function renderFortschritt() {
+    titelEl.textContent = "📊 Fortschrittsbericht";
+    var zeilen = baueFortschrittsBericht();
+
+    var box = el("div", { class: "lektion-box" });
+    box.appendChild(el("div", { class: "lektion-emoji", text: "📊" }));
+    box.appendChild(el("h2", { class: "lektion-titel", text: "Wie läuft's?" }));
+
+    if (zeilen.length === 0) {
+      box.appendChild(el("p", { class: "laenge-hinweis", text: "Noch keine Übungen gemacht – zeit, loszulegen! 🚀" }));
+      appEl.appendChild(box);
+      return;
+    }
+
+    var gesamtSterne = 0, maxSterne = 0;
+    zeilen.forEach(function (z) { gesamtSterne += z.sterne; maxSterne += 3; });
+    box.appendChild(el("p", { class: "laenge-hinweis", text: gesamtSterne + " von " + maxSterne + " Sternen in " + zeilen.length + " geübten Missionen" }));
+
+    var schwaechste = zeilen[0];
+    if (schwaechste && schwaechste.beste < 90) {
+      var empfehlung = el("div", { class: "beispiel-karte" }, [
+        el("div", { class: "beispiel-aufgabe", text: "💡 Empfehlung" }),
+        el("div", { text: schwaechste.fach.icon + " " + schwaechste.fach.name + " · " + schwaechste.thema.titel + " braucht gerade am meisten Übung. Am besten noch einmal die Lektion mit den Beispielrechnungen anschauen." })
+      ]);
+      box.appendChild(empfehlung);
+    }
+
+    appEl.appendChild(box);
+
+    var liste = el("div", { class: "fortschritt-liste" });
+    zeilen.forEach(function (z) {
+      var status = statusFuerBeste(z.beste);
+      var karte = el("div", { class: "fortschritt-zeile" });
+      karte.appendChild(el("div", { class: "fortschritt-zeile-kopf" }, [
+        el("span", { class: "fortschritt-fach", text: z.fach.icon + " " + z.fach.name + " · " + z.thema.titel }),
+        el("span", { class: "fortschritt-sterne", text: sterneAnzeige(z.sterne) })
+      ]));
+      karte.appendChild(el("div", { class: "fortschritt-zeile-details" }, [
+        el("span", { class: "status-badge " + status.klasse, text: status.label }),
+        el("span", { class: "fortschritt-prozent", text: z.beste + " % beste Runde" }),
+        z.offeneFehler > 0 ? el("span", { class: "fortschritt-offene", text: z.offeneFehler + " Frage" + (z.offeneFehler === 1 ? "" : "n") + " zur Wiederholung" }) : null
+      ]));
+      var lernBtn = el("button", { class: "btn-primary btn-secondary", text: "📖 Nochmal lernen" });
+      lernBtn.addEventListener("click", function () {
+        state.fach = z.fach;
+        state.thema = z.thema;
+        state.view = z.thema.vokabeln ? "vokabeln" : (z.thema.lektion ? "lektion" : "themen");
+        render();
+      });
+      karte.appendChild(lernBtn);
+      liste.appendChild(karte);
+    });
+    appEl.appendChild(liste);
+
+    var abmeldenBtn = el("button", { class: "btn-primary btn-secondary", text: "🔒 Zurück zur Startseite" });
+    abmeldenBtn.addEventListener("click", function () { state.view = "faecher"; render(); });
+    appEl.appendChild(abmeldenBtn);
+  }
+
+  if (fortschrittBtn) {
+    fortschrittBtn.addEventListener("click", function () {
+      state.view = "fortschritt-login";
+      render();
+    });
+  }
+
   backBtn.addEventListener("click", function () {
     if (state.view === "themen") state.view = "faecher";
     else if (state.view === "lektion" || state.view === "vokabeln" || state.view === "kurzcheck") state.view = "themen";
     else if (state.view === "uebung" || state.view === "ergebnis") state.view = state.fach ? "themen" : "faecher";
+    else if (state.view === "fortschritt-login" || state.view === "fortschritt") state.view = "faecher";
     render();
   });
 
