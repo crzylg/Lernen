@@ -3,12 +3,53 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Lernplan KI &amp; Genesys</title>
-<meta http-equiv="refresh" content="0; url=./app/index.html" />
-<link rel="canonical" href="./app/index.html" />
-<script>location.replace("./app/index.html");</script>
+<title>Lernen — Übersicht</title>
+<meta name="theme-color" content="#0a0714" />
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,system-ui,sans-serif;
+    background:linear-gradient(180deg,#0a0714,#170b2e 50%,#0a0714);
+    color:#f5f2ff;min-height:100vh;padding:32px 16px 48px;
+  }
+  .wrap{max-width:520px;margin:0 auto}
+  h1{font-size:22px;margin:0 0 6px}
+  p.sub{color:#b6a8d9;font-size:14px;margin:0 0 26px}
+  .card{
+    display:flex;align-items:center;gap:14px;text-decoration:none;color:inherit;
+    background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);
+    border-radius:18px;padding:16px;margin-bottom:12px;
+  }
+  .card .ico{font-size:30px;flex-shrink:0}
+  .card .name{font-weight:800;font-size:15.5px;margin:0 0 3px}
+  .card .desc{font-size:12.5px;color:#b6a8d9;margin:0}
+</style>
 </head>
 <body>
-<p>Weiterleitung zur App … <a href="./app/index.html">Hier tippen, falls es nicht automatisch geht.</a></p>
+<div class="wrap">
+  <h1>📚 Lernen</h1>
+  <p class="sub">Wähle eine App:</p>
+
+  <a class="card" href="./app/index.html">
+    <span class="ico">🎓</span>
+    <span><span class="name">Lernplan KI &amp; Genesys</span><span class="desc">Zertifizierungs-Lernpfad, Deutsch</span></span>
+  </a>
+
+  <a class="card" href="./5-klasse-lernapp/index.html">
+    <span class="ico">⚔️</span>
+    <span><span class="name">Idol Academy · 5. Klasse</span><span class="desc">Mathe, Deutsch, Englisch, Erdkunde, Biologie</span></span>
+  </a>
+
+  <a class="card" href="./spiele/index.html">
+    <span class="ico">🎤</span>
+    <span><span class="name">BeatJäger</span><span class="desc">Lern-Duelle als Mini-Spiele: Mathe &amp; Deutsch im Fokus</span></span>
+  </a>
+
+  <a class="card" href="./baecker/index.html">
+    <span class="ico">🧁</span>
+    <span><span class="name">Bäckerei-Rechner</span><span class="desc">Zutaten- &amp; Rezeptkosten, Deutsch &amp; Українська</span></span>
+  </a>
+</div>
 </body>
 </html>
