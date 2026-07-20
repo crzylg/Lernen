@@ -88,13 +88,36 @@ konkrete Empfehlung, welches Thema am meisten Übung braucht – ein Klick
 auf "Nochmal lernen" führt direkt zur Lektion mit den Beispielrechnungen
 dieses Themas.
 
+## 🎤⚔️ Spiele-Arena (Version 5)
+
+Auf der Startseite führt die Karte "Spiele-Arena" in einen eigenen
+Mini-Spiele-Bereich — dieselben Fächer, aber als kurze, temporeiche Duelle
+statt Lektion+Quiz. Eigene, frei erfundene Neon-Gestaltung, keine Kopie
+eines bestimmten Films oder einer Marke.
+
+- **Quiz-Duell** ⚔️ und **Blitz-Runde** ⚡ (45 Sekunden, so viele Treffer wie
+  möglich) gibt es für **jedes Fach** (Mathe, Deutsch, Englisch, Erdkunde,
+  Biologie, Lesen) — sie nutzen direkt die echten Multiple-Choice-Aufgaben
+  aus `window.LERNDATA`, keine separaten Inhalte. Richtige/falsche
+  Antworten fließen dabei auch in die normale Leitner-Wiederholungswarteschlange
+  ein, und der Tages-Streak ist derselbe wie bei den normalen Missionen.
+- **Sortierschlacht** 🧲 (Reihenfolge sortieren) gibt es zusätzlich für
+  Mathe und den Bonus-Bereich **Logik** 🧩 (ein Fach nur für die
+  Spiele-Arena, ohne Lektionen).
+- **Erinnerungs-Duell** 🧠 (Memory) gibt es zusätzlich für Deutsch.
+- **Lückenzauber** ✨ (Lückentext mit Auswahl) gibt es zusätzlich für Deutsch.
+- Eigene Fortschrittsebene nur für die Spiele-Arena: XP, Level/Rang
+  (Trainee → Legende) und 9 Abzeichen — gespeichert unter `lk5_spiele_xp`
+  und `lk5_spiele_badges`, unabhängig von den Sternen der normalen Missionen.
+
 ## Struktur
 
 ```
 5-klasse-lernapp/
   index.html
   styles.css
-  app.js              # Navigation, Lektion, Vokabelkarten, Übungslogik, Fortschritt, Update-Button
+  app.js              # Navigation, Lektion, Vokabelkarten, Übungslogik, Fortschritt,
+                       # Update-Button, Spiele-Arena
   data/
     mathe.js          # Themen, Lektionen & Aufgaben Mathematik
     deutsch.js        # Themen, Lektionen & Aufgaben Deutsch
@@ -102,6 +125,8 @@ dieses Themas.
     erdkunde.js        # Themen, Lektionen & Aufgaben Erdkunde
     biologie.js        # Themen, Lektionen & Aufgaben Biologie
     lesen.js           # Lesegeschichten mit Verständnisfragen
+    spiele.js          # Zusatzinhalte nur für die Spiele-Arena (Sortierschlacht,
+                       # Erinnerungs-Duell, Lückenzauber, Logik-Bonusfach)
 ```
 
 ## Inhalte erweitern
@@ -112,3 +137,6 @@ ergänzt (gleiche Struktur wie die vorhandenen Einträge). Ein Thema mit
 Thema mit `vokabeln`-Feld zeigt stattdessen Karteikarten. Ein neues Fach
 braucht eine neue Datei nach demselben Muster plus einen Eintrag in
 `index.html` (Script einbinden) und `app.js` (`AKTIVE_FAECHER`-Liste).
+Neue Spiele-Inhalte (Sortierschlacht/Memory/Lückenzauber) werden in
+`data/spiele.js` ergänzt; Quiz-Duell und Blitz-Runde brauchen keine
+eigenen Inhalte, sie nutzen automatisch alle `"mc"`-Aufgaben des Fachs.
