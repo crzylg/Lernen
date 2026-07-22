@@ -62,7 +62,8 @@
     kurzcheckIndex: 0,
     geplanteAnzahl: null,
     spielFachId: null,
-    spiel: null
+    spiel: null,
+    animation: null
   };
 
   // ---------- Aufgaben-Index (für Wiederholung über alle Fächer) ----------
@@ -817,6 +818,7 @@
     else if (state.view === "spiele-luecken") renderSpielLuecken();
     else if (state.view === "spiele-ergebnis") renderSpielErgebnis();
     else if (state.view === "spiele-abzeichen") renderSpielAbzeichen();
+    else if (state.view === "mathe-animation") renderThemaAnimation();
   }
 
   function renderFaecher() {
@@ -970,6 +972,17 @@
     box.appendChild(liste);
 
     renderBeispiele(box, thema.beispiele);
+
+    if (thema.animation) {
+      var animBtn = el("button", { class: "btn-primary btn-secondary", text: "🎬 Animation ansehen" });
+      animBtn.addEventListener("click", function () {
+        state.animation = { thema: thema, index: 0 };
+        state.view = "mathe-animation";
+        render();
+      });
+      box.appendChild(animBtn);
+    }
+
     renderStartBlock(box, state.fach, thema, "⚔️ Mission starten");
 
     appEl.appendChild(box);
@@ -990,6 +1003,55 @@
       karte.appendChild(el("div", { class: "beispiel-ergebnis", text: "✅ Ergebnis: " + b.ergebnis }));
       box.appendChild(karte);
     });
+  }
+
+  // ---------- Mini-Animation zu einem Thema (eigener, frei erfundener
+  // K-Pop-Dämonenjäger-Look, Schritt für Schritt per Tastendruck) ----------
+  function renderThemaAnimation() {
+    var anim = state.animation.thema.animation;
+    var szene = anim.szenen[state.animation.index];
+    titelEl.textContent = "🎬 " + anim.titel;
+
+    var box = el("div", { class: "frage-box" });
+
+    var hud = el("div", { class: "demon-hud" });
+    var demon = el("div", { class: "demon-emoji", text: szene.hp > 0 ? "👹" : "✨" });
+    hud.appendChild(demon);
+    var mitte = el("div", { class: "demon-hud-mitte" });
+    mitte.appendChild(el("div", { class: "hp-leiste" }, [el("div", { style: "width:" + szene.hp + "%" })]));
+    hud.appendChild(mitte);
+    box.appendChild(hud);
+
+    box.appendChild(el("div", { class: "frage-text", text: szene.text }));
+
+    if (szene.rechnung) {
+      box.appendChild(el("div", { class: "beispiel-karte" }, [
+        el("div", { class: "beispiel-aufgabe", text: szene.rechnung }),
+        el("div", { text: "Ergebnis bisher: " + szene.ergebnisSoweit + " · Rest: " + szene.rest })
+      ]));
+    } else if (szene.ende) {
+      box.appendChild(el("div", { class: "beispiel-karte" }, [
+        el("div", { class: "beispiel-ergebnis", text: "✅ Ergebnis: " + szene.ergebnisSoweit })
+      ]));
+    }
+
+    var letzte = state.animation.index + 1 >= anim.szenen.length;
+    var reihe = el("div", { class: "button-reihe" });
+    if (!letzte) {
+      var weiterBtn = el("button", { class: "btn-primary btn-glow", text: "Weiter ▶" });
+      weiterBtn.addEventListener("click", function () { state.animation.index++; render(); });
+      reihe.appendChild(weiterBtn);
+    } else {
+      var nochmalBtn = el("button", { class: "btn-primary btn-secondary", text: "🔁 Nochmal ansehen" });
+      nochmalBtn.addEventListener("click", function () { state.animation.index = 0; render(); });
+      var fertigBtn = el("button", { class: "btn-primary btn-glow", text: "Fertig" });
+      fertigBtn.addEventListener("click", function () { state.animation = null; state.view = "lektion"; render(); });
+      reihe.appendChild(nochmalBtn);
+      reihe.appendChild(fertigBtn);
+    }
+    box.appendChild(reihe);
+
+    appEl.appendChild(box);
   }
 
   function renderVokabeln() {
@@ -1403,6 +1465,7 @@
       raeumeSpielSession();
       state.view = "spiele-modi";
     }
+    else if (state.view === "mathe-animation") { state.animation = null; state.view = "lektion"; }
     render();
   });
 
