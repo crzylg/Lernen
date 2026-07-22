@@ -307,6 +307,104 @@ window.LERNDATA.mathe = {
         { frage: "Wie nennt man eine Linie, die zwei Punkte auf dem kürzesten Weg verbindet?", typ: "mc", optionen: ["Strecke", "Winkel", "Fläche", "Kreis"], loesung: "Strecke", erklaerung: "Eine Strecke ist die kürzeste Verbindung zwischen zwei Punkten." },
         { frage: "Wie viele rechte Winkel hat ein Quadrat?", typ: "zahl", loesung: "4", erklaerung: "Ein Quadrat hat 4 rechte Winkel (je 90°)." }
       ]
+    },
+    {
+      id: "schriftliche-division",
+      titel: "Schriftliche Division",
+      icon: "➗",
+      intro: "Große Zahlen Schritt für Schritt teilen, auch wenn's im Kopf nicht mehr geht.",
+      lektion: [
+        "➗ Bei großen Zahlen kannst du nicht immer im Kopf teilen. Dafür gibt es die schriftliche Division – du teilst Ziffer für Ziffer.",
+        "1️⃣ Nimm die erste Ziffer der großen Zahl. Ist sie zu klein für den Divisor, nimm die ersten zwei Ziffern.",
+        "2️⃣ Teile sie durch den Divisor und schreib das Ergebnis über den Strich. Rechne zurück (Ergebnis × Divisor) und zieh ab – das ist der Rest.",
+        "3️⃣ Hol dir die nächste Ziffer der großen Zahl dazu (an den Rest anhängen) und wiederhole das Ganze.",
+        "✅ Wenn keine Ziffer mehr übrig ist und der Rest 0 ist, geht die Division ohne Rest auf."
+      ],
+      beispiele: [
+        {
+          aufgabe: "848 : 4 = ?",
+          schritte: [
+            "Erste Ziffer 8: Wie oft passt 4 in 8? Zweimal (2 × 4 = 8), Rest 0.",
+            "Nächste Ziffer 4 dazu: Wie oft passt 4 in 4? Einmal (1 × 4 = 4), Rest 0.",
+            "Letzte Ziffer 8 dazu: Wie oft passt 4 in 8? Zweimal (2 × 4 = 8), Rest 0."
+          ],
+          ergebnis: "212"
+        },
+        {
+          aufgabe: "729 : 3 = ?",
+          schritte: [
+            "Erste Ziffer 7: Wie oft passt 3 in 7? Zweimal (2 × 3 = 6), Rest 1.",
+            "Rest 1 + nächste Ziffer 2 = 12: Wie oft passt 3 in 12? Viermal (4 × 3 = 12), Rest 0.",
+            "Letzte Ziffer 9 dazu: Wie oft passt 3 in 9? Dreimal (3 × 3 = 9), Rest 0."
+          ],
+          ergebnis: "243"
+        },
+        {
+          aufgabe: "936 : 4 = ?",
+          schritte: [
+            "Erste Ziffer 9: Wie oft passt 4 in 9? Zweimal (2 × 4 = 8), Rest 1.",
+            "Rest 1 + nächste Ziffer 3 = 13: Wie oft passt 4 in 13? Dreimal (3 × 4 = 12), Rest 1.",
+            "Rest 1 + letzte Ziffer 6 = 16: Wie oft passt 4 in 16? Viermal (4 × 4 = 16), Rest 0."
+          ],
+          ergebnis: "234"
+        }
+      ],
+      // Kurze, interaktive Schritt-Animation im K-Pop-Dämonenjäger-Look
+      // (eigene, frei erfundene Gestaltung – keine Kopie eines Films).
+      // Wird auf der Lektion-Seite über den Button "🎬 Animation ansehen" geöffnet.
+      animation: {
+        titel: "Besiege den Zahlen-Dämon: 936 : 4",
+        szenen: [
+          {
+            text: "Ein Zahlen-Dämon aus 936 versperrt dir den Weg! Um ihn zu besiegen, musst du ihn durch 4 teilen – Ziffer für Ziffer.",
+            ergebnisSoweit: "",
+            rest: "",
+            hp: 100
+          },
+          {
+            text: "Schritt 1: Nimm die erste Ziffer 9. Wie oft passt 4 in 9? Zweimal! (2 × 4 = 8). Rest: 9 − 8 = 1.",
+            rechnung: "9 : 4 = 2, Rest 1",
+            ergebnisSoweit: "2",
+            rest: "1",
+            hp: 66
+          },
+          {
+            text: "Schritt 2: Hol dir die nächste Ziffer (3) dazu: aus dem Rest 1 wird 13. Wie oft passt 4 in 13? Dreimal! (3 × 4 = 12). Rest: 13 − 12 = 1.",
+            rechnung: "13 : 4 = 3, Rest 1",
+            ergebnisSoweit: "23",
+            rest: "1",
+            hp: 33
+          },
+          {
+            text: "Schritt 3: Hol dir die letzte Ziffer (6) dazu: aus dem Rest 1 wird 16. Wie oft passt 4 in 16? Viermal! (4 × 4 = 16). Rest: 16 − 16 = 0 — der Dämon ist besiegt!",
+            rechnung: "16 : 4 = 4, Rest 0",
+            ergebnisSoweit: "234",
+            rest: "0",
+            hp: 0
+          },
+          {
+            text: "🏆 Geschafft! 936 : 4 = 234, ohne Rest. Du hast den Zahlen-Dämon Schritt für Schritt bezwungen.",
+            ergebnisSoweit: "234",
+            rest: "0",
+            hp: 0,
+            ende: true
+          }
+        ]
+      },
+      aufgaben: [
+        { frage: "Wie nennt man das Ergebnis einer Division noch einmal?", typ: "mc", optionen: ["Summe", "Differenz", "Produkt", "Quotient"], loesung: "Quotient", erklaerung: "Bei einer Division nennt man das Ergebnis Quotient." },
+        { frage: "Was ist 484 : 4?", typ: "zahl", loesung: "121", erklaerung: "4:4=1 Rest 0, 08:4=2 Rest 0, 4:4=1 Rest 0 → 121." },
+        { frage: "Was ist 636 : 3?", typ: "zahl", loesung: "212", erklaerung: "6:3=2 Rest 0, 3:3=1 Rest 0, 6:3=2 Rest 0 → 212." },
+        { frage: "Was ist 848 : 4?", typ: "zahl", loesung: "212", erklaerung: "8:4=2 Rest 0, 4:4=1 Rest 0, 8:4=2 Rest 0 → 212." },
+        { frage: "Was ist 729 : 3?", typ: "zahl", loesung: "243", erklaerung: "7:3=2 Rest 1, 12:3=4 Rest 0, 9:3=3 Rest 0 → 243." },
+        { frage: "Was ist 824 : 8?", typ: "zahl", loesung: "103", erklaerung: "8:8=1 Rest 0, 2:8=0 Rest 2, 24:8=3 Rest 0 → 103." },
+        { frage: "Was ist 945 : 5?", typ: "zahl", loesung: "189", erklaerung: "9:5=1 Rest 4, 44:5=8 Rest 4, 45:5=9 Rest 0 → 189." },
+        { frage: "Was ist 693 : 3?", typ: "zahl", loesung: "231", erklaerung: "6:3=2 Rest 0, 9:3=3 Rest 0, 3:3=1 Rest 0 → 231." },
+        { frage: "Was ist 936 : 4?", typ: "zahl", loesung: "234", erklaerung: "9:4=2 Rest 1, 13:4=3 Rest 1, 16:4=4 Rest 0 → 234." },
+        { frage: "Was ist 7.236 : 6?", typ: "zahl", loesung: "1206", erklaerung: "7:6=1 Rest 1, 12:6=2 Rest 0, 3:6=0 Rest 3, 36:6=6 Rest 0 → 1.206." },
+        { frage: "Bei 25 : 4 bleibt ein Rest. Wie groß ist er?", typ: "zahl", loesung: "1", erklaerung: "4 × 6 = 24, und 25 − 24 = 1 Rest." },
+        { frage: "Bei 936 : 4 = 234 — wie groß ist der Rest am Ende?", typ: "zahl", loesung: "0", erklaerung: "936 : 4 geht ohne Rest auf, der Rest ist 0." }
+      ]
     }
   ]
 };
