@@ -352,42 +352,44 @@ window.LERNDATA.mathe = {
       // Kurze, interaktive Schritt-Animation im K-Pop-Dämonenjäger-Look
       // (eigene, frei erfundene Gestaltung – keine Kopie eines Films).
       // Wird auf der Lektion-Seite über den Button "🎬 Animation ansehen" geöffnet.
+      // aktion-Werte, die der Animationsmotor in app.js kennt:
+      // "eingang" (Held & Dämon treten auf), "angriff" (Held schlägt zu,
+      // HP-Balken tweent runter), "sieg" (Dämon besiegt, Konfetti).
       animation: {
         titel: "Besiege den Zahlen-Dämon: 936 : 4",
+        zahlenDaemon: "936",
         szenen: [
           {
+            aktion: "eingang",
             text: "Ein Zahlen-Dämon aus 936 versperrt dir den Weg! Um ihn zu besiegen, musst du ihn durch 4 teilen – Ziffer für Ziffer.",
-            ergebnisSoweit: "",
-            rest: "",
             hp: 100
           },
           {
+            aktion: "angriff",
             text: "Schritt 1: Nimm die erste Ziffer 9. Wie oft passt 4 in 9? Zweimal! (2 × 4 = 8). Rest: 9 − 8 = 1.",
             rechnung: "9 : 4 = 2, Rest 1",
             ergebnisSoweit: "2",
-            rest: "1",
             hp: 66
           },
           {
+            aktion: "angriff",
             text: "Schritt 2: Hol dir die nächste Ziffer (3) dazu: aus dem Rest 1 wird 13. Wie oft passt 4 in 13? Dreimal! (3 × 4 = 12). Rest: 13 − 12 = 1.",
             rechnung: "13 : 4 = 3, Rest 1",
             ergebnisSoweit: "23",
-            rest: "1",
             hp: 33
           },
           {
-            text: "Schritt 3: Hol dir die letzte Ziffer (6) dazu: aus dem Rest 1 wird 16. Wie oft passt 4 in 16? Viermal! (4 × 4 = 16). Rest: 16 − 16 = 0 — der Dämon ist besiegt!",
+            aktion: "angriff",
+            text: "Schritt 3: Hol dir die letzte Ziffer (6) dazu: aus dem Rest 1 wird 16. Wie oft passt 4 in 16? Viermal! (4 × 4 = 16). Rest: 16 − 16 = 0 — letzter Treffer!",
             rechnung: "16 : 4 = 4, Rest 0",
             ergebnisSoweit: "234",
-            rest: "0",
             hp: 0
           },
           {
+            aktion: "sieg",
             text: "🏆 Geschafft! 936 : 4 = 234, ohne Rest. Du hast den Zahlen-Dämon Schritt für Schritt bezwungen.",
             ergebnisSoweit: "234",
-            rest: "0",
-            hp: 0,
-            ende: true
+            hp: 0
           }
         ]
       },
