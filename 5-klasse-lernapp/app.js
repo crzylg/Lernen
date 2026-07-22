@@ -975,11 +975,7 @@
 
     if (thema.animation) {
       var animBtn = el("button", { class: "btn-primary btn-secondary", text: "🎬 Animation ansehen" });
-      animBtn.addEventListener("click", function () {
-        state.animation = { thema: thema, index: 0 };
-        state.view = "mathe-animation";
-        render();
-      });
+      animBtn.addEventListener("click", function () { starteThemaAnimation(thema); });
       box.appendChild(animBtn);
     }
 
@@ -1005,53 +1001,220 @@
     });
   }
 
-  // ---------- Mini-Animation zu einem Thema (eigener, frei erfundener
-  // K-Pop-Dämonenjäger-Look, Schritt für Schritt per Tastendruck) ----------
+  // ==================== Animationsmotor (GSAP + SVG-Maskottchen) ====================
+  // Eigene, frei erfundene Figuren (kein Filmzitat). Der Bühnenaufbau (Held,
+  // Dämon, HP-Balken) wird EINMAL ins DOM gesetzt; jeder weitere Schritt
+  // animiert dieselben Elemente per GSAP-Tween, statt die Seite neu zu
+  // rendern – nur so wirkt es wie Bewegung und nicht wie ein Quiz in Zeitlupe.
+  var HELD_SVG =
+    '<svg viewBox="0 0 200 200" class="anim-svg" id="heldSvg">' +
+    '<defs>' +
+    '<linearGradient id="heldJacke" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff2e9a"/><stop offset="1" stop-color="#a855f7"/></linearGradient>' +
+    '<linearGradient id="heldMic" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#22e5ff"/><stop offset="1" stop-color="#ffd166"/></linearGradient>' +
+    '</defs>' +
+    '<ellipse cx="100" cy="186" rx="38" ry="7" fill="#000" opacity="0.25"/>' +
+    '<g id="heldGanz">' +
+    '<path d="M75,95 Q50,140 68,177 L95,150 Z" fill="#7c3aed" opacity="0.85"/>' +
+    '<rect x="82" y="150" width="16" height="34" rx="7" fill="#241539"/>' +
+    '<rect x="104" y="150" width="16" height="34" rx="7" fill="#241539"/>' +
+    '<rect x="68" y="96" width="66" height="62" rx="22" fill="url(#heldJacke)"/>' +
+    '<rect x="122" y="104" width="16" height="44" rx="8" fill="url(#heldJacke)"/>' +
+    '<circle cx="101" cy="70" r="33" fill="#ffd7ae"/>' +
+    '<path d="M67,66 Q72,24 101,22 Q131,24 136,66 Q124,42 101,40 Q79,42 67,66Z" fill="#1c1030"/>' +
+    '<path d="M67,66 Q60,90 66,100 Q70,80 74,66Z" fill="#1c1030"/>' +
+    '<path d="M136,66 Q143,90 137,100 Q133,80 129,66Z" fill="#1c1030"/>' +
+    '<path d="M132,45 l3,7 7,3 -7,3 -3,7 -3,-7 -7,-3 7,-3Z" fill="#22e5ff"/>' +
+    '<g id="heldArm">' +
+    '<rect x="46" y="98" width="16" height="46" rx="8" fill="url(#heldJacke)"/>' +
+    '<g id="heldWaffe">' +
+    '<rect x="34" y="56" width="9" height="48" rx="4" fill="#e9e4f5"/>' +
+    '<circle cx="38" cy="50" r="12" fill="url(#heldMic)"/>' +
+    '</g></g></g></svg>';
+
+  var DAEMON_SVG =
+    '<svg viewBox="0 0 200 200" class="anim-svg" id="daemonSvg">' +
+    '<defs><radialGradient id="daemonGrad" cx="50%" cy="40%" r="60%"><stop offset="0" stop-color="#ff6b8a"/><stop offset="1" stop-color="#7c1d3a"/></radialGradient></defs>' +
+    '<ellipse cx="100" cy="180" rx="42" ry="7" fill="#000" opacity="0.25"/>' +
+    '<g id="daemonGanz">' +
+    '<path d="M62,72 L50,38 L78,58Z" fill="#3a0d1c"/>' +
+    '<path d="M138,72 L150,38 L122,58Z" fill="#3a0d1c"/>' +
+    '<path d="M100,50 C140,50 160,90 155,125 C150,165 130,175 100,175 C70,175 50,165 45,125 C40,90 60,50 100,50Z" fill="url(#daemonGrad)"/>' +
+    '<circle cx="82" cy="105" r="11" fill="#fff176"/><circle cx="118" cy="105" r="11" fill="#fff176"/>' +
+    '<circle cx="82" cy="105" r="5" fill="#1a0509"/><circle cx="118" cy="105" r="5" fill="#1a0509"/>' +
+    '<path d="M78,133 Q100,148 122,133 Q100,143 78,133Z" fill="#1a0509"/>' +
+    '<rect x="68" y="140" width="64" height="24" rx="8" fill="rgba(0,0,0,0.35)"/>' +
+    '<text id="daemonZahl" x="100" y="157" text-anchor="middle" font-size="15" font-weight="800" fill="#fff">936</text>' +
+    '</g></svg>';
+
+  var FUNKEN_EMOJIS = ["✨", "⭐", "💥", "🎉"];
+
+  function sprich(text) {
+    if (!("speechSynthesis" in window) || !state.animation || !state.animation.sprache) return;
+    try {
+      window.speechSynthesis.cancel();
+      var u = new SpeechSynthesisUtterance(text);
+      u.lang = "de-DE";
+      u.rate = 0.95;
+      window.speechSynthesis.speak(u);
+    } catch (e) {}
+  }
+
+  function starteThemaAnimation(thema) {
+    state.animation = { thema: thema, index: 0, sprache: false };
+    state.view = "mathe-animation";
+    render();
+  }
+
   function renderThemaAnimation() {
     var anim = state.animation.thema.animation;
-    var szene = anim.szenen[state.animation.index];
     titelEl.textContent = "🎬 " + anim.titel;
 
     var box = el("div", { class: "frage-box" });
 
-    var hud = el("div", { class: "demon-hud" });
-    var demon = el("div", { class: "demon-emoji", text: szene.hp > 0 ? "👹" : "✨" });
-    hud.appendChild(demon);
-    var mitte = el("div", { class: "demon-hud-mitte" });
-    mitte.appendChild(el("div", { class: "hp-leiste" }, [el("div", { style: "width:" + szene.hp + "%" })]));
-    hud.appendChild(mitte);
-    box.appendChild(hud);
+    var kopf = el("div", { class: "anim-kopf" });
+    var sprachBtn = el("button", { class: "anim-sprecher", title: "Vorlesen an/aus", text: "🔊" });
+    sprachBtn.addEventListener("click", function () {
+      state.animation.sprache = !state.animation.sprache;
+      sprachBtn.classList.toggle("aktiv", state.animation.sprache);
+      if (!state.animation.sprache && "speechSynthesis" in window) window.speechSynthesis.cancel();
+    });
+    kopf.appendChild(sprachBtn);
+    box.appendChild(kopf);
 
-    box.appendChild(el("div", { class: "frage-text", text: szene.text }));
+    var buehneWrap = el("div", { class: "anim-buehne-wrap" });
+    var buehne = el("div", { class: "anim-buehne", id: "animBuehne" });
+    buehne.appendChild(el("div", { class: "anim-held", id: "animHeld", html: HELD_SVG }));
+    buehne.appendChild(el("div", { class: "anim-daemon", id: "animDaemon", html: DAEMON_SVG }));
+    buehneWrap.appendChild(buehne);
+    buehneWrap.appendChild(el("div", { class: "anim-funken-schicht", id: "animFunken" }));
+    box.appendChild(buehneWrap);
 
-    if (szene.rechnung) {
-      box.appendChild(el("div", { class: "beispiel-karte" }, [
-        el("div", { class: "beispiel-aufgabe", text: szene.rechnung }),
-        el("div", { text: "Ergebnis bisher: " + szene.ergebnisSoweit + " · Rest: " + szene.rest })
-      ]));
-    } else if (szene.ende) {
-      box.appendChild(el("div", { class: "beispiel-karte" }, [
-        el("div", { class: "beispiel-ergebnis", text: "✅ Ergebnis: " + szene.ergebnisSoweit })
-      ]));
+    box.appendChild(el("div", { class: "hp-leiste anim-hp" }, [el("div", { id: "animHpFill", style: "width:100%" })]));
+    box.appendChild(el("div", { class: "frage-text", id: "animText", text: "" }));
+    box.appendChild(el("div", { id: "animRechnungBox" }));
+    box.appendChild(el("div", { class: "button-reihe", id: "animButtons" }));
+
+    appEl.appendChild(box);
+
+    var daemonZahlEl = document.getElementById("daemonZahl");
+    if (daemonZahlEl && anim.zahlenDaemon) daemonZahlEl.textContent = anim.zahlenDaemon;
+
+    if (window.gsap) {
+      gsap.set("#animHeld", { x: -60, opacity: 0 });
+      gsap.set("#animDaemon", { x: 60, opacity: 0 });
     }
 
-    var letzte = state.animation.index + 1 >= anim.szenen.length;
-    var reihe = el("div", { class: "button-reihe" });
+    spieleSzeneAb(0, true);
+  }
+
+  function spieleSzeneAb(index, istEinstieg) {
+    var anim = state.animation.thema.animation;
+    var szene = anim.szenen[index];
+    state.animation.index = index;
+
+    var textEl = document.getElementById("animText");
+    if (textEl) textEl.textContent = szene.text;
+    sprich(szene.text);
+
+    var rechnungBox = document.getElementById("animRechnungBox");
+    if (rechnungBox) {
+      rechnungBox.innerHTML = "";
+      if (szene.rechnung) {
+        rechnungBox.appendChild(el("div", { class: "beispiel-karte" }, [
+          el("div", { class: "beispiel-aufgabe", text: szene.rechnung }),
+          el("div", { text: "Ergebnis bisher: " + szene.ergebnisSoweit })
+        ]));
+      } else if (szene.aktion === "sieg") {
+        rechnungBox.appendChild(el("div", { class: "beispiel-karte" }, [
+          el("div", { class: "beispiel-ergebnis", text: "✅ Ergebnis: " + szene.ergebnisSoweit })
+        ]));
+      }
+    }
+
+    var hpFill = document.getElementById("animHpFill");
+    if (window.gsap && hpFill) {
+      gsap.to(hpFill, { width: szene.hp + "%", duration: 0.7, ease: "power2.out" });
+    } else if (hpFill) {
+      hpFill.style.width = szene.hp + "%";
+    }
+
+    if (window.gsap) {
+      if (istEinstieg) {
+        gsap.timeline()
+          .to("#animHeld", { x: 0, opacity: 1, duration: 0.5, ease: "back.out(1.7)" })
+          .to("#animDaemon", { x: 0, opacity: 1, duration: 0.5, ease: "back.out(1.7)" }, "<0.15");
+      }
+      if (szene.aktion === "angriff") {
+        gsap.timeline()
+          .to("#heldArm", { rotation: -50, duration: 0.18, svgOrigin: "62 104", ease: "power1.in" })
+          .to("#heldArm", { rotation: 0, duration: 0.3, svgOrigin: "62 104", ease: "power2.out" })
+          .to("#animDaemon", { x: "+=10", duration: 0.08, ease: "power1.inOut" }, "<0.1")
+          .to("#animDaemon", { x: "+=-10", duration: 0.1 })
+          .to("#animDaemon", { x: 0, duration: 0.15 });
+      }
+      if (szene.aktion === "sieg") {
+        gsap.timeline()
+          .to("#animDaemon", { scale: 0, opacity: 0, rotation: 15, duration: 0.6, ease: "back.in(1.5)", svgOrigin: "100 100" })
+          .to("#heldGanz", { y: -14, duration: 0.25, ease: "power2.out" }, "<")
+          .to("#heldGanz", { y: 0, duration: 0.35, ease: "bounce.out" });
+        loeseFunkenAus();
+      }
+    }
+
+    renderAnimButtons();
+  }
+
+  function loeseFunkenAus() {
+    var schicht = document.getElementById("animFunken");
+    if (!schicht) return;
+    schicht.innerHTML = "";
+    for (var i = 0; i < 10; i++) {
+      var f = el("span", { class: "anim-funke", text: FUNKEN_EMOJIS[i % FUNKEN_EMOJIS.length] });
+      schicht.appendChild(f);
+      if (window.gsap) {
+        gsap.set(f, { x: 0, y: 0, opacity: 1, left: "50%", top: "40%" });
+        gsap.to(f, {
+          x: (Math.random() - 0.5) * 220,
+          y: (Math.random() - 0.8) * 160,
+          opacity: 0,
+          rotation: (Math.random() - 0.5) * 180,
+          duration: 0.9 + Math.random() * 0.4,
+          ease: "power2.out"
+        });
+      }
+    }
+  }
+
+  function renderAnimButtons() {
+    var anim = state.animation.thema.animation;
+    var index = state.animation.index;
+    var letzte = index + 1 >= anim.szenen.length;
+    var reihe = document.getElementById("animButtons");
+    if (!reihe) return;
+    reihe.innerHTML = "";
     if (!letzte) {
       var weiterBtn = el("button", { class: "btn-primary btn-glow", text: "Weiter ▶" });
-      weiterBtn.addEventListener("click", function () { state.animation.index++; render(); });
+      weiterBtn.addEventListener("click", function () { spieleSzeneAb(index + 1); });
       reihe.appendChild(weiterBtn);
     } else {
       var nochmalBtn = el("button", { class: "btn-primary btn-secondary", text: "🔁 Nochmal ansehen" });
-      nochmalBtn.addEventListener("click", function () { state.animation.index = 0; render(); });
+      nochmalBtn.addEventListener("click", function () {
+        if (window.gsap) {
+          gsap.set("#animDaemon", { scale: 1, rotation: 0, opacity: 0, x: 60 });
+          gsap.set("#animHeld", { opacity: 0, x: -60, y: 0 });
+        }
+        spieleSzeneAb(0, true);
+      });
       var fertigBtn = el("button", { class: "btn-primary btn-glow", text: "Fertig" });
-      fertigBtn.addEventListener("click", function () { state.animation = null; state.view = "lektion"; render(); });
+      fertigBtn.addEventListener("click", function () {
+        if ("speechSynthesis" in window) window.speechSynthesis.cancel();
+        state.animation = null;
+        state.view = "lektion";
+        render();
+      });
       reihe.appendChild(nochmalBtn);
       reihe.appendChild(fertigBtn);
     }
-    box.appendChild(reihe);
-
-    appEl.appendChild(box);
   }
 
   function renderVokabeln() {
@@ -1465,7 +1628,11 @@
       raeumeSpielSession();
       state.view = "spiele-modi";
     }
-    else if (state.view === "mathe-animation") { state.animation = null; state.view = "lektion"; }
+    else if (state.view === "mathe-animation") {
+      if ("speechSynthesis" in window) window.speechSynthesis.cancel();
+      state.animation = null;
+      state.view = "lektion";
+    }
     render();
   });
 
