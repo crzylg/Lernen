@@ -355,13 +355,17 @@ window.LERNDATA.mathe = {
       // aktion-Werte, die der Animationsmotor in app.js kennt:
       // "eingang" (Held & Dämon treten auf), "angriff" (Held schlägt zu,
       // HP-Balken tweent runter), "sieg" (Dämon besiegt, Konfetti).
+      // zielGruppen speist das "Kind 1..4"-Verteilen-Modell: Es zeigt parallel
+      // zur abstrakten Rechnung, wie viel jedes Kind bisher bekommen hat –
+      // die konkrete Brücke zum abstrakten Rechenverfahren.
       animation: {
         titel: "Besiege den Zahlen-Dämon: 936 : 4",
         zahlenDaemon: "936",
+        zielGruppen: 4,
         szenen: [
           {
             aktion: "eingang",
-            text: "Ein Zahlen-Dämon aus 936 versperrt dir den Weg! Um ihn zu besiegen, musst du ihn durch 4 teilen – Ziffer für Ziffer.",
+            text: "Ein Zahlen-Dämon aus 936 versperrt dir den Weg! Stell dir vor: 936 Bonbons werden gerecht auf 4 Kinder verteilt – jedes Kind bekommt gleich viel. Um den Dämon zu besiegen, teilst du ihn Ziffer für Ziffer durch 4.",
             hp: 100
           },
           {
@@ -387,7 +391,7 @@ window.LERNDATA.mathe = {
           },
           {
             aktion: "sieg",
-            text: "🏆 Geschafft! 936 : 4 = 234, ohne Rest. Du hast den Zahlen-Dämon Schritt für Schritt bezwungen.",
+            text: "🏆 Geschafft! Jedes der 4 Kinder bekommt 234 Bonbons – 936 : 4 = 234, ohne Rest. Du hast den Zahlen-Dämon Schritt für Schritt bezwungen.",
             ergebnisSoweit: "234",
             hp: 0
           }
