@@ -1048,6 +1048,46 @@
 
   var FUNKEN_EMOJIS = ["✨", "⭐", "💥", "🎉"];
 
+  // Reduzierte-Bewegung-Einstellung respektieren (WCAG 2.3.3): große
+  // Transformationen (Verschieben, Drehen, Skalieren, Konfetti) werden dann
+  // durch reine Opazitäts-Überblendungen ersetzt statt komplett zu fehlen.
+  var BEWEGUNG_REDUZIERT = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  if (window.matchMedia) {
+    var bewegungMq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    var bewegungListener = function (e) { BEWEGUNG_REDUZIERT = e.matches; };
+    if (bewegungMq.addEventListener) bewegungMq.addEventListener("change", bewegungListener);
+    else if (bewegungMq.addListener) bewegungMq.addListener(bewegungListener);
+  }
+  function bewegungErlaubt() { return !BEWEGUNG_REDUZIERT; }
+
+  // ---------- Konkretes Verteilen-Modell (Somit → Bildlich → Abstrakt) ----------
+  // Zeigt parallel zur abstrakten Rechnung, wie die Zahl gleichmäßig auf
+  // "Kinder" verteilt wird – die in der Forschung am besten belegte Brücke
+  // zwischen konkretem Verständnis und dem abstrakten Rechenverfahren.
+  function baueGruppenModell(container, anim) {
+    container.innerHTML = "";
+    var n = anim.zielGruppen || 0;
+    if (!n) { container.hidden = true; return; }
+    container.hidden = false;
+    for (var i = 0; i < n; i++) {
+      container.appendChild(el("div", { class: "anim-gruppe" }, [
+        el("div", { class: "anim-gruppe-lbl", text: "Kind " + (i + 1) }),
+        el("div", { class: "anim-gruppe-wert", id: "animGruppeWert" + i, text: "0" })
+      ]));
+    }
+  }
+  function aktualisiereGruppenModell(anim, wert) {
+    var n = anim.zielGruppen || 0;
+    for (var i = 0; i < n; i++) {
+      var wertEl = document.getElementById("animGruppeWert" + i);
+      if (!wertEl) continue;
+      wertEl.textContent = wert;
+      if (window.gsap && bewegungErlaubt()) {
+        gsap.fromTo(wertEl, { scale: 1.35 }, { scale: 1, duration: 0.3, ease: "back.out(2)" });
+      }
+    }
+  }
+
   function sprich(text) {
     if (!("speechSynthesis" in window) || !state.animation || !state.animation.sprache) return;
     try {
@@ -1092,6 +1132,11 @@
     box.appendChild(el("div", { class: "hp-leiste anim-hp" }, [el("div", { id: "animHpFill", style: "width:100%" })]));
     box.appendChild(el("div", { class: "frage-text", id: "animText", text: "" }));
     box.appendChild(el("div", { id: "animRechnungBox" }));
+
+    var gruppenModell = el("div", { class: "anim-gruppen-modell", id: "animGruppenModell" });
+    box.appendChild(gruppenModell);
+    baueGruppenModell(gruppenModell, anim);
+
     box.appendChild(el("div", { class: "button-reihe", id: "animButtons" }));
 
     appEl.appendChild(box);
@@ -1100,8 +1145,13 @@
     if (daemonZahlEl && anim.zahlenDaemon) daemonZahlEl.textContent = anim.zahlenDaemon;
 
     if (window.gsap) {
-      gsap.set("#animHeld", { x: -60, opacity: 0 });
-      gsap.set("#animDaemon", { x: 60, opacity: 0 });
+      if (bewegungErlaubt()) {
+        gsap.set("#animHeld", { x: -60, opacity: 0 });
+        gsap.set("#animDaemon", { x: 60, opacity: 0 });
+      } else {
+        gsap.set("#animHeld", { x: 0, opacity: 0 });
+        gsap.set("#animDaemon", { x: 0, opacity: 0 });
+      }
     }
 
     spieleSzeneAb(0, true);
@@ -1131,6 +1181,8 @@
       }
     }
 
+    aktualisiereGruppenModell(anim, szene.ergebnisSoweit !== undefined ? szene.ergebnisSoweit : "0");
+
     var hpFill = document.getElementById("animHpFill");
     if (window.gsap && hpFill) {
       gsap.to(hpFill, { width: szene.hp + "%", duration: 0.7, ease: "power2.out" });
@@ -1139,25 +1191,38 @@
     }
 
     if (window.gsap) {
+      var reduziert = !bewegungErlaubt();
       if (istEinstieg) {
-        gsap.timeline()
-          .to("#animHeld", { x: 0, opacity: 1, duration: 0.5, ease: "back.out(1.7)" })
-          .to("#animDaemon", { x: 0, opacity: 1, duration: 0.5, ease: "back.out(1.7)" }, "<0.15");
+        if (reduziert) {
+          gsap.to(["#animHeld", "#animDaemon"], { opacity: 1, duration: 0.3 });
+        } else {
+          gsap.timeline()
+            .to("#animHeld", { x: 0, opacity: 1, duration: 0.5, ease: "back.out(1.7)" })
+            .to("#animDaemon", { x: 0, opacity: 1, duration: 0.5, ease: "back.out(1.7)" }, "<0.15");
+        }
       }
       if (szene.aktion === "angriff") {
-        gsap.timeline()
-          .to("#heldArm", { rotation: -50, duration: 0.18, svgOrigin: "62 104", ease: "power1.in" })
-          .to("#heldArm", { rotation: 0, duration: 0.3, svgOrigin: "62 104", ease: "power2.out" })
-          .to("#animDaemon", { x: "+=10", duration: 0.08, ease: "power1.inOut" }, "<0.1")
-          .to("#animDaemon", { x: "+=-10", duration: 0.1 })
-          .to("#animDaemon", { x: 0, duration: 0.15 });
+        if (reduziert) {
+          gsap.fromTo("#animDaemon", { opacity: 1 }, { opacity: 0.55, duration: 0.15, yoyo: true, repeat: 1 });
+        } else {
+          gsap.timeline()
+            .to("#heldArm", { rotation: -50, duration: 0.18, svgOrigin: "62 104", ease: "power1.in" })
+            .to("#heldArm", { rotation: 0, duration: 0.3, svgOrigin: "62 104", ease: "power2.out" })
+            .to("#animDaemon", { x: "+=10", duration: 0.08, ease: "power1.inOut" }, "<0.1")
+            .to("#animDaemon", { x: "+=-10", duration: 0.1 })
+            .to("#animDaemon", { x: 0, duration: 0.15 });
+        }
       }
       if (szene.aktion === "sieg") {
-        gsap.timeline()
-          .to("#animDaemon", { scale: 0, opacity: 0, rotation: 15, duration: 0.6, ease: "back.in(1.5)", svgOrigin: "100 100" })
-          .to("#heldGanz", { y: -14, duration: 0.25, ease: "power2.out" }, "<")
-          .to("#heldGanz", { y: 0, duration: 0.35, ease: "bounce.out" });
-        loeseFunkenAus();
+        if (reduziert) {
+          gsap.to("#animDaemon", { opacity: 0, duration: 0.4 });
+        } else {
+          gsap.timeline()
+            .to("#animDaemon", { scale: 0, opacity: 0, rotation: 15, duration: 0.6, ease: "back.in(1.5)", svgOrigin: "100 100" })
+            .to("#heldGanz", { y: -14, duration: 0.25, ease: "power2.out" }, "<")
+            .to("#heldGanz", { y: 0, duration: 0.35, ease: "bounce.out" });
+          loeseFunkenAus();
+        }
       }
     }
 
@@ -1200,8 +1265,9 @@
       var nochmalBtn = el("button", { class: "btn-primary btn-secondary", text: "🔁 Nochmal ansehen" });
       nochmalBtn.addEventListener("click", function () {
         if (window.gsap) {
-          gsap.set("#animDaemon", { scale: 1, rotation: 0, opacity: 0, x: 60 });
-          gsap.set("#animHeld", { opacity: 0, x: -60, y: 0 });
+          var startX = bewegungErlaubt() ? 60 : 0;
+          gsap.set("#animDaemon", { scale: 1, rotation: 0, opacity: 0, x: startX });
+          gsap.set("#animHeld", { opacity: 0, x: -startX, y: 0 });
         }
         spieleSzeneAb(0, true);
       });

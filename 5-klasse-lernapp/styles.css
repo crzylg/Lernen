@@ -765,3 +765,20 @@ main {
 
 .anim-hp { margin-bottom: 14px; }
 #animHpFill { transition: none; }
+
+/* Konkretes Verteilen-Modell (Somit → Bildlich → Abstrakt) */
+.anim-gruppen-modell { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; justify-content: center; }
+.anim-gruppen-modell[hidden] { display: none; }
+.anim-gruppe {
+  background: var(--card); border: 1px solid var(--card-border); border-radius: 12px;
+  padding: 8px 10px; text-align: center; min-width: 64px; flex: 1;
+}
+.anim-gruppe-lbl { font-size: 0.68rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.03em; }
+.anim-gruppe-wert { font-size: 1.15rem; font-weight: 800; color: var(--gold); margin-top: 2px; }
+
+/* Reduzierte Bewegung respektieren (WCAG 2.3.3): große, nicht-essenzielle
+   Bewegungen abschalten, Opazitäts-Überblendungen bleiben (siehe app.js). */
+@media (prefers-reduced-motion: reduce) {
+  .frage-box { animation: none; }
+  .demon-emoji.getroffen, #ddSlots.shake { animation: none; }
+}
