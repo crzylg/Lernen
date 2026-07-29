@@ -62,6 +62,8 @@
     kurzcheckIndex: 0,
     geplanteAnzahl: null,
     spielFachId: null,
+    spielSchwierigkeit: "leicht",
+    spielPendingModus: null,
     spiel: null,
     animation: null
   };
@@ -129,6 +131,15 @@
       if (l[id].faelligAm <= heute && AUFGABEN_INDEX[id]) ergebnisse.push(AUFGABEN_INDEX[id]);
     });
     return ergebnisse;
+  }
+  // Für Quiz-Duell: fällige Wiederholungs-Aufgaben nur eines Fachs (Typ mc),
+  // damit ein Duell nebenbei auch die Leitner-Warteschlange leert statt nur
+  // zufällig zu üben.
+  function faelligeMcAufgabenFuerFach(fachId) {
+    return faelligeAufgaben()
+      .filter(function (e) { return e.fachId === fachId; })
+      .map(function (e) { return e.aufgabe; })
+      .filter(function (a) { return a.typ === "mc"; });
   }
 
   // ---------- Tages-Streak (mit einer Freeze pro Woche) ----------
@@ -385,7 +396,42 @@
           el("div", { class: "desc", text: m.desc })
         ])
       ]);
-      karte.addEventListener("click", function () { starteSpielModus(modusId); });
+      karte.addEventListener("click", function () {
+        if (state.spielFachId === "logik") {
+          state.spielPendingModus = modusId;
+          state.view = "spiele-schwierigkeit";
+          render();
+        } else {
+          starteSpielModus(modusId);
+        }
+      });
+      liste.appendChild(karte);
+    });
+    appEl.appendChild(liste);
+  }
+
+  var SPIELE_SCHWIERIGKEITEN = [
+    { id: "leicht", emoji: "🟢", name: "Leicht", desc: "Einfache Muster, ein Schritt" },
+    { id: "mittel", emoji: "🟡", name: "Mittel", desc: "Zwei Schritte, kleine Schlussfolgerungen" },
+    { id: "schwer", emoji: "🔴", name: "Schwer", desc: "Analogien, mehrstufige Rätsel" },
+  ];
+
+  function renderSpieleSchwierigkeit() {
+    titelEl.textContent = "🧩 Logik — Schwierigkeit";
+    appEl.appendChild(el("p", { class: "intro-box", text: "Wie schwer soll es werden? Du kannst später jederzeit wechseln." }));
+    var liste = el("div", { class: "modus-liste" });
+    SPIELE_SCHWIERIGKEITEN.forEach(function (stufe) {
+      var karte = el("button", { class: "modus-karte" }, [
+        el("span", { class: "emoji", text: stufe.emoji }),
+        el("span", { class: "info" }, [
+          el("div", { class: "name", text: stufe.name }),
+          el("div", { class: "desc", text: stufe.desc })
+        ])
+      ]);
+      karte.addEventListener("click", function () {
+        state.spielSchwierigkeit = stufe.id;
+        starteSpielModus(state.spielPendingModus);
+      });
       liste.appendChild(karte);
     });
     appEl.appendChild(liste);
@@ -401,11 +447,19 @@
 
   // ---------- Quiz-Duell ----------
   function starteSpielQuiz() {
-    var quelle = state.spielFachId === "logik" ? window.SPIELE_EXTRA.logikQuiz : mcPoolFuerFach(state.spielFachId);
+    var fachId = state.spielFachId;
+    var quelle = fachId === "logik" ? window.SPIELE_EXTRA.logikQuiz[state.spielSchwierigkeit] : mcPoolFuerFach(fachId);
+    // Fällige Wiederholungs-Aufgaben werden bevorzugt aufgenommen, damit ein
+    // Quiz-Duell nebenbei die Leitner-Warteschlange leert statt nur zufällig
+    // aus dem ganzen Fach zu ziehen (Logik hat keine Leitner-Historie).
+    var faellig = fachId === "logik" ? [] : faelligeMcAufgabenFuerFach(fachId);
+    var uebrige = shuffle(quelle.filter(function (a) { return faellig.indexOf(a) === -1; }));
     var anzahl = Math.min(8, quelle.length);
+    var wiederholungsAnzahl = Math.min(faellig.length, anzahl);
+    var ausgewaehlt = shuffle(faellig.concat(uebrige).slice(0, anzahl));
     state.spiel = {
-      typ: "quiz", fachId: state.spielFachId,
-      aufgaben: shuffle(quelle).slice(0, anzahl),
+      typ: "quiz", fachId: fachId,
+      aufgaben: ausgewaehlt, wiederholungsAnzahl: wiederholungsAnzahl,
       index: 0, richtig: 0, combo: 0, comboMax: 0, herzen: 3, xp: 0,
     };
     state.view = "spiele-quiz";
@@ -428,6 +482,10 @@
     hud.appendChild(mitte);
     hud.appendChild(el("div", { class: "combo-chip", text: "🔥" + s.combo + "x" }));
     box.appendChild(hud);
+
+    if (s.wiederholungsAnzahl > 0) {
+      box.appendChild(el("div", { class: "review-tag", text: "🔁 " + s.wiederholungsAnzahl + " Wiederholungsfrage" + (s.wiederholungsAnzahl === 1 ? "" : "n") + " dabei" }));
+    }
 
     var aufgabe = s.aufgaben[s.index];
     box.appendChild(el("div", { class: "frage-text", text: (s.index + 1) + " / " + gesamt + " — " + aufgabe.frage }));
@@ -465,7 +523,7 @@
 
   // ---------- Blitz-Runde ----------
   function starteSpielBlitz() {
-    var pool = state.spielFachId === "logik" ? window.SPIELE_EXTRA.logikQuiz : mcPoolFuerFach(state.spielFachId);
+    var pool = state.spielFachId === "logik" ? window.SPIELE_EXTRA.logikQuiz[state.spielSchwierigkeit] : mcPoolFuerFach(state.spielFachId);
     state.spiel = { typ: "blitz", fachId: state.spielFachId, pool: pool, zeit: 45, richtig: 0, combo: 0, comboMax: 0, xp: 0, aktuelle: null };
     naechsteSpielBlitzFrage();
     state.view = "spiele-blitz";
@@ -535,7 +593,8 @@
 
   // ---------- Sortierschlacht (Drag&Drop / Tippen zum Sortieren) ----------
   function starteSpielDragdrop() {
-    var pool = window.SPIELE_EXTRA.dragdrop[state.spielFachId] || [];
+    var basis = window.SPIELE_EXTRA.dragdrop[state.spielFachId];
+    var pool = (state.spielFachId === "logik" ? (basis || {})[state.spielSchwierigkeit] : basis) || [];
     var anzahl = Math.min(3, pool.length);
     state.spiel = { typ: "dragdrop", fachId: state.spielFachId, runden: shuffle(pool).slice(0, anzahl), index: 0, richtigeRunden: 0, xp: 0 };
     state.view = "spiele-dragdrop";
@@ -811,6 +870,7 @@
     else if (state.view === "fortschritt") renderFortschritt();
     else if (state.view === "spiele") renderSpieleUebersicht();
     else if (state.view === "spiele-modi") renderSpieleModi();
+    else if (state.view === "spiele-schwierigkeit") renderSpieleSchwierigkeit();
     else if (state.view === "spiele-quiz") renderSpielQuizFrage();
     else if (state.view === "spiele-blitz") renderSpielBlitz();
     else if (state.view === "spiele-dragdrop") renderSpielDragdropRunde();
@@ -1689,6 +1749,7 @@
     else if (state.view === "fortschritt-login" || state.view === "fortschritt") state.view = "faecher";
     else if (state.view === "spiele" || state.view === "spiele-abzeichen") state.view = "faecher";
     else if (state.view === "spiele-modi") state.view = "spiele";
+    else if (state.view === "spiele-schwierigkeit") state.view = "spiele-modi";
     else if (state.view === "spiele-ergebnis") state.view = "spiele-modi";
     else if (["spiele-quiz", "spiele-blitz", "spiele-dragdrop", "spiele-memory", "spiele-luecken"].indexOf(state.view) !== -1) {
       raeumeSpielSession();
