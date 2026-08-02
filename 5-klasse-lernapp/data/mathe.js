@@ -9,6 +9,11 @@
 // 5 Volumen und Oberflächeninhalt · 6 Brüche und Dezimalzahlen.
 // Alle Texte, Beispiele und Aufgaben sind vollständig selbst geschrieben –
 // es wird kein Inhalt aus dem Buch übernommen, nur Themen und Reihenfolge.
+//
+// Die Themen "Schriftliche Division", "Flächeninhalt und Umfang" sowie
+// "Brüche verstehen" haben zusätzlich eine kurze animierte Erklärung
+// (Button "🎬 Animation ansehen"), alle mit derselben frei erfundenen
+// K-Pop-Dämonenjäger-Gestaltung und demselben Animationsmotor in app.js.
 window.LERNDATA = window.LERNDATA || {};
 window.LERNDATA.mathe = {
   id: "mathe",
@@ -39,16 +44,16 @@ window.LERNDATA.mathe = {
         }
       ],
       aufgaben: [
-        { frage: "Wie viele Striche zeigt ein voller 5er-Block in einer Strichliste?", typ: "zahl", loesung: "5", erklaerung: "Ein voller Block wird immer zu 5 Strichen gebündelt." },
-        { frage: "Was zeigt ein Balkendiagramm?", typ: "mc", optionen: ["Daten als Säulen/Balken", "Nur Zahlen ohne Bild", "Nur Wörter", "Ein Rechenergebnis"], loesung: "Daten als Säulen/Balken", erklaerung: "Ein Balkendiagramm stellt Häufigkeiten als unterschiedlich hohe Balken dar." },
-        { frage: "Wie nennt man es, wie oft ein Ereignis vorkommt?", typ: "mc", optionen: ["Häufigkeit", "Mittelwert", "Summe", "Differenz"], loesung: "Häufigkeit", erklaerung: "Die Häufigkeit zählt, wie oft etwas vorkommt." },
-        { frage: "Eine Tabelle ordnet Daten in …", typ: "mc", optionen: ["Zeilen und Spalten", "Kreisen", "Strichen", "Farben"], loesung: "Zeilen und Spalten", erklaerung: "Tabellen bestehen aus Zeilen (waagerecht) und Spalten (senkrecht)." },
-        { frage: "In einer Strichliste stehen zwei volle 5er-Blöcke. Wie viele Striche sind das?", typ: "zahl", loesung: "10", erklaerung: "5 + 5 = 10." },
-        { frage: "In einer Strichliste stehen ein voller 5er-Block und 2 einzelne Striche. Wie viele Striche sind das?", typ: "zahl", loesung: "7", erklaerung: "5 + 2 = 7." },
-        { frage: "Welches Diagramm zeigt Anteile als Kreis mit Segmenten?", typ: "mc", optionen: ["Kreisdiagramm", "Balkendiagramm", "Strichliste", "Tabelle"], loesung: "Kreisdiagramm", erklaerung: "Ein Kreisdiagramm zeigt Anteile als 'Tortenstücke'." },
-        { frage: "5 Kinder mögen Fußball, 3 mögen Schwimmen. Wie viele Kinder wurden insgesamt befragt?", typ: "zahl", loesung: "8", erklaerung: "5 + 3 = 8 Kinder." },
-        { frage: "Was braucht man, um eine Strichliste in ein Balkendiagramm umzuwandeln?", typ: "mc", optionen: ["Die Häufigkeiten der Strichliste", "Nur die Namen", "Ein Lineal", "Nichts weiter"], loesung: "Die Häufigkeiten der Strichliste", erklaerung: "Die Balkenhöhen entsprechen den gezählten Häufigkeiten." },
-        { frage: "Wozu dienen Diagramme?", typ: "mc", optionen: ["Um Daten übersichtlich darzustellen", "Um zu malen", "Um zu addieren", "Um Wörter zu ordnen"], loesung: "Um Daten übersichtlich darzustellen", erklaerung: "Diagramme machen Zahlen auf einen Blick verständlich." }
+        { frage: "Wie viele Striche zeigt ein voller 5er-Block in einer Strichliste?", typ: "zahl", loesung: "5", erklaerung: "Beim Strichliste-Führen bündelt man Striche in 5er-Gruppen, damit man am Ende nicht jeden einzelnen Strich zählen muss. Ein voller Block hat deshalb immer genau 5 Striche – meist als vier senkrechte Striche mit einem Querstrich durch alle vier erkennbar." },
+        { frage: "Was zeigt ein Balkendiagramm?", typ: "mc", optionen: ["Daten als Säulen/Balken", "Nur Zahlen ohne Bild", "Nur Wörter", "Ein Rechenergebnis"], loesung: "Daten als Säulen/Balken", erklaerung: "Ein Balkendiagramm stellt jede Häufigkeit als einen Balken dar – je höher der Balken, desto öfter kam das Ereignis vor. So kannst du auf einen Blick vergleichen, ohne die Zahlen einzeln lesen zu müssen." },
+        { frage: "Wie nennt man es, wie oft ein Ereignis vorkommt?", typ: "mc", optionen: ["Häufigkeit", "Mittelwert", "Summe", "Differenz"], loesung: "Häufigkeit", erklaerung: "Die Häufigkeit gibt an, wie oft etwas gezählt wurde – zum Beispiel wie oft eine Antwort in einer Umfrage gegeben wurde. Sie ist die Grundlage für jedes Diagramm und jede Strichliste." },
+        { frage: "Eine Tabelle ordnet Daten in …", typ: "mc", optionen: ["Zeilen und Spalten", "Kreisen", "Strichen", "Farben"], loesung: "Zeilen und Spalten", erklaerung: "Eine Tabelle besteht aus waagerechten Zeilen und senkrechten Spalten, die sich wie ein Gitter kreuzen. So findest du jeden Wert schnell wieder, weil er genau an einer Kreuzung aus Zeile und Spalte steht." },
+        { frage: "In einer Strichliste stehen zwei volle 5er-Blöcke. Wie viele Striche sind das?", typ: "zahl", loesung: "10", erklaerung: "Ein voller Block sind 5 Striche, also rechnest du für zwei volle Blöcke 5 + 5 = 10. Das Bündeln in 5er-Gruppen macht genau dieses schnelle Zusammenzählen möglich." },
+        { frage: "In einer Strichliste stehen ein voller 5er-Block und 2 einzelne Striche. Wie viele Striche sind das?", typ: "zahl", loesung: "7", erklaerung: "Der volle Block zählt als 5, dazu kommen die 2 einzelnen Striche, die noch keinen neuen Block bilden: 5 + 2 = 7. Erst beim fünften einzelnen Strich würde ein neuer Block entstehen." },
+        { frage: "Welches Diagramm zeigt Anteile als Kreis mit Segmenten?", typ: "mc", optionen: ["Kreisdiagramm", "Balkendiagramm", "Strichliste", "Tabelle"], loesung: "Kreisdiagramm", erklaerung: "Ein Kreisdiagramm teilt einen ganzen Kreis in Segmente – jedes Segment ist so groß wie sein Anteil an der Gesamtmenge. Deshalb eignet es sich besonders gut, wenn man zeigen will, wie sich ein Ganzes in Anteile aufteilt." },
+        { frage: "5 Kinder mögen Fußball, 3 mögen Schwimmen. Wie viele Kinder wurden insgesamt befragt?", typ: "zahl", loesung: "8", erklaerung: "Um die Gesamtzahl der Befragten zu bekommen, addierst du alle Häufigkeiten: 5 Kinder mögen Fußball plus 3 Kinder mögen Schwimmen ergibt 5 + 3 = 8 Kinder insgesamt." },
+        { frage: "Was braucht man, um eine Strichliste in ein Balkendiagramm umzuwandeln?", typ: "mc", optionen: ["Die Häufigkeiten der Strichliste", "Nur die Namen", "Ein Lineal", "Nichts weiter"], loesung: "Die Häufigkeiten der Strichliste", erklaerung: "Für jeden Balken zählst du zuerst die Striche eines Ereignisses in der Strichliste zusammen – das ist die Häufigkeit. Diese Häufigkeit bestimmt dann, wie hoch der jeweilige Balken gezeichnet wird." },
+        { frage: "Wozu dienen Diagramme?", typ: "mc", optionen: ["Um Daten übersichtlich darzustellen", "Um zu malen", "Um zu addieren", "Um Wörter zu ordnen"], loesung: "Um Daten übersichtlich darzustellen", erklaerung: "Diagramme wandeln reine Zahlen in ein Bild um, das man auf einen Blick vergleichen kann – zum Beispiel welcher Balken am höchsten ist. Das macht große Datenmengen leichter verständlich als eine reine Zahlenliste." }
       ]
     },
     {
@@ -92,22 +97,22 @@ window.LERNDATA.mathe = {
         }
       ],
       aufgaben: [
-        { frage: "Wie viele Nullen hat eine Million (1.000.000)?", typ: "zahl", loesung: "6", erklaerung: "1.000.000 hat sechs Nullen." },
-        { frage: "Welche Stelle steht in 4.372 an der Hunderterstelle?", typ: "zahl", loesung: "3", erklaerung: "4.372 → 4 = Tausender, 3 = Hunderter, 7 = Zehner, 2 = Einer." },
-        { frage: "Runde 748 auf die nächsten Zehner.", typ: "zahl", loesung: "750", erklaerung: "748 liegt näher an 750 als an 740, also wird aufgerundet." },
-        { frage: "Runde 4.250 auf die nächsten Hunderter.", typ: "mc", optionen: ["4.200", "4.300", "4.250", "4.000"], loesung: "4.300", erklaerung: "Bei genau der Mitte (50) wird aufgerundet: 4.250 → 4.300." },
-        { frage: "Welche Zahl ist größer: 45.900 oder 45.090?", typ: "mc", optionen: ["45.900", "45.090", "sie sind gleich", "kann man nicht sagen"], loesung: "45.900", erklaerung: "Beim Vergleich schaut man von links: 45.900 hat an der Hunderterstelle eine 9, 45.090 nur eine 0." },
-        { frage: "Wie schreibt man 'zwölftausenddreihundertfünf' in Ziffern?", typ: "zahl", loesung: "12305", erklaerung: "Zwölftausend = 12.000, dreihundertfünf = 305 → 12.305." },
-        { frage: "Runde 8.499 auf die nächsten Tausender.", typ: "mc", optionen: ["8.000", "9.000", "8.500", "8.400"], loesung: "8.000", erklaerung: "8.499 liegt näher an 8.000 als an 9.000." },
-        { frage: "Was ist die Vorgängerzahl von 10.000?", typ: "zahl", loesung: "9999", erklaerung: "Der Vorgänger von 10.000 ist 9.999." },
-        { frage: "Was ist die Nachfolgerzahl von 99.999?", typ: "zahl", loesung: "100000", erklaerung: "Der Nachfolger von 99.999 ist 100.000." },
-        { frage: "Welche Ziffer steht in 782.145 an der Zehntausenderstelle?", typ: "zahl", loesung: "8", erklaerung: "782.145 → 7=Hunderttausender, 8=Zehntausender, 2=Tausender, 1=Hunderter, 4=Zehner, 5=Einer." },
-        { frage: "Runde 3.652 auf die nächsten Hunderter.", typ: "zahl", loesung: "3700", erklaerung: "3.652 liegt näher an 3.700 als an 3.600." },
-        { frage: "Welche Zahl ist kleiner: 12.045 oder 12.450?", typ: "mc", optionen: ["12.045", "12.450", "sie sind gleich", "kann man nicht sagen"], loesung: "12.045", erklaerung: "An der Hunderterstelle hat 12.045 eine 0, 12.450 eine 4 – also ist 12.045 kleiner." },
-        { frage: "Wie schreibt man 'dreihunderttausend' in Ziffern?", typ: "zahl", loesung: "300000", erklaerung: "Dreihunderttausend = 300.000" },
-        { frage: "Runde 5.500 auf die nächsten Tausender.", typ: "zahl", loesung: "6000", erklaerung: "Bei genau der Mitte (500) wird aufgerundet: 5.500 → 6.000." },
-        { frage: "Welche Zahl liegt zwischen 6.000 und 7.000?", typ: "mc", optionen: ["6.500", "5.999", "7.100", "8.000"], loesung: "6.500", erklaerung: "6.500 liegt zwischen 6.000 und 7.000." },
-        { frage: "Runde 91.450 auf die nächsten Tausender.", typ: "zahl", loesung: "91000", erklaerung: "91.450 liegt näher an 91.000 als an 92.000." }
+        { frage: "Wie viele Nullen hat eine Million (1.000.000)?", typ: "zahl", loesung: "6", erklaerung: "Eine Million wird als 1 gefolgt von sechs Nullen geschrieben: 1.000.000. Du erkennst das auch daran, dass eine Million aus 1.000 mal 1.000 besteht, und 1.000 hat schon drei Nullen." },
+        { frage: "Welche Stelle steht in 4.372 an der Hunderterstelle?", typ: "zahl", loesung: "3", erklaerung: "In 4.372 stehen die Ziffern für 4 = Tausender, 3 = Hunderter, 7 = Zehner und 2 = Einer. Die Hunderterstelle ist also die 3, denn sie steht an dritter Stelle von rechts." },
+        { frage: "Runde 748 auf die nächsten Zehner.", typ: "zahl", loesung: "750", erklaerung: "Zum Runden auf Zehner schaust du auf die Ziffer rechts von der Zehnerstelle, hier die Einerziffer 8. Weil 8 mindestens 5 ist, wird aufgerundet, und aus 748 wird 750." },
+        { frage: "Runde 4.250 auf die nächsten Hunderter.", typ: "mc", optionen: ["4.200", "4.300", "4.250", "4.000"], loesung: "4.300", erklaerung: "Die Ziffer rechts von der Hunderterstelle ist hier die Zehnerziffer 5 – bei genau 5 rundet man in der Mathematik immer auf. Deshalb wird aus 4.250 die Zahl 4.300." },
+        { frage: "Welche Zahl ist größer: 45.900 oder 45.090?", typ: "mc", optionen: ["45.900", "45.090", "sie sind gleich", "kann man nicht sagen"], loesung: "45.900", erklaerung: "Beim Zahlenvergleich schaust du von links nach rechts, bis sich die Ziffern unterscheiden: Zehntausender (4) und Tausender (5) sind bei beiden gleich, aber an der Hunderterstelle steht bei 45.900 eine 9 und bei 45.090 nur eine 0. Weil 9 größer ist als 0, ist 45.900 die größere Zahl." },
+        { frage: "Wie schreibt man 'zwölftausenddreihundertfünf' in Ziffern?", typ: "zahl", loesung: "12305", erklaerung: "Zwölftausend schreibst du als 12.000, und dreihundertfünf als 305. Setzt du beides zusammen, ergibt sich 12.305 – die letzten drei Stellen (305) füllen dabei Hunderter-, Zehner- und Einerstelle." },
+        { frage: "Runde 8.499 auf die nächsten Tausender.", typ: "mc", optionen: ["8.000", "9.000", "8.500", "8.400"], loesung: "8.000", erklaerung: "Für das Runden auf Tausender schaust du auf die Hunderterziffer, hier die 4. Weil 4 kleiner als 5 ist, wird abgerundet, und die Tausenderstelle bleibt gleich: aus 8.499 wird 8.000." },
+        { frage: "Was ist die Vorgängerzahl von 10.000?", typ: "zahl", loesung: "9999", erklaerung: "Der Vorgänger einer Zahl ist die Zahl direkt davor, also 1 weniger. Bei 10.000 wechseln beim Abziehen von 1 alle Nullen zu Neunen, sodass 9.999 entsteht." },
+        { frage: "Was ist die Nachfolgerzahl von 99.999?", typ: "zahl", loesung: "100000", erklaerung: "Der Nachfolger ist die Zahl direkt danach, also 1 mehr. Zählst du bei 99.999 eins weiter, springen alle Neunen auf Null und eine neue Stelle kommt dazu: 100.000." },
+        { frage: "Welche Ziffer steht in 782.145 an der Zehntausenderstelle?", typ: "zahl", loesung: "8", erklaerung: "In 782.145 stehen die Ziffern von links für Hunderttausender (7), Zehntausender (8), Tausender (2), Hunderter (1), Zehner (4) und Einer (5). Die Zehntausenderstelle ist damit die 8." },
+        { frage: "Runde 3.652 auf die nächsten Hunderter.", typ: "zahl", loesung: "3700", erklaerung: "Die Ziffer rechts von der Hunderterstelle ist die Zehnerziffer 5, und ab 5 wird aufgerundet. Deshalb wird aus 3.652 die gerundete Zahl 3.700." },
+        { frage: "Welche Zahl ist kleiner: 12.045 oder 12.450?", typ: "mc", optionen: ["12.045", "12.450", "sie sind gleich", "kann man nicht sagen"], loesung: "12.045", erklaerung: "Zehntausender (1) und Tausender (2) sind bei beiden Zahlen gleich, also entscheidet die nächste Stelle. An der Hunderterstelle hat 12.045 eine 0 und 12.450 eine 4 – weil 0 kleiner ist, ist 12.045 die kleinere Zahl." },
+        { frage: "Wie schreibt man 'dreihunderttausend' in Ziffern?", typ: "zahl", loesung: "300000", erklaerung: "Dreihunderttausend besteht aus 3 Hunderttausendern, also einer 3 gefolgt von fünf Nullen: 300.000. Du kannst es dir auch als 300 × 1.000 vorstellen." },
+        { frage: "Runde 5.500 auf die nächsten Tausender.", typ: "zahl", loesung: "6000", erklaerung: "Die Ziffer rechts von der Tausenderstelle ist hier die Hunderterziffer 5 – bei genau 5 wird immer aufgerundet. Deshalb wird aus 5.500 die Zahl 6.000." },
+        { frage: "Welche Zahl liegt zwischen 6.000 und 7.000?", typ: "mc", optionen: ["6.500", "5.999", "7.100", "8.000"], loesung: "6.500", erklaerung: "Eine Zahl liegt zwischen 6.000 und 7.000, wenn sie größer als 6.000 und kleiner als 7.000 ist. 6.500 erfüllt das, während 5.999 zu klein und 7.100 sowie 8.000 schon zu groß sind." },
+        { frage: "Runde 91.450 auf die nächsten Tausender.", typ: "zahl", loesung: "91000", erklaerung: "Die Ziffer rechts von der Tausenderstelle ist hier die Hunderterziffer 4. Weil 4 kleiner als 5 ist, wird abgerundet, und aus 91.450 wird 91.000." }
       ]
     },
     {
@@ -153,23 +158,23 @@ window.LERNDATA.mathe = {
         }
       ],
       aufgaben: [
-        { frage: "Wie viele Zentimeter sind 1 Meter?", typ: "zahl", loesung: "100", erklaerung: "1 m = 100 cm" },
-        { frage: "Wie viele Meter sind 1 Kilometer?", typ: "zahl", loesung: "1000", erklaerung: "1 km = 1000 m" },
-        { frage: "Wie viele Gramm sind 1 Kilogramm?", typ: "zahl", loesung: "1000", erklaerung: "1 kg = 1000 g" },
-        { frage: "Wie viele Minuten hat eine Stunde?", typ: "zahl", loesung: "60", erklaerung: "1 Stunde = 60 Minuten" },
-        { frage: "3 m sind wie viele cm?", typ: "zahl", loesung: "300", erklaerung: "3 × 100 cm = 300 cm" },
-        { frage: "2.500 g sind wie viele kg?", typ: "mc", optionen: ["2,5 kg", "25 kg", "0,25 kg", "250 kg"], loesung: "2,5 kg", erklaerung: "2.500 g : 1000 = 2,5 kg" },
-        { frage: "1,5 € sind wie viele Cent?", typ: "zahl", loesung: "150", erklaerung: "1,5 € = 150 Cent" },
-        { frage: "Wie viele Millimeter sind 1 Zentimeter?", typ: "zahl", loesung: "10", erklaerung: "1 cm = 10 mm" },
-        { frage: "Wie viele Meter sind 2,5 km?", typ: "zahl", loesung: "2500", erklaerung: "2,5 × 1000 m = 2.500 m" },
-        { frage: "Wie viele Minuten sind 2 Stunden?", typ: "zahl", loesung: "120", erklaerung: "2 × 60 Minuten = 120 Minuten" },
-        { frage: "Wie viele Gramm sind 0,5 kg?", typ: "zahl", loesung: "500", erklaerung: "0,5 kg × 1000 = 500 g" },
-        { frage: "Wie viele Cent sind 3,20 €?", typ: "zahl", loesung: "320", erklaerung: "3,20 € = 320 Cent" },
-        { frage: "Wie viele Meter sind 450 cm?", typ: "mc", optionen: ["4,5 m", "45 m", "0,45 m", "450 m"], loesung: "4,5 m", erklaerung: "450 cm : 100 = 4,5 m" },
-        { frage: "Der Maßstab einer Karte ist 1:1000. Wie viele cm in Wirklichkeit sind 1 cm auf der Karte?", typ: "zahl", loesung: "1000", erklaerung: "Bei 1:1000 ist 1 cm auf der Karte 1000 cm in Wirklichkeit." },
-        { frage: "Der Maßstab ist 1:100. Eine Strecke auf der Karte ist 5 cm lang. Wie lang ist sie in Wirklichkeit (in cm)?", typ: "zahl", loesung: "500", erklaerung: "5 × 100 = 500 cm." },
-        { frage: "Der Maßstab ist 1:50. Wie lang ist eine 3-cm-Strecke auf dem Plan in Wirklichkeit?", typ: "mc", optionen: ["1,5 m", "15 m", "150 m", "0,5 m"], loesung: "1,5 m", erklaerung: "3 × 50 = 150 cm, das sind 1,5 m." },
-        { frage: "Was bedeutet ein Maßstab von 1:200?", typ: "mc", optionen: ["1 cm auf der Karte = 200 cm in Wirklichkeit", "200 cm auf der Karte = 1 cm in Wirklichkeit", "Die Karte ist 200-mal so groß wie die Wirklichkeit", "Das hat nichts mit Längen zu tun"], loesung: "1 cm auf der Karte = 200 cm in Wirklichkeit", erklaerung: "Bei 1:200 steht die 1 für die Karte, die 200 für die Wirklichkeit." }
+        { frage: "Wie viele Zentimeter sind 1 Meter?", typ: "zahl", loesung: "100", erklaerung: "1 Meter ist per Definition genau 100 Zentimeter lang – das ist eine Grundumrechnung, die du dir einfach merken musst, so wie 1 Euro = 100 Cent." },
+        { frage: "Wie viele Meter sind 1 Kilometer?", typ: "zahl", loesung: "1000", erklaerung: "Die Vorsilbe 'Kilo' bedeutet 1000, deshalb ist 1 Kilometer genau 1.000 Meter lang. Das gilt für alle Kilo-Einheiten, zum Beispiel auch 1 Kilogramm = 1.000 Gramm." },
+        { frage: "Wie viele Gramm sind 1 Kilogramm?", typ: "zahl", loesung: "1000", erklaerung: "Auch hier gilt: 'Kilo' steht für 1000, also ist 1 Kilogramm gleich 1.000 Gramm. Willst du von kg in g umrechnen, multiplizierst du deshalb immer mit 1.000." },
+        { frage: "Wie viele Minuten hat eine Stunde?", typ: "zahl", loesung: "60", erklaerung: "Eine Stunde ist in 60 Minuten unterteilt – das ist eine feste Regel bei der Zeitmessung, anders als bei Längen oder Gewichten, wo meist mit 10, 100 oder 1000 gerechnet wird." },
+        { frage: "3 m sind wie viele cm?", typ: "zahl", loesung: "300", erklaerung: "Weil 1 m = 100 cm ist, rechnest du bei 3 m dreimal so viel: 3 × 100 = 300 cm. Von einer großen in eine kleine Einheit rechnest du also durch Multiplizieren." },
+        { frage: "2.500 g sind wie viele kg?", typ: "mc", optionen: ["2,5 kg", "25 kg", "0,25 kg", "250 kg"], loesung: "2,5 kg", erklaerung: "Weil 1.000 g = 1 kg ist, teilst du beim Wechsel von der kleinen Einheit (g) in die große Einheit (kg) durch 1.000: 2.500 : 1.000 = 2,5 kg." },
+        { frage: "1,5 € sind wie viele Cent?", typ: "zahl", loesung: "150", erklaerung: "1 Euro sind 100 Cent, also multiplizierst du 1,5 mit 100: 1,5 × 100 = 150 Cent. Das Komma verschiebt sich dabei um zwei Stellen nach rechts." },
+        { frage: "Wie viele Millimeter sind 1 Zentimeter?", typ: "zahl", loesung: "10", erklaerung: "1 Zentimeter ist in 10 gleich große Millimeter unterteilt – das siehst du auch an jedem Lineal, wo zwischen zwei Zentimeterstrichen genau 10 kleine Striche liegen." },
+        { frage: "Wie viele Meter sind 2,5 km?", typ: "zahl", loesung: "2500", erklaerung: "Weil 1 km = 1.000 m ist, multiplizierst du 2,5 mit 1.000: 2,5 × 1.000 = 2.500 m. Beim Wechsel von einer großen in eine kleine Einheit wird also immer malgenommen." },
+        { frage: "Wie viele Minuten sind 2 Stunden?", typ: "zahl", loesung: "120", erklaerung: "Jede Stunde hat 60 Minuten, also rechnest du für 2 Stunden 2 × 60 = 120 Minuten." },
+        { frage: "Wie viele Gramm sind 0,5 kg?", typ: "zahl", loesung: "500", erklaerung: "0,5 kg ist die Hälfte von 1 kg, und da 1 kg = 1.000 g sind, ist die Hälfte davon 500 g. Rechnerisch: 0,5 × 1.000 = 500." },
+        { frage: "Wie viele Cent sind 3,20 €?", typ: "zahl", loesung: "320", erklaerung: "Du multiplizierst den Eurobetrag mit 100, weil 1 € = 100 Cent sind: 3,20 × 100 = 320 Cent." },
+        { frage: "Wie viele Meter sind 450 cm?", typ: "mc", optionen: ["4,5 m", "45 m", "0,45 m", "450 m"], loesung: "4,5 m", erklaerung: "Weil 100 cm = 1 m sind, teilst du beim Wechsel von der kleinen in die große Einheit durch 100: 450 : 100 = 4,5 m." },
+        { frage: "Der Maßstab einer Karte ist 1:1000. Wie viele cm in Wirklichkeit sind 1 cm auf der Karte?", typ: "zahl", loesung: "1000", erklaerung: "Bei einem Maßstab 1:1000 steht die erste Zahl für die Karte und die zweite für die Wirklichkeit. Das bedeutet: 1 cm auf der Karte entspricht 1.000 cm in Wirklichkeit." },
+        { frage: "Der Maßstab ist 1:100. Eine Strecke auf der Karte ist 5 cm lang. Wie lang ist sie in Wirklichkeit (in cm)?", typ: "zahl", loesung: "500", erklaerung: "Bei 1:100 ist jeder Zentimeter auf der Karte in Wirklichkeit 100-mal so lang. Deshalb rechnest du 5 × 100 = 500 cm." },
+        { frage: "Der Maßstab ist 1:50. Wie lang ist eine 3-cm-Strecke auf dem Plan in Wirklichkeit?", typ: "mc", optionen: ["1,5 m", "15 m", "150 m", "0,5 m"], loesung: "1,5 m", erklaerung: "Bei 1:50 ist jeder Zentimeter auf dem Plan in Wirklichkeit 50-mal so lang, also rechnest du 3 × 50 = 150 cm. Das entspricht umgerechnet 1,5 m, weil 100 cm = 1 m sind." },
+        { frage: "Was bedeutet ein Maßstab von 1:200?", typ: "mc", optionen: ["1 cm auf der Karte = 200 cm in Wirklichkeit", "200 cm auf der Karte = 1 cm in Wirklichkeit", "Die Karte ist 200-mal so groß wie die Wirklichkeit", "Das hat nichts mit Längen zu tun"], loesung: "1 cm auf der Karte = 200 cm in Wirklichkeit", erklaerung: "In einem Maßstab wie 1:200 steht die erste Zahl immer für die Karte und die zweite für die Wirklichkeit. Deshalb bedeutet 1:200, dass 1 cm auf der Karte 200 cm in Wirklichkeit entspricht." }
       ]
     },
     {
@@ -205,26 +210,26 @@ window.LERNDATA.mathe = {
         }
       ],
       aufgaben: [
-        { frage: "Wie heißt das Ergebnis einer Plus-Aufgabe?", typ: "mc", optionen: ["Summe", "Differenz", "Produkt", "Quotient"], loesung: "Summe", erklaerung: "Bei einer Addition (Plus) nennt man das Ergebnis Summe." },
-        { frage: "Wie heißt das Ergebnis einer Minus-Aufgabe?", typ: "mc", optionen: ["Summe", "Differenz", "Produkt", "Quotient"], loesung: "Differenz", erklaerung: "Bei einer Subtraktion (Minus) nennt man das Ergebnis Differenz." },
-        { frage: "Wie heißt das Ergebnis einer Mal-Aufgabe?", typ: "mc", optionen: ["Summe", "Differenz", "Produkt", "Quotient"], loesung: "Produkt", erklaerung: "Bei einer Multiplikation (Mal) nennt man das Ergebnis Produkt." },
-        { frage: "Wie heißt das Ergebnis einer Geteilt-Aufgabe?", typ: "mc", optionen: ["Summe", "Differenz", "Produkt", "Quotient"], loesung: "Quotient", erklaerung: "Bei einer Division (Geteilt) nennt man das Ergebnis Quotient." },
-        { frage: "Was ist 234 + 158?", typ: "zahl", loesung: "392", erklaerung: "234 + 158 = 392" },
-        { frage: "Was ist 500 - 178?", typ: "zahl", loesung: "322", erklaerung: "500 - 178 = 322" },
-        { frage: "Was ist 12 × 8?", typ: "zahl", loesung: "96", erklaerung: "12 × 8 = 96" },
-        { frage: "Was ist 144 : 12?", typ: "zahl", loesung: "12", erklaerung: "144 : 12 = 12, denn 12 × 12 = 144." },
-        { frage: "Welche Regel gilt: Punkt-vor-Strich bedeutet …", typ: "mc", optionen: ["Mal und Geteilt zuerst rechnen", "Plus und Minus zuerst rechnen", "immer von links nach rechts", "immer von rechts nach links"], loesung: "Mal und Geteilt zuerst rechnen", erklaerung: "Punktrechnung (× und :) wird vor Strichrechnung (+ und −) gerechnet." },
-        { frage: "Was ist 5 + 3 × 4?", typ: "zahl", loesung: "17", erklaerung: "Erst 3 × 4 = 12 rechnen, dann 5 + 12 = 17 (Punkt vor Strich)." },
-        { frage: "Was ist 9 × 9?", typ: "zahl", loesung: "81", erklaerung: "9 × 9 = 81" },
-        { frage: "Was ist 63 : 7?", typ: "zahl", loesung: "9", erklaerung: "63 : 7 = 9, denn 9 × 7 = 63." },
-        { frage: "Was ist 1000 - 456?", typ: "zahl", loesung: "544", erklaerung: "1000 - 456 = 544" },
-        { frage: "Was ist 25 × 4?", typ: "zahl", loesung: "100", erklaerung: "25 × 4 = 100" },
-        { frage: "Was ist (4 + 6) × 3?", typ: "zahl", loesung: "30", erklaerung: "Erst die Klammer rechnen: 4+6=10, dann 10×3=30. Klammern werden immer zuerst gerechnet." },
-        { frage: "Was ist 20 - 4 × 3?", typ: "zahl", loesung: "8", erklaerung: "Erst 4×3=12 rechnen, dann 20-12=8 (Punkt vor Strich)." },
-        { frage: "Was ist 7 × 6?", typ: "zahl", loesung: "42", erklaerung: "7 × 6 = 42" },
-        { frage: "Was ist 128 : 4?", typ: "zahl", loesung: "32", erklaerung: "128 : 4 = 32" },
-        { frage: "Was bedeutet 'Klammern zuerst'?", typ: "mc", optionen: ["Was in Klammern steht, wird zuerst gerechnet", "Klammern kann man ignorieren", "Klammern kommen nach Punktrechnung", "Klammern sind nur Deko"], loesung: "Was in Klammern steht, wird zuerst gerechnet", erklaerung: "Klammern haben immer Vorrang – sie werden vor Punkt- und Strichrechnung berechnet." },
-        { frage: "Was ist 15 × 3 - 10?", typ: "zahl", loesung: "35", erklaerung: "Erst 15×3=45, dann 45-10=35." }
+        { frage: "Wie heißt das Ergebnis einer Plus-Aufgabe?", typ: "mc", optionen: ["Summe", "Differenz", "Produkt", "Quotient"], loesung: "Summe", erklaerung: "Wenn du zwei oder mehr Zahlen addierst (zusammenzählst), heißt das Ergebnis Summe. Die Fachbegriffe helfen dir, in der Schule genau zu benennen, welche Rechenart gemeint ist." },
+        { frage: "Wie heißt das Ergebnis einer Minus-Aufgabe?", typ: "mc", optionen: ["Summe", "Differenz", "Produkt", "Quotient"], loesung: "Differenz", erklaerung: "Beim Subtrahieren (Abziehen) heißt das Ergebnis Differenz. Es zeigt, wie viel Unterschied zwischen zwei Zahlen besteht." },
+        { frage: "Wie heißt das Ergebnis einer Mal-Aufgabe?", typ: "mc", optionen: ["Summe", "Differenz", "Produkt", "Quotient"], loesung: "Produkt", erklaerung: "Beim Multiplizieren heißt das Ergebnis Produkt. Es entsteht, wenn du eine Zahl mehrmals zu sich selbst addierst, zum Beispiel 4×3 = 3+3+3+3." },
+        { frage: "Wie heißt das Ergebnis einer Geteilt-Aufgabe?", typ: "mc", optionen: ["Summe", "Differenz", "Produkt", "Quotient"], loesung: "Quotient", erklaerung: "Beim Dividieren (Teilen) heißt das Ergebnis Quotient. Es zeigt, wie oft eine Zahl in eine andere passt." },
+        { frage: "Was ist 234 + 158?", typ: "zahl", loesung: "392", erklaerung: "Rechne stellenweise: Einer 4+8=12 (2 aufschreiben, 1 merken), Zehner 3+5+1=9, Hunderter 2+1=3. Zusammen ergibt das 392." },
+        { frage: "Was ist 500 - 178?", typ: "zahl", loesung: "322", erklaerung: "500 minus 178 kannst du dir als 500 − 200 + 22 vorstellen (weil 178 nahe an 200 liegt): 500 − 200 = 300, dann 300 + 22 = 322." },
+        { frage: "Was ist 12 × 8?", typ: "zahl", loesung: "96", erklaerung: "12 × 8 kannst du zerlegen in 10 × 8 + 2 × 8: 10 × 8 = 80 und 2 × 8 = 16, zusammen 80 + 16 = 96." },
+        { frage: "Was ist 144 : 12?", typ: "zahl", loesung: "12", erklaerung: "Du suchst die Zahl, die mit 12 multipliziert 144 ergibt. Da 12 × 12 = 144 ist, lautet das Ergebnis 12." },
+        { frage: "Welche Regel gilt: Punkt-vor-Strich bedeutet …", typ: "mc", optionen: ["Mal und Geteilt zuerst rechnen", "Plus und Minus zuerst rechnen", "immer von links nach rechts", "immer von rechts nach links"], loesung: "Mal und Geteilt zuerst rechnen", erklaerung: "Punktrechnung (× und :) hat in der Mathematik immer Vorrang vor Strichrechnung (+ und −), egal in welcher Reihenfolge sie im Term stehen. Ohne diese Regel könnten Rechnungen wie 5+3×4 unterschiedliche Ergebnisse haben, je nachdem, wer sie rechnet." },
+        { frage: "Was ist 5 + 3 × 4?", typ: "zahl", loesung: "17", erklaerung: "Wegen Punkt-vor-Strich rechnest du zuerst 3 × 4 = 12, und danach erst 5 + 12 = 17. Würdest du einfach von links nach rechts rechnen, kämst du fälschlich auf 32." },
+        { frage: "Was ist 9 × 9?", typ: "zahl", loesung: "81", erklaerung: "9 × 9 gehört zum kleinen Einmaleins und ist gleich 81 – du kannst es dir auch als 10 × 9 − 9 = 90 − 9 = 81 merken." },
+        { frage: "Was ist 63 : 7?", typ: "zahl", loesung: "9", erklaerung: "Du suchst die Zahl, mit der 7 multipliziert 63 ergibt. Da 9 × 7 = 63 ist, lautet das Ergebnis 9." },
+        { frage: "Was ist 1000 - 456?", typ: "zahl", loesung: "544", erklaerung: "Rechne in Schritten: 1000 − 400 = 600, dann 600 − 56 = 544. So musst du nicht mit vielen Überträgen gleichzeitig jonglieren." },
+        { frage: "Was ist 25 × 4?", typ: "zahl", loesung: "100", erklaerung: "25 × 4 kannst du in zwei Schritten verdoppeln: 25 × 2 = 50, und 50 × 2 = 100. Das nutzt aus, dass ×4 dasselbe ist wie zweimal verdoppeln." },
+        { frage: "Was ist (4 + 6) × 3?", typ: "zahl", loesung: "30", erklaerung: "Klammern werden immer zuerst berechnet, egal welche Rechenzeichen außerhalb stehen: 4 + 6 = 10, danach 10 × 3 = 30." },
+        { frage: "Was ist 20 - 4 × 3?", typ: "zahl", loesung: "8", erklaerung: "Wegen Punkt-vor-Strich rechnest du zuerst 4 × 3 = 12, danach 20 − 12 = 8." },
+        { frage: "Was ist 7 × 6?", typ: "zahl", loesung: "42", erklaerung: "7 × 6 gehört zum kleinen Einmaleins und ist gleich 42 – du kannst es dir auch als 7 × 5 + 7 = 35 + 7 = 42 herleiten." },
+        { frage: "Was ist 128 : 4?", typ: "zahl", loesung: "32", erklaerung: "Teile in zwei Schritten: 128 : 4 kannst du als 120 : 4 + 8 : 4 rechnen: 120 : 4 = 30 und 8 : 4 = 2, zusammen 30 + 2 = 32." },
+        { frage: "Was bedeutet 'Klammern zuerst'?", typ: "mc", optionen: ["Was in Klammern steht, wird zuerst gerechnet", "Klammern kann man ignorieren", "Klammern kommen nach Punktrechnung", "Klammern sind nur Deko"], loesung: "Was in Klammern steht, wird zuerst gerechnet", erklaerung: "Klammern zeigen, welcher Teil einer Rechnung zusammengehört und deshalb vor allen anderen Rechenschritten berechnet werden muss – sogar vor der Punktrechnung." },
+        { frage: "Was ist 15 × 3 - 10?", typ: "zahl", loesung: "35", erklaerung: "Wegen Punkt-vor-Strich rechnest du zuerst 15 × 3 = 45, danach 45 − 10 = 35." }
       ]
     },
     {
@@ -267,17 +272,17 @@ window.LERNDATA.mathe = {
         }
       ],
       aufgaben: [
-        { frage: "347 + 258 = ?", typ: "zahl", loesung: "605", erklaerung: "347 + 258 = 605" },
-        { frage: "742 - 315 = ?", typ: "zahl", loesung: "427", erklaerung: "742 - 315 = 427" },
-        { frage: "23 × 14 = ?", typ: "zahl", loesung: "322", erklaerung: "23 × 14 = 322" },
-        { frage: "456 + 389 = ?", typ: "zahl", loesung: "845", erklaerung: "456 + 389 = 845" },
-        { frage: "800 - 356 = ?", typ: "zahl", loesung: "444", erklaerung: "800 - 356 = 444" },
-        { frage: "32 × 21 = ?", typ: "zahl", loesung: "672", erklaerung: "32 × 21 = 672" },
-        { frage: "Bei der schriftlichen Addition schreibt man die Zahlen …", typ: "mc", optionen: ["stellenrichtig untereinander", "nebeneinander", "quer", "in einer Reihe"], loesung: "stellenrichtig untereinander", erklaerung: "Einer unter Einer, Zehner unter Zehner usw." },
-        { frage: "Wie nennt man es, wenn man sich bei der Subtraktion eine 1 von der nächsten Spalte ausleiht?", typ: "mc", optionen: ["Leihen", "Runden", "Kürzen", "Erweitern"], loesung: "Leihen", erklaerung: "Reicht eine Ziffer nicht aus, leiht man sich 1 von der nächsten Spalte." },
-        { frage: "129 + 671 = ?", typ: "zahl", loesung: "800", erklaerung: "129 + 671 = 800" },
-        { frage: "45 × 12 = ?", typ: "zahl", loesung: "540", erklaerung: "45 × 12 = 540" },
-        { frage: "603 - 248 = ?", typ: "zahl", loesung: "355", erklaerung: "603 - 248 = 355" }
+        { frage: "347 + 258 = ?", typ: "zahl", loesung: "605", erklaerung: "Rechne stellenweise von rechts: Einer 7+8=15 (5 aufschreiben, 1 merken), Zehner 4+5+1=10 (0 aufschreiben, 1 merken), Hunderter 3+2+1=6. Zusammen ergibt das 605." },
+        { frage: "742 - 315 = ?", typ: "zahl", loesung: "427", erklaerung: "Einer: 2−5 geht nicht, du leihst dir 1 von den Zehnern: 12−5=7. Zehner: die geliehene 4 wird zur 3, also 3−1=2. Hunderter: 7−3=4. Zusammen: 427." },
+        { frage: "23 × 14 = ?", typ: "zahl", loesung: "322", erklaerung: "Du zerlegst 14 in Einer und Zehner: erst 23×4=92, dann 23×10=230. Beide Teilergebnisse addierst du: 92+230=322." },
+        { frage: "456 + 389 = ?", typ: "zahl", loesung: "845", erklaerung: "Einer: 6+9=15 (5 aufschreiben, 1 merken), Zehner: 5+8+1=14 (4 aufschreiben, 1 merken), Hunderter: 4+3+1=8. Zusammen: 845." },
+        { frage: "800 - 356 = ?", typ: "zahl", loesung: "444", erklaerung: "Einer: 0−6 geht nicht, du musst dir über die Zehner hinweg von den Hundertern leihen. Am Ende ergibt sich 800−356=444 – die Probe zeigt: 444+356=800." },
+        { frage: "32 × 21 = ?", typ: "zahl", loesung: "672", erklaerung: "Du zerlegst 21 in Einer und Zehner: erst 32×1=32, dann 32×20=640. Beide Teilergebnisse addierst du: 32+640=672." },
+        { frage: "Bei der schriftlichen Addition schreibt man die Zahlen …", typ: "mc", optionen: ["stellenrichtig untereinander", "nebeneinander", "quer", "in einer Reihe"], loesung: "stellenrichtig untereinander", erklaerung: "Nur wenn Einer unter Einer, Zehner unter Zehner und Hunderter unter Hunderter stehen, kannst du spaltenweise richtig addieren. Verrutschte Stellen führen sonst zu falschen Ergebnissen." },
+        { frage: "Wie nennt man es, wenn man sich bei der Subtraktion eine 1 von der nächsten Spalte ausleiht?", typ: "mc", optionen: ["Leihen", "Runden", "Kürzen", "Erweitern"], loesung: "Leihen", erklaerung: "Reicht die obere Ziffer einer Spalte nicht aus, um die untere abzuziehen, leihst du dir 1 von der nächsten (höheren) Spalte – dieser Rechentrick heißt Leihen." },
+        { frage: "129 + 671 = ?", typ: "zahl", loesung: "800", erklaerung: "Einer: 9+1=10 (0 aufschreiben, 1 merken), Zehner: 2+7+1=10 (0 aufschreiben, 1 merken), Hunderter: 1+6+1=8. Zusammen: 800." },
+        { frage: "45 × 12 = ?", typ: "zahl", loesung: "540", erklaerung: "Du zerlegst 12 in Einer und Zehner: erst 45×2=90, dann 45×10=450. Beide Teilergebnisse addierst du: 90+450=540." },
+        { frage: "603 - 248 = ?", typ: "zahl", loesung: "355", erklaerung: "Einer: 3−8 geht nicht, du leihst dir 1 von den Zehnern – doch dort steht eine 0, also musst du dir zuerst von den Hundertern leihen. Am Ende ergibt sich 603−248=355 – die Probe zeigt: 355+248=603." }
       ]
     },
     {
@@ -337,51 +342,51 @@ window.LERNDATA.mathe = {
         szenen: [
           {
             aktion: "eingang",
-            text: "Ein Zahlen-Dämon aus 936 versperrt dir den Weg! Stell dir vor: 936 Bonbons werden gerecht auf 4 Kinder verteilt – jedes Kind bekommt gleich viel. Um den Dämon zu besiegen, teilst du ihn Ziffer für Ziffer durch 4.",
+            text: "Ein Zahlen-Dämon aus 936 versperrt dir den Weg! Stell dir vor: 936 Bonbons werden gerecht auf 4 Kinder verteilt – jedes Kind soll genau gleich viel bekommen. Weil 936 zu groß zum Kopfrechnen ist, teilst du den Dämon Ziffer für Ziffer durch 4 – so wie bei der schriftlichen Division.",
             hp: 100
           },
           {
             aktion: "angriff",
-            text: "Schritt 1: Nimm die erste Ziffer 9. Wie oft passt 4 in 9? Zweimal! (2 × 4 = 8). Rest: 9 − 8 = 1.",
+            text: "Schritt 1: Nimm die erste Ziffer 9. Wie oft passt 4 vollständig in 9? Zweimal, denn 2 × 4 = 8 und 3 × 4 = 12 wäre schon zu viel. Es bleibt ein Rest: 9 − 8 = 1.",
             rechnung: "9 : 4 = 2, Rest 1",
             ergebnisSoweit: "2",
             hp: 66
           },
           {
             aktion: "angriff",
-            text: "Schritt 2: Hol dir die nächste Ziffer (3) dazu: aus dem Rest 1 wird 13. Wie oft passt 4 in 13? Dreimal! (3 × 4 = 12). Rest: 13 − 12 = 1.",
+            text: "Schritt 2: Hol dir die nächste Ziffer der großen Zahl (die 3) dazu: aus dem Rest 1 wird 13. Wie oft passt 4 in 13? Dreimal, denn 3 × 4 = 12 und 4 × 4 = 16 wäre zu viel. Es bleibt wieder Rest 1: 13 − 12 = 1.",
             rechnung: "13 : 4 = 3, Rest 1",
             ergebnisSoweit: "23",
             hp: 33
           },
           {
             aktion: "angriff",
-            text: "Schritt 3: Hol dir die letzte Ziffer (6) dazu: aus dem Rest 1 wird 16. Wie oft passt 4 in 16? Viermal! (4 × 4 = 16). Rest: 16 − 16 = 0 — letzter Treffer!",
+            text: "Schritt 3: Hol dir die letzte Ziffer (6) dazu: aus dem Rest 1 wird 16. Wie oft passt 4 in 16? Genau viermal, denn 4 × 4 = 16 passt exakt. Rest: 16 − 16 = 0 — kein Rest mehr, letzter Treffer!",
             rechnung: "16 : 4 = 4, Rest 0",
             ergebnisSoweit: "234",
             hp: 0
           },
           {
             aktion: "sieg",
-            text: "🏆 Geschafft! Jedes der 4 Kinder bekommt 234 Bonbons – 936 : 4 = 234, ohne Rest. Du hast den Zahlen-Dämon Schritt für Schritt bezwungen.",
+            text: "🏆 Geschafft! Jedes der 4 Kinder bekommt genau 234 Bonbons – 936 : 4 = 234, ohne Rest. Indem du Ziffer für Ziffer vorgegangen bist (erst die 9, dann die 3, dann die 6), hast du die große Zahl in kleine, machbare Schritte zerlegt und den Zahlen-Dämon bezwungen.",
             ergebnisSoweit: "234",
             hp: 0
           }
         ]
       },
       aufgaben: [
-        { frage: "Wie nennt man das Ergebnis einer Division noch einmal?", typ: "mc", optionen: ["Summe", "Differenz", "Produkt", "Quotient"], loesung: "Quotient", erklaerung: "Bei einer Division nennt man das Ergebnis Quotient." },
-        { frage: "Was ist 484 : 4?", typ: "zahl", loesung: "121", erklaerung: "4:4=1 Rest 0, 08:4=2 Rest 0, 4:4=1 Rest 0 → 121." },
-        { frage: "Was ist 636 : 3?", typ: "zahl", loesung: "212", erklaerung: "6:3=2 Rest 0, 3:3=1 Rest 0, 6:3=2 Rest 0 → 212." },
-        { frage: "Was ist 848 : 4?", typ: "zahl", loesung: "212", erklaerung: "8:4=2 Rest 0, 4:4=1 Rest 0, 8:4=2 Rest 0 → 212." },
-        { frage: "Was ist 729 : 3?", typ: "zahl", loesung: "243", erklaerung: "7:3=2 Rest 1, 12:3=4 Rest 0, 9:3=3 Rest 0 → 243." },
-        { frage: "Was ist 824 : 8?", typ: "zahl", loesung: "103", erklaerung: "8:8=1 Rest 0, 2:8=0 Rest 2, 24:8=3 Rest 0 → 103." },
-        { frage: "Was ist 945 : 5?", typ: "zahl", loesung: "189", erklaerung: "9:5=1 Rest 4, 44:5=8 Rest 4, 45:5=9 Rest 0 → 189." },
-        { frage: "Was ist 693 : 3?", typ: "zahl", loesung: "231", erklaerung: "6:3=2 Rest 0, 9:3=3 Rest 0, 3:3=1 Rest 0 → 231." },
-        { frage: "Was ist 936 : 4?", typ: "zahl", loesung: "234", erklaerung: "9:4=2 Rest 1, 13:4=3 Rest 1, 16:4=4 Rest 0 → 234." },
-        { frage: "Was ist 7.236 : 6?", typ: "zahl", loesung: "1206", erklaerung: "7:6=1 Rest 1, 12:6=2 Rest 0, 3:6=0 Rest 3, 36:6=6 Rest 0 → 1.206." },
-        { frage: "Bei 25 : 4 bleibt ein Rest. Wie groß ist er?", typ: "zahl", loesung: "1", erklaerung: "4 × 6 = 24, und 25 − 24 = 1 Rest." },
-        { frage: "Bei 936 : 4 = 234 — wie groß ist der Rest am Ende?", typ: "zahl", loesung: "0", erklaerung: "936 : 4 geht ohne Rest auf, der Rest ist 0." }
+        { frage: "Wie nennt man das Ergebnis einer Division noch einmal?", typ: "mc", optionen: ["Summe", "Differenz", "Produkt", "Quotient"], loesung: "Quotient", erklaerung: "Bei einer Division (Geteilt-Aufgabe) heißt das Ergebnis Quotient – genau wie bei den Grundrechenarten schon gelernt." },
+        { frage: "Was ist 484 : 4?", typ: "zahl", loesung: "121", erklaerung: "Ziffer für Ziffer: 4:4=1 Rest 0, dann 8:4=2 Rest 0, dann 4:4=1 Rest 0. Zusammengesetzt ergibt das 121." },
+        { frage: "Was ist 636 : 3?", typ: "zahl", loesung: "212", erklaerung: "Ziffer für Ziffer: 6:3=2 Rest 0, dann 3:3=1 Rest 0, dann 6:3=2 Rest 0. Zusammengesetzt ergibt das 212." },
+        { frage: "Was ist 848 : 4?", typ: "zahl", loesung: "212", erklaerung: "Ziffer für Ziffer: 8:4=2 Rest 0, dann 4:4=1 Rest 0, dann 8:4=2 Rest 0. Zusammengesetzt ergibt das 212." },
+        { frage: "Was ist 729 : 3?", typ: "zahl", loesung: "243", erklaerung: "Erste Ziffer 7: 7:3=2 Rest 1. Rest 1 plus nächste Ziffer 2 ergibt 12: 12:3=4 Rest 0. Letzte Ziffer 9: 9:3=3 Rest 0. Zusammengesetzt ergibt das 243." },
+        { frage: "Was ist 824 : 8?", typ: "zahl", loesung: "103", erklaerung: "Erste Ziffer 8: 8:8=1 Rest 0. Die nächste Ziffer 2 allein ist kleiner als 8, deshalb kommt eine 0 in den Quotienten, und du holst die nächste Ziffer dazu: 24:8=3 Rest 0. Zusammengesetzt ergibt das 103." },
+        { frage: "Was ist 945 : 5?", typ: "zahl", loesung: "189", erklaerung: "Erste Ziffer 9: 9:5=1 Rest 4. Rest 4 plus nächste Ziffer 4 ergibt 44: 44:5=8 Rest 4. Rest 4 plus letzte Ziffer 5 ergibt 45: 45:5=9 Rest 0. Zusammengesetzt ergibt das 189." },
+        { frage: "Was ist 693 : 3?", typ: "zahl", loesung: "231", erklaerung: "Ziffer für Ziffer: 6:3=2 Rest 0, dann 9:3=3 Rest 0, dann 3:3=1 Rest 0. Zusammengesetzt ergibt das 231." },
+        { frage: "Was ist 936 : 4?", typ: "zahl", loesung: "234", erklaerung: "Genau diese Rechnung besiegst du auch im Zahlen-Dämon-Video: 9:4=2 Rest 1, dann 13:4=3 Rest 1, dann 16:4=4 Rest 0. Zusammengesetzt ergibt das 234." },
+        { frage: "Was ist 7.236 : 6?", typ: "zahl", loesung: "1206", erklaerung: "Erste Ziffer 7: 7:6=1 Rest 1. Rest 1 plus nächste Ziffer 2 ergibt 12: 12:6=2 Rest 0. Die nächste Ziffer 3 allein reicht nicht: 3:6=0 Rest 3. Rest 3 plus letzte Ziffer 6 ergibt 36: 36:6=6 Rest 0. Zusammengesetzt ergibt das 1.206." },
+        { frage: "Bei 25 : 4 bleibt ein Rest. Wie groß ist er?", typ: "zahl", loesung: "1", erklaerung: "Du suchst das größte Vielfache von 4, das nicht größer als 25 ist: 4×6=24. Der Rest ist der Unterschied zwischen 25 und 24, also 25−24=1." },
+        { frage: "Bei 936 : 4 = 234 — wie groß ist der Rest am Ende?", typ: "zahl", loesung: "0", erklaerung: "Weil 234 × 4 genau 936 ergibt, bleibt kein Rest übrig – die Division geht 'auf'. Das erkennst du daran, dass beim letzten Rechenschritt 16 − 16 = 0 herauskommt." }
       ]
     },
     {
@@ -409,17 +414,17 @@ window.LERNDATA.mathe = {
         }
       ],
       aufgaben: [
-        { frage: "Welches Gesetz erlaubt es, die Reihenfolge beim Plusrechnen zu tauschen (3+5=5+3)?", typ: "mc", optionen: ["Kommutativgesetz", "Assoziativgesetz", "Distributivgesetz", "Punktgesetz"], loesung: "Kommutativgesetz", erklaerung: "Das Kommutativgesetz erlaubt das Vertauschen der Reihenfolge bei Plus und Mal." },
-        { frage: "(2+3)+4 ergibt dasselbe wie 2+(3+4). Wie heißt dieses Gesetz?", typ: "mc", optionen: ["Assoziativgesetz", "Kommutativgesetz", "Distributivgesetz", "Rundungsgesetz"], loesung: "Assoziativgesetz", erklaerung: "Das Assoziativgesetz erlaubt anderes Klammern bei Plus und Mal." },
-        { frage: "Darf man beim Minusrechnen die Reihenfolge einfach tauschen (5-3 = 3-5)?", typ: "mc", optionen: ["Nein", "Ja"], loesung: "Nein", erklaerung: "Beim Minus und Geteilt gilt das Kommutativgesetz NICHT: 5-3=2, aber 3-5=-2." },
-        { frage: "Ist 84 durch 2 teilbar?", typ: "mc", optionen: ["Ja", "Nein"], loesung: "Ja", erklaerung: "84 ist eine gerade Zahl (endet auf 4)." },
-        { frage: "Ist 47 durch 2 teilbar?", typ: "mc", optionen: ["Nein", "Ja"], loesung: "Nein", erklaerung: "47 ist eine ungerade Zahl (endet auf 7)." },
-        { frage: "Ist 130 durch 5 teilbar?", typ: "mc", optionen: ["Ja", "Nein"], loesung: "Ja", erklaerung: "130 endet auf 0, also ist sie durch 5 teilbar." },
-        { frage: "Ist 130 durch 10 teilbar?", typ: "mc", optionen: ["Ja", "Nein"], loesung: "Ja", erklaerung: "130 endet auf 0, also ist sie durch 10 teilbar." },
-        { frage: "Ist 246 durch 3 teilbar?", typ: "mc", optionen: ["Ja", "Nein"], loesung: "Ja", erklaerung: "Quersumme 2+4+6=12, und 12 ist durch 3 teilbar." },
-        { frage: "Ist 100 durch 3 teilbar?", typ: "mc", optionen: ["Nein", "Ja"], loesung: "Nein", erklaerung: "Quersumme 1+0+0=1, und 1 ist nicht durch 3 teilbar." },
-        { frage: "Wie prüft man, ob eine Zahl durch 3 teilbar ist?", typ: "mc", optionen: ["Die Quersumme muss durch 3 teilbar sein", "Die letzte Ziffer muss 3 sein", "Die Zahl muss gerade sein", "Das geht nicht"], loesung: "Die Quersumme muss durch 3 teilbar sein", erklaerung: "Man addiert alle Ziffern und prüft, ob diese Summe durch 3 teilbar ist." },
-        { frage: "Welche Ziffer muss eine Zahl am Ende haben, damit sie durch 10 teilbar ist?", typ: "zahl", loesung: "0", erklaerung: "Nur Zahlen, die auf 0 enden, sind durch 10 teilbar." }
+        { frage: "Welches Gesetz erlaubt es, die Reihenfolge beim Plusrechnen zu tauschen (3+5=5+3)?", typ: "mc", optionen: ["Kommutativgesetz", "Assoziativgesetz", "Distributivgesetz", "Punktgesetz"], loesung: "Kommutativgesetz", erklaerung: "Das Kommutativgesetz (von lateinisch 'commutare' = vertauschen) besagt, dass bei Addition und Multiplikation die Reihenfolge der Zahlen egal ist. Es gilt aber nicht für Subtraktion und Division." },
+        { frage: "(2+3)+4 ergibt dasselbe wie 2+(3+4). Wie heißt dieses Gesetz?", typ: "mc", optionen: ["Assoziativgesetz", "Kommutativgesetz", "Distributivgesetz", "Rundungsgesetz"], loesung: "Assoziativgesetz", erklaerung: "Das Assoziativgesetz erlaubt es, bei mehreren Additionen oder Multiplikationen die Klammern anders zu setzen, ohne dass sich das Ergebnis ändert. Das ist praktisch, um sich Zwischenschritte einfacher zu machen." },
+        { frage: "Darf man beim Minusrechnen die Reihenfolge einfach tauschen (5-3 = 3-5)?", typ: "mc", optionen: ["Nein", "Ja"], loesung: "Nein", erklaerung: "5−3=2, aber 3−5=−2 – beide Ergebnisse sind unterschiedlich. Das Kommutativgesetz gilt deshalb nur für Plus und Mal, nicht für Minus und Geteilt." },
+        { frage: "Ist 84 durch 2 teilbar?", typ: "mc", optionen: ["Ja", "Nein"], loesung: "Ja", erklaerung: "Eine Zahl ist durch 2 teilbar, wenn ihre letzte Ziffer gerade ist (0,2,4,6,8). 84 endet auf 4, also ist 84 durch 2 teilbar – tatsächlich ist 84:2=42." },
+        { frage: "Ist 47 durch 2 teilbar?", typ: "mc", optionen: ["Nein", "Ja"], loesung: "Nein", erklaerung: "47 endet auf 7, eine ungerade Ziffer. Zahlen, die auf eine ungerade Ziffer enden, sind nie ohne Rest durch 2 teilbar." },
+        { frage: "Ist 130 durch 5 teilbar?", typ: "mc", optionen: ["Ja", "Nein"], loesung: "Ja", erklaerung: "Eine Zahl ist durch 5 teilbar, wenn sie auf 0 oder 5 endet. 130 endet auf 0, also ist sie durch 5 teilbar: 130:5=26." },
+        { frage: "Ist 130 durch 10 teilbar?", typ: "mc", optionen: ["Ja", "Nein"], loesung: "Ja", erklaerung: "Eine Zahl ist durch 10 teilbar, wenn sie auf 0 endet. 130 endet auf 0, also ist sie durch 10 teilbar: 130:10=13." },
+        { frage: "Ist 246 durch 3 teilbar?", typ: "mc", optionen: ["Ja", "Nein"], loesung: "Ja", erklaerung: "Bilde die Quersumme (Summe aller Ziffern): 2+4+6=12. Weil 12 durch 3 teilbar ist (12:3=4), ist auch 246 durch 3 teilbar." },
+        { frage: "Ist 100 durch 3 teilbar?", typ: "mc", optionen: ["Nein", "Ja"], loesung: "Nein", erklaerung: "Die Quersumme von 100 ist 1+0+0=1. Weil 1 nicht durch 3 teilbar ist, ist auch 100 nicht durch 3 teilbar." },
+        { frage: "Wie prüft man, ob eine Zahl durch 3 teilbar ist?", typ: "mc", optionen: ["Die Quersumme muss durch 3 teilbar sein", "Die letzte Ziffer muss 3 sein", "Die Zahl muss gerade sein", "Das geht nicht"], loesung: "Die Quersumme muss durch 3 teilbar sein", erklaerung: "Du addierst alle Ziffern der Zahl zur Quersumme und prüfst, ob diese kleinere Zahl durch 3 teilbar ist. Ist die Quersumme durch 3 teilbar, dann ist es auch die ursprüngliche Zahl." },
+        { frage: "Welche Ziffer muss eine Zahl am Ende haben, damit sie durch 10 teilbar ist?", typ: "zahl", loesung: "0", erklaerung: "Nur Zahlen, die auf die Ziffer 0 enden (wie 10, 130, 2.000), lassen sich ohne Rest durch 10 teilen. Jede andere Endziffer erzeugt beim Teilen durch 10 einen Rest." }
       ]
     },
     {
@@ -434,16 +439,16 @@ window.LERNDATA.mathe = {
         "🔲 Ein rechter Winkel hat genau 90°. Ein spitzer Winkel ist kleiner, ein stumpfer Winkel größer als 90°. Ein gestreckter Winkel ist eine gerade Linie: 180°."
       ],
       aufgaben: [
-        { frage: "Wie nennt man zwei Geraden, die sich im rechten Winkel schneiden?", typ: "mc", optionen: ["senkrecht", "parallel", "identisch", "gebogen"], loesung: "senkrecht", erklaerung: "Senkrechte Geraden bilden einen 90°-Winkel." },
-        { frage: "Wie nennt man zwei Geraden, die sich nie schneiden?", typ: "mc", optionen: ["parallel", "senkrecht", "schräg", "identisch"], loesung: "parallel", erklaerung: "Parallele Geraden haben überall den gleichen Abstand." },
-        { frage: "Welches Symbol steht für 'senkrecht'?", typ: "mc", optionen: ["⊥", "∥", "°", "="], loesung: "⊥", erklaerung: "Das Symbol ⊥ bedeutet 'senkrecht zu'." },
-        { frage: "Welches Symbol steht für 'parallel'?", typ: "mc", optionen: ["∥", "⊥", "°", "≠"], loesung: "∥", erklaerung: "Das Symbol ∥ bedeutet 'parallel zu'." },
-        { frage: "Wie nennt man einen Winkel, der genau 90° hat?", typ: "mc", optionen: ["rechter Winkel", "spitzer Winkel", "stumpfer Winkel", "gestreckter Winkel"], loesung: "rechter Winkel", erklaerung: "Ein Winkel mit genau 90° heißt rechter Winkel." },
-        { frage: "Wie nennt man einen Winkel, der kleiner als 90° ist?", typ: "mc", optionen: ["rechter Winkel", "spitzer Winkel", "stumpfer Winkel", "gestreckter Winkel"], loesung: "spitzer Winkel", erklaerung: "Ein Winkel unter 90° heißt spitzer Winkel." },
-        { frage: "Wie nennt man einen Winkel, der größer als 90° und kleiner als 180° ist?", typ: "mc", optionen: ["rechter Winkel", "spitzer Winkel", "stumpfer Winkel", "gestreckter Winkel"], loesung: "stumpfer Winkel", erklaerung: "Ein Winkel zwischen 90° und 180° heißt stumpfer Winkel." },
-        { frage: "Wie viele Grad hat ein gestreckter Winkel?", typ: "zahl", loesung: "180", erklaerung: "Ein gestreckter Winkel ist eine gerade Linie und hat 180°." },
-        { frage: "Wie nennt man eine Linie, die zwei Punkte auf dem kürzesten Weg verbindet?", typ: "mc", optionen: ["Strecke", "Winkel", "Fläche", "Kreis"], loesung: "Strecke", erklaerung: "Eine Strecke ist die kürzeste Verbindung zwischen zwei Punkten." },
-        { frage: "Wie viele rechte Winkel hat ein Quadrat?", typ: "zahl", loesung: "4", erklaerung: "Ein Quadrat hat 4 rechte Winkel (je 90°)." }
+        { frage: "Wie nennt man zwei Geraden, die sich im rechten Winkel schneiden?", typ: "mc", optionen: ["senkrecht", "parallel", "identisch", "gebogen"], loesung: "senkrecht", erklaerung: "Wenn sich zwei Geraden in einem Winkel von genau 90° treffen, nennt man sie senkrecht zueinander. Das erkennst du oft an einem kleinen Quadrat-Symbol an der Schnittstelle." },
+        { frage: "Wie nennt man zwei Geraden, die sich nie schneiden?", typ: "mc", optionen: ["parallel", "senkrecht", "schräg", "identisch"], loesung: "parallel", erklaerung: "Zwei Geraden, die immer den gleichen Abstand zueinander haben und sich deshalb nie treffen, heißen parallel. Ein Beispiel sind die beiden Schienen einer Eisenbahn." },
+        { frage: "Welches Symbol steht für 'senkrecht'?", typ: "mc", optionen: ["⊥", "∥", "°", "="], loesung: "⊥", erklaerung: "Das Symbol ⊥ sieht aus wie ein T auf dem Kopf und steht in der Mathematik für 'senkrecht zu'." },
+        { frage: "Welches Symbol steht für 'parallel'?", typ: "mc", optionen: ["∥", "⊥", "°", "≠"], loesung: "∥", erklaerung: "Das Symbol ∥ besteht aus zwei parallelen Strichen und steht deshalb für 'parallel zu'." },
+        { frage: "Wie nennt man einen Winkel, der genau 90° hat?", typ: "mc", optionen: ["rechter Winkel", "spitzer Winkel", "stumpfer Winkel", "gestreckter Winkel"], loesung: "rechter Winkel", erklaerung: "Ein Winkel mit genau 90° heißt rechter Winkel – er entsteht zum Beispiel an jeder Ecke eines Quadrats oder Rechtecks." },
+        { frage: "Wie nennt man einen Winkel, der kleiner als 90° ist?", typ: "mc", optionen: ["rechter Winkel", "spitzer Winkel", "stumpfer Winkel", "gestreckter Winkel"], loesung: "spitzer Winkel", erklaerung: "Jeder Winkel, der kleiner ist als 90°, heißt spitzer Winkel – er wirkt 'spitz zulaufend', so wie die Ecke eines Dreiecks oder eines Pizzastücks." },
+        { frage: "Wie nennt man einen Winkel, der größer als 90° und kleiner als 180° ist?", typ: "mc", optionen: ["rechter Winkel", "spitzer Winkel", "stumpfer Winkel", "gestreckter Winkel"], loesung: "stumpfer Winkel", erklaerung: "Ein Winkel zwischen 90° und 180° heißt stumpfer Winkel – er ist weiter geöffnet als ein rechter Winkel, aber noch keine gerade Linie." },
+        { frage: "Wie viele Grad hat ein gestreckter Winkel?", typ: "zahl", loesung: "180", erklaerung: "Ein gestreckter Winkel sieht aus wie eine gerade Linie ohne Knick und misst genau 180° – das ist doppelt so viel wie ein rechter Winkel (90°)." },
+        { frage: "Wie nennt man eine Linie, die zwei Punkte auf dem kürzesten Weg verbindet?", typ: "mc", optionen: ["Strecke", "Winkel", "Fläche", "Kreis"], loesung: "Strecke", erklaerung: "Eine Strecke ist die kürzeste, gerade Verbindung zwischen genau zwei Punkten. Im Unterschied zu einer 'Geraden' hat eine Strecke einen klaren Anfang und ein klares Ende." },
+        { frage: "Wie viele rechte Winkel hat ein Quadrat?", typ: "zahl", loesung: "4", erklaerung: "Ein Quadrat hat an jeder seiner 4 Ecken einen rechten Winkel (90°) – das ist zusammen mit den 4 gleich langen Seiten eine seiner wichtigsten Eigenschaften." }
       ]
     },
     {
@@ -468,14 +473,14 @@ window.LERNDATA.mathe = {
         }
       ],
       aufgaben: [
-        { frage: "Wie heißt die waagerechte Achse im Koordinatensystem?", typ: "mc", optionen: ["x-Achse", "y-Achse", "z-Achse", "Mittelachse"], loesung: "x-Achse", erklaerung: "Die waagerechte Achse heißt x-Achse." },
-        { frage: "Wie heißt die senkrechte Achse im Koordinatensystem?", typ: "mc", optionen: ["y-Achse", "x-Achse", "z-Achse", "Mittelachse"], loesung: "y-Achse", erklaerung: "Die senkrechte Achse heißt y-Achse." },
-        { frage: "Wie heißt der Punkt (0|0)?", typ: "mc", optionen: ["Ursprung", "Nullpunkt-Ecke", "Startpunkt", "Mittelpunkt"], loesung: "Ursprung", erklaerung: "Der Treffpunkt beider Achsen heißt Ursprung." },
-        { frage: "Beim Punkt (3|2): Wie viele Schritte gehst du zuerst nach rechts?", typ: "zahl", loesung: "3", erklaerung: "Der erste Wert (x-Wert) ist immer die Schritte nach rechts." },
-        { frage: "Beim Punkt (3|2): Wie viele Schritte gehst du dann nach oben?", typ: "zahl", loesung: "2", erklaerung: "Der zweite Wert (y-Wert) ist die Schritte nach oben." },
-        { frage: "Welche Zahl steht beim Punkt (5|7) zuerst (x-Wert)?", typ: "zahl", loesung: "5", erklaerung: "Der x-Wert steht immer zuerst, vor dem Strich." },
-        { frage: "Was gibst du bei einem Punkt im Koordinatensystem immer zuerst an?", typ: "mc", optionen: ["den x-Wert", "den y-Wert", "die Farbe", "den Namen"], loesung: "den x-Wert", erklaerung: "Man schreibt immer erst x-Wert, dann y-Wert: (x|y)." },
-        { frage: "Beim Punkt (0|5): Wie weit gehst du nach rechts?", typ: "zahl", loesung: "0", erklaerung: "x-Wert 0 bedeutet: kein Schritt nach rechts, du bleibst auf der y-Achse." }
+        { frage: "Wie heißt die waagerechte Achse im Koordinatensystem?", typ: "mc", optionen: ["x-Achse", "y-Achse", "z-Achse", "Mittelachse"], loesung: "x-Achse", erklaerung: "Die waagerechte (horizontale) Achse, die nach rechts und links zeigt, heißt x-Achse. Sie wird immer zuerst angegeben, wenn man einen Punkt beschreibt." },
+        { frage: "Wie heißt die senkrechte Achse im Koordinatensystem?", typ: "mc", optionen: ["y-Achse", "x-Achse", "z-Achse", "Mittelachse"], loesung: "y-Achse", erklaerung: "Die senkrechte (vertikale) Achse, die nach oben und unten zeigt, heißt y-Achse. Sie wird bei einem Punkt immer als zweiter Wert angegeben." },
+        { frage: "Wie heißt der Punkt (0|0)?", typ: "mc", optionen: ["Ursprung", "Nullpunkt-Ecke", "Startpunkt", "Mittelpunkt"], loesung: "Ursprung", erklaerung: "Der Punkt, an dem sich x-Achse und y-Achse kreuzen, heißt Ursprung. Von dort aus zählst du bei jedem anderen Punkt die Schritte nach rechts und oben." },
+        { frage: "Beim Punkt (3|2): Wie viele Schritte gehst du zuerst nach rechts?", typ: "zahl", loesung: "3", erklaerung: "Der erste Wert einer Koordinate, hier die 3, ist immer der x-Wert und gibt die Schritte nach rechts an." },
+        { frage: "Beim Punkt (3|2): Wie viele Schritte gehst du dann nach oben?", typ: "zahl", loesung: "2", erklaerung: "Der zweite Wert einer Koordinate, hier die 2, ist der y-Wert und gibt die Schritte nach oben an – erst nachdem du den x-Wert abgelaufen bist." },
+        { frage: "Welche Zahl steht beim Punkt (5|7) zuerst (x-Wert)?", typ: "zahl", loesung: "5", erklaerung: "Bei der Schreibweise (x|y) steht der x-Wert immer vor dem senkrechten Strich. Bei (5|7) ist das also die 5." },
+        { frage: "Was gibst du bei einem Punkt im Koordinatensystem immer zuerst an?", typ: "mc", optionen: ["den x-Wert", "den y-Wert", "die Farbe", "den Namen"], loesung: "den x-Wert", erklaerung: "Die Reihenfolge (x|y) ist eine feste Regel in der Mathematik: Zuerst kommt immer der x-Wert (rechts/links), danach der y-Wert (oben/unten)." },
+        { frage: "Beim Punkt (0|5): Wie weit gehst du nach rechts?", typ: "zahl", loesung: "0", erklaerung: "Der x-Wert ist hier 0, das heißt du machst keinen einzigen Schritt nach rechts oder links – der Punkt liegt deshalb direkt auf der y-Achse." }
       ]
     },
     {
@@ -489,13 +494,13 @@ window.LERNDATA.mathe = {
         "❤️ Ein Herz ist achsensymmetrisch. Manche Figuren sind punktsymmetrisch, manche beides, manche keins von beidem."
       ],
       aufgaben: [
-        { frage: "Wie heißt die Linie, an der eine achsensymmetrische Figur gespiegelt wird?", typ: "mc", optionen: ["Spiegelachse", "Symmetriezentrum", "Diagonale", "Mittellinie"], loesung: "Spiegelachse", erklaerung: "Die Spiegelachse teilt die Figur in zwei spiegelgleiche Hälften." },
-        { frage: "Um wie viel Grad dreht man eine Figur bei Punktsymmetrie, damit sie wieder gleich aussieht?", typ: "zahl", loesung: "180", erklaerung: "Bei Punktsymmetrie sieht die Figur nach einer 180°-Drehung genauso aus." },
-        { frage: "Ist ein Kreis achsensymmetrisch?", typ: "mc", optionen: ["Ja", "Nein"], loesung: "Ja", erklaerung: "Ein Kreis hat sogar unendlich viele Spiegelachsen." },
-        { frage: "Ist ein Quadrat achsensymmetrisch?", typ: "mc", optionen: ["Ja", "Nein"], loesung: "Ja", erklaerung: "Ein Quadrat hat mehrere Spiegelachsen." },
-        { frage: "Wie heißt der Punkt, um den bei Punktsymmetrie gedreht wird?", typ: "mc", optionen: ["Symmetriezentrum", "Spiegelachse", "Ursprung", "Mittelpunkt der Kante"], loesung: "Symmetriezentrum", erklaerung: "Der Drehpunkt bei Punktsymmetrie heißt Symmetriezentrum." },
-        { frage: "Welcher Großbuchstabe ist achsensymmetrisch (senkrechte Spiegelachse)?", typ: "mc", optionen: ["A", "F", "G", "P"], loesung: "A", erklaerung: "Der Buchstabe A hat eine senkrechte Spiegelachse in der Mitte." },
-        { frage: "Wie viele Spiegelachsen kann ein gleichseitiges Dreieck haben?", typ: "zahl", loesung: "3", erklaerung: "Ein gleichseitiges Dreieck hat 3 Spiegelachsen." }
+        { frage: "Wie heißt die Linie, an der eine achsensymmetrische Figur gespiegelt wird?", typ: "mc", optionen: ["Spiegelachse", "Symmetriezentrum", "Diagonale", "Mittellinie"], loesung: "Spiegelachse", erklaerung: "Die Spiegelachse ist die gedachte Linie, an der beide Hälften einer Figur wie in einem Spiegel genau gleich aussehen. Klappt man die Figur an dieser Linie, decken sich beide Hälften exakt." },
+        { frage: "Um wie viel Grad dreht man eine Figur bei Punktsymmetrie, damit sie wieder gleich aussieht?", typ: "zahl", loesung: "180", erklaerung: "Bei Punktsymmetrie sieht eine Figur nach einer halben Umdrehung um ihr Symmetriezentrum genauso aus wie vorher. Eine halbe Umdrehung entspricht 180°, also der Hälfte einer vollen 360°-Drehung." },
+        { frage: "Ist ein Kreis achsensymmetrisch?", typ: "mc", optionen: ["Ja", "Nein"], loesung: "Ja", erklaerung: "Ein Kreis kann an jeder beliebigen Linie durch seinen Mittelpunkt gespiegelt werden und sieht danach immer gleich aus. Deshalb hat er sogar unendlich viele Spiegelachsen – mehr als jede andere Figur." },
+        { frage: "Ist ein Quadrat achsensymmetrisch?", typ: "mc", optionen: ["Ja", "Nein"], loesung: "Ja", erklaerung: "Ein Quadrat hat gleich vier Spiegelachsen: zwei durch die Seitenmitten (waagerecht/senkrecht) und zwei durch die gegenüberliegenden Ecken (diagonal)." },
+        { frage: "Wie heißt der Punkt, um den bei Punktsymmetrie gedreht wird?", typ: "mc", optionen: ["Symmetriezentrum", "Spiegelachse", "Ursprung", "Mittelpunkt der Kante"], loesung: "Symmetriezentrum", erklaerung: "Das Symmetriezentrum ist der feste Punkt in der Mitte der Figur, um den herum gedreht wird. Jeder Punkt der Figur hat auf der gegenüberliegenden Seite des Zentrums einen passenden Partnerpunkt im gleichen Abstand." },
+        { frage: "Welcher Großbuchstabe ist achsensymmetrisch (senkrechte Spiegelachse)?", typ: "mc", optionen: ["A", "F", "G", "P"], loesung: "A", erklaerung: "Der Buchstabe A hat eine senkrechte Spiegelachse genau in der Mitte – die linke und rechte Hälfte sind spiegelgleich. Bei F, G oder P gibt es dagegen keine solche Spiegelachse." },
+        { frage: "Wie viele Spiegelachsen kann ein gleichseitiges Dreieck haben?", typ: "zahl", loesung: "3", erklaerung: "Ein gleichseitiges Dreieck (alle drei Seiten gleich lang) hat 3 Spiegelachsen – jede verläuft von einer Ecke zur Mitte der gegenüberliegenden Seite." }
       ]
     },
     {
@@ -510,14 +515,14 @@ window.LERNDATA.mathe = {
         "✏️ Ein Schrägbild zeichnet einen 3D-Körper auf einem flachen Blatt, sodass er räumlich aussieht."
       ],
       aufgaben: [
-        { frage: "Wie viele Flächen hat ein Quader?", typ: "zahl", loesung: "6", erklaerung: "Ein Quader hat 6 rechteckige Flächen." },
-        { frage: "Wie viele Kanten hat ein Quader?", typ: "zahl", loesung: "12", erklaerung: "Ein Quader hat 12 Kanten." },
-        { frage: "Wie viele Ecken hat ein Quader?", typ: "zahl", loesung: "8", erklaerung: "Ein Quader hat 8 Ecken." },
-        { frage: "Was ist ein Würfel?", typ: "mc", optionen: ["Ein Quader, bei dem alle Flächen gleich große Quadrate sind", "Eine runde Kugel", "Ein Körper ohne Ecken", "Eine flache Figur"], loesung: "Ein Quader, bei dem alle Flächen gleich große Quadrate sind", erklaerung: "Ein Würfel ist ein besonderer Quader mit lauter gleichen Quadraten." },
-        { frage: "Wie nennt man die aufgeklappte, flache Form eines Körpers?", typ: "mc", optionen: ["Körpernetz", "Schrägbild", "Koordinatensystem", "Diagramm"], loesung: "Körpernetz", erklaerung: "Ein Körpernetz zeigt alle Flächen ausgebreitet auf einer Ebene." },
-        { frage: "Wie nennt man eine räumliche Zeichnung eines Körpers auf einem flachen Blatt?", typ: "mc", optionen: ["Schrägbild", "Netz", "Grundriss", "Diagramm"], loesung: "Schrägbild", erklaerung: "Ein Schrägbild lässt den Körper räumlich wirken." },
-        { frage: "Welche Form haben die Flächen eines Würfels?", typ: "mc", optionen: ["Quadrate", "Rechtecke", "Dreiecke", "Kreise"], loesung: "Quadrate", erklaerung: "Alle 6 Flächen eines Würfels sind gleich große Quadrate." },
-        { frage: "Wie viele Flächen hat ein Würfel?", typ: "zahl", loesung: "6", erklaerung: "Ein Würfel hat wie jeder Quader 6 Flächen." }
+        { frage: "Wie viele Flächen hat ein Quader?", typ: "zahl", loesung: "6", erklaerung: "Ein Quader wird von 6 rechteckigen Flächen begrenzt: oben, unten, vorne, hinten, links und rechts – jeweils zwei gegenüberliegende Flächen sind gleich groß." },
+        { frage: "Wie viele Kanten hat ein Quader?", typ: "zahl", loesung: "12", erklaerung: "Ein Quader hat 12 Kanten: an jeder der 6 Flächen liegen 4 Kanten, aber jede Kante wird von zwei Flächen gemeinsam genutzt, deshalb sind es insgesamt 12 statt 24." },
+        { frage: "Wie viele Ecken hat ein Quader?", typ: "zahl", loesung: "8", erklaerung: "Ein Quader hat 8 Ecken – du kannst sie dir wie die 8 Ecken einer Schuhkarton-Form vorstellen: 4 oben und 4 unten." },
+        { frage: "Was ist ein Würfel?", typ: "mc", optionen: ["Ein Quader, bei dem alle Flächen gleich große Quadrate sind", "Eine runde Kugel", "Ein Körper ohne Ecken", "Eine flache Figur"], loesung: "Ein Quader, bei dem alle Flächen gleich große Quadrate sind", erklaerung: "Ein Würfel ist ein Sonderfall des Quaders: Während ein normaler Quader unterschiedlich lange Kanten haben kann, sind bei einem Würfel alle Kanten gleich lang und alle 6 Flächen gleich große Quadrate." },
+        { frage: "Wie nennt man die aufgeklappte, flache Form eines Körpers?", typ: "mc", optionen: ["Körpernetz", "Schrägbild", "Koordinatensystem", "Diagramm"], loesung: "Körpernetz", erklaerung: "Ein Körpernetz zeigt alle Flächen eines Körpers ausgebreitet und zusammenhängend auf einer Ebene. Faltet man das Netz an den Kanten hoch, entsteht wieder der ursprüngliche 3D-Körper." },
+        { frage: "Wie nennt man eine räumliche Zeichnung eines Körpers auf einem flachen Blatt?", typ: "mc", optionen: ["Schrägbild", "Netz", "Grundriss", "Diagramm"], loesung: "Schrägbild", erklaerung: "Ein Schrägbild zeichnet einen 3D-Körper so, dass er auch auf einem flachen Blatt räumlich wirkt – meist, indem die Tiefe schräg nach hinten gezeichnet wird." },
+        { frage: "Welche Form haben die Flächen eines Würfels?", typ: "mc", optionen: ["Quadrate", "Rechtecke", "Dreiecke", "Kreise"], loesung: "Quadrate", erklaerung: "Alle 6 Flächen eines Würfels sind gleich große Quadrate – das unterscheidet ihn von einem normalen Quader, dessen Flächen meist unterschiedlich große Rechtecke sind." },
+        { frage: "Wie viele Flächen hat ein Würfel?", typ: "zahl", loesung: "6", erklaerung: "Ein Würfel ist ein besonderer Quader und hat deshalb wie jeder Quader 6 Flächen – bei ihm sind alle sechs zusätzlich gleich große Quadrate." }
       ]
     },
     {
@@ -560,18 +565,56 @@ window.LERNDATA.mathe = {
           ergebnis: "20 cm"
         }
       ],
+      animation: {
+        titel: "Besiege den Flächen-Dämon: 6 × 4",
+        zahlenDaemon: "6×4",
+        szenen: [
+          {
+            aktion: "eingang",
+            text: "Ein Flächen-Dämon hat ein Rechteck mit 6 cm Länge und 4 cm Breite besetzt! Um ihn zu besiegen, musst du die Fläche berechnen, indem du Zeile für Zeile 1-cm²-Kästchen zählst.",
+            hp: 100
+          },
+          {
+            aktion: "angriff",
+            text: "Angriff 1: Die erste Zeile hat so viele Kästchen wie die Länge lang ist: 6 Kästchen. Nach der ersten Zeile hast du schon 6 cm² erobert!",
+            rechnung: "1 Zeile × 6 Kästchen = 6",
+            ergebnisSoweit: "6",
+            hp: 66
+          },
+          {
+            aktion: "angriff",
+            text: "Angriff 2: Du zählst zwei weitere Zeilen dazu (Zeile 2 und 3), macht insgesamt 3 Zeilen mit je 6 Kästchen: 3 × 6 = 18 cm².",
+            rechnung: "3 Zeilen × 6 Kästchen = 18",
+            ergebnisSoweit: "18",
+            hp: 33
+          },
+          {
+            aktion: "angriff",
+            text: "Angriff 3: Jetzt fehlt nur noch die vierte Zeile, denn die Breite ist ja 4 cm. Alle 4 Zeilen mit je 6 Kästchen ergeben 4 × 6 = 24 cm² — letzter Treffer!",
+            rechnung: "4 Zeilen × 6 Kästchen = 24",
+            ergebnisSoweit: "24",
+            hp: 0
+          },
+          {
+            aktion: "sieg",
+            text: "🏆 Geschafft! Das Rechteck hat 24 Kästchen, also eine Fläche von 24 cm² – genau Länge × Breite = 6 × 4 = 24. Du hast den Flächen-Dämon durch Zeile-für-Zeile-Zählen bezwungen.",
+            ergebnisSoweit: "24 cm²",
+            hp: 0
+          }
+        ]
+      },
       aufgaben: [
-        { frage: "Wie viele Ecken hat ein Rechteck?", typ: "zahl", loesung: "4", erklaerung: "Ein Rechteck hat 4 Ecken und 4 rechte Winkel." },
-        { frage: "Ein Rechteck ist 5 cm lang und 3 cm breit. Wie groß ist der Umfang?", typ: "zahl", loesung: "16", erklaerung: "Umfang = 2 × (Länge + Breite) = 2 × (5+3) = 16 cm." },
-        { frage: "Ein Rechteck ist 4 cm lang und 3 cm breit. Wie groß ist die Fläche?", typ: "zahl", loesung: "12", erklaerung: "Fläche = Länge × Breite = 4 × 3 = 12 cm²." },
-        { frage: "Ein Quadrat hat die Seitenlänge 5 cm. Wie groß ist der Umfang?", typ: "zahl", loesung: "20", erklaerung: "Umfang eines Quadrats = 4 × Seitenlänge = 4 × 5 = 20 cm." },
-        { frage: "Ein Quadrat hat die Seitenlänge 6 cm. Wie groß ist die Fläche?", typ: "zahl", loesung: "36", erklaerung: "Fläche eines Quadrats = Seite × Seite = 6 × 6 = 36 cm²." },
-        { frage: "Ein Rechteck ist 8 cm lang und 2 cm breit. Wie groß ist der Umfang?", typ: "zahl", loesung: "20", erklaerung: "Umfang = 2 × (8+2) = 2 × 10 = 20 cm." },
-        { frage: "Ein Rechteck ist 7 cm lang und 4 cm breit. Wie groß ist die Fläche?", typ: "zahl", loesung: "28", erklaerung: "Fläche = 7 × 4 = 28 cm²." },
-        { frage: "Wie viele cm² sind 1 m²?", typ: "zahl", loesung: "10000", erklaerung: "1 m² = 100 cm × 100 cm = 10.000 cm²." },
-        { frage: "Wie viele mm² sind 1 cm²?", typ: "zahl", loesung: "100", erklaerung: "1 cm² = 10 mm × 10 mm = 100 mm²." },
-        { frage: "2 m² sind wie viele cm²?", typ: "zahl", loesung: "20000", erklaerung: "2 × 10.000 cm² = 20.000 cm²." },
-        { frage: "Welche Fläche ist größer: 1 m² oder 5000 cm²?", typ: "mc", optionen: ["1 m²", "5000 cm²", "gleich groß", "kann man nicht sagen"], loesung: "1 m²", erklaerung: "1 m² = 10.000 cm², das ist mehr als 5000 cm²." }
+        { frage: "Wie viele Ecken hat ein Rechteck?", typ: "zahl", loesung: "4", erklaerung: "Ein Rechteck hat 4 Ecken und an jeder Ecke einen rechten Winkel (90°) – das gehört zu seiner Definition." },
+        { frage: "Ein Rechteck ist 5 cm lang und 3 cm breit. Wie groß ist der Umfang?", typ: "zahl", loesung: "16", erklaerung: "Die Umfangsformel lautet 2 × (Länge + Breite), weil jede der beiden Längen- und Breitenseiten doppelt vorkommt: 2 × (5+3) = 2 × 8 = 16 cm." },
+        { frage: "Ein Rechteck ist 4 cm lang und 3 cm breit. Wie groß ist die Fläche?", typ: "zahl", loesung: "12", erklaerung: "Die Fläche eines Rechtecks berechnest du mit Länge × Breite, weil sich das Rechteck gedanklich in 4 mal 3 gleich große 1-cm²-Kästchen aufteilen lässt: 4 × 3 = 12 cm²." },
+        { frage: "Ein Quadrat hat die Seitenlänge 5 cm. Wie groß ist der Umfang?", typ: "zahl", loesung: "20", erklaerung: "Ein Quadrat hat 4 gleich lange Seiten, deshalb lautet die Umfangsformel 4 × Seitenlänge: 4 × 5 = 20 cm." },
+        { frage: "Ein Quadrat hat die Seitenlänge 6 cm. Wie groß ist die Fläche?", typ: "zahl", loesung: "36", erklaerung: "Bei einem Quadrat ist Länge = Breite = Seitenlänge, deshalb rechnest du Seite × Seite: 6 × 6 = 36 cm²." },
+        { frage: "Ein Rechteck ist 8 cm lang und 2 cm breit. Wie groß ist der Umfang?", typ: "zahl", loesung: "20", erklaerung: "Umfang = 2 × (Länge + Breite) = 2 × (8+2) = 2 × 10 = 20 cm." },
+        { frage: "Ein Rechteck ist 7 cm lang und 4 cm breit. Wie groß ist die Fläche?", typ: "zahl", loesung: "28", erklaerung: "Fläche = Länge × Breite = 7 × 4 = 28 cm²." },
+        { frage: "Wie viele cm² sind 1 m²?", typ: "zahl", loesung: "10000", erklaerung: "Weil 1 m = 100 cm ist, entspricht 1 m² einem Quadrat mit 100 cm Seitenlänge: 100 × 100 = 10.000 cm²." },
+        { frage: "Wie viele mm² sind 1 cm²?", typ: "zahl", loesung: "100", erklaerung: "Weil 1 cm = 10 mm ist, entspricht 1 cm² einem Quadrat mit 10 mm Seitenlänge: 10 × 10 = 100 mm²." },
+        { frage: "2 m² sind wie viele cm²?", typ: "zahl", loesung: "20000", erklaerung: "Weil 1 m² = 10.000 cm² sind, rechnest du für 2 m² doppelt so viel: 2 × 10.000 = 20.000 cm²." },
+        { frage: "Welche Fläche ist größer: 1 m² oder 5000 cm²?", typ: "mc", optionen: ["1 m²", "5000 cm²", "gleich groß", "kann man nicht sagen"], loesung: "1 m²", erklaerung: "Rechne beide Flächen in dieselbe Einheit um: 1 m² sind 10.000 cm², und das ist mehr als 5.000 cm². Ein Vergleich funktioniert nur, wenn beide Flächen in derselben Einheit vorliegen." }
       ]
     },
     {
@@ -596,14 +639,14 @@ window.LERNDATA.mathe = {
         }
       ],
       aufgaben: [
-        { frage: "Wie berechnet man das Volumen eines Quaders?", typ: "mc", optionen: ["Länge × Breite × Höhe", "Länge + Breite + Höhe", "Länge × Breite", "2 × (Länge+Breite)"], loesung: "Länge × Breite × Höhe", erklaerung: "Das Volumen eines Quaders ist Länge mal Breite mal Höhe." },
-        { frage: "Ein Quader ist 4 cm lang, 3 cm breit, 2 cm hoch. Wie groß ist das Volumen?", typ: "zahl", loesung: "24", erklaerung: "4 × 3 × 2 = 24 cm³." },
-        { frage: "Ein Würfel hat die Kantenlänge 3 cm. Wie groß ist das Volumen?", typ: "zahl", loesung: "27", erklaerung: "3 × 3 × 3 = 27 cm³." },
-        { frage: "Wie viele Liter sind 1 m³?", typ: "zahl", loesung: "1000", erklaerung: "1 m³ = 1000 Liter." },
-        { frage: "Wie viele dm³ sind 1 m³?", typ: "zahl", loesung: "1000", erklaerung: "1 m³ = 1000 dm³." },
-        { frage: "Wie viele Rechteckflächen eines Quaders addiert man für den Oberflächeninhalt?", typ: "zahl", loesung: "6", erklaerung: "Ein Quader hat 6 Flächen, deren Inhalte man zusammenzählt." },
-        { frage: "Ein Quader ist 5 cm lang, 2 cm breit, 3 cm hoch. Wie groß ist das Volumen?", typ: "zahl", loesung: "30", erklaerung: "5 × 2 × 3 = 30 cm³." },
-        { frage: "1 dm³ entspricht wie vielen Litern?", typ: "zahl", loesung: "1", erklaerung: "1 dm³ = 1 Liter." }
+        { frage: "Wie berechnet man das Volumen eines Quaders?", typ: "mc", optionen: ["Länge × Breite × Höhe", "Länge + Breite + Höhe", "Länge × Breite", "2 × (Länge+Breite)"], loesung: "Länge × Breite × Höhe", erklaerung: "Das Volumen gibt an, wie viele 1-cm³-Würfel in den Quader passen. Weil man in alle drei Richtungen (Länge, Breite und Höhe) Würfel stapeln kann, multipliziert man alle drei Maße miteinander." },
+        { frage: "Ein Quader ist 4 cm lang, 3 cm breit, 2 cm hoch. Wie groß ist das Volumen?", typ: "zahl", loesung: "24", erklaerung: "Volumen = Länge × Breite × Höhe: zuerst 4 × 3 = 12, dann 12 × 2 = 24 cm³." },
+        { frage: "Ein Würfel hat die Kantenlänge 3 cm. Wie groß ist das Volumen?", typ: "zahl", loesung: "27", erklaerung: "Bei einem Würfel sind Länge, Breite und Höhe alle gleich der Kantenlänge, deshalb rechnest du 3 × 3 × 3 = 27 cm³." },
+        { frage: "Wie viele Liter sind 1 m³?", typ: "zahl", loesung: "1000", erklaerung: "1 m³ entspricht einem Würfel mit 1 m Kantenlänge, und der fasst genau 1.000 Liter – das ist eine feste Umrechnungsregel, die man sich merken muss." },
+        { frage: "Wie viele dm³ sind 1 m³?", typ: "zahl", loesung: "1000", erklaerung: "Weil 1 m = 10 dm ist, besteht 1 m³ aus 10 × 10 × 10 = 1.000 kleinen dm³-Würfeln." },
+        { frage: "Wie viele Rechteckflächen eines Quaders addiert man für den Oberflächeninhalt?", typ: "zahl", loesung: "6", erklaerung: "Ein Quader hat 6 Außenflächen (oben, unten, vorne, hinten, links, rechts). Für den Oberflächeninhalt berechnest du den Flächeninhalt jeder einzelnen Fläche und addierst alle 6 Werte." },
+        { frage: "Ein Quader ist 5 cm lang, 2 cm breit, 3 cm hoch. Wie groß ist das Volumen?", typ: "zahl", loesung: "30", erklaerung: "Volumen = Länge × Breite × Höhe: zuerst 5 × 2 = 10, dann 10 × 3 = 30 cm³." },
+        { frage: "1 dm³ entspricht wie vielen Litern?", typ: "zahl", loesung: "1", erklaerung: "1 dm³ (ein Würfel mit 10 cm Kantenlänge) fasst genau 1 Liter – das ist die Grundlage, aus der sich auch 1 m³ = 1.000 Liter ergibt." }
       ]
     },
     {
@@ -647,17 +690,55 @@ window.LERNDATA.mathe = {
           ergebnis: "1/2 ist größer"
         }
       ],
+      animation: {
+        titel: "Besiege den Bruch-Dämon: 1/2 erweitern",
+        zahlenDaemon: "1/2",
+        szenen: [
+          {
+            aktion: "eingang",
+            text: "Ein Bruch-Dämon versteckt sich hinter der Zahl 1/2! Er behauptet, 2/4 und 4/8 wären ganz andere Werte als 1/2. Beweise ihm mit Erweitern und Kürzen, dass alle drei genau gleich groß sind!",
+            hp: 100
+          },
+          {
+            aktion: "angriff",
+            text: "Angriff 1: Erweitere 1/2 mit 2. Du multiplizierst Zähler und Nenner beide mit 2: 1×2=2 und 2×2=4. Der neue Bruch 2/4 ist genauso groß wie 1/2 – nur in mehr, kleinere Stücke geschnitten!",
+            rechnung: "1/2 × (2/2) = 2/4",
+            ergebnisSoweit: "2/4",
+            hp: 66
+          },
+          {
+            aktion: "angriff",
+            text: "Angriff 2: Erweitere 2/4 noch einmal mit 2. Zähler und Nenner werden wieder verdoppelt: 2×2=4 und 4×2=8. So entsteht 4/8 – immer noch derselbe Wert wie 1/2!",
+            rechnung: "2/4 × (2/2) = 4/8",
+            ergebnisSoweit: "4/8",
+            hp: 33
+          },
+          {
+            aktion: "angriff",
+            text: "Angriff 3: Jetzt die Probe! Kürze 4/8 wieder zurück: Teile Zähler und Nenner beide durch 4: 4:4=1 und 8:4=2. Du landest wieder bei 1/2 — der Dämon kann sich nicht mehr verstecken!",
+            rechnung: "4/8 : (4/4) = 1/2",
+            ergebnisSoweit: "1/2",
+            hp: 0
+          },
+          {
+            aktion: "sieg",
+            text: "🏆 Geschafft! 1/2 = 2/4 = 4/8 – alle drei Brüche sind gleich groß, nur unterschiedlich oft erweitert. Der Bruch-Dämon ist besiegt, weil du erkannt hast: Erweitern und Kürzen verändern nie den Wert eines Bruchs.",
+            ergebnisSoweit: "1/2 = 2/4 = 4/8",
+            hp: 0
+          }
+        ]
+      },
       aufgaben: [
-        { frage: "Ein Kuchen wird in 4 gleiche Teile geteilt. Wie heißt ein Teil als Bruch?", typ: "mc", optionen: ["1/4", "4/1", "1/2", "2/4"], loesung: "1/4", erklaerung: "Ein Teil von vier gleichen Teilen ist ein Viertel: 1/4." },
-        { frage: "Wie nennt man die untere Zahl eines Bruchs?", typ: "mc", optionen: ["Zähler", "Nenner", "Summe", "Faktor"], loesung: "Nenner", erklaerung: "Die untere Zahl zeigt, in wie viele Teile geteilt wurde – das ist der Nenner." },
-        { frage: "Wie nennt man die obere Zahl eines Bruchs?", typ: "mc", optionen: ["Zähler", "Nenner", "Summe", "Faktor"], loesung: "Zähler", erklaerung: "Die obere Zahl zeigt, wie viele Teile gemeint sind – das ist der Zähler." },
-        { frage: "Was ist größer: 1/2 oder 1/4?", typ: "mc", optionen: ["1/2", "1/4", "gleich groß", "kann man nicht sagen"], loesung: "1/2", erklaerung: "Je kleiner der Nenner bei gleichem Zähler, desto größer der Bruch: 1/2 > 1/4." },
-        { frage: "Ein Kuchen hat 8 Stücke. Du isst 3 Stücke. Welcher Bruch beschreibt das?", typ: "mc", optionen: ["3/8", "8/3", "3/5", "5/8"], loesung: "3/8", erklaerung: "3 von 8 Stücken sind 3/8." },
-        { frage: "Was ist 1/2 als Bruch mit Nenner 4 (erweitert)?", typ: "mc", optionen: ["2/4", "1/4", "4/2", "3/4"], loesung: "2/4", erklaerung: "1/2 = 2/4, weil Zähler und Nenner beide mal 2 genommen werden." },
-        { frage: "Was ist größer: 3/4 oder 1/2?", typ: "mc", optionen: ["3/4", "1/2", "gleich groß", "kann man nicht sagen"], loesung: "3/4", erklaerung: "3/4 ist mehr als die Hälfte (2/4), also größer als 1/2." },
-        { frage: "Was ist 2/4 gekürzt?", typ: "mc", optionen: ["1/2", "1/4", "2/2", "4/2"], loesung: "1/2", erklaerung: "2/4 kann man kürzen: Zähler und Nenner durch 2 teilen ergibt 1/2." },
-        { frage: "Was ist 3/6 gekürzt?", typ: "mc", optionen: ["1/2", "1/3", "3/3", "6/3"], loesung: "1/2", erklaerung: "3/6 kürzt man durch 3: 3:3 / 6:3 = 1/2." },
-        { frage: "Was ist größer: 1/3 oder 1/5?", typ: "mc", optionen: ["1/3", "1/5", "gleich groß", "kann man nicht sagen"], loesung: "1/3", erklaerung: "Bei gleichem Zähler ist der Bruch mit dem kleineren Nenner größer: 1/3 > 1/5." }
+        { frage: "Ein Kuchen wird in 4 gleiche Teile geteilt. Wie heißt ein Teil als Bruch?", typ: "mc", optionen: ["1/4", "4/1", "1/2", "2/4"], loesung: "1/4", erklaerung: "Der Nenner (untere Zahl) zeigt, in wie viele Teile geteilt wurde, hier 4. Ein einzelnes Stück ist der Zähler 1 von diesen 4 Teilen, also 1/4." },
+        { frage: "Wie nennt man die untere Zahl eines Bruchs?", typ: "mc", optionen: ["Zähler", "Nenner", "Summe", "Faktor"], loesung: "Nenner", erklaerung: "Die untere Zahl eines Bruchs heißt Nenner – sie 'nennt', in wie viele gleich große Teile das Ganze zerlegt wurde." },
+        { frage: "Wie nennt man die obere Zahl eines Bruchs?", typ: "mc", optionen: ["Zähler", "Nenner", "Summe", "Faktor"], loesung: "Zähler", erklaerung: "Die obere Zahl eines Bruchs heißt Zähler – sie 'zählt', wie viele dieser Teile gemeint sind." },
+        { frage: "Was ist größer: 1/2 oder 1/4?", typ: "mc", optionen: ["1/2", "1/4", "gleich groß", "kann man nicht sagen"], loesung: "1/2", erklaerung: "Bei gleichem Zähler gilt: Je größer der Nenner, desto kleiner ist ein einzelnes Teil, weil das Ganze in mehr Stücke zerlegt wurde. Weil 4 größer als 2 ist, ist 1/4 das kleinere Stück, also ist 1/2 größer." },
+        { frage: "Ein Kuchen hat 8 Stücke. Du isst 3 Stücke. Welcher Bruch beschreibt das?", typ: "mc", optionen: ["3/8", "8/3", "3/5", "5/8"], loesung: "3/8", erklaerung: "Der Nenner ist die Gesamtzahl aller Stücke (8), der Zähler die Anzahl, die du gegessen hast (3). Zusammen ergibt das den Bruch 3/8." },
+        { frage: "Was ist 1/2 als Bruch mit Nenner 4 (erweitert)?", typ: "mc", optionen: ["2/4", "1/4", "4/2", "3/4"], loesung: "2/4", erklaerung: "Beim Erweitern multiplizierst du Zähler und Nenner mit derselben Zahl. Um aus dem Nenner 2 den Nenner 4 zu machen, rechnest du ×2: 1×2=2 und 2×2=4, also wird aus 1/2 der gleich große Bruch 2/4." },
+        { frage: "Was ist größer: 3/4 oder 1/2?", typ: "mc", optionen: ["3/4", "1/2", "gleich groß", "kann man nicht sagen"], loesung: "3/4", erklaerung: "Erweiterst du 1/2 auf den Nenner 4, erhältst du 2/4. Vergleichst du jetzt bei gleichem Nenner Zähler mit Zähler (3/4 gegen 2/4): 3 ist mehr als 2, also ist 3/4 größer als 1/2." },
+        { frage: "Was ist 2/4 gekürzt?", typ: "mc", optionen: ["1/2", "1/4", "2/2", "4/2"], loesung: "1/2", erklaerung: "Beim Kürzen teilst du Zähler und Nenner durch dieselbe Zahl. Teilst du beide Zahlen von 2/4 durch 2, erhältst du 1/2 – denselben Wert, nur mit kleineren Zahlen geschrieben." },
+        { frage: "Was ist 3/6 gekürzt?", typ: "mc", optionen: ["1/2", "1/3", "3/3", "6/3"], loesung: "1/2", erklaerung: "Zähler und Nenner von 3/6 haben beide den gemeinsamen Teiler 3. Teilst du beide durch 3, erhältst du 1/2." },
+        { frage: "Was ist größer: 1/3 oder 1/5?", typ: "mc", optionen: ["1/3", "1/5", "gleich groß", "kann man nicht sagen"], loesung: "1/3", erklaerung: "Bei gleichem Zähler (1) ist der Bruch mit dem kleineren Nenner größer, weil das Ganze in weniger, dafür größere Teile geteilt wird. Weil 3 kleiner ist als 5, ist 1/3 größer als 1/5." }
       ]
     },
     {
@@ -680,14 +761,14 @@ window.LERNDATA.mathe = {
         }
       ],
       aufgaben: [
-        { frage: "3/4 ist dasselbe wie welche Divisionsaufgabe?", typ: "mc", optionen: ["3 : 4", "4 : 3", "3 × 4", "4 - 3"], loesung: "3 : 4", erklaerung: "Ein Bruch a/b bedeutet immer a : b." },
-        { frage: "Was ist 1/2 von 20?", typ: "zahl", loesung: "10", erklaerung: "20 : 2 = 10." },
-        { frage: "Was ist 3/4 von 20?", typ: "zahl", loesung: "15", erklaerung: "20 : 4 = 5, dann 5 × 3 = 15." },
-        { frage: "Was ist 2/5 von 25?", typ: "zahl", loesung: "10", erklaerung: "25 : 5 = 5, dann 5 × 2 = 10." },
-        { frage: "Was ist 1/3 von 30?", typ: "zahl", loesung: "10", erklaerung: "30 : 3 = 10." },
-        { frage: "Was ist 3/10 von 100?", typ: "zahl", loesung: "30", erklaerung: "100 : 10 = 10, dann 10 × 3 = 30." },
-        { frage: "Was ist 1/4 von 40?", typ: "zahl", loesung: "10", erklaerung: "40 : 4 = 10." },
-        { frage: "Was ist 2/3 von 30?", typ: "zahl", loesung: "20", erklaerung: "30 : 3 = 10, dann 10 × 2 = 20." }
+        { frage: "3/4 ist dasselbe wie welche Divisionsaufgabe?", typ: "mc", optionen: ["3 : 4", "4 : 3", "3 × 4", "4 - 3"], loesung: "3 : 4", erklaerung: "Jeder Bruch a/b lässt sich auch als Divisionsaufgabe a : b lesen. Deshalb bedeutet 3/4 genau dasselbe wie 3 geteilt durch 4." },
+        { frage: "Was ist 1/2 von 20?", typ: "zahl", loesung: "10", erklaerung: "Um einen Anteil von einer Zahl zu berechnen, teilst du zuerst durch den Nenner: 20 : 2 = 10. Weil der Zähler hier 1 ist, brauchst du danach nicht mehr zu multiplizieren." },
+        { frage: "Was ist 3/4 von 20?", typ: "zahl", loesung: "15", erklaerung: "Zuerst teilst du 20 durch den Nenner 4: 20 : 4 = 5 (das ist ein Viertel). Dann multiplizierst du mit dem Zähler 3, um drei Viertel zu bekommen: 5 × 3 = 15." },
+        { frage: "Was ist 2/5 von 25?", typ: "zahl", loesung: "10", erklaerung: "Zuerst teilst du 25 durch den Nenner 5: 25 : 5 = 5. Dann multiplizierst du mit dem Zähler 2: 5 × 2 = 10." },
+        { frage: "Was ist 1/3 von 30?", typ: "zahl", loesung: "10", erklaerung: "Weil der Zähler 1 ist, reicht das Teilen allein: 30 : 3 = 10." },
+        { frage: "Was ist 3/10 von 100?", typ: "zahl", loesung: "30", erklaerung: "Zuerst teilst du 100 durch den Nenner 10: 100 : 10 = 10. Dann multiplizierst du mit dem Zähler 3: 10 × 3 = 30." },
+        { frage: "Was ist 1/4 von 40?", typ: "zahl", loesung: "10", erklaerung: "Weil der Zähler 1 ist, reicht das Teilen allein: 40 : 4 = 10." },
+        { frage: "Was ist 2/3 von 30?", typ: "zahl", loesung: "20", erklaerung: "Zuerst teilst du 30 durch den Nenner 3: 30 : 3 = 10. Dann multiplizierst du mit dem Zähler 2: 10 × 2 = 20." }
       ]
     },
     {
@@ -712,14 +793,14 @@ window.LERNDATA.mathe = {
         }
       ],
       aufgaben: [
-        { frage: "Was ist 1/2 als Dezimalzahl?", typ: "mc", optionen: ["0,5", "0,2", "0,25", "1,2"], loesung: "0,5", erklaerung: "1 : 2 = 0,5." },
-        { frage: "Was ist 1/4 als Dezimalzahl?", typ: "mc", optionen: ["0,25", "0,4", "0,5", "0,14"], loesung: "0,25", erklaerung: "1 : 4 = 0,25." },
-        { frage: "Was ist 3/10 als Dezimalzahl?", typ: "mc", optionen: ["0,3", "0,03", "3,0", "0,13"], loesung: "0,3", erklaerung: "3 : 10 = 0,3." },
-        { frage: "Welcher Teil einer Dezimalzahl steht direkt nach dem Komma?", typ: "mc", optionen: ["Zehntel", "Hundertstel", "Tausendstel", "Einer"], loesung: "Zehntel", erklaerung: "Die erste Stelle nach dem Komma sind die Zehntel." },
-        { frage: "Ist 0,5 eine abbrechende oder periodische Dezimalzahl?", typ: "mc", optionen: ["abbrechend", "periodisch", "weder noch", "beides"], loesung: "abbrechend", erklaerung: "0,5 endet nach einer Stelle, also ist sie abbrechend." },
-        { frage: "1/3 als Dezimalzahl ist 0,333… Wie nennt man so eine Dezimalzahl?", typ: "mc", optionen: ["periodisch", "abbrechend", "gerundet", "negativ"], loesung: "periodisch", erklaerung: "Weil sich die 3 unendlich wiederholt, ist die Zahl periodisch." },
-        { frage: "Was ist größer: 0,4 oder 0,25?", typ: "mc", optionen: ["0,4", "0,25", "gleich groß", "kann man nicht sagen"], loesung: "0,4", erklaerung: "0,4 = 0,40, und 40 Hundertstel sind mehr als 25 Hundertstel." },
-        { frage: "Was ist 0,5 + 0,25?", typ: "mc", optionen: ["0,75", "0,7", "0,8", "1,0"], loesung: "0,75", erklaerung: "0,5 + 0,25 = 0,75." }
+        { frage: "Was ist 1/2 als Dezimalzahl?", typ: "mc", optionen: ["0,5", "0,2", "0,25", "1,2"], loesung: "0,5", erklaerung: "Ein Bruch lässt sich als Division rechnen: 1 : 2 = 0,5. Weil 1 nicht ohne Rest durch 2 teilbar ist, rechnest du mit Komma weiter: aus 10 Zehnteln werden 5 Zehntel, also 0,5." },
+        { frage: "Was ist 1/4 als Dezimalzahl?", typ: "mc", optionen: ["0,25", "0,4", "0,5", "0,14"], loesung: "0,25", erklaerung: "1 : 4 ergibt schrittweise: 10 Zehntel geteilt durch 4 sind 2 Rest 2, dann 20 Hundertstel geteilt durch 4 sind 5. Zusammen ergibt das 0,25." },
+        { frage: "Was ist 3/10 als Dezimalzahl?", typ: "mc", optionen: ["0,3", "0,03", "3,0", "0,13"], loesung: "0,3", erklaerung: "Bei einem Nenner von 10 kannst du den Zähler direkt als Zehntel hinter das Komma schreiben: 3/10 = 0,3." },
+        { frage: "Welcher Teil einer Dezimalzahl steht direkt nach dem Komma?", typ: "mc", optionen: ["Zehntel", "Hundertstel", "Tausendstel", "Einer"], loesung: "Zehntel", erklaerung: "Die Stellenwerte nach dem Komma heißen der Reihe nach Zehntel, Hundertstel, Tausendstel – die erste Stelle direkt nach dem Komma sind also die Zehntel." },
+        { frage: "Ist 0,5 eine abbrechende oder periodische Dezimalzahl?", typ: "mc", optionen: ["abbrechend", "periodisch", "weder noch", "beides"], loesung: "abbrechend", erklaerung: "0,5 hat nach dem Komma nur eine einzige Ziffer und endet dann – solche Dezimalzahlen nennt man abbrechend, weil die Nachkommastellen 'abbrechen'." },
+        { frage: "1/3 als Dezimalzahl ist 0,333… Wie nennt man so eine Dezimalzahl?", typ: "mc", optionen: ["periodisch", "abbrechend", "gerundet", "negativ"], loesung: "periodisch", erklaerung: "Weil sich die Ziffer 3 nach dem Komma unendlich oft wiederholt, nennt man diese Dezimalzahl periodisch. Man schreibt das oft verkürzt mit einem Strich über der sich wiederholenden Ziffer." },
+        { frage: "Was ist größer: 0,4 oder 0,25?", typ: "mc", optionen: ["0,4", "0,25", "gleich groß", "kann man nicht sagen"], loesung: "0,4", erklaerung: "Um Dezimalzahlen zu vergleichen, kannst du sie auf gleich viele Nachkommastellen bringen: 0,4 = 0,40. Vergleichst du jetzt 40 Hundertstel mit 25 Hundertstel, ist 0,40 größer." },
+        { frage: "Was ist 0,5 + 0,25?", typ: "mc", optionen: ["0,75", "0,7", "0,8", "1,0"], loesung: "0,75", erklaerung: "Rechne wie bei der schriftlichen Addition, aber Komma unter Komma: 0,50 + 0,25 = 0,75 (50 Hundertstel plus 25 Hundertstel sind 75 Hundertstel)." }
       ]
     }
   ]
