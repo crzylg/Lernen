@@ -10,9 +10,9 @@
 // Alle Texte, Beispiele und Aufgaben sind vollständig selbst geschrieben –
 // es wird kein Inhalt aus dem Buch übernommen, nur Themen und Reihenfolge.
 //
-// Die Themen "Schriftliche Division", "Flächeninhalt und Umfang" sowie
-// "Brüche verstehen" haben zusätzlich eine kurze animierte Erklärung
-// (Button "🎬 Animation ansehen"), alle mit derselben frei erfundenen
+// Jedes der 16 Themen hat eine kurze animierte "Held gegen Zahlen-Dämon"-
+// Erklärung (Button "🎬 Animation ansehen", direkt über den
+// Beispielrechnungen), alle mit derselben frei erfundenen
 // K-Pop-Dämonenjäger-Gestaltung und demselben Animationsmotor in app.js.
 window.LERNDATA = window.LERNDATA || {};
 window.LERNDATA.mathe = {
@@ -43,6 +43,44 @@ window.LERNDATA.mathe = {
           ergebnis: "13"
         }
       ],
+      animation: {
+        titel: "Besiege den Strichlisten-Dämon: 19",
+        zahlenDaemon: "19",
+        szenen: [
+          {
+            aktion: "eingang",
+            text: "Ein Strichlisten-Dämon versteckt eine geheime Zahl in Strichen: 3 volle 5er-Blöcke und dazu noch 4 einzelne Striche! Zähle sie zusammen, um die geheime Zahl herauszufinden und den Dämon zu besiegen.",
+            hp: 100
+          },
+          {
+            aktion: "angriff",
+            text: "Angriff 1: Der erste 5er-Block sind 5 Striche.",
+            rechnung: "1 Block = 5",
+            ergebnisSoweit: "5",
+            hp: 66
+          },
+          {
+            aktion: "angriff",
+            text: "Angriff 2: Zähle den zweiten und dritten Block dazu: 5 + 5 + 5 = 15.",
+            rechnung: "3 Blöcke = 5+5+5",
+            ergebnisSoweit: "15",
+            hp: 33
+          },
+          {
+            aktion: "angriff",
+            text: "Angriff 3: Jetzt kommen die 4 einzelnen Striche dazu: 15 + 4 = 19 — letzter Treffer!",
+            rechnung: "15 + 4 = 19",
+            ergebnisSoweit: "19",
+            hp: 0
+          },
+          {
+            aktion: "sieg",
+            text: "🏆 Geschafft! Die geheime Zahl war 19 – 3 volle 5er-Blöcke (15) plus 4 einzelne Striche (4) ergeben 19. So zählst du auch große Strichlisten schnell zusammen.",
+            ergebnisSoweit: "19",
+            hp: 0
+          }
+        ]
+      },
       aufgaben: [
         { frage: "Wie viele Striche zeigt ein voller 5er-Block in einer Strichliste?", typ: "zahl", loesung: "5", erklaerung: "Beim Strichliste-Führen bündelt man Striche in 5er-Gruppen, damit man am Ende nicht jeden einzelnen Strich zählen muss. Ein voller Block hat deshalb immer genau 5 Striche – meist als vier senkrechte Striche mit einem Querstrich durch alle vier erkennbar." },
         { frage: "Was zeigt ein Balkendiagramm?", typ: "mc", optionen: ["Daten als Säulen/Balken", "Nur Zahlen ohne Bild", "Nur Wörter", "Ein Rechenergebnis"], loesung: "Daten als Säulen/Balken", erklaerung: "Ein Balkendiagramm stellt jede Häufigkeit als einen Balken dar – je höher der Balken, desto öfter kam das Ereignis vor. So kannst du auf einen Blick vergleichen, ohne die Zahlen einzeln lesen zu müssen." },
@@ -96,6 +134,44 @@ window.LERNDATA.mathe = {
           ergebnis: "45.900 ist größer"
         }
       ],
+      animation: {
+        titel: "Besiege den Rundungs-Dämon: 47.853",
+        zahlenDaemon: "47.853",
+        szenen: [
+          {
+            aktion: "eingang",
+            text: "Ein Rundungs-Dämon aus 47.853 fordert dich heraus! Er kann sich in drei verschiedene, einfachere Zahlen verwandeln – wenn du ihn auf Zehner, Hunderter und Tausender rundest, wird er schwächer.",
+            hp: 100
+          },
+          {
+            aktion: "angriff",
+            text: "Angriff 1: Runde 47.853 auf die nächsten Zehner. Schau auf die Einerziffer: 3. Das ist kleiner als 5, also wird abgerundet: 47.850.",
+            rechnung: "47.853 → Zehner",
+            ergebnisSoweit: "47.850",
+            hp: 66
+          },
+          {
+            aktion: "angriff",
+            text: "Angriff 2: Runde 47.853 auf die nächsten Hunderter. Schau auf die Zehnerziffer: 5. Ab 5 wird aufgerundet: 47.900.",
+            rechnung: "47.853 → Hunderter",
+            ergebnisSoweit: "47.900",
+            hp: 33
+          },
+          {
+            aktion: "angriff",
+            text: "Angriff 3: Runde 47.853 auf die nächsten Tausender. Schau auf die Hunderterziffer: 8. Das ist 5 oder mehr, also wird aufgerundet: 48.000 — letzter Treffer!",
+            rechnung: "47.853 → Tausender",
+            ergebnisSoweit: "48.000",
+            hp: 0
+          },
+          {
+            aktion: "sieg",
+            text: "🏆 Geschafft! 47.853 gerundet: auf Zehner 47.850, auf Hunderter 47.900, auf Tausender 48.000. Je nachdem, auf welche Stelle du rundest, schaust du immer auf die nächste Ziffer rechts davon.",
+            ergebnisSoweit: "48.000",
+            hp: 0
+          }
+        ]
+      },
       aufgaben: [
         { frage: "Wie viele Nullen hat eine Million (1.000.000)?", typ: "zahl", loesung: "6", erklaerung: "Eine Million wird als 1 gefolgt von sechs Nullen geschrieben: 1.000.000. Du erkennst das auch daran, dass eine Million aus 1.000 mal 1.000 besteht, und 1.000 hat schon drei Nullen." },
         { frage: "Welche Stelle steht in 4.372 an der Hunderterstelle?", typ: "zahl", loesung: "3", erklaerung: "In 4.372 stehen die Ziffern für 4 = Tausender, 3 = Hunderter, 7 = Zehner und 2 = Einer. Die Hunderterstelle ist also die 3, denn sie steht an dritter Stelle von rechts." },
@@ -157,6 +233,44 @@ window.LERNDATA.mathe = {
           ergebnis: "500 cm (5 m)"
         }
       ],
+      animation: {
+        titel: "Besiege den Maßstab-Dämon: 1:100",
+        zahlenDaemon: "1:100",
+        szenen: [
+          {
+            aktion: "eingang",
+            text: "Ein Maßstab-Dämon hat eine Karte im Maßstab 1:100 verzaubert! Eine Strecke auf der Karte ist 6 cm lang. Finde heraus, wie lang sie in Wirklichkeit ist, indem du Schritt für Schritt umrechnest.",
+            hp: 100
+          },
+          {
+            aktion: "angriff",
+            text: "Angriff 1: Die ersten 2 cm auf der Karte sind in Wirklichkeit 2 × 100 = 200 cm.",
+            rechnung: "2 cm × 100 = 200 cm",
+            ergebnisSoweit: "200 cm",
+            hp: 66
+          },
+          {
+            aktion: "angriff",
+            text: "Angriff 2: Nach 4 cm auf der Karte sind es in Wirklichkeit schon 4 × 100 = 400 cm.",
+            rechnung: "4 cm × 100 = 400 cm",
+            ergebnisSoweit: "400 cm",
+            hp: 33
+          },
+          {
+            aktion: "angriff",
+            text: "Angriff 3: Die volle Strecke von 6 cm auf der Karte ergibt in Wirklichkeit 6 × 100 = 600 cm, also 6 m — letzter Treffer!",
+            rechnung: "6 cm × 100 = 600 cm",
+            ergebnisSoweit: "600 cm (6 m)",
+            hp: 0
+          },
+          {
+            aktion: "sieg",
+            text: "🏆 Geschafft! Bei einem Maßstab von 1:100 ist jeder Zentimeter auf der Karte in Wirklichkeit 100-mal so lang: 6 cm auf der Karte sind 600 cm, also 6 Meter, in Wirklichkeit.",
+            ergebnisSoweit: "600 cm (6 m)",
+            hp: 0
+          }
+        ]
+      },
       aufgaben: [
         { frage: "Wie viele Zentimeter sind 1 Meter?", typ: "zahl", loesung: "100", erklaerung: "1 Meter ist per Definition genau 100 Zentimeter lang – das ist eine Grundumrechnung, die du dir einfach merken musst, so wie 1 Euro = 100 Cent." },
         { frage: "Wie viele Meter sind 1 Kilometer?", typ: "zahl", loesung: "1000", erklaerung: "Die Vorsilbe 'Kilo' bedeutet 1000, deshalb ist 1 Kilometer genau 1.000 Meter lang. Das gilt für alle Kilo-Einheiten, zum Beispiel auch 1 Kilogramm = 1.000 Gramm." },
@@ -209,6 +323,44 @@ window.LERNDATA.mathe = {
           ergebnis: "30"
         }
       ],
+      animation: {
+        titel: "Besiege den Rechenketten-Dämon: 5 + 3 × 4 − 2",
+        zahlenDaemon: "5+3×4−2",
+        szenen: [
+          {
+            aktion: "eingang",
+            text: "Ein Rechenketten-Dämon versteckt sich in der Aufgabe 5 + 3 × 4 − 2! Er hofft, dass du einfach von links nach rechts rechnest – aber mit 'Punkt vor Strich' besiegst du ihn Schritt für Schritt.",
+            hp: 100
+          },
+          {
+            aktion: "angriff",
+            text: "Angriff 1: Zuerst die Punktrechnung: 3 × 4 = 12. Die Aufgabe wird jetzt zu 5 + 12 − 2.",
+            rechnung: "3 × 4 = 12",
+            ergebnisSoweit: "5 + 12 − 2",
+            hp: 66
+          },
+          {
+            aktion: "angriff",
+            text: "Angriff 2: Jetzt rechnest du von links: 5 + 12 = 17.",
+            rechnung: "5 + 12 = 17",
+            ergebnisSoweit: "17 − 2",
+            hp: 33
+          },
+          {
+            aktion: "angriff",
+            text: "Angriff 3: Zum Schluss: 17 − 2 = 15 — letzter Treffer!",
+            rechnung: "17 − 2 = 15",
+            ergebnisSoweit: "15",
+            hp: 0
+          },
+          {
+            aktion: "sieg",
+            text: "🏆 Geschafft! 5 + 3 × 4 − 2 = 15. Wegen Punkt-vor-Strich hast du zuerst 3 × 4 gerechnet, dann erst die Plus- und Minus-Aufgaben von links nach rechts.",
+            ergebnisSoweit: "15",
+            hp: 0
+          }
+        ]
+      },
       aufgaben: [
         { frage: "Wie heißt das Ergebnis einer Plus-Aufgabe?", typ: "mc", optionen: ["Summe", "Differenz", "Produkt", "Quotient"], loesung: "Summe", erklaerung: "Wenn du zwei oder mehr Zahlen addierst (zusammenzählst), heißt das Ergebnis Summe. Die Fachbegriffe helfen dir, in der Schule genau zu benennen, welche Rechenart gemeint ist." },
         { frage: "Wie heißt das Ergebnis einer Minus-Aufgabe?", typ: "mc", optionen: ["Summe", "Differenz", "Produkt", "Quotient"], loesung: "Differenz", erklaerung: "Beim Subtrahieren (Abziehen) heißt das Ergebnis Differenz. Es zeigt, wie viel Unterschied zwischen zwei Zahlen besteht." },
@@ -271,6 +423,44 @@ window.LERNDATA.mathe = {
           ergebnis: "322"
         }
       ],
+      animation: {
+        titel: "Besiege den Multiplikations-Dämon: 23 × 14",
+        zahlenDaemon: "23×14",
+        szenen: [
+          {
+            aktion: "eingang",
+            text: "Ein Multiplikations-Dämon aus 23 × 14 versperrt dir den Weg! Weil die Aufgabe zu groß zum Kopfrechnen ist, zerlegst du 14 in Einer und Zehner und rechnest in zwei Teilen.",
+            hp: 100
+          },
+          {
+            aktion: "angriff",
+            text: "Angriff 1: Rechne zuerst 23 mal die Einerziffer von 14: 23 × 4 = 92.",
+            rechnung: "23 × 4 = 92",
+            ergebnisSoweit: "92",
+            hp: 66
+          },
+          {
+            aktion: "angriff",
+            text: "Angriff 2: Jetzt 23 mal die Zehnerziffer von 14: 23 × 10 = 230.",
+            rechnung: "23 × 10 = 230",
+            ergebnisSoweit: "230",
+            hp: 33
+          },
+          {
+            aktion: "angriff",
+            text: "Angriff 3: Addiere beide Teilergebnisse: 92 + 230 = 322 — letzter Treffer!",
+            rechnung: "92 + 230 = 322",
+            ergebnisSoweit: "322",
+            hp: 0
+          },
+          {
+            aktion: "sieg",
+            text: "🏆 Geschafft! 23 × 14 = 322. Indem du 14 in 4 und 10 zerlegt hast, konntest du zwei einfachere Multiplikationen rechnen und am Ende addieren.",
+            ergebnisSoweit: "322",
+            hp: 0
+          }
+        ]
+      },
       aufgaben: [
         { frage: "347 + 258 = ?", typ: "zahl", loesung: "605", erklaerung: "Rechne stellenweise von rechts: Einer 7+8=15 (5 aufschreiben, 1 merken), Zehner 4+5+1=10 (0 aufschreiben, 1 merken), Hunderter 3+2+1=6. Zusammen ergibt das 605." },
         { frage: "742 - 315 = ?", typ: "zahl", loesung: "427", erklaerung: "Einer: 2−5 geht nicht, du leihst dir 1 von den Zehnern: 12−5=7. Zehner: die geliehene 4 wird zur 3, also 3−1=2. Hunderter: 7−3=4. Zusammen: 427." },
@@ -413,6 +603,44 @@ window.LERNDATA.mathe = {
           ergebnis: "Ja, 246 ist durch 3 teilbar"
         }
       ],
+      animation: {
+        titel: "Besiege den Teilbarkeits-Dämon: 246",
+        zahlenDaemon: "246",
+        szenen: [
+          {
+            aktion: "eingang",
+            text: "Ein Teilbarkeits-Dämon aus der Zahl 246 will nicht verraten, durch welche Zahlen er teilbar ist! Prüfe ihn mit drei Teilbarkeitsregeln, um seine Geheimnisse aufzudecken.",
+            hp: 100
+          },
+          {
+            aktion: "angriff",
+            text: "Angriff 1: Teilbar durch 2? Schau auf die letzte Ziffer: 6 ist gerade, also ist 246 durch 2 teilbar!",
+            rechnung: "Letzte Ziffer 6 → gerade",
+            ergebnisSoweit: "durch 2: ja",
+            hp: 66
+          },
+          {
+            aktion: "angriff",
+            text: "Angriff 2: Teilbar durch 5? Die letzte Ziffer muss 0 oder 5 sein. 246 endet auf 6 – das ist weder 0 noch 5, also NICHT durch 5 teilbar.",
+            rechnung: "Letzte Ziffer 6 ≠ 0/5",
+            ergebnisSoweit: "durch 5: nein",
+            hp: 33
+          },
+          {
+            aktion: "angriff",
+            text: "Angriff 3: Teilbar durch 3? Bilde die Quersumme: 2+4+6 = 12. Weil 12 durch 3 teilbar ist, ist auch 246 durch 3 teilbar — letzter Treffer!",
+            rechnung: "Quersumme 2+4+6=12",
+            ergebnisSoweit: "durch 3: ja",
+            hp: 0
+          },
+          {
+            aktion: "sieg",
+            text: "🏆 Geschafft! 246 ist durch 2 und durch 3 teilbar, aber nicht durch 5. Mit den drei Teilbarkeitsregeln kannst du das ohne echtes Teilen sofort erkennen.",
+            ergebnisSoweit: "durch 2 & 3: ja, durch 5: nein",
+            hp: 0
+          }
+        ]
+      },
       aufgaben: [
         { frage: "Welches Gesetz erlaubt es, die Reihenfolge beim Plusrechnen zu tauschen (3+5=5+3)?", typ: "mc", optionen: ["Kommutativgesetz", "Assoziativgesetz", "Distributivgesetz", "Punktgesetz"], loesung: "Kommutativgesetz", erklaerung: "Das Kommutativgesetz (von lateinisch 'commutare' = vertauschen) besagt, dass bei Addition und Multiplikation die Reihenfolge der Zahlen egal ist. Es gilt aber nicht für Subtraktion und Division." },
         { frage: "(2+3)+4 ergibt dasselbe wie 2+(3+4). Wie heißt dieses Gesetz?", typ: "mc", optionen: ["Assoziativgesetz", "Kommutativgesetz", "Distributivgesetz", "Rundungsgesetz"], loesung: "Assoziativgesetz", erklaerung: "Das Assoziativgesetz erlaubt es, bei mehreren Additionen oder Multiplikationen die Klammern anders zu setzen, ohne dass sich das Ergebnis ändert. Das ist praktisch, um sich Zwischenschritte einfacher zu machen." },
@@ -438,6 +666,44 @@ window.LERNDATA.mathe = {
         "📏 Ein Winkel entsteht, wenn sich zwei Linien treffen. Man misst ihn in Grad (°).",
         "🔲 Ein rechter Winkel hat genau 90°. Ein spitzer Winkel ist kleiner, ein stumpfer Winkel größer als 90°. Ein gestreckter Winkel ist eine gerade Linie: 180°."
       ],
+      animation: {
+        titel: "Besiege den Winkel-Dämon: der fehlende Winkel",
+        zahlenDaemon: "60°+70°+?",
+        szenen: [
+          {
+            aktion: "eingang",
+            text: "Ein Winkel-Dämon versteckt den dritten Winkel eines Dreiecks! Du kennst schon zwei Winkel: 60° und 70°. Finde den fehlenden dritten Winkel, denn alle drei zusammen ergeben immer 180°.",
+            hp: 100
+          },
+          {
+            aktion: "angriff",
+            text: "Angriff 1: Addiere die beiden bekannten Winkel: 60° + 70° = 130°.",
+            rechnung: "60° + 70° = 130°",
+            ergebnisSoweit: "130°",
+            hp: 66
+          },
+          {
+            aktion: "angriff",
+            text: "Angriff 2: Ein Dreieck hat immer zusammen 180°. Ziehe die bekannte Summe ab: 180° − 130° = 50°.",
+            rechnung: "180° − 130° = 50°",
+            ergebnisSoweit: "50°",
+            hp: 33
+          },
+          {
+            aktion: "angriff",
+            text: "Angriff 3: Der dritte Winkel ist also 50° — ein spitzer Winkel, weil er kleiner als 90° ist. Letzter Treffer!",
+            rechnung: "Dritter Winkel = 50°",
+            ergebnisSoweit: "50° (spitzer Winkel)",
+            hp: 0
+          },
+          {
+            aktion: "sieg",
+            text: "🏆 Geschafft! Die drei Winkel des Dreiecks sind 60°, 70° und 50° – zusammen genau 180°. In jedem Dreieck ergeben die drei Innenwinkel immer 180°.",
+            ergebnisSoweit: "60°+70°+50°=180°",
+            hp: 0
+          }
+        ]
+      },
       aufgaben: [
         { frage: "Wie nennt man zwei Geraden, die sich im rechten Winkel schneiden?", typ: "mc", optionen: ["senkrecht", "parallel", "identisch", "gebogen"], loesung: "senkrecht", erklaerung: "Wenn sich zwei Geraden in einem Winkel von genau 90° treffen, nennt man sie senkrecht zueinander. Das erkennst du oft an einem kleinen Quadrat-Symbol an der Schnittstelle." },
         { frage: "Wie nennt man zwei Geraden, die sich nie schneiden?", typ: "mc", optionen: ["parallel", "senkrecht", "schräg", "identisch"], loesung: "parallel", erklaerung: "Zwei Geraden, die immer den gleichen Abstand zueinander haben und sich deshalb nie treffen, heißen parallel. Ein Beispiel sind die beiden Schienen einer Eisenbahn." },
@@ -472,6 +738,44 @@ window.LERNDATA.mathe = {
           ergebnis: "Der Punkt (4|3)"
         }
       ],
+      animation: {
+        titel: "Besiege den Koordinaten-Dämon: (4|3)",
+        zahlenDaemon: "(4|3)",
+        szenen: [
+          {
+            aktion: "eingang",
+            text: "Ein Koordinaten-Dämon versteckt sich am Punkt (4|3)! Finde ihn, indem du vom Ursprung (0|0) aus zuerst nach rechts und dann nach oben gehst.",
+            hp: 100
+          },
+          {
+            aktion: "angriff",
+            text: "Angriff 1: Starte im Ursprung (0|0) und gehe 4 Schritte nach rechts – das ist der x-Wert.",
+            rechnung: "x-Wert: 4 Schritte rechts",
+            ergebnisSoweit: "(4|0)",
+            hp: 66
+          },
+          {
+            aktion: "angriff",
+            text: "Angriff 2: Von dort aus gehst du 3 Schritte nach oben – das ist der y-Wert.",
+            rechnung: "y-Wert: 3 Schritte hoch",
+            ergebnisSoweit: "(4|3)",
+            hp: 33
+          },
+          {
+            aktion: "angriff",
+            text: "Angriff 3: Du hast den Punkt (4|3) erreicht und den Dämon getroffen — letzter Treffer!",
+            rechnung: "Punkt erreicht",
+            ergebnisSoweit: "(4|3)",
+            hp: 0
+          },
+          {
+            aktion: "sieg",
+            text: "🏆 Geschafft! Der Punkt (4|3) liegt 4 Schritte rechts und 3 Schritte über dem Ursprung. Merke: Immer zuerst der x-Wert (rechts/links), dann der y-Wert (hoch/runter).",
+            ergebnisSoweit: "(4|3)",
+            hp: 0
+          }
+        ]
+      },
       aufgaben: [
         { frage: "Wie heißt die waagerechte Achse im Koordinatensystem?", typ: "mc", optionen: ["x-Achse", "y-Achse", "z-Achse", "Mittelachse"], loesung: "x-Achse", erklaerung: "Die waagerechte (horizontale) Achse, die nach rechts und links zeigt, heißt x-Achse. Sie wird immer zuerst angegeben, wenn man einen Punkt beschreibt." },
         { frage: "Wie heißt die senkrechte Achse im Koordinatensystem?", typ: "mc", optionen: ["y-Achse", "x-Achse", "z-Achse", "Mittelachse"], loesung: "y-Achse", erklaerung: "Die senkrechte (vertikale) Achse, die nach oben und unten zeigt, heißt y-Achse. Sie wird bei einem Punkt immer als zweiter Wert angegeben." },
@@ -493,6 +797,44 @@ window.LERNDATA.mathe = {
         "🔄 Eine Figur ist punktsymmetrisch, wenn man sie um einen Punkt (Symmetriezentrum) um 180° drehen kann und sie danach genau gleich aussieht.",
         "❤️ Ein Herz ist achsensymmetrisch. Manche Figuren sind punktsymmetrisch, manche beides, manche keins von beidem."
       ],
+      animation: {
+        titel: "Besiege den Spiegel-Dämon: alle Spiegelachsen",
+        zahlenDaemon: "4",
+        szenen: [
+          {
+            aktion: "eingang",
+            text: "Ein Spiegel-Dämon versteckt sich in einem Quadrat! Ein Quadrat hat mehrere Spiegelachsen – finde sie alle, um den Dämon zu schwächen.",
+            hp: 100
+          },
+          {
+            aktion: "angriff",
+            text: "Angriff 1: Die erste Spiegelachse verläuft waagerecht durch die Mitte.",
+            rechnung: "1. Achse: waagerecht",
+            ergebnisSoweit: "1",
+            hp: 66
+          },
+          {
+            aktion: "angriff",
+            text: "Angriff 2: Die zweite Spiegelachse verläuft senkrecht durch die Mitte.",
+            rechnung: "2. Achse: senkrecht",
+            ergebnisSoweit: "2",
+            hp: 33
+          },
+          {
+            aktion: "angriff",
+            text: "Angriff 3: Zwei weitere Spiegelachsen verlaufen diagonal von Ecke zu Ecke – jetzt sind es insgesamt 4! Letzter Treffer.",
+            rechnung: "3. und 4. Achse: diagonal",
+            ergebnisSoweit: "4",
+            hp: 0
+          },
+          {
+            aktion: "sieg",
+            text: "🏆 Geschafft! Ein Quadrat hat genau 4 Spiegelachsen: waagerecht, senkrecht und zwei diagonale. An jeder dieser Linien sind beide Hälften spiegelgleich.",
+            ergebnisSoweit: "4 Spiegelachsen",
+            hp: 0
+          }
+        ]
+      },
       aufgaben: [
         { frage: "Wie heißt die Linie, an der eine achsensymmetrische Figur gespiegelt wird?", typ: "mc", optionen: ["Spiegelachse", "Symmetriezentrum", "Diagonale", "Mittellinie"], loesung: "Spiegelachse", erklaerung: "Die Spiegelachse ist die gedachte Linie, an der beide Hälften einer Figur wie in einem Spiegel genau gleich aussehen. Klappt man die Figur an dieser Linie, decken sich beide Hälften exakt." },
         { frage: "Um wie viel Grad dreht man eine Figur bei Punktsymmetrie, damit sie wieder gleich aussieht?", typ: "zahl", loesung: "180", erklaerung: "Bei Punktsymmetrie sieht eine Figur nach einer halben Umdrehung um ihr Symmetriezentrum genauso aus wie vorher. Eine halbe Umdrehung entspricht 180°, also der Hälfte einer vollen 360°-Drehung." },
@@ -514,6 +856,44 @@ window.LERNDATA.mathe = {
         "🎲 Ein Würfel ist ein besonderer Quader, bei dem alle 6 Flächen gleich große Quadrate sind.",
         "✏️ Ein Schrägbild zeichnet einen 3D-Körper auf einem flachen Blatt, sodass er räumlich aussieht."
       ],
+      animation: {
+        titel: "Besiege den Quader-Dämon: Flächen, Kanten, Ecken",
+        zahlenDaemon: "Quader",
+        szenen: [
+          {
+            aktion: "eingang",
+            text: "Ein Quader-Dämon fordert dich heraus, seine Bauteile zu zählen: Flächen, Kanten und Ecken!",
+            hp: 100
+          },
+          {
+            aktion: "angriff",
+            text: "Angriff 1: Zähle die Flächen. Ein Quader hat 6 rechteckige Flächen.",
+            rechnung: "Flächen zählen",
+            ergebnisSoweit: "6 Flächen",
+            hp: 66
+          },
+          {
+            aktion: "angriff",
+            text: "Angriff 2: Zähle die Kanten. Ein Quader hat 12 Kanten.",
+            rechnung: "Kanten zählen",
+            ergebnisSoweit: "12 Kanten",
+            hp: 33
+          },
+          {
+            aktion: "angriff",
+            text: "Angriff 3: Zähle die Ecken. Ein Quader hat 8 Ecken — letzter Treffer!",
+            rechnung: "Ecken zählen",
+            ergebnisSoweit: "8 Ecken",
+            hp: 0
+          },
+          {
+            aktion: "sieg",
+            text: "🏆 Geschafft! Ein Quader hat 6 Flächen, 12 Kanten und 8 Ecken. Diese drei Zahlen gelten für jeden Quader, egal wie groß er ist.",
+            ergebnisSoweit: "6 Flächen, 12 Kanten, 8 Ecken",
+            hp: 0
+          }
+        ]
+      },
       aufgaben: [
         { frage: "Wie viele Flächen hat ein Quader?", typ: "zahl", loesung: "6", erklaerung: "Ein Quader wird von 6 rechteckigen Flächen begrenzt: oben, unten, vorne, hinten, links und rechts – jeweils zwei gegenüberliegende Flächen sind gleich groß." },
         { frage: "Wie viele Kanten hat ein Quader?", typ: "zahl", loesung: "12", erklaerung: "Ein Quader hat 12 Kanten: an jeder der 6 Flächen liegen 4 Kanten, aber jede Kante wird von zwei Flächen gemeinsam genutzt, deshalb sind es insgesamt 12 statt 24." },
@@ -638,6 +1018,44 @@ window.LERNDATA.mathe = {
           ergebnis: "24 cm³"
         }
       ],
+      animation: {
+        titel: "Besiege den Volumen-Dämon: 4 × 3 × 2",
+        zahlenDaemon: "4×3×2",
+        szenen: [
+          {
+            aktion: "eingang",
+            text: "Ein Volumen-Dämon versteckt sich in einem Quader mit den Maßen 4 cm × 3 cm × 2 cm! Berechne sein Volumen, um ihn zu besiegen.",
+            hp: 100
+          },
+          {
+            aktion: "angriff",
+            text: "Angriff 1: Multipliziere zuerst Länge und Breite: 4 × 3 = 12.",
+            rechnung: "4 × 3 = 12",
+            ergebnisSoweit: "12",
+            hp: 66
+          },
+          {
+            aktion: "angriff",
+            text: "Angriff 2: Multipliziere jetzt mit der Höhe: 12 × 2 = 24.",
+            rechnung: "12 × 2 = 24",
+            ergebnisSoweit: "24",
+            hp: 33
+          },
+          {
+            aktion: "angriff",
+            text: "Angriff 3: Das Volumen beträgt 24 cm³ — letzter Treffer!",
+            rechnung: "Volumen = 24 cm³",
+            ergebnisSoweit: "24 cm³",
+            hp: 0
+          },
+          {
+            aktion: "sieg",
+            text: "🏆 Geschafft! Volumen = Länge × Breite × Höhe = 4 × 3 × 2 = 24 cm³. So viele 1-cm³-Würfel passen in diesen Quader.",
+            ergebnisSoweit: "24 cm³",
+            hp: 0
+          }
+        ]
+      },
       aufgaben: [
         { frage: "Wie berechnet man das Volumen eines Quaders?", typ: "mc", optionen: ["Länge × Breite × Höhe", "Länge + Breite + Höhe", "Länge × Breite", "2 × (Länge+Breite)"], loesung: "Länge × Breite × Höhe", erklaerung: "Das Volumen gibt an, wie viele 1-cm³-Würfel in den Quader passen. Weil man in alle drei Richtungen (Länge, Breite und Höhe) Würfel stapeln kann, multipliziert man alle drei Maße miteinander." },
         { frage: "Ein Quader ist 4 cm lang, 3 cm breit, 2 cm hoch. Wie groß ist das Volumen?", typ: "zahl", loesung: "24", erklaerung: "Volumen = Länge × Breite × Höhe: zuerst 4 × 3 = 12, dann 12 × 2 = 24 cm³." },
@@ -760,6 +1178,44 @@ window.LERNDATA.mathe = {
           ergebnis: "15"
         }
       ],
+      animation: {
+        titel: "Besiege den Anteils-Dämon: 3/4 von 20",
+        zahlenDaemon: "3/4 von 20",
+        szenen: [
+          {
+            aktion: "eingang",
+            text: "Ein Anteils-Dämon versteckt sich in der Aufgabe: Wie viel sind 3/4 von 20? Finde den Anteil heraus, um ihn zu besiegen.",
+            hp: 100
+          },
+          {
+            aktion: "angriff",
+            text: "Angriff 1: Teile zuerst 20 durch den Nenner 4: 20 : 4 = 5. Das ist ein Viertel.",
+            rechnung: "20 : 4 = 5",
+            ergebnisSoweit: "5 (ein Viertel)",
+            hp: 66
+          },
+          {
+            aktion: "angriff",
+            text: "Angriff 2: Multipliziere mit dem Zähler 3, um drei Viertel zu bekommen: 5 × 3 = 15.",
+            rechnung: "5 × 3 = 15",
+            ergebnisSoweit: "15",
+            hp: 33
+          },
+          {
+            aktion: "angriff",
+            text: "Angriff 3: 3/4 von 20 sind 15 — letzter Treffer!",
+            rechnung: "3/4 von 20 = 15",
+            ergebnisSoweit: "15",
+            hp: 0
+          },
+          {
+            aktion: "sieg",
+            text: "🏆 Geschafft! 3/4 von 20 sind 15. Du hast zuerst durch den Nenner geteilt und dann mit dem Zähler multipliziert.",
+            ergebnisSoweit: "15",
+            hp: 0
+          }
+        ]
+      },
       aufgaben: [
         { frage: "3/4 ist dasselbe wie welche Divisionsaufgabe?", typ: "mc", optionen: ["3 : 4", "4 : 3", "3 × 4", "4 - 3"], loesung: "3 : 4", erklaerung: "Jeder Bruch a/b lässt sich auch als Divisionsaufgabe a : b lesen. Deshalb bedeutet 3/4 genau dasselbe wie 3 geteilt durch 4." },
         { frage: "Was ist 1/2 von 20?", typ: "zahl", loesung: "10", erklaerung: "Um einen Anteil von einer Zahl zu berechnen, teilst du zuerst durch den Nenner: 20 : 2 = 10. Weil der Zähler hier 1 ist, brauchst du danach nicht mehr zu multiplizieren." },
@@ -792,6 +1248,44 @@ window.LERNDATA.mathe = {
           ergebnis: "0,3"
         }
       ],
+      animation: {
+        titel: "Besiege den Dezimal-Dämon: 3/4",
+        zahlenDaemon: "3/4",
+        szenen: [
+          {
+            aktion: "eingang",
+            text: "Ein Dezimal-Dämon versteckt sich hinter dem Bruch 3/4! Verwandle ihn in eine Dezimalzahl, indem du 3 schriftlich durch 4 teilst.",
+            hp: 100
+          },
+          {
+            aktion: "angriff",
+            text: "Angriff 1: 3 : 4 geht nicht ohne Rest, also rechnest du mit Komma weiter: 30 (Zehntel) : 4 = 7, Rest 2 (denn 7×4=28).",
+            rechnung: "30 : 4 = 7, Rest 2",
+            ergebnisSoweit: "0,7",
+            hp: 66
+          },
+          {
+            aktion: "angriff",
+            text: "Angriff 2: Der Rest 2 wird zu 20 Hundertstel: 20 : 4 = 5, Rest 0.",
+            rechnung: "20 : 4 = 5, Rest 0",
+            ergebnisSoweit: "0,75",
+            hp: 33
+          },
+          {
+            aktion: "angriff",
+            text: "Angriff 3: Kein Rest mehr übrig – die Dezimalzahl ist fertig: 0,75 — letzter Treffer!",
+            rechnung: "3 : 4 = 0,75",
+            ergebnisSoweit: "0,75",
+            hp: 0
+          },
+          {
+            aktion: "sieg",
+            text: "🏆 Geschafft! 3/4 als Dezimalzahl ist 0,75. Du hast die schriftliche Division genutzt: Wenn eine Ziffer nicht aufgeht, hängst du gedanklich eine Null an und rechnest mit Nachkommastellen weiter.",
+            ergebnisSoweit: "0,75",
+            hp: 0
+          }
+        ]
+      },
       aufgaben: [
         { frage: "Was ist 1/2 als Dezimalzahl?", typ: "mc", optionen: ["0,5", "0,2", "0,25", "1,2"], loesung: "0,5", erklaerung: "Ein Bruch lässt sich als Division rechnen: 1 : 2 = 0,5. Weil 1 nicht ohne Rest durch 2 teilbar ist, rechnest du mit Komma weiter: aus 10 Zehnteln werden 5 Zehntel, also 0,5." },
         { frage: "Was ist 1/4 als Dezimalzahl?", typ: "mc", optionen: ["0,25", "0,4", "0,5", "0,14"], loesung: "0,25", erklaerung: "1 : 4 ergibt schrittweise: 10 Zehntel geteilt durch 4 sind 2 Rest 2, dann 20 Hundertstel geteilt durch 4 sind 5. Zusammen ergibt das 0,25." },

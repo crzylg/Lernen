@@ -28,10 +28,12 @@ aus diesen Büchern übernommen, nur Themen und Reihenfolge sind angelehnt.
 - **Mathematik** (16 Missionen, je 10–15 Aufgaben, an die 6 Kapitel von
   "Fundamente der Mathematik" angelehnt): Daten auswerten, Große Zahlen &
   Runden, Größen umrechnen, Grundrechenarten, Schriftliches Rechnen,
-  Schriftliche Division (inkl. animiertem "Zahlen-Dämon"-Erklärstück),
-  Rechengesetze & Teilbarkeit, Senkrecht/Parallel/Winkel, Koordinatensystem,
-  Symmetrie, Körper & Netze, Flächeninhalt & Umfang, Volumen &
-  Oberflächeninhalt, Brüche verstehen, Brüche als Quotient, Dezimalzahlen
+  Schriftliche Division, Rechengesetze & Teilbarkeit,
+  Senkrecht/Parallel/Winkel, Koordinatensystem, Symmetrie, Körper & Netze,
+  Flächeninhalt & Umfang, Volumen & Oberflächeninhalt, Brüche verstehen,
+  Brüche als Quotient, Dezimalzahlen — **jede** Mission hat zusätzlich eine
+  kurze animierte "Held gegen Zahlen-Dämon"-Erklärung direkt über den
+  Beispielrechnungen (Button "🎬 Animation ansehen")
 - **Deutsch** (13 Missionen, je 10–15 Aufgaben, an das Deutschbuch
   Gymnasium angelehnt): Wortarten, Groß- & Kleinschreibung, Satzglieder
   (Subjekt & Prädikat, inkl. Umstellprobe), Satzglieder (Objekte &
