@@ -1,4 +1,15 @@
 // Deutsch – Klasse 5 (Gymnasium Niedersachsen)
+// Aufgaben-Typ "mc" = Multiple Choice (loesung ist der Text der richtigen Option)
+// Aufgaben-Typ "zahl" = Antwort eintippen (loesung ist der erwartete Text)
+//
+// Themenauswahl ist an das im Unterricht verwendete Buch angelehnt
+// (Deutschbuch Gymnasium, 5. Schuljahr): Wortarten & Rechtschreibung ·
+// Satzglieder (inkl. Umstellprobe, Objekte, adverbiale Bestimmungen) ·
+// Zeitformen (Tempora) · Zeichensetzung · Textverständnis · Erzähltexte
+// (Sagen) · Gedichte · eigenes Schreiben (Erzählung, Brief, Beschreibung,
+// Meinung begründen).
+// Alle Texte, Beispiele und Aufgaben sind vollständig selbst geschrieben –
+// es wird kein Inhalt aus dem Buch übernommen, nur Themen und Reihenfolge.
 window.LERNDATA = window.LERNDATA || {};
 window.LERNDATA.deutsch = {
   id: "deutsch",
@@ -63,27 +74,83 @@ window.LERNDATA.deutsch = {
     },
     {
       id: "satzglieder",
-      titel: "Satzglieder",
+      titel: "Satzglieder: Subjekt & Prädikat",
       icon: "🧩",
-      intro: "Subjekt, Prädikat und Objekt in einem Satz finden.",
+      intro: "Subjekt und Prädikat finden – und mit der Umstellprobe prüfen.",
       lektion: [
-        "🧩 Jeder vollständige Satz braucht ein Subjekt (Wer oder was?) und ein Prädikat (Was tut das Subjekt?).",
-        "🏃 Das Prädikat ist das Verb im Satz.",
-        "🎯 Ein Objekt ergänzt den Satz. Es antwortet z. B. auf 'Wen oder was?' (Akkusativobjekt) oder 'Wem?' (Dativobjekt)."
+        "🧩 Jeder vollständige Satz braucht ein Subjekt (Wer oder was?) und ein Prädikat (Was tut das Subjekt? / Was geschieht?).",
+        "🏃 Das Prädikat ist das Verb im Satz – es ist der 'Kern', um den sich alles andere dreht.",
+        "🔀 Umstellprobe: Man kann prüfen, ob eine Wortgruppe ein eigenes Satzglied ist, indem man sie an den Satzanfang stellt. Bleibt sie zusammen, ist sie ein Satzglied. Beispiel: 'Der Hund bellt laut im Garten.' → 'Im Garten bellt der Hund laut.' ('im Garten' bleibt zusammen = ein Satzglied.)",
+        "📍 In einem Aussagesatz steht das Prädikat fast immer an zweiter Stelle – egal, welches Satzglied ganz vorne steht."
       ],
       aufgaben: [
         { frage: "Wie fragt man nach dem Subjekt?", typ: "mc", optionen: ["Wer oder was?", "Was tut jemand?", "Wem?", "Wen oder was?"], loesung: "Wer oder was?", erklaerung: "Das Subjekt ist der Satzgegenstand: 'Wer oder was?'" },
         { frage: "Wie fragt man nach dem Prädikat?", typ: "mc", optionen: ["Was tut das Subjekt?", "Wer oder was?", "Wo?", "Wann?"], loesung: "Was tut das Subjekt?", erklaerung: "Das Prädikat ist die Satzaussage (das Verb): 'Was tut das Subjekt?'" },
         { frage: "Im Satz 'Der Hund bellt laut.' – was ist das Subjekt?", typ: "mc", optionen: ["Der Hund", "bellt", "laut", "kein Subjekt vorhanden"], loesung: "Der Hund", erklaerung: "'Der Hund' beantwortet die Frage 'Wer oder was bellt?'" },
         { frage: "Im Satz 'Der Hund bellt laut.' – was ist das Prädikat?", typ: "mc", optionen: ["Der Hund", "bellt", "laut", "kein Prädikat vorhanden"], loesung: "bellt", erklaerung: "'bellt' ist das Verb und damit das Prädikat." },
-        { frage: "Im Satz 'Anna liest ein Buch.' – was ist das Objekt?", typ: "mc", optionen: ["Anna", "liest", "ein Buch", "kein Objekt vorhanden"], loesung: "ein Buch", erklaerung: "'ein Buch' beantwortet die Frage 'Wen oder was liest Anna?' – das ist das Objekt." },
-        { frage: "Wie fragt man nach dem Objekt im Akkusativ?", typ: "mc", optionen: ["Wen oder was?", "Wer oder was?", "Wessen?", "Wo?"], loesung: "Wen oder was?", erklaerung: "Das Akkusativobjekt findet man mit der Frage 'Wen oder was?'" },
-        { frage: "Im Satz 'Tim spielt Fußball.' – was ist das Subjekt?", typ: "mc", optionen: ["Tim", "spielt", "Fußball", "kein Subjekt vorhanden"], loesung: "Tim", erklaerung: "'Tim' beantwortet 'Wer oder was spielt?'" },
+        { frage: "Was macht man bei der Umstellprobe?", typ: "mc", optionen: ["Man stellt eine Wortgruppe an den Satzanfang", "Man streicht das Prädikat", "Man liest den Satz rückwärts", "Man zählt die Wörter"], loesung: "Man stellt eine Wortgruppe an den Satzanfang", erklaerung: "Mit der Umstellprobe testet man, ob eine Wortgruppe zusammen als ein Satzglied verschoben werden kann." },
+        { frage: "'Der Hund bellt laut im Garten.' wird zu 'Im Garten bellt der Hund laut.' Was zeigt das?", typ: "mc", optionen: ["'im Garten' ist ein eigenes Satzglied", "Der Satz ist jetzt falsch", "'bellt' ist kein Verb mehr", "Der Hund ist jetzt das Prädikat"], loesung: "'im Garten' ist ein eigenes Satzglied", erklaerung: "Weil 'im Garten' als Ganzes umgestellt werden kann, ist es ein zusammenhängendes Satzglied." },
+        { frage: "In einem Aussagesatz steht das Prädikat meistens an welcher Stelle?", typ: "zahl", loesung: "2", erklaerung: "Das Prädikat steht in einem deutschen Aussagesatz fast immer an zweiter Stelle." },
+        { frage: "'Am Abend liest Tom ein Buch.' – was steht hier an erster Stelle?", typ: "mc", optionen: ["Am Abend", "liest", "Tom", "ein Buch"], loesung: "Am Abend", erklaerung: "'Am Abend' steht vorne, das Prädikat 'liest' folgt trotzdem an zweiter Stelle." },
+        { frage: "'Am Abend liest Tom ein Buch.' – was ist hier das Prädikat?", typ: "mc", optionen: ["liest", "Am Abend", "Tom", "ein Buch"], loesung: "liest", erklaerung: "'liest' ist das Verb und bleibt das Prädikat, egal was vorne im Satz steht." },
         { frage: "Ein einfacher Satz braucht mindestens …", typ: "mc", optionen: ["Subjekt und Prädikat", "nur ein Objekt", "drei Adjektive", "ein Fragezeichen"], loesung: "Subjekt und Prädikat", erklaerung: "Jeder vollständige Satz braucht mindestens ein Subjekt und ein Prädikat." },
         { frage: "Im Satz 'Die Tänzerin übt die Schritte.' – was ist das Subjekt?", typ: "mc", optionen: ["Die Tänzerin", "übt", "die Schritte", "kein Subjekt vorhanden"], loesung: "Die Tänzerin", erklaerung: "'Die Tänzerin' beantwortet 'Wer oder was übt?'" },
-        { frage: "Im Satz 'Die Tänzerin übt die Schritte.' – was ist das Objekt?", typ: "mc", optionen: ["die Schritte", "Die Tänzerin", "übt", "kein Objekt vorhanden"], loesung: "die Schritte", erklaerung: "'die Schritte' beantwortet 'Wen oder was übt die Tänzerin?'" },
-        { frage: "Im Satz 'Der Lehrer gibt dem Schüler ein Buch.' – wie fragt man nach 'dem Schüler'?", typ: "mc", optionen: ["Wem?", "Wen oder was?", "Wer oder was?", "Wessen?"], loesung: "Wem?", erklaerung: "'dem Schüler' ist ein Dativobjekt – Frage: 'Wem gibt der Lehrer das Buch?'" },
-        { frage: "Im Satz 'Die Sonne scheint.' – gibt es hier ein Objekt?", typ: "mc", optionen: ["Nein, nur Subjekt und Prädikat", "Ja, 'scheint' ist das Objekt", "Ja, 'Sonne' ist das Objekt", "Der Satz hat kein Prädikat"], loesung: "Nein, nur Subjekt und Prädikat", erklaerung: "Nicht jeder Satz braucht ein Objekt – 'Die Sonne scheint' hat nur Subjekt und Prädikat." }
+        { frage: "Im Satz 'Die Sonne scheint.' – was ist das Prädikat?", typ: "mc", optionen: ["scheint", "Die Sonne", "kein Prädikat vorhanden", "Sonne"], loesung: "scheint", erklaerung: "'scheint' ist das Verb und damit das Prädikat des Satzes." }
+      ]
+    },
+    {
+      id: "satzglieder-objekte",
+      titel: "Satzglieder: Objekte & adverbiale Bestimmungen",
+      icon: "🎯",
+      intro: "Akkusativ- und Dativobjekt sowie Ort, Zeit, Art und Grund im Satz finden.",
+      lektion: [
+        "🎯 Ein Objekt ergänzt das Prädikat. Das Akkusativobjekt antwortet auf 'Wen oder was?', z. B.: 'Anna liest ein Buch.' → ein Buch.",
+        "🤲 Das Dativobjekt antwortet auf 'Wem?', z. B.: 'Der Lehrer gibt dem Schüler ein Buch.' → dem Schüler. Manche Verben (geben, schenken, zeigen …) brauchen beide Objekte gleichzeitig.",
+        "🧭 Adverbiale Bestimmungen geben zusätzliche Informationen: des Ortes (Wo?), der Zeit (Wann?), der Art und Weise (Wie?) und des Grundes (Warum?).",
+        "📌 Beispiel: 'Sie rennt schnell durch den Park.' – 'schnell' ist die Art und Weise, 'durch den Park' der Ort."
+      ],
+      aufgaben: [
+        { frage: "Wie fragt man nach dem Akkusativobjekt?", typ: "mc", optionen: ["Wen oder was?", "Wer oder was?", "Wessen?", "Wo?"], loesung: "Wen oder was?", erklaerung: "Das Akkusativobjekt findet man mit der Frage 'Wen oder was?'" },
+        { frage: "Wie fragt man nach dem Dativobjekt?", typ: "mc", optionen: ["Wem?", "Wen oder was?", "Wessen?", "Wie?"], loesung: "Wem?", erklaerung: "Das Dativobjekt findet man mit der Frage 'Wem?'" },
+        { frage: "Im Satz 'Anna liest ein Buch.' – was ist das Akkusativobjekt?", typ: "mc", optionen: ["ein Buch", "Anna", "liest", "kein Objekt vorhanden"], loesung: "ein Buch", erklaerung: "'ein Buch' beantwortet die Frage 'Wen oder was liest Anna?'" },
+        { frage: "Im Satz 'Der Lehrer gibt dem Schüler ein Buch.' – was ist das Dativobjekt?", typ: "mc", optionen: ["dem Schüler", "Der Lehrer", "ein Buch", "gibt"], loesung: "dem Schüler", erklaerung: "'dem Schüler' beantwortet die Frage 'Wem gibt der Lehrer das Buch?'" },
+        { frage: "Im selben Satz 'Der Lehrer gibt dem Schüler ein Buch.' – was ist das Akkusativobjekt?", typ: "mc", optionen: ["ein Buch", "dem Schüler", "Der Lehrer", "kein Objekt vorhanden"], loesung: "ein Buch", erklaerung: "'ein Buch' beantwortet 'Wen oder was gibt der Lehrer?'" },
+        { frage: "Die adverbiale Bestimmung des Ortes antwortet auf welche Frage?", typ: "mc", optionen: ["Wo?", "Wann?", "Wie?", "Warum?"], loesung: "Wo?", erklaerung: "Ort-Angaben antworten auf 'Wo?' (oder 'Wohin?'/'Woher?')." },
+        { frage: "Die adverbiale Bestimmung der Zeit antwortet auf welche Frage?", typ: "mc", optionen: ["Wann?", "Wo?", "Wie?", "Warum?"], loesung: "Wann?", erklaerung: "Zeit-Angaben antworten auf 'Wann?'" },
+        { frage: "Die adverbiale Bestimmung der Art und Weise antwortet auf welche Frage?", typ: "mc", optionen: ["Wie?", "Wo?", "Wann?", "Warum?"], loesung: "Wie?", erklaerung: "Art-und-Weise-Angaben antworten auf 'Wie?'" },
+        { frage: "Die adverbiale Bestimmung des Grundes antwortet auf welche Frage?", typ: "mc", optionen: ["Warum?", "Wo?", "Wann?", "Wie?"], loesung: "Warum?", erklaerung: "Grund-Angaben antworten auf 'Warum?' (oder 'Weshalb?')." },
+        { frage: "'Sie rennt schnell durch den Park.' – welche adverbiale Bestimmung ist 'durch den Park'?", typ: "mc", optionen: ["Ort", "Zeit", "Art und Weise", "Grund"], loesung: "Ort", erklaerung: "'durch den Park' beantwortet 'Wo (entlang)?' – das ist eine Ortsangabe." },
+        { frage: "'Sie rennt schnell durch den Park.' – welche adverbiale Bestimmung ist 'schnell'?", typ: "mc", optionen: ["Art und Weise", "Ort", "Zeit", "Grund"], loesung: "Art und Weise", erklaerung: "'schnell' beantwortet 'Wie rennt sie?' – Art und Weise." },
+        { frage: "'Wegen des Regens blieben wir zu Hause.' – welche adverbiale Bestimmung ist 'Wegen des Regens'?", typ: "mc", optionen: ["Grund", "Ort", "Zeit", "Art und Weise"], loesung: "Grund", erklaerung: "'Wegen des Regens' beantwortet 'Warum blieben wir zu Hause?' – ein Grund." }
+      ]
+    },
+    {
+      id: "tempora",
+      titel: "Zeitformen (Tempora)",
+      icon: "⏳",
+      intro: "Präsens, Präteritum, Perfekt, Plusquamperfekt und Futur I unterscheiden.",
+      lektion: [
+        "🕐 Präsens (Gegenwart): 'Sie geht.' – für Dinge, die jetzt passieren oder immer gelten.",
+        "🕑 Präteritum (Erzählzeit): 'Sie ging.' – die typische Zeitform beim Schreiben von Geschichten.",
+        "🕒 Perfekt (gesprochene Vergangenheit): 'Sie ist gegangen.' – gebildet mit 'haben' oder 'sein' + Partizip II, häufig im Gespräch.",
+        "🕓 Plusquamperfekt (Vorvergangenheit): 'Sie war gegangen.' – für etwas, das schon VOR einem anderen Vergangenheits-Ereignis passiert war.",
+        "🕔 Futur I (Zukunft): 'Sie wird gehen.' – gebildet mit 'werden' + Infinitiv."
+      ],
+      aufgaben: [
+        { frage: "'Sie geht zur Schule.' – welche Zeitform ist das?", typ: "mc", optionen: ["Präsens", "Präteritum", "Perfekt", "Futur I"], loesung: "Präsens", erklaerung: "'geht' ist die Präsensform (Gegenwart) von 'gehen'." },
+        { frage: "'Sie ging zur Schule.' – welche Zeitform ist das?", typ: "mc", optionen: ["Präteritum", "Präsens", "Perfekt", "Plusquamperfekt"], loesung: "Präteritum", erklaerung: "'ging' ist die Präteritumform (Erzählzeit) von 'gehen'." },
+        { frage: "'Sie ist zur Schule gegangen.' – welche Zeitform ist das?", typ: "mc", optionen: ["Perfekt", "Präsens", "Präteritum", "Futur I"], loesung: "Perfekt", erklaerung: "'ist … gegangen' besteht aus 'sein' + Partizip II – das ist Perfekt." },
+        { frage: "'Sie wird zur Schule gehen.' – welche Zeitform ist das?", typ: "mc", optionen: ["Futur I", "Präsens", "Präteritum", "Perfekt"], loesung: "Futur I", erklaerung: "'wird … gehen' besteht aus 'werden' + Infinitiv – das ist Futur I." },
+        { frage: "'Sie war schon zur Schule gegangen, als es zu regnen begann.' – welche Zeitform hat 'war … gegangen'?", typ: "mc", optionen: ["Plusquamperfekt", "Präsens", "Perfekt", "Futur I"], loesung: "Plusquamperfekt", erklaerung: "'war … gegangen' zeigt: das Gehen war schon VOR dem Regen abgeschlossen – Plusquamperfekt." },
+        { frage: "Das Perfekt wird gebildet mit 'haben' oder 'sein' plus …", typ: "mc", optionen: ["Partizip II", "Infinitiv", "Präsensform", "Adjektiv"], loesung: "Partizip II", erklaerung: "Perfekt = 'haben'/'sein' + Partizip II, z. B. 'hat gespielt', 'ist gegangen'." },
+        { frage: "Das Futur I wird gebildet mit 'werden' plus …", typ: "mc", optionen: ["Infinitiv", "Partizip II", "Präteritum", "Adjektiv"], loesung: "Infinitiv", erklaerung: "Futur I = 'werden' + Infinitiv, z. B. 'wird spielen'." },
+        { frage: "Welche Zeitform nutzt man meistens zum Erzählen von Geschichten?", typ: "mc", optionen: ["Präteritum", "Präsens", "Perfekt", "Futur I"], loesung: "Präteritum", erklaerung: "Das Präteritum ist die klassische Erzählzeit in Geschichten." },
+        { frage: "Welche Zeitform beschreibt etwas, das schon vor einem anderen Vergangenheits-Ereignis passiert war?", typ: "mc", optionen: ["Plusquamperfekt", "Präsens", "Futur I", "Perfekt"], loesung: "Plusquamperfekt", erklaerung: "Das Plusquamperfekt zeigt die 'Vergangenheit vor der Vergangenheit'." },
+        { frage: "'ich spiele' – welche Zeitform?", typ: "mc", optionen: ["Präsens", "Präteritum", "Perfekt", "Futur I"], loesung: "Präsens", erklaerung: "'spiele' ist die Präsensform von 'spielen'." },
+        { frage: "'ich habe gespielt' – welche Zeitform?", typ: "mc", optionen: ["Perfekt", "Präsens", "Präteritum", "Plusquamperfekt"], loesung: "Perfekt", erklaerung: "'habe … gespielt' besteht aus 'haben' + Partizip II – Perfekt." },
+        { frage: "'ich spielte' – welche Zeitform?", typ: "mc", optionen: ["Präteritum", "Präsens", "Perfekt", "Futur I"], loesung: "Präteritum", erklaerung: "'spielte' ist die Präteritumform von 'spielen'." },
+        { frage: "'ich werde spielen' – welche Zeitform?", typ: "mc", optionen: ["Futur I", "Präsens", "Präteritum", "Perfekt"], loesung: "Futur I", erklaerung: "'werde … spielen' besteht aus 'werden' + Infinitiv – Futur I." },
+        { frage: "'ich hatte gespielt' – welche Zeitform?", typ: "mc", optionen: ["Plusquamperfekt", "Perfekt", "Präteritum", "Futur I"], loesung: "Plusquamperfekt", erklaerung: "'hatte … gespielt' besteht aus 'hatte' (Präteritum von haben) + Partizip II – Plusquamperfekt." }
       ]
     },
     {
@@ -119,22 +186,27 @@ window.LERNDATA.deutsch = {
       lektion: [
         "👀 Lies den Text zuerst ganz in Ruhe durch, bevor du die Fragen anschaust.",
         "🔍 Wenn eine Frage kommt, suche die passende Stelle im Text noch einmal genau.",
-        "🧠 Manche Antworten stehen wörtlich im Text, andere musst du selbst zusammenreimen."
+        "🧠 Manche Antworten stehen wörtlich im Text, andere musst du selbst zusammenreimen.",
+        "🔎 Manche Antworten musst du nicht nur suchen, sondern selbst erschließen – z. B. wenn eine Uhr 'zwölf schlägt', bedeutet das 12 Uhr Mittag, auch wenn die Zahl '12 Uhr' nirgends direkt im Text steht. Das nennt man eine Schlussfolgerung (Inferenz)."
       ],
-      text: "Am Samstag fuhr Familie Meyer mit dem Fahrrad zum Wald. Die Sonne schien, und die Vögel sangen laut. Lina, die Tochter, entdeckte einen kleinen Igel unter einem Busch. Vorsichtig beobachtete sie das Tier, ohne es zu stören. Ihr Bruder Paul machte ein Foto mit dem Handy seiner Mutter. Am Mittag packten sie ihre Brote aus und aßen gemeinsam auf einer Wiese. Danach sammelten die Kinder bunte Blätter für ein Herbstbild. Nach einer Stunde im Wald packten sie ihre Rucksäcke und fuhren zufrieden nach Hause.",
+      text: "Am Samstagmorgen packte Familie Meyer ihre Fahrräder und fuhr zum Wald am Rand der Stadt. Der Himmel war klar, die Sonne schien warm, und aus den Bäumen klang lautes Vogelgezwitscher. Linas Vater hatte extra einen Picknickkorb mit belegten Broten und einer Thermoskanne Tee eingepackt, denn sie wollten den ganzen Vormittag draußen bleiben.\n\nKaum waren sie im Wald angekommen, entdeckte Lina, die neunjährige Tochter, unter einem dichten Busch etwas, das sich bewegte. Sie blieb sofort stehen, hockte sich langsam hin und erkannte einen kleinen Igel, der sich zwischen den trockenen Blättern versteckte. Vorsichtig beobachtete sie das Tier eine ganze Weile, ohne näherzukommen oder laut zu sprechen, damit der Igel keine Angst bekam. Ihr Bruder Paul, der elf Jahre alt war, lief leise dazu und bat seine Mutter um ihr Handy, um ein Foto von dem seltenen Fund zu machen. Das Bild gelang ihm erst beim dritten Versuch, weil der Igel sich immer wieder zwischen die Blätter zurückzog.\n\nAls die Kirchturmuhr im Dorf zwölf schlug, packte die Familie ihre Brote aus und breitete eine karierte Decke auf einer sonnigen Wiese aus. Sie aßen gemeinsam, tauschten Butterbrote und erzählten sich, was sie im Wald schon alles entdeckt hatten. Nach dem Essen zogen Lina und Paul los, um bunte Blätter zu sammeln – rote, gelbe und orange-braune –, denn sie wollten am nächsten Tag in der Schule ein Herbstbild daraus basteln. Ihre Mutter half ihnen, die schönsten Exemplare auszusuchen, während der Vater die Fahrräder für den Rückweg bereitmachte.\n\nNach etwas mehr als einer Stunde im Wald wurde der Himmel im Westen langsam orange, und die Familie packte ihre Rucksäcke wieder ein. Müde, aber zufrieden setzten sich alle auf ihre Fahrräder und fuhren gemeinsam nach Hause. Lina dachte auf dem ganzen Heimweg an den kleinen Igel und hoffte, ihn bei einem nächsten Ausflug wiederzusehen.",
       aufgaben: [
-        { frage: "Womit fuhr die Familie zum Wald?", typ: "mc", optionen: ["Mit dem Fahrrad", "Mit dem Auto", "Mit dem Bus", "Zu Fuß"], loesung: "Mit dem Fahrrad", erklaerung: "Im Text steht: 'fuhr Familie Meyer mit dem Fahrrad zum Wald'." },
-        { frage: "Wer entdeckte den Igel?", typ: "mc", optionen: ["Lina", "Paul", "Die Mutter", "Der Vater"], loesung: "Lina", erklaerung: "Im Text steht: 'Lina, die Tochter, entdeckte einen kleinen Igel'." },
-        { frage: "Wie hieß Linas Bruder?", typ: "mc", optionen: ["Paul", "Tim", "Max", "Jan"], loesung: "Paul", erklaerung: "Im Text steht: 'Ihr Bruder Paul machte ein Foto'." },
-        { frage: "Womit machte Paul ein Foto?", typ: "mc", optionen: ["Mit dem Handy seiner Mutter", "Mit einer Kamera", "Mit einem Tablet", "Er machte kein Foto"], loesung: "Mit dem Handy seiner Mutter", erklaerung: "Im Text steht: 'machte ein Foto mit dem Handy seiner Mutter'." },
-        { frage: "Wie lange waren sie im Wald?", typ: "mc", optionen: ["Eine Stunde", "Zwei Stunden", "Den ganzen Tag", "Zehn Minuten"], loesung: "Eine Stunde", erklaerung: "Im Text steht: 'Nach einer Stunde im Wald packten sie ihre Rucksäcke'." },
-        { frage: "Wie war das Wetter?", typ: "mc", optionen: ["Die Sonne schien", "Es regnete", "Es schneite", "Es war neblig"], loesung: "Die Sonne schien", erklaerung: "Im Text steht: 'Die Sonne schien, und die Vögel sangen laut'." },
-        { frage: "Störte Lina den Igel?", typ: "mc", optionen: ["Nein, sie beobachtete ihn vorsichtig", "Ja, sie fing ihn", "Ja, sie erschreckte ihn", "Sie fand keinen Igel"], loesung: "Nein, sie beobachtete ihn vorsichtig", erklaerung: "Im Text steht: 'beobachtete sie das Tier, ohne es zu stören'." },
-        { frage: "Wie fühlten sie sich auf dem Nachhauseweg?", typ: "mc", optionen: ["Zufrieden", "Traurig", "Wütend", "Gelangweilt"], loesung: "Zufrieden", erklaerung: "Im Text steht: 'fuhren zufrieden nach Hause'." },
-        { frage: "Was aßen sie zu Mittag?", typ: "mc", optionen: ["Brote", "Pizza", "Nudeln", "Nichts, sie hatten Pause"], loesung: "Brote", erklaerung: "Im Text steht: 'packten sie ihre Brote aus und aßen gemeinsam'." },
-        { frage: "Wo aßen sie zu Mittag?", typ: "mc", optionen: ["Auf einer Wiese", "Zu Hause", "Im Auto", "In einem Restaurant"], loesung: "Auf einer Wiese", erklaerung: "Im Text steht: 'aßen gemeinsam auf einer Wiese'." },
-        { frage: "Was sammelten die Kinder?", typ: "mc", optionen: ["Bunte Blätter", "Steine", "Pilze", "Blumen"], loesung: "Bunte Blätter", erklaerung: "Im Text steht: 'sammelten die Kinder bunte Blätter für ein Herbstbild'." },
-        { frage: "Wofür wollten sie die Blätter benutzen?", typ: "mc", optionen: ["Für ein Herbstbild", "Zum Essen", "Als Geschenk", "Für die Schule"], loesung: "Für ein Herbstbild", erklaerung: "Im Text steht: 'sammelten die Kinder bunte Blätter für ein Herbstbild'." }
+        { frage: "Womit fuhr die Familie zum Wald?", typ: "mc", optionen: ["Mit dem Fahrrad", "Mit dem Auto", "Mit dem Bus", "Zu Fuß"], loesung: "Mit dem Fahrrad", erklaerung: "Im Text steht: 'packte Familie Meyer ihre Fahrräder' und am Ende 'setzten sich alle auf ihre Fahrräder und fuhren gemeinsam nach Hause' – das ist eine direkte, wörtliche Angabe, die du im Text nachlesen kannst." },
+        { frage: "Wer entdeckte den Igel?", typ: "mc", optionen: ["Lina", "Paul", "Die Mutter", "Der Vater"], loesung: "Lina", erklaerung: "Im Text steht ausdrücklich: 'entdeckte Lina, die neunjährige Tochter, unter einem dichten Busch etwas'. Solche Antworten findest du, indem du nach dem Namen direkt vor oder nach der gesuchten Handlung suchst." },
+        { frage: "Wie alt ist Lina?", typ: "zahl", loesung: "9", erklaerung: "Der Text nennt es direkt: 'Lina, die neunjährige Tochter'. Das Wort 'neunjährige' sagt dir sofort das Alter, ohne dass du etwas ausrechnen musst." },
+        { frage: "Wie alt ist Paul?", typ: "zahl", loesung: "11", erklaerung: "Im Text steht: 'Ihr Bruder Paul, der elf Jahre alt war'. Auch das ist eine wörtliche Angabe, die direkt im Satz zu finden ist." },
+        { frage: "Womit machte Paul ein Foto?", typ: "mc", optionen: ["Mit dem Handy seiner Mutter", "Mit einer Kamera", "Mit einem Tablet", "Er machte kein Foto"], loesung: "Mit dem Handy seiner Mutter", erklaerung: "Im Text steht: 'bat seine Mutter um ihr Handy, um ein Foto von dem seltenen Fund zu machen'. Wichtig: Es ist das Handy der Mutter, nicht sein eigenes." },
+        { frage: "Beim wievielten Versuch gelang Paul das Foto?", typ: "zahl", loesung: "3", erklaerung: "Im Text steht: 'Das Bild gelang ihm erst beim dritten Versuch'. Diese Information ist etwas versteckter im Text als die anderen – du musst also genau lesen, nicht nur überfliegen." },
+        { frage: "Um wie viel Uhr aßen sie zu Mittag?", typ: "mc", optionen: ["12 Uhr", "10 Uhr", "14 Uhr", "16 Uhr"], loesung: "12 Uhr", erklaerung: "Im Text steht: 'Als die Kirchturmuhr im Dorf zwölf schlug'. Das steht nicht direkt als '12 Uhr' da – du musst selbst schließen, dass eine Turmuhr, die zwölfmal schlägt, mittags 12 Uhr anzeigt. Das nennt man eine Schlussfolgerung." },
+        { frage: "Wie war das Wetter am Anfang des Ausflugs?", typ: "mc", optionen: ["Die Sonne schien", "Es regnete", "Es schneite", "Es war neblig"], loesung: "Die Sonne schien", erklaerung: "Im Text steht: 'Der Himmel war klar, die Sonne schien warm'. Wetterbeschreibungen stehen meist am Anfang einer Geschichte, weil sie die Stimmung der Szene festlegen." },
+        { frage: "Störte Lina den Igel?", typ: "mc", optionen: ["Nein, sie beobachtete ihn vorsichtig", "Ja, sie fing ihn", "Ja, sie erschreckte ihn", "Sie fand keinen Igel"], loesung: "Nein, sie beobachtete ihn vorsichtig", erklaerung: "Im Text steht: 'ohne näherzukommen oder laut zu sprechen, damit der Igel keine Angst bekam'. Diese Formulierung zeigt dir, dass Lina absichtlich vorsichtig war, um das Tier nicht zu erschrecken." },
+        { frage: "Was hatte der Vater für das Picknick eingepackt?", typ: "mc", optionen: ["Belegte Brote und Tee", "Nur Kekse", "Pizza", "Nichts, sie kauften unterwegs ein"], loesung: "Belegte Brote und Tee", erklaerung: "Im Text steht: 'hatte extra einen Picknickkorb mit belegten Broten und einer Thermoskanne Tee eingepackt'. Das Wort 'extra' zeigt außerdem, dass der Ausflug von Anfang an gut geplant war." },
+        { frage: "Wo aßen sie zu Mittag?", typ: "mc", optionen: ["Auf einer Wiese", "Zu Hause", "Im Auto", "In einem Restaurant"], loesung: "Auf einer Wiese", erklaerung: "Im Text steht: 'breitete eine karierte Decke auf einer sonnigen Wiese aus'. Beachte: Es ist nicht irgendeine Wiese, sondern eine sonnige – solche Details machen eine Geschichte lebendiger." },
+        { frage: "Was sammelten die Kinder?", typ: "mc", optionen: ["Bunte Blätter", "Steine", "Pilze", "Blumen"], loesung: "Bunte Blätter", erklaerung: "Im Text steht: 'zogen Lina und Paul los, um bunte Blätter zu sammeln – rote, gelbe und orange-braune'. Der Text nennt sogar die genauen Farben, das macht das Bild im Kopf des Lesers genauer." },
+        { frage: "Wofür wollten sie die Blätter benutzen?", typ: "mc", optionen: ["Für ein Herbstbild", "Zum Essen", "Als Geschenk", "Für die Schule"], loesung: "Für ein Herbstbild", erklaerung: "Im Text steht: 'denn sie wollten am nächsten Tag in der Schule ein Herbstbild daraus basteln'. Das Wort 'denn' leitet hier direkt die Begründung ein." },
+        { frage: "Wie lange waren sie ungefähr im Wald?", typ: "mc", optionen: ["Etwas mehr als eine Stunde", "Den ganzen Tag", "Nur 10 Minuten", "Zwei Tage"], loesung: "Etwas mehr als eine Stunde", erklaerung: "Im Text steht: 'Nach etwas mehr als einer Stunde im Wald wurde der Himmel im Westen langsam orange'. Achte auf die Formulierung 'etwas mehr als' – das ist keine ganz genaue Zeitangabe." },
+        { frage: "Wie fühlte sich die Familie auf dem Heimweg?", typ: "mc", optionen: ["Müde, aber zufrieden", "Traurig", "Wütend", "Gelangweilt"], loesung: "Müde, aber zufrieden", erklaerung: "Im Text steht: 'Müde, aber zufrieden setzten sich alle auf ihre Fahrräder'. Zwei Gefühle werden hier gleichzeitig genannt – das kommt in Texten häufig vor und macht die Stimmung genauer." },
+        { frage: "Woran dachte Lina auf dem Heimweg?", typ: "mc", optionen: ["An den kleinen Igel", "An die Schule", "An das Mittagessen", "An gar nichts Bestimmtes"], loesung: "An den kleinen Igel", erklaerung: "Im Text steht: 'Lina dachte auf dem ganzen Heimweg an den kleinen Igel und hoffte, ihn bei einem nächsten Ausflug wiederzusehen'. Weil das der letzte Gedanke der Geschichte ist, kannst du erschließen, dass der Igel bei Lina den größten Eindruck des Tages hinterlassen hat." }
       ]
     },
     {
@@ -207,6 +279,78 @@ window.LERNDATA.deutsch = {
         { frage: "Wie heißt die typische Erzählzeit im Deutschen?", typ: "mc", optionen: ["Präteritum", "Präsens", "Futur I", "Plusquamperfekt"], loesung: "Präteritum", erklaerung: "Erzählungen werden meist im Präteritum geschrieben." },
         { frage: "Was kommt am Schluss einer Erzählung?", typ: "mc", optionen: ["Wie die Geschichte endet", "Nur die Vorstellung der Personen", "Der Höhepunkt", "Gar nichts"], loesung: "Wie die Geschichte endet", erklaerung: "Der Schluss löst die Geschichte auf und zeigt, wie sie endet." },
         { frage: "Warum benutzt man in Erzählungen genaue Adjektive und Verben?", typ: "mc", optionen: ["Damit die Geschichte lebendig und spannend wirkt", "Damit der Text kürzer wird", "Das ist nicht wichtig", "Nur für die Rechtschreibung"], loesung: "Damit die Geschichte lebendig und spannend wirkt", erklaerung: "Genaue Wörter machen eine Erzählung anschaulicher und spannender." }
+      ]
+    },
+    {
+      id: "brief-schreiben",
+      titel: "Einen Brief schreiben",
+      icon: "✉️",
+      intro: "Aufbau und Anrede eines Briefs – privat und förmlich.",
+      lektion: [
+        "✉️ Ein Brief hat einen festen Aufbau: Ort und Datum (meist oben rechts), Anrede (z. B. 'Liebe Oma,'), Haupttext, Grußformel (z. B. 'Viele Grüße') und Unterschrift.",
+        "✏️ Nach der Anrede steht ein Komma. Der erste Satz des Haupttextes beginnt kleingeschrieben, wenn er sich direkt an die Anrede anschließt.",
+        "🤝 Es gibt private Briefe (persönlich, freundlich, z. B. an Familie oder Freunde) und förmliche Briefe (z. B. an eine Firma oder Behörde, Anrede: 'Sehr geehrte Damen und Herren,').",
+        "📋 Ein guter Brief ist übersichtlich gegliedert: Einleitung (worum geht es?), Hauptteil (das Wichtigste), Schluss (Zusammenfassung oder Bitte)."
+      ],
+      aufgaben: [
+        { frage: "Wo stehen Ort und Datum in einem Brief meistens?", typ: "mc", optionen: ["Oben rechts", "Ganz unten", "In der Mitte", "Auf der Rückseite"], loesung: "Oben rechts", erklaerung: "Ort und Datum stehen üblicherweise oben rechts im Brief." },
+        { frage: "Wie nennt man den Satz 'Liebe Oma,' am Anfang eines Briefes?", typ: "mc", optionen: ["Anrede", "Grußformel", "Betreff", "Unterschrift"], loesung: "Anrede", erklaerung: "Die Anrede wendet sich direkt an den Empfänger, z. B. 'Liebe Oma,'." },
+        { frage: "Welches Satzzeichen steht direkt nach der Anrede?", typ: "mc", optionen: ["Komma", "Punkt", "Ausrufezeichen", "Doppelpunkt"], loesung: "Komma", erklaerung: "Nach der Anrede (z. B. 'Liebe Oma,') steht ein Komma." },
+        { frage: "Was steht meistens am Ende eines Briefes, direkt vor der Unterschrift?", typ: "mc", optionen: ["Eine Grußformel", "Die Anrede", "Das Datum", "Der Titel"], loesung: "Eine Grußformel", erklaerung: "Am Ende steht eine Grußformel wie 'Viele Grüße' oder 'Herzliche Grüße'." },
+        { frage: "Welche Anrede passt zu einem förmlichen Brief an eine Firma?", typ: "mc", optionen: ["Sehr geehrte Damen und Herren,", "Hallo du,", "Liebe Freunde,", "Hey Team,"], loesung: "Sehr geehrte Damen und Herren,", erklaerung: "Bei förmlichen Briefen an unbekannte Empfänger nutzt man 'Sehr geehrte Damen und Herren,'." },
+        { frage: "Welche Anrede passt zu einem privaten Brief an die beste Freundin?", typ: "mc", optionen: ["Liebe Mia,", "Sehr geehrte Frau Mia,", "Betreff: Brief", "Mit freundlichen Grüßen"], loesung: "Liebe Mia,", erklaerung: "Bei privaten Briefen an Freunde nutzt man eine persönliche Anrede wie 'Liebe Mia,'." },
+        { frage: "Was gehört in den Hauptteil eines Briefes?", typ: "mc", optionen: ["Das Wichtigste, das man mitteilen möchte", "Nur die Unterschrift", "Nur das Datum", "Gar nichts"], loesung: "Das Wichtigste, das man mitteilen möchte", erklaerung: "Im Hauptteil steht der eigentliche Inhalt des Briefes." },
+        { frage: "Ein Brief an eine Behörde (z. B. das Rathaus) sollte eher …", typ: "mc", optionen: ["förmlich geschrieben sein", "sehr locker geschrieben sein", "ohne Anrede auskommen", "nur aus einem Wort bestehen"], loesung: "förmlich geschrieben sein", erklaerung: "Briefe an Behörden oder Firmen schreibt man förmlich." },
+        { frage: "Aus wie vielen Hauptteilen besteht ein Brief (Anrede/Haupttext, Grußformel zählen als Rahmen)?", typ: "zahl", loesung: "3", erklaerung: "Ein Brief gliedert sich in Einleitung, Hauptteil und Schluss – wie eine Erzählung." },
+        { frage: "Was ist bei einem privaten Brief typisch?", typ: "mc", optionen: ["Ein persönlicher, freundlicher Ton", "Ein sehr förmlicher Ton", "Keine Anrede", "Kein Absender"], loesung: "Ein persönlicher, freundlicher Ton", erklaerung: "Private Briefe sind persönlich und freundlich formuliert." }
+      ]
+    },
+    {
+      id: "beschreibung-schreiben",
+      titel: "Eine Beschreibung schreiben",
+      icon: "🔍",
+      intro: "Ein Tier oder einen Gegenstand genau beschreiben.",
+      lektion: [
+        "🔍 Eine Beschreibung erklärt sachlich und genau, wie etwas aussieht oder funktioniert – meist in einer festen Reihenfolge (z. B. von oben nach unten, von außen nach innen).",
+        "🐾 Bei einer Tierbeschreibung nennt man z. B.: Aussehen, Lebensraum, Nahrung und besondere Merkmale.",
+        "🕐 Anders als bei einer Erzählung schreibt man eine Beschreibung im Präsens, nicht im Präteritum – weil die Eigenschaften immer gelten.",
+        "🎯 Genaue Adjektive und Fachbegriffe machen eine Beschreibung präzise, z. B. 'gestreiftes Fell' statt nur 'schönes Fell'."
+      ],
+      aufgaben: [
+        { frage: "In welcher Zeitform schreibt man eine Beschreibung normalerweise?", typ: "mc", optionen: ["Präsens", "Präteritum", "Perfekt", "Futur I"], loesung: "Präsens", erklaerung: "Beschreibungen nutzen das Präsens, weil die Eigenschaften allgemein gelten." },
+        { frage: "Was gehört typischerweise in eine Tierbeschreibung?", typ: "mc", optionen: ["Aussehen, Lebensraum, Nahrung", "Nur der Name des Tieres", "Nur die Lieblingsfarbe des Autors", "Ein Rezept"], loesung: "Aussehen, Lebensraum, Nahrung", erklaerung: "Eine Tierbeschreibung nennt Aussehen, Lebensraum, Nahrung und besondere Merkmale." },
+        { frage: "Warum nutzt man in Beschreibungen genaue Adjektive und Fachbegriffe?", typ: "mc", optionen: ["Damit die Beschreibung präzise und anschaulich ist", "Damit der Text kürzer wird", "Weil es sonst verboten ist", "Das spielt keine Rolle"], loesung: "Damit die Beschreibung präzise und anschaulich ist", erklaerung: "Genaue Wörter machen eine Beschreibung klarer und anschaulicher." },
+        { frage: "In welcher Reihenfolge beschreibt man einen Gegenstand meistens?", typ: "mc", optionen: ["In einer festen, sinnvollen Reihenfolge (z. B. oben nach unten)", "Ganz durcheinander", "Nur die Farbe nennen", "Rückwärts vom Ende her"], loesung: "In einer festen, sinnvollen Reihenfolge (z. B. oben nach unten)", erklaerung: "Eine gute Beschreibung folgt einer klaren, nachvollziehbaren Ordnung." },
+        { frage: "Welcher Satz ist eine gute Tierbeschreibung?", typ: "mc", optionen: ["Der Fuchs hat rotbraunes Fell und einen buschigen Schwanz.", "Der Fuchs war gestern im Wald und rannte weg.", "Ich mag Füchse total gern.", "Füchse sind manchmal irgendwie da."], loesung: "Der Fuchs hat rotbraunes Fell und einen buschigen Schwanz.", erklaerung: "Eine Beschreibung nennt sachliche, genaue Merkmale im Präsens." },
+        { frage: "Was unterscheidet eine Beschreibung von einer Erzählung?", typ: "mc", optionen: ["Eine Beschreibung ist sachlich, eine Erzählung erzählt ein Ereignis", "Es gibt keinen Unterschied", "Eine Beschreibung hat immer einen Höhepunkt", "Eine Erzählung nutzt nie das Präteritum"], loesung: "Eine Beschreibung ist sachlich, eine Erzählung erzählt ein Ereignis", erklaerung: "Eine Beschreibung schildert Eigenschaften, eine Erzählung schildert ein Geschehen." },
+        { frage: "'Der Igel hat spitze Stacheln auf dem Rücken.' – welche Zeitform wird hier genutzt?", typ: "mc", optionen: ["Präsens", "Präteritum", "Perfekt", "Futur I"], loesung: "Präsens", erklaerung: "'hat' ist die Präsensform – typisch für Beschreibungen." },
+        { frage: "Warum beschreibt man z. B. bei einem Gegenstand von außen nach innen?", typ: "mc", optionen: ["Damit der Leser sich alles gut vorstellen kann", "Weil es sonst verboten ist", "Weil das kürzer ist", "Das ist egal"], loesung: "Damit der Leser sich alles gut vorstellen kann", erklaerung: "Eine klare Reihenfolge hilft dem Leser, sich das Beschriebene vorzustellen." },
+        { frage: "Welches Wort passt am besten in eine genaue Tierbeschreibung?", typ: "mc", optionen: ["gestreiftes Fell", "schönes Fell", "cooles Fell", "irgendein Fell"], loesung: "gestreiftes Fell", erklaerung: "'gestreiftes Fell' ist ein genaues, sachliches Merkmal." },
+        { frage: "Was gehört NICHT in eine sachliche Beschreibung?", typ: "mc", optionen: ["Die eigene Meinung ('Ich finde...')", "Das Aussehen", "Der Lebensraum", "Besondere Merkmale"], loesung: "Die eigene Meinung ('Ich finde...')", erklaerung: "Eine Beschreibung ist sachlich – die eigene Meinung gehört woanders hin." }
+      ]
+    },
+    {
+      id: "meinung-begruenden",
+      titel: "Eine Meinung begründen",
+      icon: "💬",
+      intro: "Behauptung, Begründung und Beispiel – überzeugend argumentieren.",
+      lektion: [
+        "💬 Eine Meinung besteht aus einer klaren Behauptung (These), z. B. 'Hunde sind die besten Haustiere.'",
+        "🔗 Wörter wie 'weil', 'denn' und 'deshalb' verbinden eine Meinung mit ihrer Begründung (dem Argument).",
+        "📎 Ein gutes Argument wird oft mit einem Beispiel belegt, damit es überzeugender wirkt – z. B. 'weil sie treu sind, so wie mein Hund, der mich jeden Tag an der Tür begrüßt.'",
+        "🔚 Ein überzeugender Text nennt am Ende oft noch einmal kurz die eigene Meinung – als Schlusssatz."
+      ],
+      aufgaben: [
+        { frage: "Was ist eine These?", typ: "mc", optionen: ["Eine klare Behauptung oder Meinung", "Ein Satzzeichen", "Ein Gedicht", "Eine Anführung"], loesung: "Eine klare Behauptung oder Meinung", erklaerung: "Die These ist die zentrale Behauptung, die man begründen möchte." },
+        { frage: "Welches Wort leitet häufig eine Begründung ein?", typ: "mc", optionen: ["weil", "und", "aber", "oder"], loesung: "weil", erklaerung: "'weil' verbindet eine Aussage mit ihrem Grund." },
+        { frage: "Wozu dient ein Beispiel in einem Argument?", typ: "mc", optionen: ["Es macht das Argument überzeugender", "Es macht den Text kürzer", "Es ersetzt die Meinung", "Es ist nicht nötig"], loesung: "Es macht das Argument überzeugender", erklaerung: "Ein konkretes Beispiel stützt und veranschaulicht ein Argument." },
+        { frage: "'Hunde sind tolle Haustiere, weil sie treu sind.' – was ist hier die Begründung?", typ: "mc", optionen: ["weil sie treu sind", "Hunde sind tolle Haustiere", "Haustiere", "sind"], loesung: "weil sie treu sind", erklaerung: "Der Teil nach 'weil' erklärt, warum die Meinung gilt." },
+        { frage: "Was steht meistens am Ende eines überzeugenden Textes?", typ: "mc", optionen: ["Noch einmal kurz die eigene Meinung", "Eine neue, andere Meinung", "Gar nichts", "Nur ein Satzzeichen"], loesung: "Noch einmal kurz die eigene Meinung", erklaerung: "Ein Schlusssatz fasst die eigene Meinung noch einmal zusammen." },
+        { frage: "Welches Wort passt NICHT zu einer Begründung?", typ: "mc", optionen: ["gestern", "weil", "denn", "deshalb"], loesung: "gestern", erklaerung: "'gestern' ist eine Zeitangabe, keine Begründung – 'weil', 'denn' und 'deshalb' leiten Begründungen ein." },
+        { frage: "Was braucht eine gute Meinung mindestens?", typ: "mc", optionen: ["Eine These und mindestens einen Grund", "Nur ein Ausrufezeichen", "Nur ein Beispiel ohne These", "Gar nichts weiter"], loesung: "Eine These und mindestens einen Grund", erklaerung: "Ohne Begründung bleibt eine Meinung nur eine unbelegte Behauptung." },
+        { frage: "'Ich finde Lesen wichtig, denn man lernt viele neue Wörter.' – was ist hier die These?", typ: "mc", optionen: ["Ich finde Lesen wichtig", "man lernt viele neue Wörter", "denn", "neue Wörter"], loesung: "Ich finde Lesen wichtig", erklaerung: "'Ich finde Lesen wichtig' ist die Behauptung, der Rest ist die Begründung." },
+        { frage: "Warum sollte man ein Argument mit einem Beispiel belegen?", typ: "mc", optionen: ["Damit es konkreter und überzeugender wird", "Damit der Text länger wirkt", "Weil es sonst verboten ist", "Das ist nicht wichtig"], loesung: "Damit es konkreter und überzeugender wird", erklaerung: "Ein Beispiel macht ein abstraktes Argument greifbar." },
+        { frage: "Welcher Satz ist eine begründete Meinung (keine bloße Behauptung)?", typ: "mc", optionen: ["Katzen sind besser als Hunde, weil sie selbstständiger sind.", "Katzen sind besser als Hunde.", "Ich mag Katzen.", "Katzen. Hunde. Tiere."], loesung: "Katzen sind besser als Hunde, weil sie selbstständiger sind.", erklaerung: "Nur dieser Satz enthält eine These UND eine Begründung." }
       ]
     }
   ]

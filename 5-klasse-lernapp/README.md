@@ -25,12 +25,19 @@ bzw. an den offiziellen Kerncurricula Niedersachsen. Alle Texte, Aufgaben
 und Erklärungen sind vollständig selbst geschrieben – es wird kein Inhalt
 aus diesen Büchern übernommen, nur Themen und Reihenfolge sind angelehnt.
 
-- **Mathematik** (6 Missionen, je 14–20 Aufgaben): Grundrechenarten (inkl.
-  Rechengesetze), Große Zahlen & Runden, Größen & Einheiten, Brüche –
-  Einführung, Geometrie-Grundlagen, Schriftliche Division
-- **Deutsch** (8 Missionen, je 10–15 Aufgaben): Wortarten, Groß- &
-  Kleinschreibung, Satzglieder, Zeichensetzung, Textverständnis, Sagen,
-  Gedichte, Erzählungen schreiben
+- **Mathematik** (16 Missionen, je 10–15 Aufgaben, an die 6 Kapitel von
+  "Fundamente der Mathematik" angelehnt): Daten auswerten, Große Zahlen &
+  Runden, Größen umrechnen, Grundrechenarten, Schriftliches Rechnen,
+  Schriftliche Division (inkl. animiertem "Zahlen-Dämon"-Erklärstück),
+  Rechengesetze & Teilbarkeit, Senkrecht/Parallel/Winkel, Koordinatensystem,
+  Symmetrie, Körper & Netze, Flächeninhalt & Umfang, Volumen &
+  Oberflächeninhalt, Brüche verstehen, Brüche als Quotient, Dezimalzahlen
+- **Deutsch** (13 Missionen, je 10–15 Aufgaben, an das Deutschbuch
+  Gymnasium angelehnt): Wortarten, Groß- & Kleinschreibung, Satzglieder
+  (Subjekt & Prädikat, inkl. Umstellprobe), Satzglieder (Objekte &
+  adverbiale Bestimmungen), Zeitformen (Tempora), Zeichensetzung,
+  Textverständnis, Sagen, Gedichte, Erzählungen schreiben, Brief schreiben,
+  Beschreibung schreiben, Meinung begründen
 - **Englisch** (7 Missionen, an die Green-Line-1-Units angelehnt): Unit 1 "A
   new school", Unit 2 "At home" (Family & Pets, 'to be' & 'to have got'),
   Unit 3 "Our Greenwich" (Numbers & Colours, Fragen stellen), Unit 4 "Happy
