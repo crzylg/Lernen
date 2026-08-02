@@ -1031,13 +1031,13 @@
     });
     box.appendChild(liste);
 
-    renderBeispiele(box, thema.beispiele);
-
     if (thema.animation) {
       var animBtn = el("button", { class: "btn-primary btn-secondary", text: "🎬 Animation ansehen" });
       animBtn.addEventListener("click", function () { starteThemaAnimation(thema); });
       box.appendChild(animBtn);
     }
+
+    renderBeispiele(box, thema.beispiele);
 
     renderStartBlock(box, state.fach, thema, "⚔️ Mission starten");
 
