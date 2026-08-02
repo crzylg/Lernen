@@ -1165,21 +1165,103 @@
     render();
   }
 
+  // Kurzvideo-Timing: Dauer einer Szene richtet sich nach der Textlänge
+  // (grob an Lesetempo/Sprachausgabe angelehnt), zwischen 3,2 s und 7,5 s.
+  function berechneSzenenDauerMs(text) {
+    var dauer = 850 + (text ? text.length : 0) * 28;
+    return Math.max(3200, Math.min(7500, dauer));
+  }
+
+  function clearAnimTimer() {
+    if (!state.animation) return;
+    if (state.animation.vorlaufTimer) {
+      if (window.gsap && state.animation.vorlaufTimer.kill) state.animation.vorlaufTimer.kill();
+      else clearTimeout(state.animation.vorlaufTimer);
+      state.animation.vorlaufTimer = null;
+    }
+    if (state.animation.fuellTween) {
+      if (state.animation.fuellTween.kill) state.animation.fuellTween.kill();
+      state.animation.fuellTween = null;
+    }
+  }
+
+  function pausiereAnimation() {
+    if (!state.animation) return;
+    state.animation.pausiert = true;
+    if (state.animation.vorlaufTimer && state.animation.vorlaufTimer.pause) state.animation.vorlaufTimer.pause();
+    if (state.animation.fuellTween && state.animation.fuellTween.pause) state.animation.fuellTween.pause();
+  }
+
+  function fortsetzeAnimation() {
+    if (!state.animation) return;
+    state.animation.pausiert = false;
+    if (state.animation.vorlaufTimer && state.animation.vorlaufTimer.resume) state.animation.vorlaufTimer.resume();
+    if (state.animation.fuellTween && state.animation.fuellTween.resume) state.animation.fuellTween.resume();
+  }
+
+  // Segmentierte Fortschrittsleiste (Instagram Stories/TikTok-Stil): Segmente
+  // vor der aktuellen Szene sind voll, das aktuelle füllt sich über die
+  // Szenendauer, spätere bleiben leer.
+  function aktualisiereFortschrittsbalken(index, dauerMs) {
+    var anim = state.animation.thema.animation;
+    for (var i = 0; i < anim.szenen.length; i++) {
+      var fill = document.getElementById("animProgFill" + i);
+      if (!fill) continue;
+      if (window.gsap) gsap.killTweensOf(fill);
+      if (i < index) {
+        if (window.gsap) gsap.set(fill, { width: "100%" }); else fill.style.width = "100%";
+      } else if (i > index) {
+        if (window.gsap) gsap.set(fill, { width: "0%" }); else fill.style.width = "0%";
+      } else if (window.gsap) {
+        gsap.set(fill, { width: "0%" });
+        state.animation.fuellTween = gsap.to(fill, { width: "100%", duration: dauerMs / 1000, ease: "none" });
+      } else {
+        fill.style.width = "100%";
+      }
+    }
+  }
+
   function renderThemaAnimation() {
     var anim = state.animation.thema.animation;
     titelEl.textContent = "🎬 " + anim.titel;
+    state.animation.pausiert = false;
+    state.animation.vorlaufTimer = null;
+    state.animation.fuellTween = null;
 
     var box = el("div", { class: "frage-box" });
 
     var kopf = el("div", { class: "anim-kopf" });
+    var pauseBtn = el("button", { class: "anim-sprecher", title: "Pause/Play", text: "⏸️" });
+    pauseBtn.addEventListener("click", function () {
+      if (state.animation.pausiert) {
+        fortsetzeAnimation();
+        pauseBtn.textContent = "⏸️";
+        pauseBtn.classList.remove("aktiv");
+      } else {
+        pausiereAnimation();
+        pauseBtn.textContent = "▶️";
+        pauseBtn.classList.add("aktiv");
+      }
+    });
     var sprachBtn = el("button", { class: "anim-sprecher", title: "Vorlesen an/aus", text: "🔊" });
     sprachBtn.addEventListener("click", function () {
       state.animation.sprache = !state.animation.sprache;
       sprachBtn.classList.toggle("aktiv", state.animation.sprache);
       if (!state.animation.sprache && "speechSynthesis" in window) window.speechSynthesis.cancel();
     });
+    kopf.appendChild(pauseBtn);
     kopf.appendChild(sprachBtn);
     box.appendChild(kopf);
+
+    var videoWrap = el("div", { class: "anim-video-wrap" });
+
+    var fortschritt = el("div", { class: "anim-progress" });
+    anim.szenen.forEach(function (_, i) {
+      fortschritt.appendChild(el("div", { class: "anim-progress-segment" }, [
+        el("div", { class: "anim-progress-fill", id: "animProgFill" + i })
+      ]));
+    });
+    videoWrap.appendChild(fortschritt);
 
     var buehneWrap = el("div", { class: "anim-buehne-wrap" });
     var buehne = el("div", { class: "anim-buehne", id: "animBuehne" });
@@ -1187,16 +1269,35 @@
     buehne.appendChild(el("div", { class: "anim-daemon", id: "animDaemon", html: DAEMON_SVG }));
     buehneWrap.appendChild(buehne);
     buehneWrap.appendChild(el("div", { class: "anim-funken-schicht", id: "animFunken" }));
-    box.appendChild(buehneWrap);
+    videoWrap.appendChild(buehneWrap);
 
-    box.appendChild(el("div", { class: "hp-leiste anim-hp" }, [el("div", { id: "animHpFill", style: "width:100%" })]));
-    box.appendChild(el("div", { class: "frage-text", id: "animText", text: "" }));
-    box.appendChild(el("div", { id: "animRechnungBox" }));
+    videoWrap.appendChild(el("div", { class: "hp-leiste anim-hp" }, [el("div", { id: "animHpFill", style: "width:100%" })]));
+    videoWrap.appendChild(el("div", { class: "frage-text", id: "animText", text: "" }));
+    videoWrap.appendChild(el("div", { id: "animRechnungBox" }));
 
     var gruppenModell = el("div", { class: "anim-gruppen-modell", id: "animGruppenModell" });
-    box.appendChild(gruppenModell);
+    videoWrap.appendChild(gruppenModell);
     baueGruppenModell(gruppenModell, anim);
 
+    // Dokunma bölgeleri: sol Üçte-biri = zurück, sağ = weiter (Reels/Stories-Stil).
+    var tapZonen = el("div", { class: "anim-tap-zonen" });
+    var tapLinks = el("div", { class: "anim-tap-zone-links" });
+    var tapRechts = el("div", { class: "anim-tap-zone-rechts" });
+    tapLinks.addEventListener("click", function () {
+      var i = state.animation.index;
+      if (i > 0) spieleSzeneAb(i - 1);
+      else spieleSzeneAb(0, true);
+    });
+    tapRechts.addEventListener("click", function () {
+      var a = state.animation.thema.animation;
+      var i = state.animation.index;
+      if (i + 1 < a.szenen.length) spieleSzeneAb(i + 1);
+    });
+    tapZonen.appendChild(tapLinks);
+    tapZonen.appendChild(tapRechts);
+    videoWrap.appendChild(tapZonen);
+
+    box.appendChild(videoWrap);
     box.appendChild(el("div", { class: "button-reihe", id: "animButtons" }));
 
     appEl.appendChild(box);
@@ -1218,9 +1319,11 @@
   }
 
   function spieleSzeneAb(index, istEinstieg) {
+    clearAnimTimer();
     var anim = state.animation.thema.animation;
     var szene = anim.szenen[index];
     state.animation.index = index;
+    var letzte = index + 1 >= anim.szenen.length;
 
     var textEl = document.getElementById("animText");
     if (textEl) textEl.textContent = szene.text;
@@ -1252,6 +1355,17 @@
 
     if (window.gsap) {
       var reduziert = !bewegungErlaubt();
+
+      // Vurucu Untertitel-Einblendung, wie eine Kurzvideo-Caption (jede Szene).
+      if (textEl) {
+        if (reduziert) {
+          gsap.fromTo(textEl, { opacity: 0 }, { opacity: 1, duration: 0.3 });
+        } else {
+          gsap.fromTo(textEl, { scale: 0.85, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.35, ease: "back.out(1.6)" });
+          gsap.fromTo("#animBuehne", { scale: 1.04 }, { scale: 1, duration: 0.3, ease: "power2.out" });
+        }
+      }
+
       if (istEinstieg) {
         if (reduziert) {
           gsap.to(["#animHeld", "#animDaemon"], { opacity: 1, duration: 0.3 });
@@ -1286,6 +1400,17 @@
       }
     }
 
+    var dauerMs = berechneSzenenDauerMs(szene.text);
+    aktualisiereFortschrittsbalken(index, dauerMs);
+
+    if (!letzte) {
+      if (window.gsap) {
+        state.animation.vorlaufTimer = gsap.delayedCall(dauerMs / 1000, function () { spieleSzeneAb(index + 1); });
+      } else {
+        state.animation.vorlaufTimer = setTimeout(function () { spieleSzeneAb(index + 1); }, dauerMs);
+      }
+    }
+
     renderAnimButtons();
   }
 
@@ -1310,6 +1435,8 @@
     }
   }
 
+  // Fortschritt läuft jetzt automatisch (Timer) oder per Dokunma-Zonen ab –
+  // hier erscheint nur noch die Abschlusskarte bei der letzten Szene.
   function renderAnimButtons() {
     var anim = state.animation.thema.animation;
     var index = state.animation.index;
@@ -1317,30 +1444,26 @@
     var reihe = document.getElementById("animButtons");
     if (!reihe) return;
     reihe.innerHTML = "";
-    if (!letzte) {
-      var weiterBtn = el("button", { class: "btn-primary btn-glow", text: "Weiter ▶" });
-      weiterBtn.addEventListener("click", function () { spieleSzeneAb(index + 1); });
-      reihe.appendChild(weiterBtn);
-    } else {
-      var nochmalBtn = el("button", { class: "btn-primary btn-secondary", text: "🔁 Nochmal ansehen" });
-      nochmalBtn.addEventListener("click", function () {
-        if (window.gsap) {
-          var startX = bewegungErlaubt() ? 60 : 0;
-          gsap.set("#animDaemon", { scale: 1, rotation: 0, opacity: 0, x: startX });
-          gsap.set("#animHeld", { opacity: 0, x: -startX, y: 0 });
-        }
-        spieleSzeneAb(0, true);
-      });
-      var fertigBtn = el("button", { class: "btn-primary btn-glow", text: "Fertig" });
-      fertigBtn.addEventListener("click", function () {
-        if ("speechSynthesis" in window) window.speechSynthesis.cancel();
-        state.animation = null;
-        state.view = "lektion";
-        render();
-      });
-      reihe.appendChild(nochmalBtn);
-      reihe.appendChild(fertigBtn);
-    }
+    if (!letzte) return;
+    var nochmalBtn = el("button", { class: "btn-primary btn-secondary", text: "🔁 Nochmal ansehen" });
+    nochmalBtn.addEventListener("click", function () {
+      if (window.gsap) {
+        var startX = bewegungErlaubt() ? 60 : 0;
+        gsap.set("#animDaemon", { scale: 1, rotation: 0, opacity: 0, x: startX });
+        gsap.set("#animHeld", { opacity: 0, x: -startX, y: 0 });
+      }
+      spieleSzeneAb(0, true);
+    });
+    var fertigBtn = el("button", { class: "btn-primary btn-glow", text: "Fertig" });
+    fertigBtn.addEventListener("click", function () {
+      if ("speechSynthesis" in window) window.speechSynthesis.cancel();
+      clearAnimTimer();
+      state.animation = null;
+      state.view = "lektion";
+      render();
+    });
+    reihe.appendChild(nochmalBtn);
+    reihe.appendChild(fertigBtn);
   }
 
   function renderVokabeln() {
@@ -1757,6 +1880,7 @@
     }
     else if (state.view === "mathe-animation") {
       if ("speechSynthesis" in window) window.speechSynthesis.cancel();
+      clearAnimTimer();
       state.animation = null;
       state.view = "lektion";
     }

@@ -748,13 +748,30 @@ main {
 .badge-unlock .emoji { font-size: 24px; }
 .badge-unlock .txt { font-size: 0.9rem; font-weight: 700; color: var(--gold); }
 
-/* ==================== Animationsmotor (GSAP-Bühne) ==================== */
-.anim-kopf { display: flex; justify-content: flex-end; margin-bottom: 6px; }
+/* ==================== Animationsmotor (GSAP-Bühne, Kurzvideo-Player) ==================== */
+.anim-kopf { display: flex; justify-content: flex-end; gap: 8px; margin-bottom: 6px; }
 .anim-sprecher {
   border: 1px solid var(--card-border); background: rgba(255, 255, 255, 0.06); color: var(--muted);
   border-radius: 999px; width: 36px; height: 36px; font-size: 16px; cursor: pointer; font-family: inherit;
 }
 .anim-sprecher.aktiv { border-color: var(--cyan); color: var(--cyan); box-shadow: 0 0 12px rgba(34, 229, 255, 0.4); }
+
+/* Video-Wrap: Bühne für die Dokunma-Zonen (Tap-Zonen) über allem, was zu einer Szene gehört. */
+.anim-video-wrap { position: relative; }
+
+/* Segmentierte Fortschrittsleiste, wie bei Instagram Stories/TikTok. */
+.anim-progress { display: flex; gap: 4px; margin-bottom: 10px; }
+.anim-progress-segment {
+  flex: 1; height: 3px; border-radius: 2px; background: rgba(255, 255, 255, 0.22); overflow: hidden;
+}
+.anim-progress-fill {
+  height: 100%; width: 0%; background: linear-gradient(90deg, var(--cyan), var(--gold)); border-radius: 2px;
+}
+
+/* Dokunma-Zonen: links = zurück, rechts = weiter (wie bei Reels/Stories). */
+.anim-tap-zonen { position: absolute; inset: 0; display: flex; z-index: 4; }
+.anim-tap-zone-links { flex: 0 0 33%; cursor: pointer; }
+.anim-tap-zone-rechts { flex: 1 1 67%; cursor: pointer; }
 
 .anim-buehne-wrap { position: relative; margin-bottom: 14px; }
 .anim-buehne { display: flex; align-items: flex-end; justify-content: center; gap: 10px; min-height: 150px; }
