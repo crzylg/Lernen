@@ -18,7 +18,9 @@ window.LERNDATA.mathe = {
         "➖ Minus (−) heißt subtrahieren: Du ziehst eine Zahl von einer anderen ab. Das Ergebnis heißt Differenz.",
         "✖️ Mal (×) heißt multiplizieren: Du zählst eine Zahl mehrmals. Das Ergebnis heißt Produkt.",
         "➗ Geteilt (:) heißt dividieren: Du teilst eine Zahl in gleiche Teile auf. Das Ergebnis heißt Quotient.",
-        "⭐ Wichtige Regel: 'Punkt vor Strich' – zuerst rechnest du Mal und Geteilt, danach erst Plus und Minus."
+        "⭐ Wichtige Regel: 'Punkt vor Strich' – zuerst rechnest du Mal und Geteilt, danach erst Plus und Minus.",
+        "🔄 Rechengesetze helfen beim Rechnen: Beim Kommutativgesetz darf man beim Plus und Mal die Reihenfolge tauschen: 3 + 5 = 5 + 3.",
+        "📦 Beim Assoziativgesetz darf man beim Plus und Mal anders klammern: (2 + 3) + 4 = 2 + (3 + 4)."
       ],
       beispiele: [
         {
@@ -69,7 +71,11 @@ window.LERNDATA.mathe = {
         { frage: "Was ist 7 × 6?", typ: "zahl", loesung: "42", erklaerung: "7 × 6 = 42" },
         { frage: "Was ist 128 : 4?", typ: "zahl", loesung: "32", erklaerung: "128 : 4 = 32" },
         { frage: "Was bedeutet 'Klammern zuerst'?", typ: "mc", optionen: ["Was in Klammern steht, wird zuerst gerechnet", "Klammern kann man ignorieren", "Klammern kommen nach Punktrechnung", "Klammern sind nur Deko"], loesung: "Was in Klammern steht, wird zuerst gerechnet", erklaerung: "Klammern haben immer Vorrang – sie werden vor Punkt- und Strichrechnung berechnet." },
-        { frage: "Was ist 15 × 3 - 10?", typ: "zahl", loesung: "35", erklaerung: "Erst 15×3=45, dann 45-10=35." }
+        { frage: "Was ist 15 × 3 - 10?", typ: "zahl", loesung: "35", erklaerung: "Erst 15×3=45, dann 45-10=35." },
+        { frage: "Welches Gesetz erlaubt es, die Reihenfolge beim Plusrechnen zu tauschen (3+5=5+3)?", typ: "mc", optionen: ["Kommutativgesetz", "Assoziativgesetz", "Distributivgesetz", "Punktgesetz"], loesung: "Kommutativgesetz", erklaerung: "Das Kommutativgesetz erlaubt das Vertauschen der Reihenfolge bei Plus und Mal." },
+        { frage: "Ist 4 × 7 dasselbe wie 7 × 4?", typ: "mc", optionen: ["Ja", "Nein"], loesung: "Ja", erklaerung: "Beim Malnehmen darf man die Reihenfolge tauschen (Kommutativgesetz)." },
+        { frage: "(2+3)+4 ergibt dasselbe wie 2+(3+4). Wie heißt dieses Gesetz?", typ: "mc", optionen: ["Assoziativgesetz", "Kommutativgesetz", "Distributivgesetz", "Rundungsgesetz"], loesung: "Assoziativgesetz", erklaerung: "Das Assoziativgesetz erlaubt anderes Klammern bei Plus und Mal." },
+        { frage: "Darf man beim Minusrechnen die Reihenfolge einfach tauschen (5-3 = 3-5)?", typ: "mc", optionen: ["Nein", "Ja"], loesung: "Nein", erklaerung: "Beim Minus und Geteilt gilt das Kommutativgesetz NICHT: 5-3=2, aber 3-5=-2." }
       ]
     },
     {

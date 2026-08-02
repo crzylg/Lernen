@@ -136,6 +136,78 @@ window.LERNDATA.deutsch = {
         { frage: "Was sammelten die Kinder?", typ: "mc", optionen: ["Bunte Blätter", "Steine", "Pilze", "Blumen"], loesung: "Bunte Blätter", erklaerung: "Im Text steht: 'sammelten die Kinder bunte Blätter für ein Herbstbild'." },
         { frage: "Wofür wollten sie die Blätter benutzen?", typ: "mc", optionen: ["Für ein Herbstbild", "Zum Essen", "Als Geschenk", "Für die Schule"], loesung: "Für ein Herbstbild", erklaerung: "Im Text steht: 'sammelten die Kinder bunte Blätter für ein Herbstbild'." }
       ]
+    },
+    {
+      id: "sagen",
+      titel: "Sagen",
+      icon: "🏔️",
+      intro: "Eine alte Textsorte kennenlernen: Was ist eine Sage?",
+      lektion: [
+        "📜 Eine Sage ist eine alte Geschichte, die von einem echten Ort oder Ereignis erzählt – aber mit übernatürlichen oder unerklärlichen Dingen vermischt.",
+        "🗣️ Sagen wurden früher mündlich (nur gesprochen) von einer Generation zur nächsten weitergegeben, bevor sie aufgeschrieben wurden.",
+        "🆚 Unterschied zum Märchen: Sagen spielen an einem echten Ort und behaupten, 'wahr' zu sein. Märchen beginnen oft mit 'Es war einmal ...' und spielen an keinem bestimmten Ort.",
+        "📖 Bekannte deutsche Sagen sind zum Beispiel 'Der Rattenfänger von Hameln', 'Die Loreley' und 'Rübezahl'."
+      ],
+      aufgaben: [
+        { frage: "Was ist eine Sage?", typ: "mc", optionen: ["Eine alte Geschichte über einen echten Ort, oft mit übernatürlichen Ereignissen", "Ein Sachtext über Tiere", "Ein Gedicht ohne Reim", "Eine Anleitung zum Kochen"], loesung: "Eine alte Geschichte über einen echten Ort, oft mit übernatürlichen Ereignissen", erklaerung: "Eine Sage erzählt von einem echten Ort, gemischt mit unerklärlichen Ereignissen." },
+        { frage: "Womit beginnen die meisten Märchen typischerweise?", typ: "mc", optionen: ["Es war einmal ...", "An einem echten Ort ...", "Vor kurzer Zeit ...", "Heute Morgen ..."], loesung: "Es war einmal ...", erklaerung: "Märchen beginnen meist mit 'Es war einmal ...' – Sagen dagegen spielen an echten Orten." },
+        { frage: "Wo spielen Sagen meistens?", typ: "mc", optionen: ["An einem echten, bekannten Ort", "Nirgendwo Bestimmtem", "Nur im Weltraum", "Nur in der Schule"], loesung: "An einem echten, bekannten Ort", erklaerung: "Sagen spielen typischerweise an echten Orten wie einem Berg, Fluss oder einer Stadt." },
+        { frage: "Wie wurden Sagen früher weitergegeben, bevor es viele Bücher gab?", typ: "mc", optionen: ["Mündlich, von Generation zu Generation", "Nur im Fernsehen", "Gar nicht", "Nur in Zeitungen"], loesung: "Mündlich, von Generation zu Generation", erklaerung: "Sagen wurden lange Zeit nur erzählt, nicht aufgeschrieben." },
+        { frage: "Welche der folgenden ist eine bekannte deutsche Sage?", typ: "mc", optionen: ["Der Rattenfänger von Hameln", "Cinderella", "Robin Hood", "Die drei kleinen Schweinchen"], loesung: "Der Rattenfänger von Hameln", erklaerung: "'Der Rattenfänger von Hameln' ist eine bekannte deutsche Sage." },
+        { frage: "Die Sage von der 'Loreley' erzählt von einem Felsen an welchem Fluss?", typ: "mc", optionen: ["Rhein", "Elbe", "Donau", "Weser"], loesung: "Rhein", erklaerung: "Die Loreley ist ein berühmter Felsen am Rhein." },
+        { frage: "Was unterscheidet eine Sage von einem Sachtext (Fakten-Text)?", typ: "mc", optionen: ["Eine Sage enthält oft unerklärliche Ereignisse, ein Sachtext nicht", "Eine Sage hat immer Bilder", "Ein Sachtext ist immer kürzer", "Es gibt keinen Unterschied"], loesung: "Eine Sage enthält oft unerklärliche Ereignisse, ein Sachtext nicht", erklaerung: "Sachtexte berichten nur Fakten, Sagen mischen Fakten mit Unerklärlichem." },
+        { frage: "Behaupten Sagen, dass sie wirklich passiert sind?", typ: "mc", optionen: ["Ja", "Nein", "Nur manchmal am Anfang", "Das steht nie dabei"], loesung: "Ja", erklaerung: "Sagen behaupten (im Gegensatz zu Märchen), dass sie wirklich geschehen sind." },
+        { frage: "Ein alter, sagenhafter Berggeist im Riesengebirge heißt:", typ: "mc", optionen: ["Rübezahl", "Rumpelstilzchen", "Zwerg Nase", "Wichtelmann"], loesung: "Rübezahl", erklaerung: "Rübezahl ist der bekannte Berggeist aus den Sagen des Riesengebirges." },
+        { frage: "Sagen gehören zu welcher Textart?", typ: "mc", optionen: ["Erzähltext", "Sachtext", "Gedicht", "Anleitung"], loesung: "Erzähltext", erklaerung: "Sagen sind erzählende Texte, genau wie Märchen und Fabeln." }
+      ]
+    },
+    {
+      id: "gedichte",
+      titel: "Gedichte",
+      icon: "🎵",
+      intro: "Verse, Strophen und Reime – wie Gedichte aufgebaut sind.",
+      lektion: [
+        "🎵 Ein Gedicht ist in Verse (Zeilen) und oft in Strophen (Abschnitte) gegliedert – nicht wie ein normaler Text in Sätzen und Absätzen.",
+        "🔁 Viele Gedichte reimen sich: Die letzten Wörter von zwei oder mehr Zeilen klingen ähnlich, z. B. 'Baum' und 'Traum'.",
+        "🎶 Das Reimschema beschreibt, wie sich die Zeilen reimen. Beim Paarreim reimen sich Zeile 1+2 und Zeile 3+4 (Schema: aabb). Beim Kreuzreim reimen sich Zeile 1+3 und Zeile 2+4 (Schema: abab).",
+        "👂 Beim lauten Vorlesen eines Gedichts achtet man auf den Rhythmus – manche Silben werden betont, andere nicht."
+      ],
+      aufgaben: [
+        { frage: "Was ist eine Strophe?", typ: "mc", optionen: ["Ein Abschnitt in einem Gedicht", "Ein einzelnes Wort", "Ein Satzzeichen", "Der Titel eines Gedichts"], loesung: "Ein Abschnitt in einem Gedicht", erklaerung: "Eine Strophe ist ein Abschnitt aus mehreren Versen." },
+        { frage: "Wie nennt man eine einzelne Zeile in einem Gedicht?", typ: "mc", optionen: ["Vers", "Satz", "Absatz", "Strophe"], loesung: "Vers", erklaerung: "Eine Gedichtzeile heißt Vers." },
+        { frage: "Reimen sich 'Baum' und 'Traum'?", typ: "mc", optionen: ["Ja", "Nein"], loesung: "Ja", erklaerung: "'Baum' und 'Traum' klingen am Ende gleich – sie reimen sich." },
+        { frage: "Beim Paarreim reimen sich welche Zeilen?", typ: "mc", optionen: ["Zeile 1+2 und Zeile 3+4", "Zeile 1+3 und Zeile 2+4", "Nur Zeile 1 und 4", "Gar keine"], loesung: "Zeile 1+2 und Zeile 3+4", erklaerung: "Beim Paarreim (Schema aabb) reimen sich direkt aufeinanderfolgende Zeilen." },
+        { frage: "Wie heißt das Reimschema, bei dem sich Zeile 1+3 und Zeile 2+4 reimen?", typ: "mc", optionen: ["Kreuzreim", "Paarreim", "Kein Reim", "Zufallsreim"], loesung: "Kreuzreim", erklaerung: "Der Kreuzreim hat das Schema abab." },
+        { frage: "Welches Wort reimt sich auf 'Haus'?", typ: "mc", optionen: ["Maus", "Tisch", "Buch", "Baum"], loesung: "Maus", erklaerung: "'Haus' und 'Maus' klingen am Ende gleich." },
+        { frage: "Welches Wort reimt sich auf 'Licht'?", typ: "mc", optionen: ["Gedicht", "Baum", "Haus", "Sonne"], loesung: "Gedicht", erklaerung: "'Licht' und 'Gedicht' reimen sich." },
+        { frage: "Wie nennt man es, wenn beim Lesen eines Gedichts manche Silben betont werden?", typ: "mc", optionen: ["Rhythmus", "Reim", "Strophe", "Vers"], loesung: "Rhythmus", erklaerung: "Der Rhythmus entsteht durch betonte und unbetonte Silben." },
+        { frage: "Ist ein Gedicht in Sätzen und Absätzen geschrieben wie ein Brief?", typ: "mc", optionen: ["Nein, in Versen und Strophen", "Ja, genauso", "Nur manchmal", "Das ist egal"], loesung: "Nein, in Versen und Strophen", erklaerung: "Gedichte sind in Versen und Strophen aufgebaut, nicht wie normale Prosa-Texte." },
+        { frage: "Welches Reimschema hat das Muster 'abab'?", typ: "mc", optionen: ["Kreuzreim", "Paarreim", "Umarmender Reim", "Kein Reim"], loesung: "Kreuzreim", erklaerung: "Das Schema abab gehört zum Kreuzreim." }
+      ]
+    },
+    {
+      id: "erzaehlungen-schreiben",
+      titel: "Erzählungen schreiben",
+      icon: "✍️",
+      intro: "Wie schreibt man eine spannende Geschichte?",
+      lektion: [
+        "✍️ Eine Erzählung hat drei Teile: Einleitung (Wer? Wo? Wann?), Hauptteil (Was passiert? – der spannendste Teil!) und Schluss (Wie endet die Geschichte?).",
+        "⏳ Erzählungen schreibt man meistens im Präteritum (der Erzählzeit), z. B. 'Sie ging' statt 'Sie geht'.",
+        "🎢 Ein Spannungsbogen macht eine Geschichte spannend: Sie beginnt ruhig, wird immer aufregender bis zum Höhepunkt, dann löst sich alles auf.",
+        "🌈 Nutze anschauliche Adjektive und Verben statt langweiliger Wörter – schreibe 'flüsterte' statt nur 'sagte leise'."
+      ],
+      aufgaben: [
+        { frage: "Aus wie vielen Hauptteilen besteht eine Erzählung?", typ: "zahl", loesung: "3", erklaerung: "Eine Erzählung hat Einleitung, Hauptteil und Schluss." },
+        { frage: "In welcher Zeit schreibt man meistens eine Erzählung?", typ: "mc", optionen: ["Präteritum", "Präsens", "Futur", "Perfekt"], loesung: "Präteritum", erklaerung: "Das Präteritum ist die typische Erzählzeit." },
+        { frage: "Was gehört in die Einleitung einer Erzählung?", typ: "mc", optionen: ["Wer, wo, wann", "Der spannendste Moment", "Das Ende", "Nur ein Bild"], loesung: "Wer, wo, wann", erklaerung: "Die Einleitung stellt Personen, Ort und Zeit vor." },
+        { frage: "Wie nennt man den spannendsten Punkt einer Geschichte?", typ: "mc", optionen: ["Höhepunkt", "Einleitung", "Schluss", "Reim"], loesung: "Höhepunkt", erklaerung: "Der Höhepunkt ist der spannendste Moment im Spannungsbogen." },
+        { frage: "Welches Verb steht im Präteritum?", typ: "mc", optionen: ["ging", "geht", "wird gehen", "geh"], loesung: "ging", erklaerung: "'ging' ist die Präteritumform von 'gehen'." },
+        { frage: "Wie beginnt ein typischer Spannungsbogen?", typ: "mc", optionen: ["Ruhig, und wird dann spannender", "Sofort mit dem Höhepunkt", "Immer traurig", "Ohne Ende"], loesung: "Ruhig, und wird dann spannender", erklaerung: "Ein Spannungsbogen steigt langsam bis zum Höhepunkt an." },
+        { frage: "Welcher Satz klingt anschaulicher?", typ: "mc", optionen: ["Sie flüsterte ängstlich.", "Sie sagte etwas.", "Sie machte ein Geräusch.", "Sie redete."], loesung: "Sie flüsterte ängstlich.", erklaerung: "Genaue Verben und Adjektive machen eine Erzählung lebendiger." },
+        { frage: "Wie heißt die typische Erzählzeit im Deutschen?", typ: "mc", optionen: ["Präteritum", "Präsens", "Futur I", "Plusquamperfekt"], loesung: "Präteritum", erklaerung: "Erzählungen werden meist im Präteritum geschrieben." },
+        { frage: "Was kommt am Schluss einer Erzählung?", typ: "mc", optionen: ["Wie die Geschichte endet", "Nur die Vorstellung der Personen", "Der Höhepunkt", "Gar nichts"], loesung: "Wie die Geschichte endet", erklaerung: "Der Schluss löst die Geschichte auf und zeigt, wie sie endet." },
+        { frage: "Warum benutzt man in Erzählungen genaue Adjektive und Verben?", typ: "mc", optionen: ["Damit die Geschichte lebendig und spannend wirkt", "Damit der Text kürzer wird", "Das ist nicht wichtig", "Nur für die Rechtschreibung"], loesung: "Damit die Geschichte lebendig und spannend wirkt", erklaerung: "Genaue Wörter machen eine Erzählung anschaulicher und spannender." }
+      ]
     }
   ]
 };

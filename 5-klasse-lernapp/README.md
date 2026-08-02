@@ -16,18 +16,29 @@ python3 -m http.server 8080
 # dann im Browser öffnen: http://localhost:8080
 ```
 
-## Inhalt (Version 3)
+## Inhalt (Version 6)
 
-- **Mathematik** (5 Missionen, je 14–20 Aufgaben): Grundrechenarten, Große
-  Zahlen & Runden, Größen & Einheiten, Brüche – Einführung, Geometrie-Grundlagen
-- **Deutsch** (5 Missionen, je 11–15 Aufgaben): Wortarten, Groß- &
-  Kleinschreibung, Satzglieder, Zeichensetzung, Textverständnis
-- **Englisch** (6 Missionen): Greetings & Vorstellen, Numbers & Colours,
-  Family & Pets, 'to be' & 'to have got', Questions & Verneinung, sowie
-  **Vokabeln lernen** – 20 Wörter mit Übersetzung und Beispielsatz als
-  Karteikarten vor der Übung
-- **Erdkunde** (5 Missionen): Karten & Himmelsrichtungen, Kontinente &
-  Ozeane, Deutschland & Bundesländer, Wetter & Klima, Stadt & Land
+Themenauswahl und Reihenfolge orientieren sich an den im Unterricht
+verwendeten Büchern (Fundamente der Mathematik – Niedersachsen ab 2024;
+Deutschbuch Gymnasium 2019; Green Line 1 Workbook; Diercke Weltatlas 2023)
+bzw. an den offiziellen Kerncurricula Niedersachsen. Alle Texte, Aufgaben
+und Erklärungen sind vollständig selbst geschrieben – es wird kein Inhalt
+aus diesen Büchern übernommen, nur Themen und Reihenfolge sind angelehnt.
+
+- **Mathematik** (6 Missionen, je 14–20 Aufgaben): Grundrechenarten (inkl.
+  Rechengesetze), Große Zahlen & Runden, Größen & Einheiten, Brüche –
+  Einführung, Geometrie-Grundlagen, Schriftliche Division
+- **Deutsch** (8 Missionen, je 10–15 Aufgaben): Wortarten, Groß- &
+  Kleinschreibung, Satzglieder, Zeichensetzung, Textverständnis, Sagen,
+  Gedichte, Erzählungen schreiben
+- **Englisch** (7 Missionen, an die Green-Line-1-Units angelehnt): Unit 1 "A
+  new school", Unit 2 "At home" (Family & Pets, 'to be' & 'to have got'),
+  Unit 3 "Our Greenwich" (Numbers & Colours, Fragen stellen), Unit 4 "Happy
+  Birthday", sowie **Media smart: Vokabeln lernen** – 20 Wörter mit
+  Übersetzung und Beispielsatz als Karteikarten vor der Übung
+- **Erdkunde** (5 Missionen): Karten & Himmelsrichtungen (inkl. Gradnetz,
+  Äquator, Nullmeridian – die Grundlage für die Arbeit mit einem Atlas),
+  Kontinente & Ozeane, Deutschland & Bundesländer, Wetter & Klima, Stadt & Land
 - **Biologie** (5 Missionen): Kennzeichen des Lebens, Die Zelle, Bau der
   Pflanzen, Tierklassen, Sinnesorgane des Menschen
 - **Lesegeschichten** (4 Kurzgeschichten, je ~400 Wörter, mit 11–12
