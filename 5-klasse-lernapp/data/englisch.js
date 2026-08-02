@@ -8,14 +8,15 @@ window.LERNDATA.englisch = {
   themen: [
     {
       id: "greetings",
-      titel: "Greetings & Vorstellen",
+      titel: "Unit 1: A new school",
       icon: "👋",
-      intro: "Sich auf Englisch begrüßen und vorstellen.",
+      intro: "Neue Schule, neue Wörter: sich begrüßen, vorstellen und im Klassenzimmer zurechtfinden.",
       lektion: [
         "👋 'Hello!' oder 'Hi!' heißt Hallo. 'Goodbye!' oder 'Bye!' heißt Tschüss.",
         "🙋 'My name is ...' heißt 'Ich heiße ...'. 'What's your name?' heißt 'Wie heißt du?'",
         "😊 'How are you?' heißt 'Wie geht es dir?' – Antwort: 'I'm fine, thanks!' = 'Mir geht's gut, danke!'",
-        "🌍 'I'm from Germany.' heißt 'Ich komme aus Deutschland.'"
+        "🌍 'I'm from Germany.' heißt 'Ich komme aus Deutschland.'",
+        "🎒 In der Schule: classroom (Klassenzimmer), teacher (Lehrer/in), break (Pause), homework (Hausaufgaben), school bag (Schultasche)."
       ],
       aufgaben: [
         { frage: "Was heißt 'Hello' auf Deutsch?", typ: "mc", optionen: ["Hallo", "Tschüss", "Danke", "Bitte"], loesung: "Hallo", erklaerung: "'Hello' ist die englische Begrüßung – auf Deutsch 'Hallo'." },
@@ -29,43 +30,23 @@ window.LERNDATA.englisch = {
         { frage: "Übersetze: 'good night' auf Deutsch.", typ: "mc", optionen: ["Gute Nacht", "Guten Morgen", "Guten Tag", "Hallo"], loesung: "Gute Nacht", erklaerung: "'Good night' heißt 'Gute Nacht'." },
         { frage: "Wie sagt man 'Bitte' auf Englisch?", typ: "mc", optionen: ["Please", "Thanks", "Sorry", "Excuse me"], loesung: "Please", erklaerung: "'Please' heißt 'Bitte'." },
         { frage: "Wie sagt man 'Danke' auf Englisch?", typ: "mc", optionen: ["Thank you", "Please", "Sorry", "Hello"], loesung: "Thank you", erklaerung: "'Thank you' heißt 'Danke'." },
-        { frage: "Wie sagt man 'Entschuldigung' auf Englisch?", typ: "mc", optionen: ["Sorry", "Please", "Thanks", "Bye"], loesung: "Sorry", erklaerung: "'Sorry' heißt 'Entschuldigung' oder 'Tut mir leid'." }
-      ]
-    },
-    {
-      id: "numbers-colours",
-      titel: "Numbers & Colours",
-      icon: "🔢",
-      intro: "Zahlen und Farben auf Englisch.",
-      lektion: [
-        "🔢 one, two, three, four, five, six, seven, eight, nine, ten – die Zahlen 1 bis 10.",
-        "🎨 red, blue, green, yellow, black, white – wichtige Farben.",
-        "❓ 'How old are you?' heißt 'Wie alt bist du?' – Antwort: 'I am eleven.' = 'Ich bin elf.'"
-      ],
-      aufgaben: [
-        { frage: "Was heißt 'three' auf Deutsch?", typ: "zahl", loesung: "drei", erklaerung: "'three' heißt 'drei'." },
-        { frage: "Was heißt 'seven' auf Deutsch?", typ: "zahl", loesung: "sieben", erklaerung: "'seven' heißt 'sieben'." },
-        { frage: "Wie heißt die Zahl 10 auf Englisch?", typ: "text", loesung: "ten", erklaerung: "10 heißt auf Englisch 'ten'." },
-        { frage: "Wie heißt die Zahl 5 auf Englisch?", typ: "text", loesung: "five", erklaerung: "5 heißt auf Englisch 'five'." },
-        { frage: "Wie heißt die Zahl 8 auf Englisch?", typ: "text", loesung: "eight", erklaerung: "8 heißt auf Englisch 'eight'." },
-        { frage: "Was heißt 'red' auf Deutsch?", typ: "mc", optionen: ["rot", "blau", "grün", "gelb"], loesung: "rot", erklaerung: "'red' heißt 'rot'." },
-        { frage: "Was heißt 'blue' auf Deutsch?", typ: "mc", optionen: ["blau", "rot", "grün", "schwarz"], loesung: "blau", erklaerung: "'blue' heißt 'blau'." },
-        { frage: "Was heißt 'green' auf Deutsch?", typ: "mc", optionen: ["grün", "gelb", "weiß", "rot"], loesung: "grün", erklaerung: "'green' heißt 'grün'." },
-        { frage: "Wie sagt man 'gelb' auf Englisch?", typ: "text", loesung: "yellow", erklaerung: "'gelb' heißt 'yellow'." },
-        { frage: "Wie sagt man 'schwarz' auf Englisch?", typ: "text", loesung: "black", erklaerung: "'schwarz' heißt 'black'." },
-        { frage: "Was heißt 'How old are you?' auf Deutsch?", typ: "mc", optionen: ["Wie alt bist du?", "Wie heißt du?", "Wo wohnst du?", "Wie geht es dir?"], loesung: "Wie alt bist du?", erklaerung: "'How old are you?' fragt nach dem Alter." },
-        { frage: "Wie antwortet man auf Englisch, wenn man 11 Jahre alt ist?", typ: "mc", optionen: ["I am eleven.", "I am ten.", "I am twelve.", "I am nine."], loesung: "I am eleven.", erklaerung: "'eleven' ist die Zahl 11." }
+        { frage: "Wie sagt man 'Entschuldigung' auf Englisch?", typ: "mc", optionen: ["Sorry", "Please", "Thanks", "Bye"], loesung: "Sorry", erklaerung: "'Sorry' heißt 'Entschuldigung' oder 'Tut mir leid'." },
+        { frage: "Was heißt 'classroom' auf Deutsch?", typ: "mc", optionen: ["Klassenzimmer", "Pause", "Hausaufgaben", "Schultasche"], loesung: "Klassenzimmer", erklaerung: "'classroom' heißt 'Klassenzimmer'." },
+        { frage: "Was heißt 'break' auf Deutsch?", typ: "mc", optionen: ["Pause", "Hausaufgaben", "Stundenplan", "Klassenzimmer"], loesung: "Pause", erklaerung: "'break' heißt 'Pause'." },
+        { frage: "Wie sagt man 'Hausaufgaben' auf Englisch?", typ: "text", loesung: "homework", erklaerung: "'Hausaufgaben' heißt 'homework'." },
+        { frage: "Wie sagt man 'Schultasche' auf Englisch?", typ: "text", loesung: "school bag", erklaerung: "'Schultasche' heißt 'school bag'." }
       ]
     },
     {
       id: "family-pets",
-      titel: "Family & Pets",
+      titel: "Unit 2: At home – Family & Pets",
       icon: "🐾",
-      intro: "Wörter für Familie und Tiere lernen.",
+      intro: "Wörter für Familie, Haustiere und das eigene Zuhause.",
       lektion: [
         "👨‍👩‍👧 mother, father, sister, brother, grandmother, grandfather – die Familie.",
         "🐶 dog, cat, bird, fish, rabbit, horse – Haustiere.",
-        "💬 'I have got a dog.' heißt 'Ich habe einen Hund.'"
+        "💬 'I have got a dog.' heißt 'Ich habe einen Hund.'",
+        "🏠 Zimmer im Haus: kitchen (Küche), bedroom (Schlafzimmer), bathroom (Badezimmer), garden (Garten)."
       ],
       aufgaben: [
         { frage: "Was heißt 'mother' auf Deutsch?", typ: "mc", optionen: ["Mutter", "Vater", "Schwester", "Bruder"], loesung: "Mutter", erklaerung: "'mother' heißt 'Mutter'." },
@@ -78,12 +59,15 @@ window.LERNDATA.englisch = {
         { frage: "Wie sagt man 'Vogel' auf Englisch?", typ: "text", loesung: "bird", erklaerung: "'Vogel' heißt 'bird'." },
         { frage: "Wie sagt man 'Pferd' auf Englisch?", typ: "text", loesung: "horse", erklaerung: "'Pferd' heißt 'horse'." },
         { frage: "Was heißt 'I have got a dog.' auf Deutsch?", typ: "mc", optionen: ["Ich habe einen Hund.", "Ich mag Hunde.", "Ich sehe einen Hund.", "Ich hatte einen Hund."], loesung: "Ich habe einen Hund.", erklaerung: "'I have got ...' heißt 'Ich habe ...'." },
-        { frage: "Wie sagt man 'Kaninchen' auf Englisch?", typ: "text", loesung: "rabbit", erklaerung: "'Kaninchen' heißt 'rabbit'." }
+        { frage: "Wie sagt man 'Kaninchen' auf Englisch?", typ: "text", loesung: "rabbit", erklaerung: "'Kaninchen' heißt 'rabbit'." },
+        { frage: "Was heißt 'kitchen' auf Deutsch?", typ: "mc", optionen: ["Küche", "Schlafzimmer", "Badezimmer", "Garten"], loesung: "Küche", erklaerung: "'kitchen' heißt 'Küche'." },
+        { frage: "Was heißt 'bedroom' auf Deutsch?", typ: "mc", optionen: ["Schlafzimmer", "Küche", "Garten", "Wohnzimmer"], loesung: "Schlafzimmer", erklaerung: "'bedroom' heißt 'Schlafzimmer'." },
+        { frage: "Wie sagt man 'Garten' auf Englisch?", typ: "text", loesung: "garden", erklaerung: "'Garten' heißt 'garden'." }
       ]
     },
     {
       id: "to-be-to-have",
-      titel: "'to be' & 'to have got'",
+      titel: "Unit 2: 'to be' & 'to have got'",
       icon: "🧩",
       intro: "Die wichtigsten Formen von 'sein' und 'haben' auf Englisch.",
       lektion: [
@@ -106,8 +90,37 @@ window.LERNDATA.englisch = {
       ]
     },
     {
+      id: "numbers-colours",
+      titel: "Unit 3: Our Greenwich – Numbers & Colours",
+      icon: "🔢",
+      intro: "Zahlen, Farben und ein Ausflug in eine englische Stadt.",
+      lektion: [
+        "🔢 one, two, three, four, five, six, seven, eight, nine, ten – die Zahlen 1 bis 10.",
+        "🎨 red, blue, green, yellow, black, white – wichtige Farben.",
+        "❓ 'How old are you?' heißt 'Wie alt bist du?' – Antwort: 'I am eleven.' = 'Ich bin elf.'",
+        "🏙️ London ist die Hauptstadt von England. Greenwich ist ein Stadtteil von London – dort verläuft der Nullmeridian (0° Länge)."
+      ],
+      aufgaben: [
+        { frage: "Was heißt 'three' auf Deutsch?", typ: "zahl", loesung: "drei", erklaerung: "'three' heißt 'drei'." },
+        { frage: "Was heißt 'seven' auf Deutsch?", typ: "zahl", loesung: "sieben", erklaerung: "'seven' heißt 'sieben'." },
+        { frage: "Wie heißt die Zahl 10 auf Englisch?", typ: "text", loesung: "ten", erklaerung: "10 heißt auf Englisch 'ten'." },
+        { frage: "Wie heißt die Zahl 5 auf Englisch?", typ: "text", loesung: "five", erklaerung: "5 heißt auf Englisch 'five'." },
+        { frage: "Wie heißt die Zahl 8 auf Englisch?", typ: "text", loesung: "eight", erklaerung: "8 heißt auf Englisch 'eight'." },
+        { frage: "Was heißt 'red' auf Deutsch?", typ: "mc", optionen: ["rot", "blau", "grün", "gelb"], loesung: "rot", erklaerung: "'red' heißt 'rot'." },
+        { frage: "Was heißt 'blue' auf Deutsch?", typ: "mc", optionen: ["blau", "rot", "grün", "schwarz"], loesung: "blau", erklaerung: "'blue' heißt 'blau'." },
+        { frage: "Was heißt 'green' auf Deutsch?", typ: "mc", optionen: ["grün", "gelb", "weiß", "rot"], loesung: "grün", erklaerung: "'green' heißt 'grün'." },
+        { frage: "Wie sagt man 'gelb' auf Englisch?", typ: "text", loesung: "yellow", erklaerung: "'gelb' heißt 'yellow'." },
+        { frage: "Wie sagt man 'schwarz' auf Englisch?", typ: "text", loesung: "black", erklaerung: "'schwarz' heißt 'black'." },
+        { frage: "Was heißt 'How old are you?' auf Deutsch?", typ: "mc", optionen: ["Wie alt bist du?", "Wie heißt du?", "Wo wohnst du?", "Wie geht es dir?"], loesung: "Wie alt bist du?", erklaerung: "'How old are you?' fragt nach dem Alter." },
+        { frage: "Wie antwortet man auf Englisch, wenn man 11 Jahre alt ist?", typ: "mc", optionen: ["I am eleven.", "I am ten.", "I am twelve.", "I am nine."], loesung: "I am eleven.", erklaerung: "'eleven' ist die Zahl 11." },
+        { frage: "Was ist Greenwich?", typ: "mc", optionen: ["Ein Stadtteil von London", "Ein Fluss", "Ein Land", "Eine Farbe"], loesung: "Ein Stadtteil von London", erklaerung: "Greenwich ist ein berühmter Stadtteil von London." },
+        { frage: "Was heißt 'park' auf Deutsch?", typ: "mc", optionen: ["Park", "Museum", "Geschäft", "Straße"], loesung: "Park", erklaerung: "'park' heißt 'Park' – fast wie im Deutschen!" },
+        { frage: "Wie sagt man 'Geschäft/Laden' auf Englisch?", typ: "text", loesung: "shop", erklaerung: "'Geschäft' heißt 'shop'." }
+      ]
+    },
+    {
       id: "questions-negation",
-      titel: "Questions & Verneinung",
+      titel: "Unit 3: Fragen stellen",
       icon: "❓",
       intro: "Fragen stellen und Sätze verneinen auf Englisch.",
       lektion: [
@@ -130,8 +143,44 @@ window.LERNDATA.englisch = {
       ]
     },
     {
+      id: "happy-birthday",
+      titel: "Unit 4: Happy Birthday",
+      icon: "🎂",
+      intro: "Geburtstag feiern auf Englisch – Party-Wörter und 'there is/are'.",
+      lektion: [
+        "🎂 'Happy Birthday!' heißt 'Alles Gute zum Geburtstag!'",
+        "🎁 party (Party), present/gift (Geschenk), cake (Kuchen), balloon (Luftballon), candle (Kerze).",
+        "📅 Die Monate: January, February, March, April, May, June, July, August, September, October, November, December.",
+        "💬 'There is a cake.' (Es gibt einen Kuchen.) / 'There are balloons.' (Es gibt Luftballons.) – 'there is' bei einer Sache, 'there are' bei mehreren."
+      ],
+      // Eigene Wortpaare (nicht nur die "Vokabeln lernen"-Karteikarten) –
+      // damit tauchen die Party-Wörter auch automatisch im
+      // Erinnerungs-Duell der Spiele-Arena auf (siehe vokabelPaareFuerFach
+      // in app.js, das alle thema.vokabeln-Felder einsammelt).
+      vokabeln: [
+        { en: "party", de: "Party/Feier", satz: "We have a party every year." },
+        { en: "present", de: "Geschenk", satz: "I got a nice present." },
+        { en: "cake", de: "Kuchen", satz: "There is a cake on the table." },
+        { en: "balloon", de: "Luftballon", satz: "There are five balloons." },
+        { en: "candle", de: "Kerze", satz: "Blow out the candles!" }
+      ],
+      aufgaben: [
+        { frage: "Was heißt 'Happy Birthday' auf Deutsch?", typ: "mc", optionen: ["Alles Gute zum Geburtstag!", "Guten Morgen!", "Bis bald!", "Gute Nacht!"], loesung: "Alles Gute zum Geburtstag!", erklaerung: "'Happy Birthday!' sagt man zum Geburtstag." },
+        { frage: "Was heißt 'present' auf Deutsch?", typ: "mc", optionen: ["Geschenk", "Kuchen", "Party", "Kerze"], loesung: "Geschenk", erklaerung: "'present' heißt 'Geschenk'." },
+        { frage: "Wie sagt man 'Kuchen' auf Englisch?", typ: "text", loesung: "cake", erklaerung: "'Kuchen' heißt 'cake'." },
+        { frage: "Wie sagt man 'Luftballon' auf Englisch?", typ: "text", loesung: "balloon", erklaerung: "'Luftballon' heißt 'balloon'." },
+        { frage: "Was heißt 'candle' auf Deutsch?", typ: "mc", optionen: ["Kerze", "Geschenk", "Party", "Kuchen"], loesung: "Kerze", erklaerung: "'candle' heißt 'Kerze'." },
+        { frage: "Welcher Monat kommt nach 'March'?", typ: "mc", optionen: ["April", "May", "February", "June"], loesung: "April", erklaerung: "Die Monate: ... March, April, May ..." },
+        { frage: "Welcher Monat ist der erste im Jahr?", typ: "text", loesung: "January", erklaerung: "'January' ist der erste Monat des Jahres." },
+        { frage: "Wie heißt der letzte Monat des Jahres auf Englisch?", typ: "text", loesung: "December", erklaerung: "'December' ist der letzte Monat des Jahres." },
+        { frage: "Welches Wort passt: '___ is a cake on the table.' (Es gibt)", typ: "mc", optionen: ["There", "It", "This", "That"], loesung: "There", erklaerung: "'There is a cake.' – bei einer Sache benutzt man 'There is'." },
+        { frage: "Welches Wort passt: '___ are five balloons.' (Es gibt, mehrere)", typ: "mc", optionen: ["There", "It", "This", "He"], loesung: "There", erklaerung: "'There are five balloons.' – bei mehreren Dingen benutzt man 'There are'." },
+        { frage: "Was heißt 'party' auf Deutsch?", typ: "mc", optionen: ["Party/Feier", "Geschenk", "Kerze", "Kuchen"], loesung: "Party/Feier", erklaerung: "'party' heißt 'Party' oder 'Feier'." }
+      ]
+    },
+    {
       id: "vokabeln-lernen",
-      titel: "Vokabeln lernen",
+      titel: "Media smart: Vokabeln lernen",
       icon: "🗂️",
       intro: "20 wichtige Wörter mit Übersetzung und Beispielsatz.",
       lektion: [

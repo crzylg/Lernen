@@ -15,7 +15,10 @@ window.LERNDATA.erdkunde = {
         "🧭 Die vier Himmelsrichtungen heißen Norden, Osten, Süden, Westen.",
         "🗺️ Auf den meisten Karten zeigt oben nach Norden.",
         "📏 Der Maßstab einer Karte zeigt, wie viel eine Strecke in Wirklichkeit ist (z. B. 1:100.000).",
-        "🔑 Die Legende erklärt, was die Farben und Symbole auf einer Karte bedeuten."
+        "🔑 Die Legende erklärt, was die Farben und Symbole auf einer Karte bedeuten.",
+        "🌐 Das Gradnetz der Erde besteht aus waagerechten Breitengraden und senkrechten Längengraden. Damit kann man jeden Ort auf der Erde genau finden – so wie im Atlas.",
+        "↔️ Der Äquator ist der mittlere Breitengrad (0°) – er teilt die Erde in Nordhalbkugel und Südhalbkugel.",
+        "↕️ Der Nullmeridian (0° Länge) verläuft durch Greenwich bei London und teilt die Erde in Osthalbkugel und Westhalbkugel."
       ],
       aufgaben: [
         { frage: "Wie viele Himmelsrichtungen gibt es?", typ: "zahl", loesung: "4", erklaerung: "Es gibt vier Himmelsrichtungen: Norden, Osten, Süden, Westen." },
@@ -28,7 +31,13 @@ window.LERNDATA.erdkunde = {
         { frage: "Wofür braucht man die Legende einer Karte?", typ: "mc", optionen: ["Um Symbole und Farben zu erklären", "Um die Karte zu drucken", "Um den Maßstab zu berechnen", "Um Länder umzubenennen"], loesung: "Um Symbole und Farben zu erklären", erklaerung: "Die Legende erklärt, was Farben und Symbole auf der Karte bedeuten." },
         { frage: "Ein Kompass zeigt immer nach …", typ: "mc", optionen: ["Norden", "Süden", "Osten", "Westen"], loesung: "Norden", erklaerung: "Die Kompassnadel zeigt immer nach Norden." },
         { frage: "Bei Maßstab 1:100.000 – wie viele cm in der Wirklichkeit sind 1 cm auf der Karte?", typ: "zahl", loesung: "100000", erklaerung: "1:100.000 bedeutet: 1 cm auf der Karte = 100.000 cm in der Wirklichkeit." },
-        { frage: "Welche Himmelsrichtung liegt zwischen Norden und Osten?", typ: "mc", optionen: ["Nordosten", "Südwesten", "Nordwesten", "Südosten"], loesung: "Nordosten", erklaerung: "Zwischen Norden und Osten liegt Nordosten." }
+        { frage: "Welche Himmelsrichtung liegt zwischen Norden und Osten?", typ: "mc", optionen: ["Nordosten", "Südwesten", "Nordwesten", "Südosten"], loesung: "Nordosten", erklaerung: "Zwischen Norden und Osten liegt Nordosten." },
+        { frage: "Wie heißen die waagerechten Linien im Gradnetz der Erde?", typ: "mc", optionen: ["Breitengrade", "Längengrade", "Höhenlinien", "Grenzlinien"], loesung: "Breitengrade", erklaerung: "Breitengrade verlaufen waagerecht um die Erde." },
+        { frage: "Wie heißen die senkrechten Linien im Gradnetz der Erde?", typ: "mc", optionen: ["Längengrade", "Breitengrade", "Höhenlinien", "Grenzlinien"], loesung: "Längengrade", erklaerung: "Längengrade verlaufen senkrecht von Nord- zu Südpol." },
+        { frage: "Wie heißt der mittlere Breitengrad (0°)?", typ: "mc", optionen: ["Äquator", "Nullmeridian", "Polarkreis", "Wendekreis"], loesung: "Äquator", erklaerung: "Der Äquator ist der Breitengrad bei 0°." },
+        { frage: "Der Äquator teilt die Erde in welche zwei Teile?", typ: "mc", optionen: ["Nordhalbkugel und Südhalbkugel", "Osthalbkugel und Westhalbkugel", "Land und Meer", "Warm und Kalt"], loesung: "Nordhalbkugel und Südhalbkugel", erklaerung: "Der Äquator trennt Nord- von Südhalbkugel." },
+        { frage: "Durch welche Stadt verläuft der Nullmeridian (0° Länge)?", typ: "mc", optionen: ["Greenwich (London)", "Berlin", "Paris", "New York"], loesung: "Greenwich (London)", erklaerung: "Der Nullmeridian verläuft durch Greenwich bei London." },
+        { frage: "Wozu dient das Gradnetz der Erde?", typ: "mc", optionen: ["Um jeden Ort auf der Erde genau zu finden", "Um das Wetter vorherzusagen", "Um Ländergrenzen zu malen", "Um die Uhrzeit anzuzeigen"], loesung: "Um jeden Ort auf der Erde genau zu finden", erklaerung: "Mit Breiten- und Längengraden kann man jeden Ort eindeutig angeben." }
       ]
     },
     {
